@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="splash_text2">بكل سهوله مع معارضى!</string>
+    <string name="forget_password">نسيت كلمة المرور</string>
+    <string name="Login">تسجيل دخول</string>
+    <string name="CreateNewAccount">Create New Account</string>
+    <string name="Email">البريد الالكتروني</string>
+    <string name="Password">الرقم السري</string>
+    <string name="Name">الاسم</string>
+    <string name="Phone">Phone</string>
+    <string name="Confirmpassword">Confirm password</string>
+</resources>
