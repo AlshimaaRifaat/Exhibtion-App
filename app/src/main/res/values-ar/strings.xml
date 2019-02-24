@@ -7,7 +7,11 @@
     <string name="CreateNewAccount">Create New Account</string>
     <string name="Email">البريد الالكتروني</string>
     <string name="Password">الرقم السري</string>
-    <string name="Name">الاسم</string>
+
     <string name="Phone">Phone</string>
     <string name="Confirmpassword">Confirm password</string>
+    <string name="FullName">FullName</string>
+    <string name="Register">Register</string>
+    <string name="Search_for_exhibitions">Search for exhibitions</string>
+    <string name="Home">Home</string>
 </resources>

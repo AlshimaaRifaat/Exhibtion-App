@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/login_relative_mail"
         android:layout_below="@id/login_img_logo"
-        android:layout_marginTop="@dimen/_70sdp"
+        android:layout_marginTop="@dimen/_42sdp"
         >
 
 
