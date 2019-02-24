@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     tools:context=".fragment.HomeFragment">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <!-- TODO: Update blank fragment layout -->
 
     <android.support.v7.widget.Toolbar
@@ -46,6 +48,7 @@
 
     </android.support.v7.widget.Toolbar>
     <android.support.v7.widget.CardView
+        android:id="@+id/home_card_edit_text_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_12sdp"
@@ -78,5 +81,60 @@
                 android:layout_alignParentStart="true"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
-
+    <android.support.v7.widget.CardView
+        android:id="@+id/home_card_recycler_banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_below="@+id/home_card_edit_text_search"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        app:cardBackgroundColor="@android:color/white">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_recycler_banner"
+        android:layout_width="match_parent"
+       android:layout_height="@dimen/_120sdp"
+        ></android.support.v7.widget.RecyclerView>
+    </android.support.v7.widget.CardView>
+<TextView
+    android:id="@+id/home_text_Exhibitions_under_perform"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/Exhibitions_under_perform"
+    android:textColor="#3ca0d9"
+    android:textStyle="bold"
+    android:layout_below="@+id/home_card_recycler_banner"
+    android:layout_marginStart="@dimen/_21sdp"
+    android:layout_marginEnd="@dimen/_21sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_2sdp"
+    android:textSize="@dimen/_11sdp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_recycler_Exhibitions_under_perform"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_below="@+id/home_text_Exhibitions_under_perform"
+        android:layout_marginTop="@dimen/_4sdp"
+        ></android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/home_text_service_provider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Service_providers"
+        android:textColor="#3ca0d9"
+        android:textStyle="bold"
+        android:layout_below="@+id/home_recycler_Exhibitions_under_perform"
+        android:layout_marginStart="@dimen/_21sdp"
+        android:layout_marginEnd="@dimen/_21sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:textSize="@dimen/_11sdp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_recycler_service_provider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_below="@+id/home_text_service_provider"
+        android:layout_marginTop="@dimen/_4sdp"
+        ></android.support.v7.widget.RecyclerView>
 </RelativeLayout>
+</ScrollView>
