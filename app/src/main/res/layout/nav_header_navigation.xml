@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_180sdp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="@string/nav_header_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nav_header_subtitle" />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/menu_bg"
+        android:id="@+id/relative1"
+        android:layout_height="@dimen/_100sdp">
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:layout_below="@+id/relative1"
+        android:layout_height="@dimen/_100sdp">
+
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/nav_header_profile_image"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_60sdp"
+        app:civ_border_width="@dimen/_2sdp"
+        app:civ_border_color="#cdcdcd"
+        android:background="@drawable/ic_menu_user"
+        />
+    <TextView
+        android:id="@+id/nav_header_text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nav_header_profile_image"
+        android:text="@string/FullName"
+        android:textColor="#5c5c5c"
+        android:layout_centerHorizontal="true"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nav_header_text_name"
+        android:text="@string/Email"
+        android:textColor="#c7c7c7"
+        android:layout_centerHorizontal="true"
+        android:inputType="textEmailAddress"
+
+        />
+</RelativeLayout>
