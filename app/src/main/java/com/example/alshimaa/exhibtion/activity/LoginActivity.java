@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.alshimaa.exhibtion.R;
+import com.example.alshimaa.exhibtion.fragment.HomeFragment;
 
 public class LoginActivity extends AppCompatActivity {
 TextView createNewAccount;
@@ -26,7 +27,7 @@ Button loginBtn;
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                Intent intent=new Intent(LoginActivity.this,NavigationActivity.class);
                 startActivity(intent);
             }
         });

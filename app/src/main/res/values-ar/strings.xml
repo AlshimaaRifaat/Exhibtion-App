@@ -16,4 +16,8 @@
     <string name="Home">Home</string>
     <string name="Exhibitions_under_perform">Exhibitions under perform</string>
     <string name="Service_providers">Service providers</string>
+    <string name="CurrentExhibitions">CurrentExhibitions</string>
+    <string name="PreviousExhibitions">Previous Exhibitions</string>
+    <string name="AboutUs">AboutUs</string>
+    <string name="CallUs">Call Us</string>
 </resources>
