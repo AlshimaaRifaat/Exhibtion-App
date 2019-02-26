@@ -14,8 +14,8 @@
     <string name="Register">Register</string>
     <string name="Search_for_exhibitions">Search for exhibitions</string>
     <string name="Home">Home</string>
-    <string name="Exhibitions_under_perform">Exhibitions under perform</string>
-    <string name="Service_providers">Service providers</string>
+    <string name="Exhibitions_under_perform">معارض قيد التنفيذ</string>
+    <string name="Service_providers">مقدمى الخدمات</string>
     <string name="CurrentExhibitions">CurrentExhibitions</string>
     <string name="PreviousExhibitions">Previous Exhibitions</string>
     <string name="AboutUs">AboutUs</string>

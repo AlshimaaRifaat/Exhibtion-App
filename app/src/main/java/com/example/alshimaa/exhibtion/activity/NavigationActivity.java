@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.support.v4.app.Fragment;
 
 import com.example.alshimaa.exhibtion.R;
+import com.example.alshimaa.exhibtion.fragment.AboutUsFragment;
+import com.example.alshimaa.exhibtion.fragment.CallUsFragment;
 import com.example.alshimaa.exhibtion.fragment.CurrentExhibitionFragment;
 import com.example.alshimaa.exhibtion.fragment.HomeFragment;
 import com.example.alshimaa.exhibtion.fragment.PreviousExhibitionFragment;
@@ -99,6 +101,12 @@ public class NavigationActivity extends AppCompatActivity
                 currentSelectedPosition=1;
                 fragment=new PreviousExhibitionFragment();
                 break;
+            case R.id.nav_about_us:
+                currentSelectedPosition=2;
+                fragment=new AboutUsFragment();
+            case R.id.nav_call_us:
+                currentSelectedPosition=3;
+                fragment=new CallUsFragment();
             default:
                 currentSelectedPosition=0;
         }

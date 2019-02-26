@@ -14,10 +14,10 @@
             android:id="@+id/nav_PreviousExhibitions"
             android:title="@string/PreviousExhibitions" />
         <item
-            android:id="@+id/nav_call_us"
+            android:id="@+id/nav_about_us"
             android:title="@string/AboutUs" />
         <item
-            android:id="@+id/nav_CallUs"
+            android:id="@+id/nav_call_us"
             android:title="@string/CallUs" />
     </group>
 
