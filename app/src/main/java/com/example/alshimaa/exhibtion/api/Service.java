@@ -1,6 +1,8 @@
 package com.example.alshimaa.exhibtion.api;
 
 import com.example.alshimaa.exhibtion.model.AboutUsResponse;
+import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
+import com.example.alshimaa.exhibtion.model.CurrentExhibtionResponse;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
 
@@ -20,4 +22,7 @@ public interface Service {
 
     @POST("super_abouts")
     Call<AboutUsResponse> getAboutUsData(@Body Map<String,String> map);
+
+    @POST("current_fair")
+    Call<CurrentExhibtionResponse> getCurrentExhibtionData(@Body Map<String,String> map);
 }

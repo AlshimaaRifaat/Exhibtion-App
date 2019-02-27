@@ -36,10 +36,12 @@ public void onBindViewHolder(@NonNull HomeServiceProviderAdapter.ViewHolder hold
         Glide.with( context ).load( "http://yallahshare.com"
         +homeServiceProviderDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(homeServiceProviderDataList.get( position ).getTitEn());
+    holder.describtion.setText(homeServiceProviderDataList.get( position ).getDesEn());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
 
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
+    holder.describtion.setTypeface( customFontRegular );
         }
 
 @Override
@@ -50,10 +52,12 @@ public int getItemCount() {
 public class ViewHolder extends RecyclerView.ViewHolder{
     private ImageView imageView;
     private TextView title;
+    private TextView describtion;
     public ViewHolder(View itemView) {
         super( itemView );
         imageView=itemView.findViewById( R.id.row_home_service_provider_img);
         title=itemView.findViewById(R.id.row_home_service_provider_title);
+        describtion=itemView.findViewById(R.id.row_home_service_provider_desc);
 
     }
 }

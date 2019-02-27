@@ -98,17 +98,20 @@ public class NavigationActivity extends AppCompatActivity
                 break;
 
             case  R.id.nav_PreviousExhibitions:
-                currentSelectedPosition=1;
+                currentSelectedPosition=2;
                 fragment=new PreviousExhibitionFragment();
                 break;
             case R.id.nav_about_us:
-                currentSelectedPosition=2;
-                fragment=new AboutUsFragment();
-            case R.id.nav_call_us:
                 currentSelectedPosition=3;
+                fragment=new AboutUsFragment();
+                break;
+            case R.id.nav_call_us:
+                currentSelectedPosition=4;
                 fragment=new CallUsFragment();
+                break;
             default:
                 currentSelectedPosition=0;
+                break;
         }
 
         if (item.isChecked())

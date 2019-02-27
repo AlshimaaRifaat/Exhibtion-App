@@ -37,15 +37,15 @@
 
                     />
                 <TextView
+                    android:id="@+id/row_home_service_provider_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#cccbcb"
-                    android:text="desccccccccccccc"
                     android:textSize="@dimen/_10sdp"
                     android:layout_below="@+id/row_home_service_provider_title"
                     android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:layout_marginBottom="@dimen/_4sdp"
                     />
             </RelativeLayout>

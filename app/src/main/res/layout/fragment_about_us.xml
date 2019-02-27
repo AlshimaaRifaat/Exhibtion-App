@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context=".fragment.AboutUsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_117sdp"
+        android:background="@drawable/menu_bg">
+
+
+        <ImageView
+            android:id="@+id/about_us_img_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_home_logo"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp"/>
+
+
+
+    </RelativeLayout>
+        <ImageView
+            android:id="@+id/about_us_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_172sdp"
+            android:layout_marginTop="@dimen/_72sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_13sdp"
+            android:background="#000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_below="@+id/about_us_img"
+            android:text="descccccccccc"
+            android:textColor="#000"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:id="@+id/about_us_description"/>
+
+
+    </RelativeLayout>
+</ScrollView>
