@@ -35,8 +35,8 @@ public class HomeServiceProviderAdapter extends RecyclerView.Adapter<HomeService
 public void onBindViewHolder(@NonNull HomeServiceProviderAdapter.ViewHolder holder, int position) {
         Glide.with( context ).load( "http://yallahshare.com"
         +homeServiceProviderDataList.get( position ).getImg() ).into(holder.imageView);
-        holder.title.setText(homeServiceProviderDataList.get( position ).getTitEn());
-    holder.describtion.setText(homeServiceProviderDataList.get( position ).getDesEn());
+        holder.title.setText(homeServiceProviderDataList.get( position ).getTitle());
+    holder.describtion.setText(homeServiceProviderDataList.get( position ).getDescription());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
 
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );

@@ -61,7 +61,7 @@ View view;
     public void showAboutUsResult(List<AboutUsData> aboutUsDataList) {
         Glide.with(getContext()).load("http://yallahshare.com"+aboutUsDataList.get(0).getImg())
                 .into(imageView);
-        description.setText(aboutUsDataList.get(0).getDesEn());
+        description.setText(aboutUsDataList.get(0).getDescription());
     }
 
     @Override

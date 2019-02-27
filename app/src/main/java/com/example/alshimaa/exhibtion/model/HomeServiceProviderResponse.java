@@ -36,7 +36,7 @@ public class HomeServiceProviderResponse implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = 439832405741583675L;
+    private final static long serialVersionUID = -7519692931662618030L;
 
     protected HomeServiceProviderResponse(Parcel in) {
         in.readList(this.data, (HomeServiceProviderData.class.getClassLoader()));

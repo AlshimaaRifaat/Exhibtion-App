@@ -7,18 +7,18 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class HomeServiceProviderData implements  Parcelable
+public class HomeServiceProviderData implements Serializable, Parcelable
 {
 
     @SerializedName("img")
     @Expose
     private String img;
-    @SerializedName("tit_en")
+    @SerializedName("title")
     @Expose
-    private String titEn;
-    @SerializedName("des_en")
+    private String title;
+    @SerializedName("description")
     @Expose
-    private String desEn;
+    private String description;
     public final static Parcelable.Creator<HomeServiceProviderData> CREATOR = new Creator<HomeServiceProviderData>() {
 
 
@@ -35,12 +35,12 @@ public class HomeServiceProviderData implements  Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -5793225288116495528L;
+    private final static long serialVersionUID = -2075696289282890477L;
 
     protected HomeServiceProviderData(Parcel in) {
         this.img = ((String) in.readValue((String.class.getClassLoader())));
-        this.titEn = ((String) in.readValue((String.class.getClassLoader())));
-        this.desEn = ((String) in.readValue((String.class.getClassLoader())));
+        this.title = ((String) in.readValue((String.class.getClassLoader())));
+        this.description = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public HomeServiceProviderData() {
@@ -54,26 +54,26 @@ public class HomeServiceProviderData implements  Parcelable
         this.img = img;
     }
 
-    public String getTitEn() {
-        return titEn;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitEn(String titEn) {
-        this.titEn = titEn;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDesEn() {
-        return desEn;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesEn(String desEn) {
-        this.desEn = desEn;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(img);
-        dest.writeValue(titEn);
-        dest.writeValue(desEn);
+        dest.writeValue(title);
+        dest.writeValue(description);
     }
 
     public int describeContents() {

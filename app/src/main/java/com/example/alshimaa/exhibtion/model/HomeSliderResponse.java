@@ -36,7 +36,7 @@ public class HomeSliderResponse implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -8659186773515371623L;
+    private final static long serialVersionUID = -6793218302473206581L;
 
     protected HomeSliderResponse(Parcel in) {
         in.readList(this.data, (HomeSliderData.class.getClassLoader()));

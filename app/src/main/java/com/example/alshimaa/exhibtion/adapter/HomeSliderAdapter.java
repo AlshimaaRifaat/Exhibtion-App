@@ -35,7 +35,7 @@ public class HomeSliderAdapter extends  RecyclerView.Adapter<HomeSliderAdapter.V
     public void onBindViewHolder(@NonNull HomeSliderAdapter.ViewHolder holder, int position) {
         Glide.with( context ).load( "http://yallahshare.com"
                 +homeSliderDataList.get( position ).getImg() ).into(holder.imageView);
-        holder.title.setText(homeSliderDataList.get( position ).getTitAr());
+        holder.title.setText(homeSliderDataList.get( position ).getTitle());
        // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
 
 

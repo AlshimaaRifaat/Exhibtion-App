@@ -13,15 +13,15 @@ public class HomeSliderData implements  Parcelable
     @SerializedName("img")
     @Expose
     private String img;
-    @SerializedName("tit_ar")
+    @SerializedName("title")
     @Expose
-    private String titAr;
+    private String title;
     @SerializedName("date")
     @Expose
     private String date;
-    @SerializedName("des_ar")
+    @SerializedName("description")
     @Expose
-    private String desAr;
+    private String description;
     public final static Parcelable.Creator<HomeSliderData> CREATOR = new Creator<HomeSliderData>() {
 
 
@@ -38,13 +38,13 @@ public class HomeSliderData implements  Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -7124282826241606875L;
+    private final static long serialVersionUID = -6602197792067247261L;
 
     protected HomeSliderData(Parcel in) {
         this.img = ((String) in.readValue((String.class.getClassLoader())));
-        this.titAr = ((String) in.readValue((String.class.getClassLoader())));
+        this.title = ((String) in.readValue((String.class.getClassLoader())));
         this.date = ((String) in.readValue((String.class.getClassLoader())));
-        this.desAr = ((String) in.readValue((String.class.getClassLoader())));
+        this.description = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public HomeSliderData() {
@@ -58,12 +58,12 @@ public class HomeSliderData implements  Parcelable
         this.img = img;
     }
 
-    public String getTitAr() {
-        return titAr;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitAr(String titAr) {
-        this.titAr = titAr;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDate() {
@@ -74,19 +74,19 @@ public class HomeSliderData implements  Parcelable
         this.date = date;
     }
 
-    public String getDesAr() {
-        return desAr;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesAr(String desAr) {
-        this.desAr = desAr;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(img);
-        dest.writeValue(titAr);
+        dest.writeValue(title);
         dest.writeValue(date);
-        dest.writeValue(desAr);
+        dest.writeValue(description);
     }
 
     public int describeContents() {

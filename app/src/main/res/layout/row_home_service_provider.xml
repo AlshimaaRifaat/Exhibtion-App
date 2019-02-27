@@ -45,7 +45,6 @@
                     android:layout_below="@+id/row_home_service_provider_title"
                     android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
-                    android:layout_marginTop="@dimen/_2sdp"
                     android:layout_marginBottom="@dimen/_4sdp"
                     />
             </RelativeLayout>
