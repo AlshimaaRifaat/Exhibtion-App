@@ -126,8 +126,7 @@ View view;
     public void showCurrentExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
         currentExhibtionAdapter=new CurrentExhibtionAdapter( getContext(),currentExhibtionDataList );
         //homeProductAdapter.onClick(this);
-
-        recyclerViewCurrentExhibtion.setLayoutManager(   new GridLayoutManager(getContext(),2));
+        recyclerViewCurrentExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewCurrentExhibtion.setAdapter( currentExhibtionAdapter );
     }
 
