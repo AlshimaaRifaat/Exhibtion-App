@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderData;
+import com.example.alshimaa.exhibtion.view.VideoLinkView;
 
 import java.util.List;
 
@@ -21,11 +22,16 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
     Context context;
     List<CurrentExhibtionData> currentExhibtionDataList;
 
+    VideoLinkView videoLinkView;
     public CurrentExhibtionAdapter(Context context, List<CurrentExhibtionData> currentExhibtionDataList) {
         this.context = context;
         this.currentExhibtionDataList = currentExhibtionDataList;
     }
 
+    public  void onClick(VideoLinkView videoLinkView)
+    {
+        this.videoLinkView=videoLinkView;
+    }
     @Override
     public CurrentExhibtionAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from( context ).inflate(R.layout.row_current_exhibtion,parent,false);
@@ -33,7 +39,7 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CurrentExhibtionAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CurrentExhibtionAdapter.ViewHolder holder, final int position) {
         Glide.with( context ).load( "http://yallahshare.com"
                 +currentExhibtionDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(currentExhibtionDataList.get( position ).getTitle());
@@ -46,8 +52,12 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
 
         holder.address.setTypeface( customFontRegular );
 
-        Glide.with( context ).load( "http://yallahshare.com"
-                +currentExhibtionDataList.get( position ).getImg() ).into(holder.videoYoutube);
+       holder.itemView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+videoLinkView.sendLink(currentExhibtionDataList.get(position).getYoutube());
+           }
+       });
 
     }
 

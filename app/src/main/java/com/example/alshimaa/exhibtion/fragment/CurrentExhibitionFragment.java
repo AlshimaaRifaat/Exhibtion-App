@@ -26,6 +26,7 @@ import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeSliderPresenter;
 import com.example.alshimaa.exhibtion.view.CurrentExhibtionView;
+import com.example.alshimaa.exhibtion.view.VideoLinkView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,8 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CurrentExhibitionFragment extends Fragment implements CurrentExhibtionView{
+public class CurrentExhibitionFragment extends Fragment implements CurrentExhibtionView
+,VideoLinkView{
 
     Toolbar toolbar;
     NetworkConnection networkConnection;
@@ -125,7 +127,7 @@ View view;
     @Override
     public void showCurrentExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
         currentExhibtionAdapter=new CurrentExhibtionAdapter( getContext(),currentExhibtionDataList );
-        //homeProductAdapter.onClick(this);
+        currentExhibtionAdapter.onClick(this);
         recyclerViewCurrentExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewCurrentExhibtion.setAdapter( currentExhibtionAdapter );
     }
@@ -133,5 +135,19 @@ View view;
     @Override
     public void showError() {
 
+    }
+
+    @Override
+    public void sendLink(String Link) {
+        if(!Link.equals( "" )){
+            DetailsCurrentExhibtionFragment detailsCurrentExhibtionFragment=new DetailsCurrentExhibtionFragment();
+            Bundle bundle=new Bundle(  );
+            bundle.putString( "video_link",Link);
+            detailsCurrentExhibtionFragment.setArguments(bundle);
+            getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                    detailsCurrentExhibtionFragment )
+                    .addToBackStack( null ).commit();
+
+        }
     }
 }
