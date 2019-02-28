@@ -17,12 +17,16 @@ import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.NavigationActivity;
 import com.example.alshimaa.exhibtion.adapter.HomeServiceProviderAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeSliderAdapter;
+import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderData;
 import com.example.alshimaa.exhibtion.model.HomeSliderData;
+import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
 import com.example.alshimaa.exhibtion.presenter.HomeServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeSliderPresenter;
+import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
 import com.example.alshimaa.exhibtion.view.HomeServiceProviderView;
 import com.example.alshimaa.exhibtion.view.HomeSliderView;
+import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
 
 import android.support.v7.app.ActionBarDrawerToggle;
 
@@ -35,7 +39,8 @@ import java.util.TimerTask;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements HomeSliderView,HomeServiceProviderView{
+public class HomeFragment extends Fragment implements HomeSliderView,HomeServiceProviderView
+,HomeUnderConstructView{
     Toolbar toolbar;
 
     NetworkConnection networkConnection;
@@ -54,6 +59,10 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     RecyclerView recyclerViewServiceProvider;
     HomeServiceProviderAdapter homeServiceProviderAdapter;
     HomeServiceProviderPresenter homeServiceProviderPresenter;
+
+    RecyclerView recyclerViewUnderConstruct;
+    HomeUnderConstructAdapter homeUnderConstructAdapter;
+    HomeUnderConstructPresenter homeUnderConstructPresenter;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -113,7 +122,17 @@ View view;
 
         Slider();
         ServiceProvider();
+        UnderConstruct();
         return view;
+    }
+
+    private void UnderConstruct() {
+        homeUnderConstructPresenter=new HomeUnderConstructPresenter(getContext(),this);
+        if(Language.isRTL()) {
+            homeUnderConstructPresenter.getHomeUnderConstructResult("ar");
+        }else {
+            homeUnderConstructPresenter.getHomeUnderConstructResult("en");
+        }
     }
 
     private void ServiceProvider() {
@@ -131,6 +150,7 @@ View view;
        toolbar=view.findViewById(R.id.home_toolbar);
        recyclerViewHomeSlider=view.findViewById(R.id.home_recycler_slider);
        recyclerViewServiceProvider=view.findViewById(R.id.home_recycler_service_provider);
+       recyclerViewUnderConstruct=view.findViewById(R.id.home_recycler_Exhibitions_under_construct);
     }
     private void Slider() {
         homeSliderPresenter=new HomeSliderPresenter(getContext(),this);
@@ -187,6 +207,15 @@ View view;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewServiceProvider.setLayoutManager(linearLayoutManager);
         recyclerViewServiceProvider.setAdapter( homeServiceProviderAdapter );
+    }
+
+    @Override
+    public void showHomeUnderConstructList(List<HomeUnderConstructData> homeUnderConstructDataList) {
+        homeUnderConstructAdapter=new HomeUnderConstructAdapter( getContext(),homeUnderConstructDataList );
+        //homeProductAdapter.onClick(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewUnderConstruct.setLayoutManager(linearLayoutManager);
+        recyclerViewUnderConstruct.setAdapter( homeUnderConstructAdapter );
     }
 
     @Override

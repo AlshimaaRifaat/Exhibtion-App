@@ -39,10 +39,16 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
         holder.title.setText(currentExhibtionDataList.get( position ).getTitle());
         holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
-
+        holder.address.setText(currentExhibtionDataList.get( position ).getAddress());
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
         holder.describtion.setTypeface( customFontRegular );
+
+        holder.address.setTypeface( customFontRegular );
+
+        Glide.with( context ).load( "http://yallahshare.com"
+                +currentExhibtionDataList.get( position ).getImg() ).into(holder.videoYoutube);
+
     }
 
     @Override
@@ -54,11 +60,16 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
         private ImageView imageView;
         private TextView title;
         private TextView describtion;
+        private ImageView videoYoutube;
+        private TextView address;
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_cur_exhibtion_img);
             title=itemView.findViewById(R.id.row_cur_exhibtion_title);
             describtion=itemView.findViewById(R.id.row_cur_exhibtion_desc);
+
+            videoYoutube=itemView.findViewById(R.id.row_cur_exhibtion_detail_img_video);
+            address=itemView.findViewById(R.id.row_cur_exhibtion_detail_address);
         }
     }
 }

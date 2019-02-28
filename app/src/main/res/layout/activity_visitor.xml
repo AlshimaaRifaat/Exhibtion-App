@@ -18,8 +18,8 @@
 <android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/_47sdp"
-    android:layout_marginRight="@dimen/_47sdp"
+    android:layout_marginLeft="@dimen/_18sdp"
+    android:layout_marginRight="@dimen/_18sdp"
     android:layout_marginBottom="@dimen/_36sdp"
     android:layout_alignParentBottom="true"
     android:background="@drawable/button_visitor">

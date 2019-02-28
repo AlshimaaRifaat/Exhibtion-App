@@ -84,24 +84,22 @@
         ></android.support.v7.widget.RecyclerView>
     </android.support.v7.widget.CardView>
 <TextView
-    android:id="@+id/home_text_Exhibitions_under_perform"
+    android:id="@+id/home_text_Exhibitions_under_construct"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="@string/Exhibitions_under_perform"
+    android:text="@string/Exhibitions_under_construction"
     android:textColor="#3ca0d9"
     android:textStyle="bold"
     android:layout_below="@+id/home_card_recycler_banner"
     android:layout_marginStart="@dimen/_21sdp"
     android:layout_marginEnd="@dimen/_21sdp"
-    android:layout_marginTop="@dimen/_4sdp"
-    android:layout_marginBottom="@dimen/_2sdp"
+    android:layout_marginTop="@dimen/_12sdp"
     android:textSize="@dimen/_11sdp"/>
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/home_recycler_Exhibitions_under_perform"
+        android:id="@+id/home_recycler_Exhibitions_under_construct"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_below="@+id/home_text_Exhibitions_under_perform"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/home_text_Exhibitions_under_construct"
         ></android.support.v7.widget.RecyclerView>
     <TextView
         android:id="@+id/home_text_service_provider"
@@ -110,18 +108,18 @@
         android:text="@string/Service_providers"
         android:textColor="#3ca0d9"
         android:textStyle="bold"
-        android:layout_below="@+id/home_recycler_Exhibitions_under_perform"
+        android:layout_below="@+id/home_recycler_Exhibitions_under_construct"
         android:layout_marginStart="@dimen/_21sdp"
         android:layout_marginEnd="@dimen/_21sdp"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:layout_marginBottom="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+
         android:textSize="@dimen/_11sdp"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/home_recycler_service_provider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/home_text_service_provider"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
         ></android.support.v7.widget.RecyclerView>
 </RelativeLayout>
 </ScrollView>

@@ -5,6 +5,7 @@ import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionResponse;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
+import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionResponse;
 
 
@@ -29,5 +30,9 @@ public interface Service {
 
     @POST("last_fair")
     Call<PreviousExhibtionResponse> getPreviousExhibtionData(@Body Map<String,String> map);
+
+    @POST("underconstruction_fair")
+    Call<HomeUnderConstructResponse> getHomeUnderConstructData(@Body Map<String,String> map);
+
 
 }
