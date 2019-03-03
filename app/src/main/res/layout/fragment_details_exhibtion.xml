@@ -38,21 +38,23 @@
 
 
     </RelativeLayout>
-    <ImageView
-        android:id="@+id/details_exhibtion_img"
+
+    <fragment
+        android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"
+        android:id="@+id/youtube_player_support_fragment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_172sdp"
         android:layout_marginTop="@dimen/_72sdp"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_13sdp"
-        android:background="#000"/>
+        />
 
     <TextView
         android:id="@+id/details_exhibtion_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/details_exhibtion_img"
+        android:layout_below="@+id/youtube_player_support_fragment"
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_2sdp"

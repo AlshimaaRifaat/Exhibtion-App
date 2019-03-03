@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -18,24 +17,18 @@ import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.NavigationActivity;
 import com.example.alshimaa.exhibtion.adapter.CurrentExhibtionAdapter;
-import com.example.alshimaa.exhibtion.adapter.HomeServiceProviderAdapter;
-import com.example.alshimaa.exhibtion.adapter.HomeSliderAdapter;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
-import com.example.alshimaa.exhibtion.model.HomeSliderData;
 import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeServiceProviderPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeSliderPresenter;
 import com.example.alshimaa.exhibtion.view.CurrentExhibtionView;
-import com.example.alshimaa.exhibtion.view.VideoLinkView;
+import com.example.alshimaa.exhibtion.view.DetailsExhibtionView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CurrentExhibitionFragment extends Fragment implements CurrentExhibtionView
-,VideoLinkView{
+,DetailsExhibtionView {
 
     Toolbar toolbar;
     NetworkConnection networkConnection;
@@ -137,17 +130,21 @@ View view;
 
     }
 
+
     @Override
-    public void sendLink(String Link) {
-        if(!Link.equals( "" )){
-            DetailsCurrentExhibtionFragment detailsCurrentExhibtionFragment=new DetailsCurrentExhibtionFragment();
+    public void showExhibtionDetails(CurrentExhibtionData currentExhibtionData) {
+
+            DetailsExhibtionFragment detailsExhibtionFragment=new DetailsExhibtionFragment();
             Bundle bundle=new Bundle(  );
-            bundle.putString( "video_link",Link);
-            detailsCurrentExhibtionFragment.setArguments(bundle);
+            bundle.putString( "video_link",currentExhibtionData.getYoutube());
+            bundle.putString("title",currentExhibtionData.getTitle());
+            bundle.putString("description",currentExhibtionData.getDescription());
+            bundle.putString("address",currentExhibtionData.getAddress());
+            detailsExhibtionFragment.setArguments(bundle);
             getFragmentManager().beginTransaction().add( R.id.content_navigation,
-                    detailsCurrentExhibtionFragment )
+                    detailsExhibtionFragment )
                     .addToBackStack( null ).commit();
 
-        }
+
     }
 }

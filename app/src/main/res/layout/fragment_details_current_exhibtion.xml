@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".fragment.DetailsCurrentExhibtionFragment">
 
     <!-- TODO: Update blank fragment layout -->
     
-<fragment
+<!--<fragment
     android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"
     android:id="@+id/youtube_player_support_fragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="@dimen/_170sdp"
+   />-->
 </RelativeLayout>

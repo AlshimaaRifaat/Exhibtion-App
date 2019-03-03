@@ -13,8 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
-import com.example.alshimaa.exhibtion.model.HomeServiceProviderData;
-import com.example.alshimaa.exhibtion.view.VideoLinkView;
+import com.example.alshimaa.exhibtion.view.DetailsExhibtionView;
 
 import java.util.List;
 
@@ -22,15 +21,15 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
     Context context;
     List<CurrentExhibtionData> currentExhibtionDataList;
 
-    VideoLinkView videoLinkView;
+    DetailsExhibtionView detailsExhibtionView;
     public CurrentExhibtionAdapter(Context context, List<CurrentExhibtionData> currentExhibtionDataList) {
         this.context = context;
         this.currentExhibtionDataList = currentExhibtionDataList;
     }
 
-    public  void onClick(VideoLinkView videoLinkView)
+    public  void onClick(DetailsExhibtionView detailsExhibtionView)
     {
-        this.videoLinkView=videoLinkView;
+        this.detailsExhibtionView=detailsExhibtionView;
     }
     @Override
     public CurrentExhibtionAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,6 +45,7 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
         holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
         holder.address.setText(currentExhibtionDataList.get( position ).getAddress());
+
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
         holder.describtion.setTypeface( customFontRegular );
@@ -55,7 +55,12 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
        holder.itemView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-videoLinkView.sendLink(currentExhibtionDataList.get(position).getYoutube());
+               CurrentExhibtionData currentExhibtionData=new CurrentExhibtionData();
+               currentExhibtionData.setYoutube(currentExhibtionDataList.get(position).getYoutube());
+               currentExhibtionData.setTitle(currentExhibtionDataList.get(position).getTitle());
+               currentExhibtionData.setDescription(currentExhibtionDataList.get(position).getDescription());
+               currentExhibtionData.setAddress(currentExhibtionDataList.get(position).getAddress());
+            detailsExhibtionView.showExhibtionDetails(currentExhibtionData);
            }
        });
 
@@ -78,8 +83,8 @@ videoLinkView.sendLink(currentExhibtionDataList.get(position).getYoutube());
             title=itemView.findViewById(R.id.row_cur_exhibtion_title);
             describtion=itemView.findViewById(R.id.row_cur_exhibtion_desc);
 
-            videoYoutube=itemView.findViewById(R.id.row_cur_exhibtion_detail_img_video);
-            address=itemView.findViewById(R.id.row_cur_exhibtion_detail_address);
+            videoYoutube=itemView.findViewById(R.id.row_cur_exhibtion_img_video);
+            address=itemView.findViewById(R.id.row_cur_exhibtion_address);
         }
     }
 }

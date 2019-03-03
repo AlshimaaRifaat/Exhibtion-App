@@ -18,7 +18,7 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailsCurrentExhibtionFragment extends Fragment implements YouTubePlayer.OnInitializedListener {
+public class DetailsCurrentExhibtionFragment extends Fragment /*implements YouTubePlayer.OnInitializedListener*/ {
 
     public static final int RECOVERY_DIALOG_REQUEST=1;
 
@@ -35,7 +35,7 @@ View view;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_details_current_exhibtion, container, false);
-        youTubePlayerSupportFragment = (YouTubePlayerSupportFragment)
+       /* youTubePlayerSupportFragment = (YouTubePlayerSupportFragment)
                 getChildFragmentManager()
                         .findFragmentById(R.id.youtube_player_support_fragment);
 
@@ -47,11 +47,11 @@ View view;
 
             Link = bundle.getString( "video_link" );
 
-        }
+        }*/
         return view;
     }
 
-    @Override
+   /* @Override
     public void onStart() {
         super.onStart();
         getActivity(). getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -88,5 +88,5 @@ View view;
     private YouTubePlayer.Provider getYouTubePlayerProvider() {
         return (YouTubePlayerSupportFragment)getActivity()
                 .getSupportFragmentManager(). findFragmentById(R.id.youtube_player_support_fragment);
-    }
+    }*/
 }
