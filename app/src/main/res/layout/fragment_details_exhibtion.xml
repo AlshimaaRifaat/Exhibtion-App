@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
     tools:context=".fragment.DetailsExhibtionFragment">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
     <!-- TODO: Update blank fragment layout -->
 
     <RelativeLayout
@@ -83,5 +86,22 @@
         android:textColor="#cccbcb"
 
         />
-
+    <TextView
+        android:id="@+id/details_exhibtion_title_organizers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Organizers_and_service_providers"
+        android:textColor="#3ca0d9"
+        android:textStyle="bold"
+        android:layout_below="@+id/details_exhibtion_address"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:textSize="@dimen/_11sdp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/details_exhibtion_recycler_organizers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/details_exhibtion_title_organizers"></android.support.v7.widget.RecyclerView>
 </RelativeLayout>
+</ScrollView>
