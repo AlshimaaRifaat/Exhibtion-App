@@ -55,7 +55,7 @@
               android:id="@+id/details_exhibtors_title"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_alignParentEnd="true"
+              android:layout_alignParentStart="true"
               android:layout_below="@+id/details_exhibtors_youtube_player_support_fragment"
               android:layout_marginEnd="@dimen/_12sdp"
               android:layout_marginStart="@dimen/_12sdp"
@@ -68,12 +68,117 @@
               android:layout_height="wrap_content"
               android:layout_marginEnd="@dimen/_12sdp"
               android:layout_marginStart="@dimen/_12sdp"
-              android:layout_alignParentEnd="true"
+              android:layout_alignParentStart="true"
               android:layout_below="@+id/details_exhibtors_title"
               android:text="titleeeeeeee"
               android:textColor="#cccbcb"
               />
+          <RelativeLayout
+              android:id="@+id/relative_phone"
+              android:layout_width="@dimen/_142sdp"
+              android:layout_height="@dimen/_32sdp"
+              android:background="#f2f2f2"
+              android:layout_below="@+id/details_exhibtors_address"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginTop="@dimen/_3sdp">
+              <ImageView
+                  android:id="@+id/details_exhibtors_icon_phone"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:layout_alignParentStart="true"
+                  android:background="@drawable/ic_phone"
+                  android:layout_marginStart="@dimen/_5sdp"
+                  />
+              <TextView
+                  android:id="@+id/details_exhibtors_text_phone"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:textColor="#cbcbcb"
+                  android:layout_centerInParent="true"
+                  android:text="phoneeeeee"
+                  />
+          </RelativeLayout>
 
+          <RelativeLayout
+              android:id="@+id/relative_email"
+              android:layout_width="@dimen/_142sdp"
+              android:layout_height="@dimen/_32sdp"
+              android:background="#f2f2f2"
+              android:layout_below="@+id/details_exhibtors_address"
+              android:layout_marginEnd="@dimen/_12sdp"
+              android:layout_alignParentEnd="true"
+              android:layout_marginTop="@dimen/_3sdp">
+              <ImageView
+                  android:id="@+id/details_exhibtors_icon_email"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:layout_alignParentStart="true"
+                  android:background="@drawable/ic_message"
+                  android:layout_marginStart="@dimen/_5sdp"
+                  />
+              <TextView
+                  android:id="@+id/details_exhibtors_text_email"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:textColor="#cbcbcb"
+                  android:layout_centerInParent="true"
+                  android:text="emaillllll"
+                  />
+          </RelativeLayout>
+
+          <RelativeLayout
+              android:id="@+id/relative_website"
+              android:layout_width="@dimen/_142sdp"
+              android:layout_height="@dimen/_32sdp"
+              android:background="#f2f2f2"
+              android:layout_below="@+id/relative_phone"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginTop="@dimen/_8sdp">
+              <ImageView
+                  android:id="@+id/details_exhibtors_icon_website"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:layout_alignParentStart="true"
+                  android:background="@drawable/ic_website"
+                  android:layout_marginStart="@dimen/_5sdp"
+                  />
+              <TextView
+                  android:id="@+id/details_exhibtors_text_website"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:textColor="#cbcbcb"
+                  android:layout_centerInParent="true"
+                  android:text="website"
+                  />
+          </RelativeLayout>
+    <Button
+        android:id="@+id/details_exhibtors_btn_jops"
+        android:layout_width="@dimen/_142sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:background="#0485cf"
+        android:layout_below="@+id/relative_website"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/Vacantjobs"
+        android:textSize="@dimen/_12sdp"/>
+          <Button
+              android:id="@+id/details_exhibtors_btn_contact_us"
+              android:layout_width="@dimen/_142sdp"
+              android:layout_height="@dimen/_32sdp"
+              android:background="#0485cf"
+              android:layout_toEndOf="@+id/details_exhibtors_btn_jops"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginEnd="@dimen/_12sdp"
+              android:layout_marginTop="@dimen/_8sdp"
+              android:text="@string/Vacantjobs"
+              android:textSize="@dimen/_12sdp"
+              android:layout_below="@+id/relative_website"/>
       </RelativeLayout>
 
 </ScrollView>

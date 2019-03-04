@@ -56,8 +56,8 @@ View view;
 
             title.setText(Title);
             address.setText(Address);
+            textToolbar.setText(Title);
             //  Toast.makeText(getContext(), ID, Toast.LENGTH_SHORT).show();
-
 
         }
 
