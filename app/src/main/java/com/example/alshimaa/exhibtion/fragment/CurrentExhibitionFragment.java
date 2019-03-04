@@ -140,6 +140,8 @@ View view;
             bundle.putString("title",currentExhibtionData.getTitle());
             bundle.putString("description",currentExhibtionData.getDescription());
             bundle.putString("address",currentExhibtionData.getAddress());
+            bundle.putString("id",String.valueOf(currentExhibtionData.getId()));
+
             detailsExhibtionFragment.setArguments(bundle);
             getFragmentManager().beginTransaction().add( R.id.content_navigation,
                     detailsExhibtionFragment )

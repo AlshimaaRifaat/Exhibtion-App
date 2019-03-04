@@ -60,6 +60,7 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
                currentExhibtionData.setTitle(currentExhibtionDataList.get(position).getTitle());
                currentExhibtionData.setDescription(currentExhibtionDataList.get(position).getDescription());
                currentExhibtionData.setAddress(currentExhibtionDataList.get(position).getAddress());
+               currentExhibtionData.setId(currentExhibtionDataList.get(position).getId());
             detailsExhibtionView.showExhibtionDetails(currentExhibtionData);
            }
        });

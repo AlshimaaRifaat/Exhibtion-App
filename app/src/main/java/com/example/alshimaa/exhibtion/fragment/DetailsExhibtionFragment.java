@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +16,9 @@ import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.YoutubeConfig;
-import com.example.alshimaa.exhibtion.adapter.HomeServiceProviderAdapter;
 import com.example.alshimaa.exhibtion.adapter.OrganizersAndServiceProvidersAdapter;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersData;
-import com.example.alshimaa.exhibtion.presenter.HomeServiceProviderPresenter;
+import com.example.alshimaa.exhibtion.model.SponsorData;
 import com.example.alshimaa.exhibtion.presenter.OrganizersAndServiceProvidersPresenter;
 import com.example.alshimaa.exhibtion.view.OrganizersAndServiceProvidersView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -33,19 +31,24 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class DetailsExhibtionFragment extends Fragment implements
-        YouTubePlayer.OnInitializedListener,OrganizersAndServiceProvidersView{
+        YouTubePlayer.OnInitializedListener,OrganizersAndServiceProvidersView
+{
     public static final int RECOVERY_DIALOG_REQUEST=1;
 
 
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-    String Link,Title,Description,Address;
+    String Link,Title,Description,Address,ID;
     TextView title,description,address;
 
     RecyclerView recyclerViewOrganizers;
     OrganizersAndServiceProvidersAdapter organizersAndServiceProvidersAdapter;
     OrganizersAndServiceProvidersPresenter organizersAndServiceProvidersPresenter;
 
+    RecyclerView recyclerViewSponsor;
+
+
     NetworkConnection networkConnection;
+
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
@@ -67,23 +70,36 @@ View view;
             Title=bundle.getString("title");
             Description=bundle.getString("description");
             Address=bundle.getString("address");
+            ID=bundle.getString("id");
 
             title.setText(Title);
             description.setText(Description);
             address.setText(Address);
+          //  Toast.makeText(getContext(), ID, Toast.LENGTH_SHORT).show();
 
         }
         OrganizersAndServiceProviders();
+        Sponsors();
         return view;
+    }
+
+    private void Sponsors() {
+        organizersAndServiceProvidersPresenter=new OrganizersAndServiceProvidersPresenter(getContext(),this);
+        if(Language.isRTL()) {
+            organizersAndServiceProvidersPresenter.getSponsorList("ar",ID);
+        }else
+        {
+            organizersAndServiceProvidersPresenter.getSponsorList("en",ID);
+        }
     }
 
     private void OrganizersAndServiceProviders() {
         if(networkConnection.isNetworkAvailable(getContext())) {
             organizersAndServiceProvidersPresenter = new OrganizersAndServiceProvidersPresenter(getContext(), this);
             if (Language.isRTL()) {
-                organizersAndServiceProvidersPresenter.getOrganizersAndServiceProvidersResult("ar", "1");
+                organizersAndServiceProvidersPresenter.getOrganizersAndServiceProvidersResult("ar", ID);
             } else {
-                organizersAndServiceProvidersPresenter.getOrganizersAndServiceProvidersResult("en", "1");
+                organizersAndServiceProvidersPresenter.getOrganizersAndServiceProvidersResult("en", ID);
             }
         }
     }
@@ -96,6 +112,8 @@ View view;
         description=view.findViewById(R.id.details_exhibtion_description);
         address=view.findViewById(R.id.details_exhibtion_address);
         recyclerViewOrganizers=view.findViewById(R.id.details_exhibtion_recycler_organizers);
+
+        recyclerViewSponsor=view.findViewById(R.id.details_exhibtion_recycler_sponsors);
 
     }
 
@@ -147,6 +165,16 @@ View view;
         recyclerViewOrganizers.setLayoutManager(linearLayoutManager);
         recyclerViewOrganizers.setAdapter( organizersAndServiceProvidersAdapter );
     }
+
+    @Override
+    public void showSponsorData(List<OrganizersAndServiceProvidersData> organizersAndServiceProvidersDataList) {
+        organizersAndServiceProvidersAdapter=new OrganizersAndServiceProvidersAdapter( getContext(),organizersAndServiceProvidersDataList );
+        //homeProductAdapter.onClick(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewSponsor.setLayoutManager(linearLayoutManager);
+        recyclerViewSponsor.setAdapter( organizersAndServiceProvidersAdapter );
+    }
+
 
     @Override
     public void showError() {

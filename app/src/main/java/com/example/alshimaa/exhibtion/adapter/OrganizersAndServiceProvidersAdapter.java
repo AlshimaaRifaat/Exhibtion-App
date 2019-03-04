@@ -14,12 +14,16 @@ import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersData;
+import com.example.alshimaa.exhibtion.model.SponsorData;
 
 import java.util.List;
 
 public class OrganizersAndServiceProvidersAdapter extends RecyclerView.Adapter<OrganizersAndServiceProvidersAdapter.ViewHolder> {
     Context context;
     List<OrganizersAndServiceProvidersData> organizersAndServiceProvidersDataList;
+
+    List<SponsorData> sponsorDataList;
+
 
     public OrganizersAndServiceProvidersAdapter(Context context, List<OrganizersAndServiceProvidersData> organizersAndServiceProvidersDataList) {
         this.context = context;
