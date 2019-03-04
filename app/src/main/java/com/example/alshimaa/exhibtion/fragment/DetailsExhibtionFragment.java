@@ -24,6 +24,7 @@ import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersData;
 import com.example.alshimaa.exhibtion.model.SponsorData;
 import com.example.alshimaa.exhibtion.presenter.ExhibtorsPresenter;
 import com.example.alshimaa.exhibtion.presenter.OrganizersAndServiceProvidersPresenter;
+import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;
 import com.example.alshimaa.exhibtion.view.ExhibtorsView;
 import com.example.alshimaa.exhibtion.view.OrganizersAndServiceProvidersView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -36,11 +37,10 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class DetailsExhibtionFragment extends Fragment implements
-        YouTubePlayer.OnInitializedListener,OrganizersAndServiceProvidersView,ExhibtorsView
+        YouTubePlayer.OnInitializedListener,OrganizersAndServiceProvidersView
+        ,ExhibtorsView,DetailsExhibtorsView
 {
     public static final int RECOVERY_DIALOG_REQUEST=1;
-
-
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
     String Link,Title,Description,Address,ID;
     TextView title,description,address;
@@ -206,9 +206,24 @@ View view;
     @Override
     public void showExhibtorsList(List<ExhibtorsData> exhibtorsDataList) {
         exhibtorsAdapter=new ExhibtorsAdapter(getContext(),exhibtorsDataList);
+        exhibtorsAdapter.onClick(this);
         recyclerViewExhibtors.setLayoutManager(new GridLayoutManager(getContext(),2));
         recyclerViewExhibtors.setAdapter(exhibtorsAdapter);
 
+    }
+
+    @Override
+    public void showDetailsExhibtorsData(ExhibtorsData exhibtorsData) {
+        DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+        Bundle bundle=new Bundle();
+        bundle.putString("video_link_exhibtor",exhibtorsData.getYoutubeLink());
+        bundle.putString("title_exhibtor",exhibtorsData.getName());
+        bundle.putString("address_exhibtor",exhibtorsData.getAddress());
+        bundle.putString("id",String.valueOf(exhibtorsData.getIdExhibitor()));
+        detailsExhibtorsFragment.setArguments(bundle);
+
+        getFragmentManager().beginTransaction().add(R.id.content_navigation,detailsExhibtorsFragment)
+                .addToBackStack(null).commit();
     }
 
     @Override

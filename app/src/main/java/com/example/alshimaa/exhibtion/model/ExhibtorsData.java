@@ -4,6 +4,8 @@ import java.io.Serializable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
+
+import com.example.alshimaa.exhibtion.presenter.ExhibtorsPresenter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -16,6 +18,9 @@ public class ExhibtorsData implements  Parcelable
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("email")
+    @Expose
+    private String email;
     @SerializedName("website_link")
     @Expose
     private String websiteLink;
@@ -47,11 +52,12 @@ public class ExhibtorsData implements  Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -849350377502495506L;
+    private final static long serialVersionUID = -674064692630264908L;
 
     protected ExhibtorsData(Parcel in) {
         this.idExhibitor = ((int) in.readValue((int.class.getClassLoader())));
         this.name = ((String) in.readValue((String.class.getClassLoader())));
+        this.email = ((String) in.readValue((String.class.getClassLoader())));
         this.websiteLink = ((String) in.readValue((String.class.getClassLoader())));
         this.youtubeLink = ((String) in.readValue((String.class.getClassLoader())));
         this.address = ((String) in.readValue((String.class.getClassLoader())));
@@ -76,6 +82,14 @@ public class ExhibtorsData implements  Parcelable
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getWebsiteLink() {
@@ -121,6 +135,7 @@ public class ExhibtorsData implements  Parcelable
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(idExhibitor);
         dest.writeValue(name);
+        dest.writeValue(email);
         dest.writeValue(websiteLink);
         dest.writeValue(youtubeLink);
         dest.writeValue(address);

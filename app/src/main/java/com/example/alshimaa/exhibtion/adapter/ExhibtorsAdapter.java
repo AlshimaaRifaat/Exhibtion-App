@@ -15,6 +15,7 @@ import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.ExhibtorsData;
 import com.example.alshimaa.exhibtion.view.DetailsExhibtionView;
+import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
     Context context;
     List<ExhibtorsData> exhibtorsDataList;
 
-    //DetailsExhibtionView detailsExhibtionView;
+    DetailsExhibtorsView detailsExhibtorsView;
 
 
     public ExhibtorsAdapter(Context context, List<ExhibtorsData> exhibtorsDataList) {
@@ -30,10 +31,10 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
         this.exhibtorsDataList = exhibtorsDataList;
     }
 
-   /* public  void onClick(DetailsExhibtionView detailsExhibtionView)
+     public  void onClick(DetailsExhibtorsView detailsExhibtorsView)
     {
-        this.detailsExhibtionView=detailsExhibtionView;
-    }*/
+        this.detailsExhibtorsView=detailsExhibtorsView;
+    }
     @Override
     public ExhibtorsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from( context ).inflate(R.layout.row_exhibtors,parent,false);
@@ -55,18 +56,17 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
 
         holder.address.setTypeface( customFontRegular );
 
-       /* holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CurrentExhibtionData currentExhibtionData=new CurrentExhibtionData();
-                currentExhibtionData.setYoutube(currentExhibtionDataList.get(position).getYoutube());
-                currentExhibtionData.setTitle(currentExhibtionDataList.get(position).getTitle());
-                currentExhibtionData.setDescription(currentExhibtionDataList.get(position).getDescription());
-                currentExhibtionData.setAddress(currentExhibtionDataList.get(position).getAddress());
-                currentExhibtionData.setId(currentExhibtionDataList.get(position).getId());
-                detailsExhibtionView.showExhibtionDetails(currentExhibtionData);
+                ExhibtorsData exhibtorsData=new ExhibtorsData();
+                exhibtorsData.setYoutubeLink(exhibtorsDataList.get(position).getYoutubeLink());
+                exhibtorsData.setName(exhibtorsDataList.get(position).getName());
+                exhibtorsData.setAddress(exhibtorsDataList.get(position).getAddress());
+                exhibtorsData.setIdExhibitor(exhibtorsDataList.get(position).getIdExhibitor());
+                detailsExhibtorsView.showDetailsExhibtorsData(exhibtorsData);
             }
-        });*/
+        });
 
     }
 
@@ -78,16 +78,16 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView imageView;
         private TextView title;
-        /*private TextView describtion;
-        private ImageView videoYoutube;*/
+        //private TextView describtion;
+        private ImageView videoYoutube;
         private TextView address;
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_exhibtor_img);
             title=itemView.findViewById(R.id.row_exhibtor_title);
-            /*describtion=itemView.findViewById(R.id.row_cur_exhibtion_desc);
+            //describtion=itemView.findViewById(R.id.row_cur_exhibtion_desc);
 
-            videoYoutube=itemView.findViewById(R.id.row_cur_exhibtion_img_video);*/
+            videoYoutube=itemView.findViewById(R.id.row_exhibtor_img_video);
             address=itemView.findViewById(R.id.row_exhibtor_address);
         }
     }
