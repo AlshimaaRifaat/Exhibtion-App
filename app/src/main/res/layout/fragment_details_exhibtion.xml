@@ -21,12 +21,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="معرضضض"
-            android:layout_marginTop="@dimen/_40sdp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="52dp"
+            android:textColor="#fff"
             android:textSize="@dimen/_13sdp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
         <ImageView
             android:id="@+id/details_exhibtion_img_logo"
             android:layout_width="wrap_content"
@@ -49,7 +49,8 @@
         android:layout_height="@dimen/_172sdp"
         android:layout_marginTop="@dimen/_72sdp"
         android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginEnd="@dimen/_13sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+
         />
 
     <TextView
@@ -102,7 +103,10 @@
         android:id="@+id/details_exhibtion_recycler_organizers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/details_exhibtion_title_organizers">
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_below="@+id/details_exhibtion_title_organizers"
+        >
+
     </android.support.v7.widget.RecyclerView>
 
     <TextView
@@ -121,7 +125,31 @@
         android:id="@+id/details_exhibtion_recycler_sponsors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/details_exhibtion_title_sponsor">
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_below="@+id/details_exhibtion_title_sponsor"
+        >
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/details_exhibtion_title_exhibtors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Exhibitors"
+        android:textColor="#3ca0d9"
+        android:textStyle="bold"
+        android:layout_below="@+id/details_exhibtion_recycler_sponsors"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:textSize="@dimen/_11sdp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/details_exhibtion_recycler_exhibtors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_below="@+id/details_exhibtion_title_exhibtors"
+        >
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
 </ScrollView>

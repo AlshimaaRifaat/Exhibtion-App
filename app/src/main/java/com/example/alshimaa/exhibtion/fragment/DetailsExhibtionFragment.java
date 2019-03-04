@@ -4,6 +4,7 @@ package com.example.alshimaa.exhibtion.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,10 +17,14 @@ import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.YoutubeConfig;
+import com.example.alshimaa.exhibtion.adapter.ExhibtorsAdapter;
 import com.example.alshimaa.exhibtion.adapter.OrganizersAndServiceProvidersAdapter;
+import com.example.alshimaa.exhibtion.model.ExhibtorsData;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersData;
 import com.example.alshimaa.exhibtion.model.SponsorData;
+import com.example.alshimaa.exhibtion.presenter.ExhibtorsPresenter;
 import com.example.alshimaa.exhibtion.presenter.OrganizersAndServiceProvidersPresenter;
+import com.example.alshimaa.exhibtion.view.ExhibtorsView;
 import com.example.alshimaa.exhibtion.view.OrganizersAndServiceProvidersView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -31,7 +36,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class DetailsExhibtionFragment extends Fragment implements
-        YouTubePlayer.OnInitializedListener,OrganizersAndServiceProvidersView
+        YouTubePlayer.OnInitializedListener,OrganizersAndServiceProvidersView,ExhibtorsView
 {
     public static final int RECOVERY_DIALOG_REQUEST=1;
 
@@ -48,6 +53,12 @@ public class DetailsExhibtionFragment extends Fragment implements
 
 
     NetworkConnection networkConnection;
+
+    TextView textToolbar;
+
+    RecyclerView recyclerViewExhibtors;
+    ExhibtorsAdapter exhibtorsAdapter;
+    ExhibtorsPresenter exhibtorsPresenter;
 
     public DetailsExhibtionFragment() {
         // Required empty public constructor
@@ -76,11 +87,22 @@ View view;
             description.setText(Description);
             address.setText(Address);
           //  Toast.makeText(getContext(), ID, Toast.LENGTH_SHORT).show();
+            textToolbar.setText(Title);
 
         }
         OrganizersAndServiceProviders();
         Sponsors();
+        Exhibtors();
         return view;
+    }
+
+    private void Exhibtors() {
+        exhibtorsPresenter=new ExhibtorsPresenter(getContext(),this);
+        if(Language.isRTL()) {
+            exhibtorsPresenter.getExhibtorsResult("ar", "4"); //id user
+        }else {
+            exhibtorsPresenter.getExhibtorsResult("en", "4");
+        }
     }
 
     private void Sponsors() {
@@ -114,6 +136,10 @@ View view;
         recyclerViewOrganizers=view.findViewById(R.id.details_exhibtion_recycler_organizers);
 
         recyclerViewSponsor=view.findViewById(R.id.details_exhibtion_recycler_sponsors);
+        textToolbar=view.findViewById(R.id.details_exhibtion_text_toolbar);
+
+        recyclerViewExhibtors=view.findViewById(R.id.details_exhibtion_recycler_exhibtors);
+
 
     }
 
@@ -159,6 +185,7 @@ View view;
 
     @Override
     public void showOrganizersAndServiceProvidersList(List<OrganizersAndServiceProvidersData> organizersAndServiceProvidersDataList) {
+
         organizersAndServiceProvidersAdapter=new OrganizersAndServiceProvidersAdapter( getContext(),organizersAndServiceProvidersDataList );
         //homeProductAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
@@ -175,6 +202,14 @@ View view;
         recyclerViewSponsor.setAdapter( organizersAndServiceProvidersAdapter );
     }
 
+
+    @Override
+    public void showExhibtorsList(List<ExhibtorsData> exhibtorsDataList) {
+        exhibtorsAdapter=new ExhibtorsAdapter(getContext(),exhibtorsDataList);
+        recyclerViewExhibtors.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerViewExhibtors.setAdapter(exhibtorsAdapter);
+
+    }
 
     @Override
     public void showError() {

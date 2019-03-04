@@ -3,6 +3,7 @@ package com.example.alshimaa.exhibtion.api;
 import com.example.alshimaa.exhibtion.model.AboutUsResponse;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionResponse;
+import com.example.alshimaa.exhibtion.model.ExhibtorsResponse;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
@@ -41,5 +42,8 @@ public interface Service {
 
     @POST("sponser_fairs")
     Call<OrganizersAndServiceProvidersResponse> getSponsorData(@Body Map<String,String> map);
+
+    @POST("exhibitors")
+    Call<ExhibtorsResponse> getExhibtorsData(@Body Map<String,String> map);
 
 }
