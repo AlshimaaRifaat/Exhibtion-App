@@ -12,7 +12,7 @@
         android:background="@drawable/menu_bg">
 
         <TextView
-            android:id="@+id/details_exhibtion_text_toolbar"
+            android:id="@+id/jops_text_toolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -23,7 +23,7 @@
             android:textSize="@dimen/_13sdp"
             android:textStyle="bold" />
         <ImageView
-            android:id="@+id/details_exhibtion_img_logo"
+            android:id="@+id/jops_img_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
