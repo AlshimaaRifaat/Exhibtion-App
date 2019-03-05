@@ -47,7 +47,7 @@
                     android:visibility="gone"
                     />
 
-                <TextView
+                <!--<TextView
                     android:id="@+id/row_exhibtor_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -60,15 +60,15 @@
                     android:text="address"
                     android:textColor="#cccbcb"
                     android:textSize="@dimen/_10sdp"
-                    android:visibility="gone"
-                    />
+
+                    />-->
 
                 <TextView
                     android:id="@+id/row_exhibtor_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_below="@+id/row_exhibtor_address"
+                    android:layout_below="@+id/row_exhibtor_img_video"
                     android:layout_marginBottom="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:layout_marginStart="@dimen/_6sdp"
@@ -108,12 +108,12 @@
                     android:textSize="@dimen/_10sdp"
                     android:visibility="gone"
                     />
-                <TextView
-                    android:id="@+id/row_exhibtor_desc"
+
+              <TextView
+                    android:id="@+id/row_exhibtor_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#cccbcb"
-                    android:text="desccccccccccccc"
                     android:textSize="@dimen/_10sdp"
                     android:layout_below="@+id/row_exhibtor_title"
                     android:layout_marginStart="@dimen/_6sdp"

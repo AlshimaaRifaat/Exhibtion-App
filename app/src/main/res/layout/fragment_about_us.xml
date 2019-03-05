@@ -37,7 +37,7 @@
             android:layout_marginTop="@dimen/_72sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_13sdp"
-            android:background="#000"/>
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -45,7 +45,6 @@
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_below="@+id/about_us_img"
-            android:text="descccccccccc"
             android:textColor="#000"
             android:layout_marginTop="@dimen/_14sdp"
             android:id="@+id/about_us_description"/>

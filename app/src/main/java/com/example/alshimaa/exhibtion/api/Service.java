@@ -7,6 +7,7 @@ import com.example.alshimaa.exhibtion.model.ExhibtorsResponse;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
+import com.example.alshimaa.exhibtion.model.JopsResponse;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersResponse;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionResponse;
 import com.example.alshimaa.exhibtion.model.SponsorResponse;
@@ -49,4 +50,7 @@ public interface Service {
 
     @POST("search_current_fair")
     Call<CurrentExhibtionResponse> getsearchCurrentExhibtionData(@Body Map<String,String> map);
+
+    @POST("career_exhibitors")
+    Call<JopsResponse> getJopsData(@Body Map<String,String> map);
 }

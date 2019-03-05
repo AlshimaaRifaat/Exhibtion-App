@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.alshimaa.exhibtion.NetworkConnection;
@@ -31,7 +32,7 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
 
     TextView textToolbar;
-
+    Button vacantJopsBtn;
     public DetailsExhibtorsFragment() {
         // Required empty public constructor
     }
@@ -65,10 +66,19 @@ View view;
 
             textToolbar.setText(Title);
             //  Toast.makeText(getContext(), ID, Toast.LENGTH_SHORT).show();
-
         }
-
+        vacantJopsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToJopsPage();
+            }
+        });
         return view;
+    }
+
+    private void goToJopsPage() {
+        getFragmentManager().beginTransaction().replace(R.id.content_navigation,new JopsFragment())
+                .addToBackStack(null).commit();
     }
 
     private void init() {
@@ -81,6 +91,7 @@ View view;
     phone=view.findViewById(R.id.details_exhibtors_text_phone);
     email=view.findViewById(R.id.details_exhibtors_text_email);
     websiteLink=view.findViewById(R.id.details_exhibtors_text_website);
+    vacantJopsBtn=view.findViewById(R.id.details_exhibtors_btn_jops);
     }
     @Override
     public void onStart() {

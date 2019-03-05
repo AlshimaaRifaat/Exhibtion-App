@@ -176,7 +176,7 @@
               android:layout_marginStart="@dimen/_12sdp"
               android:layout_marginEnd="@dimen/_12sdp"
               android:layout_marginTop="@dimen/_8sdp"
-              android:text="@string/Vacantjobs"
+              android:text="@string/ContactUs"
               android:textSize="@dimen/_12sdp"
               android:layout_below="@+id/relative_website"/>
       </RelativeLayout>
