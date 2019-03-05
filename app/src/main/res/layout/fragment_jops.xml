@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".fragment.JopsFragment">
+    <RelativeLayout
+        android:id="@+id/relative_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_117sdp"
+        android:background="@drawable/menu_bg">
+
+        <TextView
+            android:id="@+id/details_exhibtion_text_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="52dp"
+            android:textColor="#fff"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/details_exhibtion_img_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_home_logo"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp"/>
+
+
+
+    </RelativeLayout>
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/jops_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/_81sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        ></android.support.v7.widget.RecyclerView>
+</RelativeLayout>
