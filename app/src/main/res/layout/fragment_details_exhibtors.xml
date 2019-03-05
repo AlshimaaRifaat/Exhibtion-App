@@ -75,7 +75,7 @@
               />
           <RelativeLayout
               android:id="@+id/relative_phone"
-              android:layout_width="@dimen/_142sdp"
+              android:layout_width="@dimen/_130sdp"
               android:layout_height="@dimen/_32sdp"
               android:background="#f2f2f2"
               android:layout_below="@+id/details_exhibtors_address"
@@ -103,7 +103,7 @@
 
           <RelativeLayout
               android:id="@+id/relative_email"
-              android:layout_width="@dimen/_142sdp"
+              android:layout_width="@dimen/_130sdp"
               android:layout_height="@dimen/_32sdp"
               android:background="#f2f2f2"
               android:layout_below="@+id/details_exhibtors_address"
@@ -132,7 +132,7 @@
 
           <RelativeLayout
               android:id="@+id/relative_website"
-              android:layout_width="@dimen/_142sdp"
+              android:layout_width="@dimen/_130sdp"
               android:layout_height="@dimen/_32sdp"
               android:background="#f2f2f2"
               android:layout_below="@+id/relative_phone"
@@ -159,7 +159,7 @@
           </RelativeLayout>
     <Button
         android:id="@+id/details_exhibtors_btn_jops"
-        android:layout_width="@dimen/_142sdp"
+        android:layout_width="@dimen/_130sdp"
         android:layout_height="@dimen/_32sdp"
         android:background="#0485cf"
         android:layout_below="@+id/relative_website"
@@ -169,10 +169,10 @@
         android:textSize="@dimen/_12sdp"/>
           <Button
               android:id="@+id/details_exhibtors_btn_contact_us"
-              android:layout_width="@dimen/_142sdp"
+              android:layout_width="@dimen/_130sdp"
               android:layout_height="@dimen/_32sdp"
               android:background="#0485cf"
-              android:layout_toEndOf="@+id/details_exhibtors_btn_jops"
+              android:layout_alignParentEnd="true"
               android:layout_marginStart="@dimen/_12sdp"
               android:layout_marginEnd="@dimen/_12sdp"
               android:layout_marginTop="@dimen/_8sdp"

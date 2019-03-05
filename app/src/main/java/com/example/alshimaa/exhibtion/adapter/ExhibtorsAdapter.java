@@ -50,6 +50,10 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
         holder.address.setText(exhibtorsDataList.get( position ).getAddress());
 
+        holder.phone.setText(exhibtorsDataList.get( position ).getPhone());
+        holder.email.setText(exhibtorsDataList.get( position ).getEmail());
+        holder.websiteLink.setText(exhibtorsDataList.get( position ).getWebsiteLink());
+
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
        // holder.describtion.setTypeface( customFontRegular );
@@ -64,6 +68,9 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
                 exhibtorsData.setName(exhibtorsDataList.get(position).getName());
                 exhibtorsData.setAddress(exhibtorsDataList.get(position).getAddress());
                 exhibtorsData.setIdExhibitor(exhibtorsDataList.get(position).getIdExhibitor());
+                exhibtorsData.setPhone(exhibtorsDataList.get(position).getPhone());
+                exhibtorsData.setEmail(exhibtorsDataList.get(position).getEmail());
+                exhibtorsData.setWebsiteLink(exhibtorsDataList.get(position).getWebsiteLink());
                 detailsExhibtorsView.showDetailsExhibtorsData(exhibtorsData);
             }
         });
@@ -81,6 +88,9 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
         //private TextView describtion;
         private ImageView videoYoutube;
         private TextView address;
+        private TextView phone;
+        private TextView email;
+        private TextView websiteLink;
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_exhibtor_img);
@@ -89,6 +99,10 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
 
             videoYoutube=itemView.findViewById(R.id.row_exhibtor_img_video);
             address=itemView.findViewById(R.id.row_exhibtor_address);
+
+            phone=itemView.findViewById(R.id.row_exhibtor_phone);
+            email=itemView.findViewById(R.id.row_exhibtor_email);
+            websiteLink=itemView.findViewById(R.id.row_exhibtor_website_link);
         }
     }
 }

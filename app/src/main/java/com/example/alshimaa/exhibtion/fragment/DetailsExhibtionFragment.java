@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
@@ -42,7 +43,7 @@ public class DetailsExhibtionFragment extends Fragment implements
 {
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-    String Link,Title,Description,Address,ID;
+    String Link,Title,Description,Address,ID,UserId;
     TextView title,description,address;
 
     RecyclerView recyclerViewOrganizers;
@@ -59,6 +60,7 @@ public class DetailsExhibtionFragment extends Fragment implements
     RecyclerView recyclerViewExhibtors;
     ExhibtorsAdapter exhibtorsAdapter;
     ExhibtorsPresenter exhibtorsPresenter;
+
 
     public DetailsExhibtionFragment() {
         // Required empty public constructor
@@ -82,11 +84,12 @@ View view;
             Description=bundle.getString("description");
             Address=bundle.getString("address");
             ID=bundle.getString("id");
+            UserId=bundle.getString("user_id");
 
             title.setText(Title);
             description.setText(Description);
             address.setText(Address);
-          //  Toast.makeText(getContext(), ID, Toast.LENGTH_SHORT).show();
+          // Toast.makeText(getContext(), UserId, Toast.LENGTH_SHORT).show();
             textToolbar.setText(Title);
 
         }
@@ -99,9 +102,9 @@ View view;
     private void Exhibtors() {
         exhibtorsPresenter=new ExhibtorsPresenter(getContext(),this);
         if(Language.isRTL()) {
-            exhibtorsPresenter.getExhibtorsResult("ar", "4"); //id user
+            exhibtorsPresenter.getExhibtorsResult("ar", UserId); //id user
         }else {
-            exhibtorsPresenter.getExhibtorsResult("en", "4");
+            exhibtorsPresenter.getExhibtorsResult("en", UserId);
         }
     }
 
@@ -220,6 +223,9 @@ View view;
         bundle.putString("title_exhibtor",exhibtorsData.getName());
         bundle.putString("address_exhibtor",exhibtorsData.getAddress());
         bundle.putString("id",String.valueOf(exhibtorsData.getIdExhibitor()));
+        bundle.putString("phone_exhibtor",exhibtorsData.getPhone());
+        bundle.putString("email_exhibtor",exhibtorsData.getEmail());
+        bundle.putString("website_link",exhibtorsData.getWebsiteLink());
         detailsExhibtorsFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().add(R.id.content_navigation,detailsExhibtorsFragment)

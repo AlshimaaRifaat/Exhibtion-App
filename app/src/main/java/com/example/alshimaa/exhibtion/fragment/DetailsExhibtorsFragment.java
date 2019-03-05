@@ -22,8 +22,8 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment;
  */
 public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.OnInitializedListener {
 
-    String Link,Title,Address,ID;
-    TextView title,address;
+    String Link,Title,Address,ID,Phone,Email,WebsiteLink;
+    TextView title,address,phone,email,websiteLink;
 
     NetworkConnection networkConnection;
 
@@ -53,9 +53,16 @@ View view;
             Title=bundle.getString("title_exhibtor");
             Address=bundle.getString("address_exhibtor");
             ID=bundle.getString("id");
+            Phone=bundle.getString("phone_exhibtor");
+            Email=bundle.getString("email_exhibtor");
+            WebsiteLink=bundle.getString("website_link");
 
             title.setText(Title);
             address.setText(Address);
+            phone.setText(Phone);
+            email.setText(Email);
+            websiteLink.setText(WebsiteLink);
+
             textToolbar.setText(Title);
             //  Toast.makeText(getContext(), ID, Toast.LENGTH_SHORT).show();
 
@@ -71,6 +78,9 @@ View view;
         youTubePlayerSupportFragment = (YouTubePlayerSupportFragment)
                 getChildFragmentManager()
                         .findFragmentById(R.id.details_exhibtors_youtube_player_support_fragment);
+    phone=view.findViewById(R.id.details_exhibtors_text_phone);
+    email=view.findViewById(R.id.details_exhibtors_text_email);
+    websiteLink=view.findViewById(R.id.details_exhibtors_text_website);
     }
     @Override
     public void onStart() {

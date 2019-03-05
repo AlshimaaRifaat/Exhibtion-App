@@ -35,7 +35,7 @@ public class ExhibtorsData implements  Parcelable
     private String img2;
     @SerializedName("phone")
     @Expose
-    private Object phone;
+    private String phone;
     public final static Parcelable.Creator<ExhibtorsData> CREATOR = new Creator<ExhibtorsData>() {
 
 
@@ -62,7 +62,7 @@ public class ExhibtorsData implements  Parcelable
         this.youtubeLink = ((String) in.readValue((String.class.getClassLoader())));
         this.address = ((String) in.readValue((String.class.getClassLoader())));
         this.img2 = ((String) in.readValue((String.class.getClassLoader())));
-        this.phone = ((Object) in.readValue((Object.class.getClassLoader())));
+        this.phone = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public ExhibtorsData() {
@@ -124,11 +124,11 @@ public class ExhibtorsData implements  Parcelable
         this.img2 = img2;
     }
 
-    public Object getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Object phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
