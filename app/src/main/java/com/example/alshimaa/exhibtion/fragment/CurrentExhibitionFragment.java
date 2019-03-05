@@ -11,6 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
@@ -38,6 +41,9 @@ public class CurrentExhibitionFragment extends Fragment implements CurrentExhibt
     RecyclerView recyclerViewCurrentExhibtion;
     CurrentExhibtionAdapter currentExhibtionAdapter;
     CurrentExhibtionPresenter currentExhibtionPresenter;
+
+    EditText searchCurrentExhibtionEtext;
+    ImageView iconSearch;
     public CurrentExhibitionFragment() {
         // Required empty public constructor
     }
@@ -98,7 +104,29 @@ View view;
 
 
         CurrentExhibtion();
+        iconSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performSearch();
+            }
+        });
+
         return view;
+    }
+
+    private void performSearch() {
+        if(networkConnection.isNetworkAvailable(getContext())) {
+            currentExhibtionPresenter = new CurrentExhibtionPresenter(getContext(), this);
+            if (Language.isRTL()) {
+                currentExhibtionPresenter.getSearchCurrentExhibtionResult("ar", searchCurrentExhibtionEtext.getText().toString());
+            } else {
+                currentExhibtionPresenter.getSearchCurrentExhibtionResult("en", searchCurrentExhibtionEtext.getText().toString());
+            }
+        }else
+        {
+            Toast.makeText(getContext(), "check Network Connection!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void CurrentExhibtion() {
@@ -115,6 +143,8 @@ View view;
     private void init() {
         toolbar=view.findViewById(R.id.current_exhibtion_toolbar);
         recyclerViewCurrentExhibtion=view.findViewById(R.id.current_exhibtion_recycler);
+        searchCurrentExhibtionEtext=view.findViewById(R.id.current_exhibtion_edit_text_search);
+        iconSearch=view.findViewById(R.id.current_exhibtion_icon_search);
     }
 
     @Override
@@ -128,6 +158,19 @@ View view;
     @Override
     public void showError() {
 
+    }
+
+    @Override
+    public void showSearchCurrentExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
+        currentExhibtionAdapter=new CurrentExhibtionAdapter( getContext(),currentExhibtionDataList );
+        currentExhibtionAdapter.onClick(this);
+        recyclerViewCurrentExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
+        recyclerViewCurrentExhibtion.setAdapter( currentExhibtionAdapter );
+    }
+
+    @Override
+    public void showErrorSearch(String Msg) {
+        Toast.makeText(getContext(), "No data found", Toast.LENGTH_SHORT).show();
     }
 
 

@@ -45,4 +45,26 @@ public class CurrentExhibtionPresenter {
             }
         } );
     }
+
+    public void getSearchCurrentExhibtionResult(String Lang,String Key)
+    {
+        Map<String,String> map=new HashMap<>();
+        map.put("lang",Lang);
+        map.put("key",Key);
+        Service service = Client.getClient().create( Service.class );
+        Call<CurrentExhibtionResponse> call = service.getsearchCurrentExhibtionData(map );
+        call.enqueue( new Callback<CurrentExhibtionResponse>() {
+            @Override
+            public void onResponse(Call<CurrentExhibtionResponse> call, Response<CurrentExhibtionResponse> response) {
+                if(response.isSuccessful()) {
+                    currentExhibtionView.showSearchCurrentExhibtionList(response.body().getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CurrentExhibtionResponse> call, Throwable t) {
+                currentExhibtionView.showErrorSearch("No data Found");
+            }
+        } );
+    }
 }

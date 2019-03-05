@@ -46,4 +46,7 @@ public interface Service {
     @POST("exhibitors")
     Call<ExhibtorsResponse> getExhibtorsData(@Body Map<String,String> map);
 
+
+    @POST("search_current_fair")
+    Call<CurrentExhibtionResponse> getsearchCurrentExhibtionData(@Body Map<String,String> map);
 }
