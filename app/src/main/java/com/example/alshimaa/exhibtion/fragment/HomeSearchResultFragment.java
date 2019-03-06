@@ -17,6 +17,7 @@ import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.adapter.CurrentExhibtionAdapter;
+import com.example.alshimaa.exhibtion.adapter.HomeSearchResultAdapter;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.SearchHomePresenter;
@@ -34,7 +35,7 @@ public class HomeSearchResultFragment extends Fragment implements SearchHomeView
 
 
     RecyclerView recyclerViewsearch;
-    CurrentExhibtionAdapter currentExhibtionAdapter;
+    HomeSearchResultAdapter homeSearchResultAdapter;
    public static SearchHomePresenter searchHomePresenter;
 
    String Key;
@@ -60,7 +61,7 @@ View view;
             Key = bundle.getString( "key" );
 
         }
-      
+
         performSearch();
         return view;
     }
@@ -68,9 +69,9 @@ View view;
     private void performSearch() {
         if(networkConnection.isNetworkAvailable(getContext())) {
             if (Language.isRTL()) {
-                HomeSearchResultFragment.searchHomePresenter.getSearchHomeExhibtionResult("ar", Key);
+                searchHomePresenter.getSearchHomeExhibtionResult("ar", Key);
             } else {
-                HomeSearchResultFragment.searchHomePresenter.getSearchHomeExhibtionResult("en", Key);
+                searchHomePresenter.getSearchHomeExhibtionResult("en", Key);
             }
         }else
         {
@@ -86,10 +87,10 @@ View view;
 
     @Override
     public void showSearchHomeExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
-        currentExhibtionAdapter=new CurrentExhibtionAdapter( getContext(),currentExhibtionDataList );
+        homeSearchResultAdapter=new HomeSearchResultAdapter( getContext(),currentExhibtionDataList );
         //currentExhibtionAdapter.onClick(this);
         recyclerViewsearch.setLayoutManager( new GridLayoutManager(getContext(),2));
-        recyclerViewsearch.setAdapter( currentExhibtionAdapter );
+        recyclerViewsearch.setAdapter( homeSearchResultAdapter );
     }
 
     @Override

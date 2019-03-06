@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     tools:context=".fragment.HomeSearchResultFragment">
 
@@ -10,12 +11,43 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/home_search_result_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/menu_bg"
+            >
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_97sdp">
+                <ImageView
+                    android:id="@+id/home_search_result_img_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/ic_home_logo"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginStart="@dimen/_12sdp"/>
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+        <android.support.v7.widget.CardView
+            android:id="@+id/home_search_result__card_edit_text_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_81sdp"
+            app:cardBackgroundColor="@android:color/white">
+
+        </android.support.v7.widget.CardView>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/home_search_result_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/current_exhibtion_card_edit_text_search"
+            android:layout_below="@+id/home_search_result_toolbar"
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_12sdp"
