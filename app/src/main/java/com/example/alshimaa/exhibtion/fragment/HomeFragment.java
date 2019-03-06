@@ -89,7 +89,7 @@ View view;
         view= inflater.inflate(R.layout.fragment_hom, container, false);
         init();
 
-
+        swipRefresh();
         NavigationActivity.toggle = new ActionBarDrawerToggle(
                 getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
@@ -145,7 +145,7 @@ View view;
 
             }
         });
-        swipRefresh();
+
         return view;
     }
 
@@ -177,6 +177,9 @@ View view;
                     {
                         homeServiceProviderPresenter.getHomeServiceResult("en");
                     }
+                }else
+                {
+                    Toast.makeText(getContext(), getResources().getString(R.string.checkNetworkConnection), Toast.LENGTH_SHORT).show();
                 }
             }
         } );
