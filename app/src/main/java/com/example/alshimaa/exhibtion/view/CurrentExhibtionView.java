@@ -12,4 +12,6 @@ public interface CurrentExhibtionView {
     void showSearchCurrentExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList);
     void showErrorSearch(String Msg);
 
+
+
 }

@@ -179,6 +179,25 @@
               android:text="@string/ContactUs"
               android:textSize="@dimen/_12sdp"
               android:layout_below="@+id/relative_website"/>
+
+          <TextView
+              android:id="@+id/details_exhibtors_text_sevices_provided"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/ServicesProvided"
+              android:textColor="#3ca0d9"
+              android:textStyle="bold"
+              android:layout_below="@+id/details_exhibtors_btn_jops"
+              android:layout_marginStart="@dimen/_21sdp"
+              android:layout_marginEnd="@dimen/_21sdp"
+              android:layout_marginTop="@dimen/_12sdp"
+              android:textSize="@dimen/_11sdp"/>
+          <android.support.v7.widget.RecyclerView
+              android:id="@+id/details_exhibtors_recycler_services"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/details_exhibtors_text_sevices_provided"
+              ></android.support.v7.widget.RecyclerView>
       </RelativeLayout>
 
 </ScrollView>

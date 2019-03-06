@@ -53,4 +53,7 @@ public interface Service {
 
     @POST("career_exhibitors")
     Call<JopsResponse> getJopsData(@Body Map<String,String> map);
+
+    @POST("search_under_construction")
+    Call<CurrentExhibtionResponse> getSearchHomeData(@Body Map<String,String> map);
 }

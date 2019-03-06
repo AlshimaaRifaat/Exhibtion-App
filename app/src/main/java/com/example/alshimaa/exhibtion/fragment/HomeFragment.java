@@ -24,11 +24,15 @@ import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
 import com.example.alshimaa.exhibtion.presenter.HomeServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeSliderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
+import com.example.alshimaa.exhibtion.presenter.SearchHomePresenter;
 import com.example.alshimaa.exhibtion.view.HomeServiceProviderView;
 import com.example.alshimaa.exhibtion.view.HomeSliderView;
 import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
 
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +67,13 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     RecyclerView recyclerViewUnderConstruct;
     HomeUnderConstructAdapter homeUnderConstructAdapter;
     HomeUnderConstructPresenter homeUnderConstructPresenter;
+
+    EditText searchCurrentExhibtionEtext;
+
+
+    public static EditText searchHomeExhibtionEtext;
+    public static ImageView iconSearch;
+   // public String KeySearchHome;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -123,8 +134,26 @@ View view;
         Slider();
         ServiceProvider();
         UnderConstruct();
+
+       iconSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               sendKeySearch();
+            }
+        });
         return view;
     }
+
+    private void sendKeySearch() {
+        HomeSearchResultFragment homeSearchResultFragment=new HomeSearchResultFragment();
+        Bundle bundle=new Bundle(  );
+        bundle.putString( "key",searchHomeExhibtionEtext.getText().toString());
+        homeSearchResultFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                homeSearchResultFragment )
+                .addToBackStack( null ).commit();
+    }
+
 
     private void UnderConstruct() {
         homeUnderConstructPresenter=new HomeUnderConstructPresenter(getContext(),this);
@@ -151,6 +180,9 @@ View view;
        recyclerViewHomeSlider=view.findViewById(R.id.home_recycler_slider);
        recyclerViewServiceProvider=view.findViewById(R.id.home_recycler_service_provider);
        recyclerViewUnderConstruct=view.findViewById(R.id.home_recycler_Exhibitions_under_construct);
+
+        searchHomeExhibtionEtext=view.findViewById(R.id.home_edit_text_search);
+        iconSearch=view.findViewById(R.id.home_icon_search);
     }
     private void Slider() {
         homeSliderPresenter=new HomeSliderPresenter(getContext(),this);
