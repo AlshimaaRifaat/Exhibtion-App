@@ -4,6 +4,7 @@ package com.example.alshimaa.exhibtion.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -45,7 +46,7 @@ import java.util.TimerTask;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements HomeSliderView,HomeServiceProviderView
-,HomeUnderConstructView{
+,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener{
     Toolbar toolbar;
 
     NetworkConnection networkConnection;
@@ -75,6 +76,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     public static EditText searchHomeExhibtionEtext;
     public static ImageView iconSearch;
    // public String KeySearchHome;
+    SwipeRefreshLayout swipeRefreshLayout;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -143,7 +145,41 @@ View view;
 
             }
         });
+        swipRefresh();
         return view;
+    }
+
+    private void swipRefresh() {
+        swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_blue_dark );
+        swipeRefreshLayout.setEnabled( true );
+        swipeRefreshLayout.setOnRefreshListener( this );
+        swipeRefreshLayout.post( new Runnable() {
+            @Override
+            public void run() {
+                if(networkConnection.isNetworkAvailable( getContext() ))
+                {
+                    swipeRefreshLayout.setRefreshing( true );
+                    if(Language.isRTL()) {
+                        homeSliderPresenter.getHomeSliderResult("ar");
+                    }else {
+                        homeSliderPresenter.getHomeSliderResult("en");
+                    }
+
+                    if(Language.isRTL()) {
+                        homeUnderConstructPresenter.getHomeUnderConstructResult("ar");
+                    }else {
+                        homeUnderConstructPresenter.getHomeUnderConstructResult("en");
+                    }
+
+                    if(Language.isRTL()) {
+                        homeServiceProviderPresenter.getHomeServiceResult("ar");
+                    }else
+                    {
+                        homeServiceProviderPresenter.getHomeServiceResult("en");
+                    }
+                }
+            }
+        } );
     }
 
     private void sendKeySearch() {
@@ -193,6 +229,7 @@ View view;
 
         searchHomeExhibtionEtext=view.findViewById(R.id.home_edit_text_search);
         iconSearch=view.findViewById(R.id.home_icon_search);
+        swipeRefreshLayout=view.findViewById(R.id.home_swip_refresh);
     }
     private void Slider() {
         homeSliderPresenter=new HomeSliderPresenter(getContext(),this);
@@ -216,10 +253,42 @@ View view;
             Timer timer = new Timer();
             timer.scheduleAtFixedRate( new AutoScrollTask(), 4000, 7000 );
         }
-       // swipeRefreshLayout.setRefreshing( false );
+     swipeRefreshLayout.setRefreshing( false );
 
 
     }
+
+    @Override
+    public void onRefresh() {
+        if(networkConnection.isNetworkAvailable( getContext() ))
+        {
+            swipeRefreshLayout.setRefreshing( true );
+            if(Language.isRTL()) {
+                homeSliderPresenter.getHomeSliderResult("ar");
+            }else {
+                homeSliderPresenter.getHomeSliderResult("en");
+            }
+
+            if(Language.isRTL()) {
+                homeUnderConstructPresenter.getHomeUnderConstructResult("ar");
+            }else {
+                homeUnderConstructPresenter.getHomeUnderConstructResult("en");
+            }
+
+            if(Language.isRTL()) {
+                homeServiceProviderPresenter.getHomeServiceResult("ar");
+            }else
+            {
+                homeServiceProviderPresenter.getHomeServiceResult("en");
+            }
+
+        }else
+        {
+            Toast.makeText(getContext(), getResources().getString(R.string.checkNetworkConnection), Toast.LENGTH_SHORT).show();
+        }
+        
+    }
+
     private class AutoScrollTask extends TimerTask {
         @Override
         public void run() {
@@ -249,6 +318,7 @@ View view;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewServiceProvider.setLayoutManager(linearLayoutManager);
         recyclerViewServiceProvider.setAdapter( homeServiceProviderAdapter );
+        swipeRefreshLayout.setRefreshing( false );
     }
 
     @Override
@@ -258,10 +328,11 @@ View view;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewUnderConstruct.setLayoutManager(linearLayoutManager);
         recyclerViewUnderConstruct.setAdapter( homeUnderConstructAdapter );
+        swipeRefreshLayout.setRefreshing( false );
     }
 
     @Override
     public void showError() {
-
+        swipeRefreshLayout.setRefreshing( false );
     }
 }

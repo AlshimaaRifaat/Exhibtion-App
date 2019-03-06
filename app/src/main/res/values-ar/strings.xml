@@ -29,4 +29,6 @@
     <string name="pleaseWriteyourkeysearch">please,Write your key search</string>
     <string name="checkNetworkConnection">check Network Connection!</string>
     <string name="Key_search_is_required">Key search is required!</string>
+    <string name="Settings">Settings</string>
+    <string name="LogOut">LogOut</string>
 </resources>

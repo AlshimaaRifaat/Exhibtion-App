@@ -22,6 +22,7 @@ import com.example.alshimaa.exhibtion.fragment.CallUsFragment;
 import com.example.alshimaa.exhibtion.fragment.CurrentExhibitionFragment;
 import com.example.alshimaa.exhibtion.fragment.HomeFragment;
 import com.example.alshimaa.exhibtion.fragment.PreviousExhibitionFragment;
+import com.example.alshimaa.exhibtion.fragment.SettingsFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -109,6 +110,11 @@ public class NavigationActivity extends AppCompatActivity
                 currentSelectedPosition=4;
                 fragment=new CallUsFragment();
                 break;
+            case R.id.nav_settings:
+                currentSelectedPosition=5;
+                fragment=new SettingsFragment();
+                break;
+
             default:
                 currentSelectedPosition=0;
                 break;
