@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,14 +118,24 @@ View view;
     private void performSearch() {
         if(networkConnection.isNetworkAvailable(getContext())) {
             currentExhibtionPresenter = new CurrentExhibtionPresenter(getContext(), this);
-            if (Language.isRTL()) {
-                currentExhibtionPresenter.getSearchCurrentExhibtionResult("ar", searchCurrentExhibtionEtext.getText().toString());
+            if( TextUtils.isEmpty(searchCurrentExhibtionEtext.getText())){
+                /**
+                 *   You can Toast a message here that the Username is Empty
+                 **/
+
+                searchCurrentExhibtionEtext.setError(getResources().getString(R.string.Key_search_is_required) );
+
             } else {
-                currentExhibtionPresenter.getSearchCurrentExhibtionResult("en", searchCurrentExhibtionEtext.getText().toString());
-            }
+                        if (Language.isRTL()) {
+                            currentExhibtionPresenter.getSearchCurrentExhibtionResult("ar", searchCurrentExhibtionEtext.getText().toString());
+                        } else {
+                            currentExhibtionPresenter.getSearchCurrentExhibtionResult("en", searchCurrentExhibtionEtext.getText().toString());
+                        }
+                }
+
         }else
         {
-            Toast.makeText(getContext(), "check Network Connection!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getResources().getString(R.string.checkNetworkConnection), Toast.LENGTH_SHORT).show();
         }
 
     }

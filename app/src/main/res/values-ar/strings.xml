@@ -26,4 +26,7 @@
     <string name="Vacantjobs">Vacant jobs</string>
     <string name="ContactUs">Contact Us</string>
     <string name="ServicesProvided">Services Provided</string>
+    <string name="pleaseWriteyourkeysearch">please,Write your key search</string>
+    <string name="checkNetworkConnection">check Network Connection!</string>
+    <string name="Key_search_is_required">Key search is required!</string>
 </resources>

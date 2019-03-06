@@ -7,6 +7,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,6 +140,7 @@ View view;
             @Override
             public void onClick(View v) {
                sendKeySearch();
+
             }
         });
         return view;
@@ -146,12 +148,20 @@ View view;
 
     private void sendKeySearch() {
         HomeSearchResultFragment homeSearchResultFragment=new HomeSearchResultFragment();
-        Bundle bundle=new Bundle(  );
-        bundle.putString( "key",searchHomeExhibtionEtext.getText().toString());
-        homeSearchResultFragment.setArguments(bundle);
-        getFragmentManager().beginTransaction().add( R.id.content_navigation,
-                homeSearchResultFragment )
-                .addToBackStack( null ).commit();
+        if( TextUtils.isEmpty(searchHomeExhibtionEtext.getText())){
+            /**
+             *   You can Toast a message here that the Username is Empty
+             **/
+           searchHomeExhibtionEtext.setError(getResources().getString(R.string.Key_search_is_required) );
+
+        }else {
+            Bundle bundle = new Bundle();
+            bundle.putString("key", searchHomeExhibtionEtext.getText().toString());
+            homeSearchResultFragment.setArguments(bundle);
+            getFragmentManager().beginTransaction().add(R.id.content_navigation,
+                    homeSearchResultFragment)
+                    .addToBackStack(null).commit();
+        }
     }
 
 
