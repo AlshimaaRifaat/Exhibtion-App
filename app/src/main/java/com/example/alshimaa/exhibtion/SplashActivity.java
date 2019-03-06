@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.alshimaa.exhibtion.activity.LoginActivity;
+import com.example.alshimaa.exhibtion.activity.MainActivity;
 import com.example.alshimaa.exhibtion.activity.VisitorActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -18,10 +20,6 @@ public class SplashActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView( R.layout.activity_splash );
-
-
-
-
 
         Thread timer=new Thread(  )
         {
@@ -36,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }finally {
 
-                        Intent intent=new Intent( SplashActivity.this,VisitorActivity.class);
+                        Intent intent=new Intent( SplashActivity.this,LoginActivity.class);
                         startActivity( intent );
                     finish();
                 }

@@ -7,7 +7,7 @@
     android:background="@drawable/splash_bg"
     tools:context=".activity.VisitorActivity">
 
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/splash_image_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,5 +31,5 @@
         android:text="تسجيل كزائر"
         android:textSize="@dimen/_14sdp"
         />
-</android.support.v7.widget.CardView>
+</android.support.v7.widget.CardView>-->
 </RelativeLayout>
