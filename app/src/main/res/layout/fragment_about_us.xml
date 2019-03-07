@@ -18,7 +18,18 @@
         android:layout_height="@dimen/_117sdp"
         android:background="@drawable/menu_bg">
 
-
+        <TextView
+            android:id="@+id/details_exhibtion_text_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="52dp"
+            android:textColor="#fff"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:text="@string/AboutUs"/>
         <ImageView
             android:id="@+id/about_us_img_logo"
             android:layout_width="wrap_content"

@@ -25,7 +25,7 @@
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginTop="52dp"
             android:textColor="#fff"
-            android:textSize="@dimen/_13sdp"
+            android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
         <ImageView
             android:id="@+id/details_exhibtion_img_logo"

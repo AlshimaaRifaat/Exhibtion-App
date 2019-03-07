@@ -20,10 +20,11 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:background="#fff"
-        app:itemTextColor="#a5a5a5"
+        app:itemTextColor="#c9c6c6"
         app:itemTextAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         app:headerLayout="@layout/nav_header_navigation"
-        app:menu="@menu/activity_navigation_drawer" >
+        app:menu="@menu/activity_navigation_drawer"
+        app:itemBackground="@drawable/drawer_selected_item">
 
     </android.support.design.widget.NavigationView>
 

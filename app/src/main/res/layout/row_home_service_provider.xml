@@ -29,7 +29,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#2998d6"
-                    android:text="titleeeeeeeeee"
                     android:textSize="@dimen/_10sdp"
                     android:layout_below="@id/row_home_service_provider_img"
                     android:layout_centerHorizontal="true"

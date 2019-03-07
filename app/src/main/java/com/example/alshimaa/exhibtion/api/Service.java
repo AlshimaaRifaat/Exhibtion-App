@@ -10,6 +10,7 @@ import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
 import com.example.alshimaa.exhibtion.model.JopsResponse;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersResponse;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionResponse;
+import com.example.alshimaa.exhibtion.model.ServicesProvidedResponse;
 import com.example.alshimaa.exhibtion.model.SponsorResponse;
 
 
@@ -59,4 +60,7 @@ public interface Service {
 
     @POST("search_last_fair")
     Call<PreviousExhibtionResponse> getSearchPreviousExhibtionData(@Body Map<String,String> map);
+
+    @POST("services_exhibitors")
+    Call<ServicesProvidedResponse> getServicesProvidedData(@Body Map<String,String> map);
 }

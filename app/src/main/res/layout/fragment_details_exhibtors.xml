@@ -27,7 +27,7 @@
                   android:layout_marginStart="@dimen/_12sdp"
                   android:layout_marginTop="52dp"
                   android:textColor="#fff"
-                  android:textSize="@dimen/_13sdp"
+                  android:textSize="@dimen/_15sdp"
                   android:textStyle="bold" />
               <ImageView
                   android:id="@+id/details_exhibtors_img_logo"
@@ -194,7 +194,8 @@
               android:layout_marginStart="@dimen/_21sdp"
               android:layout_marginEnd="@dimen/_21sdp"
               android:layout_marginTop="@dimen/_12sdp"
-              android:textSize="@dimen/_11sdp"/>
+              android:textSize="@dimen/_11sdp"
+              android:visibility="gone"/>
           <android.support.v7.widget.RecyclerView
               android:id="@+id/details_exhibtors_recycler_services"
               android:layout_width="match_parent"
