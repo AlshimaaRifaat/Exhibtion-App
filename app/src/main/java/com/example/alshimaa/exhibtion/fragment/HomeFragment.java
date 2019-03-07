@@ -1,6 +1,7 @@
 package com.example.alshimaa.exhibtion.fragment;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -34,6 +35,7 @@ import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -76,7 +78,9 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     public static EditText searchHomeExhibtionEtext;
     public static ImageView iconSearch;
    // public String KeySearchHome;
+    TextView exhibitionsUnderConstructText,serviceProviderText;
     SwipeRefreshLayout swipeRefreshLayout;
+    Typeface customFontBold;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -90,6 +94,10 @@ View view;
         init();
 
         swipRefresh();
+        customFontBold = Typeface.createFromAsset( getContext().getAssets(), "DroidKufi-Bold.ttf" );
+        exhibitionsUnderConstructText.setTypeface( customFontBold );
+        serviceProviderText.setTypeface( customFontBold );
+
         NavigationActivity.toggle = new ActionBarDrawerToggle(
                 getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
@@ -233,6 +241,8 @@ View view;
         searchHomeExhibtionEtext=view.findViewById(R.id.home_edit_text_search);
         iconSearch=view.findViewById(R.id.home_icon_search);
         swipeRefreshLayout=view.findViewById(R.id.home_swip_refresh);
+        exhibitionsUnderConstructText=view.findViewById(R.id.home_text_Exhibitions_under_construct);
+        serviceProviderText=view.findViewById(R.id.home_text_service_provider);
     }
     private void Slider() {
         homeSliderPresenter=new HomeSliderPresenter(getContext(),this);

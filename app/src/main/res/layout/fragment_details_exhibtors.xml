@@ -96,8 +96,9 @@
                   android:layout_height="wrap_content"
                   android:layout_centerVertical="true"
                   android:textColor="#cbcbcb"
-                  android:layout_centerInParent="true"
-                  android:text="phoneeeeee"
+                  android:layout_toEndOf="@+id/details_exhibtors_icon_phone"
+                  android:layout_marginStart="@dimen/_5sdp"
+
                   />
           </RelativeLayout>
 
@@ -125,8 +126,9 @@
                   android:layout_height="wrap_content"
                   android:layout_centerVertical="true"
                   android:textColor="#cbcbcb"
-                  android:layout_centerInParent="true"
-                  android:text="emaillllll"
+                  android:layout_toEndOf="@+id/details_exhibtors_icon_email"
+                  android:layout_marginStart="@dimen/_5sdp"
+
                   />
           </RelativeLayout>
 
@@ -153,8 +155,9 @@
                   android:layout_height="wrap_content"
                   android:layout_centerVertical="true"
                   android:textColor="#cbcbcb"
-                  android:layout_centerInParent="true"
-                  android:text="website"
+                  android:layout_toEndOf="@+id/details_exhibtors_icon_website"
+                  android:layout_marginStart="@dimen/_5sdp"
+
                   />
           </RelativeLayout>
     <Button
