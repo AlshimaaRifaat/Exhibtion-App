@@ -18,6 +18,7 @@ import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.NavigationActivity;
 import com.example.alshimaa.exhibtion.adapter.CurrentExhibtionAdapter;
 import com.example.alshimaa.exhibtion.adapter.PreviousExhibtionAdapter;
+import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
 import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.PreviousExhibtionPresenter;
@@ -125,6 +126,16 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
 
     @Override
     public void showError() {
+
+    }
+
+    @Override
+    public void showSearchPreviousExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
+
+    }
+
+    @Override
+    public void showErrorSearchPrevious(String Msg) {
 
     }
 }

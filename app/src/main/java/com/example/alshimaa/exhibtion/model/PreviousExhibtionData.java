@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 public class PreviousExhibtionData implements  Parcelable
 {
 
-    @SerializedName("id")
+  @SerializedName("id")
     @Expose
     private int id;
     @SerializedName("id_user")
