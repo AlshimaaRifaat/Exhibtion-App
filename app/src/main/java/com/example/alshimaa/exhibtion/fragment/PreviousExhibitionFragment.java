@@ -26,6 +26,7 @@ import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
 import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.PreviousExhibtionPresenter;
+import com.example.alshimaa.exhibtion.view.DetailsPreviousExhibtion;
 import com.example.alshimaa.exhibtion.view.PreviousExhibtionView;
 
 import java.util.List;
@@ -33,7 +34,8 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PreviousExhibitionFragment extends Fragment implements PreviousExhibtionView{
+public class PreviousExhibitionFragment extends Fragment implements PreviousExhibtionView
+,DetailsPreviousExhibtion{
 
     Toolbar toolbar;
     NetworkConnection networkConnection;
@@ -159,7 +161,7 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     @Override
     public void showPreviousExhibtionList(List<PreviousExhibtionData> previousExhibtionDataList) {
         previousExhibtionAdapter=new PreviousExhibtionAdapter( getContext(),previousExhibtionDataList );
-        //homeProductAdapter.onClick(this);
+        previousExhibtionAdapter.onClick(this);
         recyclerViewPreviousExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewPreviousExhibtion.setAdapter( previousExhibtionAdapter );
     }
@@ -172,7 +174,7 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     @Override
     public void showSearchPreviousExhibtionList(List<PreviousExhibtionData> previousExhibtionDataList) {
         previousExhibtionAdapter=new PreviousExhibtionAdapter( getContext(),previousExhibtionDataList );
-      //  previousExhibtionAdapter.onClick(this);
+        previousExhibtionAdapter.onClick(this);
         recyclerViewPreviousExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewPreviousExhibtion.setAdapter( previousExhibtionAdapter );
     }
@@ -181,5 +183,21 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     @Override
     public void showErrorSearchPrevious(String Msg) {
         Toast.makeText(getContext(), getResources().getString(R.string.NoResultFound), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showExhibtionDetails(PreviousExhibtionData previousExhibtionData) {
+        DetailsExhibtionFragment detailsExhibtionFragment=new DetailsExhibtionFragment();
+        Bundle bundle=new Bundle(  );
+        bundle.putString( "video_link",previousExhibtionData.getYoutube());
+        bundle.putString("title",previousExhibtionData.getTitle());
+        bundle.putString("description",previousExhibtionData.getDescription());
+        bundle.putString("address",previousExhibtionData.getAddress());
+        bundle.putString("id",String.valueOf(previousExhibtionData.getId()));
+        bundle.putString("user_id",previousExhibtionData.getIdUser());
+        detailsExhibtionFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                detailsExhibtionFragment )
+                .addToBackStack( null ).commit();
     }
 }
