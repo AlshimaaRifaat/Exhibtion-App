@@ -30,4 +30,5 @@
     <string name="Settings">الاعدادات</string>
     <string name="LogOut">تسجيل خروج</string>
     <string name="view_all_exhibitions">تصفح جميع المعارض</string>
+    <string name="NoResultFound">لا توجد نتيجة!</string>
 </resources>

@@ -181,7 +181,7 @@ View view;
 
     @Override
     public void showErrorSearch(String Msg) {
-        Toast.makeText(getContext(), "No data found", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), getResources().getString(R.string.NoResultFound), Toast.LENGTH_SHORT).show();
     }
 
 

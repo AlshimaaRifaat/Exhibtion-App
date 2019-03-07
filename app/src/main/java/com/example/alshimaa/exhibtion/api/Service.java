@@ -56,4 +56,7 @@ public interface Service {
 
     @POST("search_under_construction")
     Call<CurrentExhibtionResponse> getSearchHomeData(@Body Map<String,String> map);
+
+    @POST("search_last_fair")
+    Call<PreviousExhibtionResponse> getSearchPreviousExhibtionData(@Body Map<String,String> map);
 }

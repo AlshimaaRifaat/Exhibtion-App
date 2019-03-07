@@ -9,6 +9,6 @@ public interface PreviousExhibtionView {
     void showPreviousExhibtionList(List<PreviousExhibtionData> previousExhibtionDataList);
     void showError();
 
-    void showSearchPreviousExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList);
+    void showSearchPreviousExhibtionList(List<PreviousExhibtionData> previousExhibtionDataList);
     void showErrorSearchPrevious(String Msg);
 }

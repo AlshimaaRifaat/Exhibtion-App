@@ -2,6 +2,7 @@ package com.example.alshimaa.exhibtion.presenter;
 
 import android.content.Context;
 
+import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.api.Client;
 import com.example.alshimaa.exhibtion.api.Service;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionResponse;
@@ -45,4 +46,27 @@ public class PreviousExhibtionPresenter {
             }
         } );
     }
+
+    public void getSearchPreviousExhibtionResult(String Lang,String Key)
+    {
+        Map<String,String> map=new HashMap<>();
+        map.put("lang",Lang);
+        map.put("key",Key);
+        Service service = Client.getClient().create( Service.class );
+        Call<PreviousExhibtionResponse> call = service.getSearchPreviousExhibtionData(map );
+        call.enqueue( new Callback<PreviousExhibtionResponse>() {
+            @Override
+            public void onResponse(Call<PreviousExhibtionResponse> call, Response<PreviousExhibtionResponse> response) {
+                if(response.isSuccessful()) {
+                    previousExhibtionView.showSearchPreviousExhibtionList(response.body().getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PreviousExhibtionResponse> call, Throwable t) {
+                previousExhibtionView.showErrorSearchPrevious(context.getResources().getString(R.string.NoResultFound));
+            }
+        } );
+    }
+
 }

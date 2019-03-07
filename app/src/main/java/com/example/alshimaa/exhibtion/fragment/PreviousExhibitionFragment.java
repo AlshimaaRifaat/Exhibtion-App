@@ -8,9 +8,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
@@ -39,6 +43,9 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     RecyclerView recyclerViewPreviousExhibtion;
     PreviousExhibtionAdapter previousExhibtionAdapter;
     PreviousExhibtionPresenter previousExhibtionPresenter;
+
+    EditText searchPreviousExhibtionEtext;
+    ImageView iconSearch;
     public PreviousExhibitionFragment() {
         // Required empty public constructor
     }
@@ -97,7 +104,38 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
         networkConnection=new NetworkConnection( getContext() );
 
         PreviousExhibtion();
+
+        iconSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performSearch();
+            }
+        });
         return view;
+    }
+
+    private void performSearch() {
+        if(networkConnection.isNetworkAvailable(getContext())) {
+            previousExhibtionPresenter = new PreviousExhibtionPresenter(getContext(), this);
+            if( TextUtils.isEmpty(searchPreviousExhibtionEtext.getText())){
+                /**
+                 *   You can Toast a message here that the Username is Empty
+                 **/
+
+                searchPreviousExhibtionEtext.setError(getResources().getString(R.string.Key_search_is_required) );
+
+            } else {
+                if (Language.isRTL()) {
+                    previousExhibtionPresenter.getSearchPreviousExhibtionResult("ar", searchPreviousExhibtionEtext.getText().toString());
+                } else {
+                    previousExhibtionPresenter.getSearchPreviousExhibtionResult("en", searchPreviousExhibtionEtext.getText().toString());
+                }
+            }
+
+        }else
+        {
+            Toast.makeText(getContext(), getResources().getString(R.string.checkNetworkConnection), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void PreviousExhibtion() {
@@ -113,6 +151,8 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     private void init() {
         toolbar=view.findViewById(R.id.previous_exhibtion_toolbar);
         recyclerViewPreviousExhibtion=view.findViewById(R.id.previous_exhibtion_recycler);
+        searchPreviousExhibtionEtext=view.findViewById(R.id.previous_exhibtion_edit_text_search);
+        iconSearch=view.findViewById(R.id.previous_exhibtion_icon_search);
 
     }
 
@@ -130,12 +170,16 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     }
 
     @Override
-    public void showSearchPreviousExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
-
+    public void showSearchPreviousExhibtionList(List<PreviousExhibtionData> previousExhibtionDataList) {
+        previousExhibtionAdapter=new PreviousExhibtionAdapter( getContext(),previousExhibtionDataList );
+      //  previousExhibtionAdapter.onClick(this);
+        recyclerViewPreviousExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
+        recyclerViewPreviousExhibtion.setAdapter( previousExhibtionAdapter );
     }
+
 
     @Override
     public void showErrorSearchPrevious(String Msg) {
-
+        Toast.makeText(getContext(), getResources().getString(R.string.NoResultFound), Toast.LENGTH_SHORT).show();
     }
 }

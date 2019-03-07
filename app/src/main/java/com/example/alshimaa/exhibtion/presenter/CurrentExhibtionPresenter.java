@@ -2,6 +2,7 @@ package com.example.alshimaa.exhibtion.presenter;
 
 import android.content.Context;
 
+import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.api.Client;
 import com.example.alshimaa.exhibtion.api.Service;
 import com.example.alshimaa.exhibtion.model.AboutUsResponse;
@@ -63,7 +64,7 @@ public class CurrentExhibtionPresenter {
 
             @Override
             public void onFailure(Call<CurrentExhibtionResponse> call, Throwable t) {
-                currentExhibtionView.showErrorSearch("No data Found");
+                currentExhibtionView.showErrorSearch(context.getResources().getString(R.string.NoResultFound));
             }
         } );
     }
