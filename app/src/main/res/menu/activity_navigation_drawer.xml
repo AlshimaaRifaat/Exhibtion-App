@@ -18,18 +18,27 @@
             android:title="@string/AboutUs" />
         <item
             android:id="@+id/nav_call_us"
-            android:title="@string/CallUs" />
+            android:title="@string/ContactUs" />
+        <item
+            android:id="@+id/nav_settings"
+            android:title="@string/Settings"/>
+        <item
+            android:id="@+id/nav_logOut"
+            android:title="@string/LogOut" />
     </group>
 
-    <item android:title="Communicate">
+   <!-- <item android:title="Communicate">
         <menu>
-            <item
-                android:id="@+id/nav_settings"
-                android:title="@string/Settings"/>
-            <item
-                android:id="@+id/nav_logOut"
-                android:title="@string/LogOut" />
+            <group android:checkableBehavior="none">
+                <item
+                    android:id="@+id/nav_settings"
+                    android:title="@string/Settings"/>
+                <item
+                    android:id="@+id/nav_logOut"
+                    android:title="@string/LogOut" />
+            </group>
         </menu>
-    </item>
+    </item>-->
+
 
 </menu>

@@ -82,6 +82,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:textStyle="normal"
         android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
         />
     <android.support.v7.widget.CardView
         android:id="@+id/login_card_btn_login"

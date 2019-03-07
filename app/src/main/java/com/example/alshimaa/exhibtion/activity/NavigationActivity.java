@@ -88,7 +88,7 @@ public class NavigationActivity extends AppCompatActivity
 
         // Handle navigation view item clicks here.
         switch (item.getItemId()){
-            case  R.id.nav_Home:
+           case  R.id.nav_Home:
                 currentSelectedPosition=0;
                 fragment=new HomeFragment();
                 break;
