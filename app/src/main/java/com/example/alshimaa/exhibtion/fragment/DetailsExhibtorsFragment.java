@@ -4,26 +4,44 @@ package com.example.alshimaa.exhibtion.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.YoutubeConfig;
+import com.example.alshimaa.exhibtion.adapter.EShopAdapter;
+import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
+import com.example.alshimaa.exhibtion.adapter.ServicesProvidedAdapter;
+import com.example.alshimaa.exhibtion.model.EShopData;
+import com.example.alshimaa.exhibtion.model.ServicesProvidedData;
+import com.example.alshimaa.exhibtion.presenter.EShopPresenter;
+import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
+import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
+import com.example.alshimaa.exhibtion.view.EShopView;
+import com.example.alshimaa.exhibtion.view.ServicesProvidedView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.OnInitializedListener {
+public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.OnInitializedListener
+    ,ServicesProvidedView,EShopView
+{
 
-    String Link,Title,Address,ID,Phone,Email,WebsiteLink;
+    public static String Link,Title,Address,ID,Phone,Email,WebsiteLink;
     TextView title,address,phone,email,websiteLink;
 
     NetworkConnection networkConnection;
@@ -33,6 +51,14 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
 
     TextView textToolbar;
     Button vacantJopsBtn;
+
+    RecyclerView recyclerViewservicesProvided;
+    ServicesProvidedAdapter servicesProvidedAdapter;
+    ServicesProvidedPresenter servicesProvidedPresenter;
+
+    RecyclerView recyclerViewEShop;
+    EShopAdapter eShopAdapter;
+    EShopPresenter eShopPresenter;
     public DetailsExhibtorsFragment() {
         // Required empty public constructor
     }
@@ -53,7 +79,7 @@ View view;
             Link = bundle.getString( "video_link_exhibtor" );
             Title=bundle.getString("title_exhibtor");
             Address=bundle.getString("address_exhibtor");
-            ID=bundle.getString("id");
+            ID=bundle.getString("id_exhibtor");
             Phone=bundle.getString("phone_exhibtor");
             Email=bundle.getString("email_exhibtor");
             WebsiteLink=bundle.getString("website_link");
@@ -65,7 +91,7 @@ View view;
             websiteLink.setText(WebsiteLink);
 
             textToolbar.setText(Title);
-            //  Toast.makeText(getContext(), ID, Toast.LENGTH_SHORT).show();
+             Toast.makeText(getContext(), "id_user" +ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
         }
         vacantJopsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +99,27 @@ View view;
                 goToJopsPage();
             }
         });
+        ServicesProvided();
+        EShop();
         return view;
+    }
+
+    private void EShop() {
+        eShopPresenter=new EShopPresenter(getContext(),this);
+        if(Language.isRTL()) {
+            eShopPresenter.getEShopResult("ar",DetailsExhibtionFragment.ID,ID);// user id ,fair id
+        }else {
+            eShopPresenter.getEShopResult("en",DetailsExhibtionFragment.ID,ID);
+        }
+    }
+
+    private void ServicesProvided() {
+        servicesProvidedPresenter=new ServicesProvidedPresenter(getContext(),this);
+        if(Language.isRTL()) {
+            servicesProvidedPresenter.getServicesProvidedResult("ar",DetailsExhibtionFragment.ID,ID);// user id ,fair id
+        }else {
+            servicesProvidedPresenter.getServicesProvidedResult("en",DetailsExhibtionFragment.ID,ID);
+        }
     }
 
     private void goToJopsPage() {
@@ -92,6 +138,8 @@ View view;
     email=view.findViewById(R.id.details_exhibtors_text_email);
     websiteLink=view.findViewById(R.id.details_exhibtors_text_website);
     vacantJopsBtn=view.findViewById(R.id.details_exhibtors_btn_jops);
+    recyclerViewservicesProvided=view.findViewById(R.id.details_exhibtors_recycler_services);
+    recyclerViewEShop=view.findViewById(R.id.details_exhibtors_recycler_E_shop);
     }
     @Override
     public void onStart() {
@@ -129,6 +177,31 @@ View view;
     private YouTubePlayer.Provider getYouTubePlayerProvider() {
         return (YouTubePlayerSupportFragment)getActivity()
                 .getSupportFragmentManager(). findFragmentById(R.id.details_exhibtors_youtube_player_support_fragment);
+    }
+
+    @Override
+    public void showServicesProvidedList(List<ServicesProvidedData> servicesProvidedDataList) {
+        servicesProvidedAdapter=new ServicesProvidedAdapter( getContext(),servicesProvidedDataList );
+        //homeProductAdapter.onClick(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewservicesProvided.setLayoutManager(linearLayoutManager);
+        recyclerViewservicesProvided.setAdapter( servicesProvidedAdapter );
+      //  swipeRefreshLayout.setRefreshing( false );
+    }
+
+    @Override
+    public void showEshopDataList(List<EShopData> eShopDataList) {
+        eShopAdapter=new EShopAdapter( getContext(),eShopDataList );
+        //homeProductAdapter.onClick(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewEShop.setLayoutManager(linearLayoutManager);
+        recyclerViewEShop.setAdapter( eShopAdapter );
+
+    }
+
+    @Override
+    public void showError() {
+
     }
 }
 

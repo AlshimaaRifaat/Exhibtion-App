@@ -43,7 +43,7 @@ public class DetailsExhibtionFragment extends Fragment implements
 {
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-    String Link,Title,Description,Address,ID,UserId;
+   public static String Link,Title,Description,Address,ID,UserId;
     TextView title,description,address;
 
     RecyclerView recyclerViewOrganizers;
@@ -222,7 +222,7 @@ View view;
         bundle.putString("video_link_exhibtor",exhibtorsData.getYoutubeLink());
         bundle.putString("title_exhibtor",exhibtorsData.getName());
         bundle.putString("address_exhibtor",exhibtorsData.getAddress());
-        bundle.putString("id",String.valueOf(exhibtorsData.getIdExhibitor()));
+        bundle.putString("id_exhibtor",String.valueOf(exhibtorsData.getIdExhibitor()));
         bundle.putString("phone_exhibtor",exhibtorsData.getPhone());
         bundle.putString("email_exhibtor",exhibtorsData.getEmail());
         bundle.putString("website_link",exhibtorsData.getWebsiteLink());

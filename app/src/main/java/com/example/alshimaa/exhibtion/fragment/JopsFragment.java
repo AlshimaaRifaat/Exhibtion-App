@@ -48,6 +48,7 @@ View view;
         init();
         networkConnection=new NetworkConnection(getContext());
         Jops();
+        Toast.makeText(getContext(), "id_user" +DetailsExhibtorsFragment.ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -57,10 +58,10 @@ View view;
         {
             if (Language.isRTL())
             {
-                jopsPresenter.getJopsResult( "ar","9","23" ); // user id ,fair id
+                jopsPresenter.getJopsResult( "ar",DetailsExhibtionFragment.ID,DetailsExhibtorsFragment.ID ); // user id ,fair id
             }else
             {
-                jopsPresenter.getJopsResult("en","9","23");
+                jopsPresenter.getJopsResult("en",DetailsExhibtionFragment.ID,DetailsExhibtorsFragment.ID);
             }
         }else
         {

@@ -42,6 +42,7 @@
     <string name="LogOut">LogOut</string>
     <string name="view_all_exhibitions">View all exhibitions</string>
     <string name="NoResultFound">No result found !</string>
+    <string name="EShop">E-Shop</string>
 
 
 </resources>
