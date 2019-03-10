@@ -8,6 +8,7 @@ import android.view.WindowManager;
 
 import com.example.alshimaa.exhibtion.activity.LoginActivity;
 import com.example.alshimaa.exhibtion.activity.MainActivity;
+import com.example.alshimaa.exhibtion.activity.NavigationActivity;
 import com.example.alshimaa.exhibtion.activity.VisitorActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -34,7 +35,7 @@ public class SplashActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }finally {
 
-                        Intent intent=new Intent( SplashActivity.this,LoginActivity.class);
+                        Intent intent=new Intent( SplashActivity.this,NavigationActivity.class);
                         startActivity( intent );
                     finish();
                 }

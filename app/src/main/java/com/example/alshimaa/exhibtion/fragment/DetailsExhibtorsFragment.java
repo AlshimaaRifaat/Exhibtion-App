@@ -91,7 +91,7 @@ View view;
             websiteLink.setText(WebsiteLink);
 
             textToolbar.setText(Title);
-             Toast.makeText(getContext(), "id_user" +ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getContext(), "id_user" +ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
         }
         vacantJopsBtn.setOnClickListener(new View.OnClickListener() {
             @Override

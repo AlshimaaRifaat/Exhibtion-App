@@ -115,7 +115,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/home_text_Exhibitions_under_construct"
-        android:layout_marginBottom="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
         ></android.support.v7.widget.RecyclerView>
     <TextView
         android:id="@+id/home_text_service_provider"
@@ -125,7 +125,6 @@
         android:textColor="#3ca0d9"
         android:textStyle="bold"
         android:layout_below="@+id/home_recycler_Exhibitions_under_construct"
-
         android:layout_marginStart="@dimen/_21sdp"
         android:layout_marginEnd="@dimen/_21sdp"
         android:textSize="@dimen/_12sdp"/>
@@ -134,7 +133,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/home_text_service_provider"
-
         android:layout_marginBottom="@dimen/_4sdp"
         ></android.support.v7.widget.RecyclerView>
 

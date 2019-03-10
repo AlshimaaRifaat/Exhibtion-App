@@ -33,6 +33,7 @@ import com.example.alshimaa.exhibtion.view.HomeSliderView;
 import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
 
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -91,8 +92,10 @@ View view;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_hom, container, false);
-        init();
+        getActivity().getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        init();
         swipRefresh();
         customFontBold = Typeface.createFromAsset( getContext().getAssets(), "DroidKufi-Bold.ttf" );
         exhibitionsUnderConstructText.setTypeface( customFontBold );
@@ -233,7 +236,8 @@ View view;
 
 
     private void init() {
-       toolbar=view.findViewById(R.id.home_toolbar);
+
+        toolbar=view.findViewById(R.id.home_toolbar);
        recyclerViewHomeSlider=view.findViewById(R.id.home_recycler_slider);
        recyclerViewServiceProvider=view.findViewById(R.id.home_recycler_service_provider);
        recyclerViewUnderConstruct=view.findViewById(R.id.home_recycler_Exhibitions_under_construct);
