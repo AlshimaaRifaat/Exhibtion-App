@@ -23,7 +23,18 @@
                     android:layout_height="@dimen/_104sdp"
                     android:scaleType="fitXY"
                     />
+                <ImageView
+                    android:id="@+id/row_prev_exhibtion_img_logo"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_33sdp"
+                    android:layout_toEndOf="@id/row_cur_exhibtion_title"
+                    android:layout_below="@id/row_prev_exhibtion_img"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
 
+                    />
                 <TextView
                     android:id="@+id/row_prev_exhibtion_address"
                     android:layout_width="wrap_content"

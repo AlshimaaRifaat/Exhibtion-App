@@ -36,7 +36,7 @@ public class PreviousExhibtionResponse implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -7350993719750051071L;
+    private final static long serialVersionUID = -4901384469210002957L;
 
     protected PreviousExhibtionResponse(Parcel in) {
         in.readList(this.data, (PreviousExhibtionData.class.getClassLoader()));

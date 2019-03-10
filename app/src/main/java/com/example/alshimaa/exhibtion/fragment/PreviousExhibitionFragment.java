@@ -195,6 +195,7 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
         bundle.putString("address",previousExhibtionData.getAddress());
         bundle.putString("id",String.valueOf(previousExhibtionData.getId()));
         bundle.putString("user_id",previousExhibtionData.getIdUser());
+        bundle.putString("logo",previousExhibtionData.getLogo());
         detailsExhibtionFragment.setArguments(bundle);
         getFragmentManager().beginTransaction().add( R.id.content_navigation,
                 detailsExhibtionFragment )

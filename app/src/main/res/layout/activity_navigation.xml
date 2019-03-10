@@ -20,8 +20,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:background="#fff"
-        app:itemTextColor="#c9c6c6"
-        app:itemTextAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        app:itemTextColor="#bcb9b9"
+        app:itemTextAppearance="@style/Base.TextAppearance.AppCompat.Small"
         app:headerLayout="@layout/nav_header_navigation"
         app:menu="@menu/activity_navigation_drawer"
         app:itemBackground="@drawable/drawer_selected_item">

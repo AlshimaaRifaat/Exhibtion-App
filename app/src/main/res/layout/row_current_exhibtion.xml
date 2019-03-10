@@ -55,6 +55,7 @@
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginStart="@dimen/_12sdp"
                     android:scaleType="fitXY"
+                    android:visibility="gone"
 
                     />
                 <TextView
