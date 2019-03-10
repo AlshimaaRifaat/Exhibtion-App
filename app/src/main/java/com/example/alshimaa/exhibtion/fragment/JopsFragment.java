@@ -48,7 +48,7 @@ View view;
         init();
         networkConnection=new NetworkConnection(getContext());
         Jops();
-        Toast.makeText(getContext(), "id_user" +DetailsExhibtorsFragment.ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getContext(), "id_user" +DetailsExhibtorsFragment.ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
         return view;
     }
 

@@ -33,7 +33,6 @@
                     android:layout_marginStart="@dimen/_12sdp"
                     android:scaleType="fitXY"
                     android:visibility="gone"
-
                     />
                 <TextView
                     android:id="@+id/row_prev_exhibtion_address"

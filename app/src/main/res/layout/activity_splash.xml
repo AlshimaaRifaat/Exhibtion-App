@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/view_all_exhibitions"
-            android:textSize="@dimen/_19sdp"
+            android:textSize="@dimen/_16sdp"
             android:textColor="#ffff"
             android:layout_below="@+id/splash_image_logo"
             android:layout_marginTop="@dimen/_127sdp"
@@ -38,7 +38,7 @@
     android:text="@string/splash_text2"
     android:layout_below="@+id/splash_text_description1"
     android:layout_centerHorizontal="true"
-    android:textSize="@dimen/_19sdp"
+    android:textSize="@dimen/_16sdp"
 
     />
 
