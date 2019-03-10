@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="@dimen/_80sdp"
+            android:layout_marginEnd="@dimen/_92sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_25sdp"
             android:textColor="#fff"
@@ -56,27 +56,34 @@
         android:layout_marginEnd="@dimen/_12sdp"
 
         />
-
+    <ImageView
+        android:id="@+id/details_exhibtion_logo"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_below="@+id/youtube_player_support_fragment"
+        />
     <TextView
         android:id="@+id/details_exhibtion_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/youtube_player_support_fragment"
-        android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:text="titleeeeeeee"
-        android:textColor="#2998d6" />
+        android:textColor="#2998d6"
+
+        android:layout_toEndOf="@+id/details_exhibtion_logo"/>
     <TextView
         android:id="@+id/details_exhibtion_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/details_exhibtion_title"
-        android:text="titleeeeeeee"
+        android:text="desc"
+        android:layout_toEndOf="@+id/details_exhibtion_logo"
         android:textColor="#cccbcb"
         />
     <TextView
@@ -84,8 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_alignParentStart="true"
+        android:layout_toEndOf="@+id/details_exhibtion_logo"
         android:layout_below="@+id/details_exhibtion_description"
         android:text="addressssssss"
         android:textColor="#cccbcb"

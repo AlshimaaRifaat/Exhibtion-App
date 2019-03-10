@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
@@ -43,8 +45,9 @@ public class DetailsExhibtionFragment extends Fragment implements
 {
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-   public static String Link,Title,Description,Address,ID,UserId;
+   public static String Link,Title,Description,Address,ID,UserId,Logo;
     TextView title,description,address;
+    ImageView logo;
 
     RecyclerView recyclerViewOrganizers;
     OrganizersAndServiceProvidersAdapter organizersAndServiceProvidersAdapter;
@@ -85,12 +88,14 @@ View view;
             Address=bundle.getString("address");
             ID=bundle.getString("id");
             UserId=bundle.getString("user_id");
+            Logo=bundle.getString("logo");
 
             title.setText(Title);
             description.setText(Description);
             address.setText(Address);
           // Toast.makeText(getContext(), UserId, Toast.LENGTH_SHORT).show();
             textToolbar.setText(Title);
+            Glide.with(getContext()).load("http://yallahshare.com"+Logo).into(logo);
 
         }
         OrganizersAndServiceProviders();
@@ -142,6 +147,7 @@ View view;
         textToolbar=view.findViewById(R.id.details_exhibtion_text_toolbar);
 
         recyclerViewExhibtors=view.findViewById(R.id.details_exhibtion_recycler_exhibtors);
+        logo=view.findViewById(R.id.details_exhibtion_logo);
 
 
     }
