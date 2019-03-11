@@ -40,6 +40,6 @@
     <string name="Pleasefullyourinformation">من فضلك,املأ البيانات</string>
     <string name="Invalidemail">البريد الالكترونى خاطىء!</string>
     <string name="News">الاخبار</string>
-    <string name="Reason">Reason</string>
-    <string name="Message">Message</string>
+    <string name="Reason">السبب</string>
+    <string name="Message">الرسالة</string>
 </resources>

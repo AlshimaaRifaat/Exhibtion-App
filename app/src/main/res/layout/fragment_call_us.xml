@@ -98,10 +98,11 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/_10sdp"
                         android:inputType="text"
-                        android:textColor="#cdcdcd"
                         android:hint="@string/FullName"
+                        android:textColor="#1c98df"
                         android:textColorHint="#cdcdcd"
-                        android:textSize="@dimen/_13sdp"/>
+                        android:textSize="@dimen/_13sdp"
+                        android:backgroundTint="#1c98df"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
@@ -130,9 +131,10 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:inputType="textEmailAddress"
                         android:hint="@string/Email"
-                        android:textColor="#cdcdcd"
+                        android:textColor="#1c98df"
                         android:textColorHint="#cdcdcd"
-                        android:textSize="@dimen/_13sdp"/>
+                        android:textSize="@dimen/_13sdp"
+                        android:backgroundTint="#1c98df"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -159,10 +161,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:textColor="#cdcdcd"
                         android:hint="@string/Phone"
+                        android:textColor="#1c98df"
                         android:textColorHint="#cdcdcd"
                         android:textSize="@dimen/_13sdp"
+                        android:backgroundTint="#1c98df"
                         />
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
@@ -180,7 +183,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_13sdp"
                     android:layout_marginRight="@dimen/_13sdp"
-                    android:hint="@string/Message" >
+                    android:hint="@string/Message"
+                    >
 
                     <EditText
                         android:id="@+id/call_us_edit_text_msg"
@@ -189,9 +193,10 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:inputType="text"
                         android:hint="@string/Message"
-                        android:textColor="#cdcdcd"
+                        android:textColor="#1c98df"
                         android:textColorHint="#cdcdcd"
-                        android:textSize="@dimen/_13sdp"/>
+                        android:textSize="@dimen/_13sdp"
+                        android:backgroundTint="#1c98df"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
@@ -279,6 +284,7 @@
                     android:background="@drawable/button_login"
                     android:textAllCaps="false"
                     android:textColor="#fff"
+
 
                     />
 

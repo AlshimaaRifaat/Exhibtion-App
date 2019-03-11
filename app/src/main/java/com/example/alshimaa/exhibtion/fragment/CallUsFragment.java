@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.adapter.ReasonSpinnerAdapter;
@@ -127,9 +128,10 @@ View view;
             if(!userNameEtext.getText().toString().equals( "" )&&
                     !userEmailEtext.getText().toString().equals( "" )&&
                     !userPhoneEtext.getText().toString().equals("")&&
-                    !userMsgEtext.getText().toString().equals("")&&
+                    !userMsgEtext.getText().toString().equals("")&&SelectedItemSpinner!=null&&
                     validateEmail())
             {
+
                 callUsPresenter.getCallUsResult( userNameEtext.getText().toString(),
                         userEmailEtext.getText().toString(),userPhoneEtext.getText().toString()
                 ,userMsgEtext.getText().toString(),SelectedItemSpinner);
