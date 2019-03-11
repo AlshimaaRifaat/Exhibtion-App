@@ -31,5 +31,13 @@
     <string name="LogOut">تسجيل خروج</string>
     <string name="view_all_exhibitions">تصفح جميع المعارض</string>
     <string name="NoResultFound">لا توجد نتيجة!</string>
-    <string name="EShop">E-Shop</string>
+    <string name="EShop">المتجر الالكترونى</string>
+    <string name="Send">ارسال</string>
+    <string name="Pleasewriteyourname">من فضلك,اكتب اسمك!</string>
+    <string name="Pleasewriteyouremailaddress">من فضلك,اكتب بريدك الالكترونى!</string>
+    <string name="Pleasewriteyourphone">من فضلك,اكتب رقم الهاتف!</string>
+    <string name="Pleaseleaveyourmsg">من فضلك,اترك رسالتك!</string>
+    <string name="Pleasefullyourinformation">من فضلك,املأ البيانات</string>
+    <string name="Invalidemail">البريد الالكترونى خاطىء!</string>
+    <string name="News">الاخبار</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.alshimaa.exhibtion.api;
 
 import com.example.alshimaa.exhibtion.model.AboutUsResponse;
+import com.example.alshimaa.exhibtion.model.CallUsResponse;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionResponse;
 import com.example.alshimaa.exhibtion.model.EShopResponse;
@@ -9,6 +10,7 @@ import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
 import com.example.alshimaa.exhibtion.model.JopsResponse;
+import com.example.alshimaa.exhibtion.model.NewsResponse;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersResponse;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionResponse;
 import com.example.alshimaa.exhibtion.model.ServicesProvidedResponse;
@@ -67,4 +69,12 @@ public interface Service {
 
     @POST("product_exhibitors")
     Call<EShopResponse> getEShopData(@Body Map<String,String> map);
+
+
+    @POST("super_inbox")
+    Call<CallUsResponse> getCallUsData(@Body Map<String,String> map);
+
+    @POST("super_news")
+    Call<NewsResponse> getNewsData(@Body Map<String,String> map);
+
 }

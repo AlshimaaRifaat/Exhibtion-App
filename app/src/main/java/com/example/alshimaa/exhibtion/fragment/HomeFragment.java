@@ -18,16 +18,20 @@ import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.NavigationActivity;
+import com.example.alshimaa.exhibtion.adapter.HomeNewsAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeServiceProviderAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeSliderAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderData;
 import com.example.alshimaa.exhibtion.model.HomeSliderData;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
+import com.example.alshimaa.exhibtion.model.NewsData;
+import com.example.alshimaa.exhibtion.presenter.HomeNewsPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeSliderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
 import com.example.alshimaa.exhibtion.presenter.SearchHomePresenter;
+import com.example.alshimaa.exhibtion.view.HomeNewsView;
 import com.example.alshimaa.exhibtion.view.HomeServiceProviderView;
 import com.example.alshimaa.exhibtion.view.HomeSliderView;
 import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
@@ -49,7 +53,7 @@ import java.util.TimerTask;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements HomeSliderView,HomeServiceProviderView
-,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener{
+,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,HomeNewsView{
     Toolbar toolbar;
 
     NetworkConnection networkConnection;
@@ -82,6 +86,10 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     TextView exhibitionsUnderConstructText,serviceProviderText;
     SwipeRefreshLayout swipeRefreshLayout;
     Typeface customFontBold;
+
+    RecyclerView recyclerViewNews;
+    HomeNewsAdapter homeNewsAdapter;
+    HomeNewsPresenter homeNewsPresenter;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -148,6 +156,7 @@ View view;
         Slider();
         ServiceProvider();
         UnderConstruct();
+        News();
 
        iconSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +167,17 @@ View view;
         });
 
         return view;
+    }
+
+    private void News() {
+        homeNewsPresenter=new HomeNewsPresenter(getContext(),this);
+        if (Language.isRTL())
+        {
+            homeNewsPresenter.getHomeNewsResult("ar");
+        }else
+        {
+            homeNewsPresenter.getHomeNewsResult("en");
+        }
     }
 
     private void swipRefresh() {
@@ -247,6 +267,7 @@ View view;
         swipeRefreshLayout=view.findViewById(R.id.home_swip_refresh);
         exhibitionsUnderConstructText=view.findViewById(R.id.home_text_Exhibitions_under_construct);
         serviceProviderText=view.findViewById(R.id.home_text_service_provider);
+        recyclerViewNews=view.findViewById(R.id.home_recycler_news);
     }
     private void Slider() {
         homeSliderPresenter=new HomeSliderPresenter(getContext(),this);
@@ -345,6 +366,16 @@ View view;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewUnderConstruct.setLayoutManager(linearLayoutManager);
         recyclerViewUnderConstruct.setAdapter( homeUnderConstructAdapter );
+        swipeRefreshLayout.setRefreshing( false );
+    }
+
+    @Override
+    public void showHomeNewsList(List<NewsData> newsDataList) {
+        homeNewsAdapter=new HomeNewsAdapter( getContext(),newsDataList );
+        //homeProductAdapter.onClick(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewNews.setLayoutManager(linearLayoutManager);
+        recyclerViewNews.setAdapter( homeNewsAdapter );
         swipeRefreshLayout.setRefreshing( false );
     }
 
