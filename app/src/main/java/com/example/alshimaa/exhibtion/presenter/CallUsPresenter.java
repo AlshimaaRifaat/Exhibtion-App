@@ -6,7 +6,6 @@ import android.widget.Toast;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.api.Client;
 import com.example.alshimaa.exhibtion.api.Service;
-import com.example.alshimaa.exhibtion.model.CallUsData;
 import com.example.alshimaa.exhibtion.model.CallUsResponse;
 import com.example.alshimaa.exhibtion.view.CallUsView;
 
@@ -26,7 +25,7 @@ public class CallUsPresenter {
         this.callUsView = callUsView;
     }
 
-    public void getCallUsResult(String Name,String Email,String Phone,String Msg)
+    public void getCallUsResult(String Name,String Email,String Phone,String Msg,String Reason)
     {
         Map<String,String> map=new HashMap<>(  );
         {
@@ -34,6 +33,7 @@ public class CallUsPresenter {
             map.put("email",Email);
             map.put("phone", Phone);
             map.put( "message",Msg );
+            map.put("reason",Reason);
 
             Service service= Client.getClient().create( Service.class );
             Call<CallUsResponse> call =service.getCallUsData(  map);
@@ -42,7 +42,7 @@ public class CallUsPresenter {
                 public void onResponse(Call<CallUsResponse> call, Response<CallUsResponse> response) {
                     if (response.isSuccessful())
                     {
-                       // callUsView.showCallUsData();
+                     callUsView.showCallUsData(response.body().getData());
 
                     }
 

@@ -51,6 +51,8 @@
     <string name="Pleasefullyourinformation">Please,full your information!</string>
     <string name="Invalidemail">Invalid email!</string>
     <string name="News">News</string>
+    <string name="Reason">Reason</string>
+    <string name="Message">Message</string>
 
 
 </resources>

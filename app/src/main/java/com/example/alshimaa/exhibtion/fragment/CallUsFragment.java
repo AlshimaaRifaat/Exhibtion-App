@@ -7,19 +7,20 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.model.CallUsData;
+import com.example.alshimaa.exhibtion.adapter.ReasonSpinnerAdapter;
 import com.example.alshimaa.exhibtion.presenter.CallUsPresenter;
 import com.example.alshimaa.exhibtion.view.CallUsView;
 import com.fourhcode.forhutils.FUtilsValidation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +33,23 @@ public class CallUsFragment extends Fragment implements CallUsView{
     Button sendBtn;
 
     NetworkConnection networkConnection;
+
+   String[] SpinnerValue = {
+            "PHP",
+            "ANDROID",
+            "WEB-DESIGN",
+            "PHOTOSHOP"
+    };
+
+   /* List<String> SpinnerValueList = new ArrayList<>();
+        SpinnerValueList.add("Item 1");
+        SpinnerValueList.add("Item 2");
+        SpinnerValueList.add("Item 3");*/
+
+    ReasonSpinnerAdapter reasonSpinnerAdapter;
+    Spinner reasonSpinner;
+String SelectedItemSpinner;
+
     public CallUsFragment() {
         // Required empty public constructor
     }
@@ -45,6 +63,50 @@ View view;
         init();
         networkConnection=new NetworkConnection(getContext());
         callUs();
+
+
+        ReasonSpinnerAdapter reasonSpinnerAdapter = new ReasonSpinnerAdapter(getContext(), android.R.layout.simple_list_item_1);
+
+       /* for (int i=0;i<SpinnerValueList.size();i++)
+        {
+            SelectedItemSpinner=SpinnerValueList.get(i);
+        }*/
+        reasonSpinnerAdapter.addAll(SpinnerValue);
+        reasonSpinnerAdapter.add(getResources().getString(R.string.Reason));
+        reasonSpinner.setAdapter(reasonSpinnerAdapter);
+        reasonSpinner.setSelection(reasonSpinnerAdapter.getCount());
+
+        reasonSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // TODO Auto-generated method stub
+
+                if(reasonSpinner.getSelectedItem() == getResources().getString(R.string.Reason))
+                {
+
+                    //Do nothing.
+                }
+                else{
+
+                  //  SpinnerValue=reasonSpinner.getSelectedItem();
+                    SelectedItemSpinner=reasonSpinner.getSelectedItem().toString();
+                    /*callUsPresenter.getCallUsResult( userNameEtext.getText().toString(),
+                            userEmailEtext.getText().toString(),userPhoneEtext.getText().toString()
+                            ,userMsgEtext.getText().toString(),SelectedItemSpinner);*/
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
         sendBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +132,7 @@ View view;
             {
                 callUsPresenter.getCallUsResult( userNameEtext.getText().toString(),
                         userEmailEtext.getText().toString(),userPhoneEtext.getText().toString()
-                ,userMsgEtext.getText().toString());
+                ,userMsgEtext.getText().toString(),SelectedItemSpinner);
             }
             else
             {
@@ -108,15 +170,17 @@ View view;
 
     private void init() {
         userNameEtext=view.findViewById(R.id.call_us_edit_text_name);
+        userEmailEtext=view.findViewById(R.id.call_us_edit_text_email);
         userPhoneEtext=view.findViewById(R.id.call_us_edit_text_phone);
         userMsgEtext=view.findViewById(R.id.call_us_edit_text_msg);
         sendBtn=view.findViewById(R.id.call_us_btn_send);
+        reasonSpinner=view.findViewById( R.id.call_us_reason_spinner);
     }
 
 
     @Override
-    public void showCallUsData(List<CallUsData> callUsDataList) {
-
+    public void showCallUsData(String Msg) {
+        Toast.makeText(getContext(), Msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

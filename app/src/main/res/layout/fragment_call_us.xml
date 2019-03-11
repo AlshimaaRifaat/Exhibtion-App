@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/call_us_swip_refresh"
-    android:background="#fff"
+
     tools:context=".fragment.CallUsFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -53,16 +53,34 @@
                 android:layout_height="@dimen/_172sdp"
                 android:layout_marginTop="@dimen/_72sdp"
                 android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/_13sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
                 android:background="#000"
                 />
+            <RelativeLayout
+                android:id="@+id/relative_reason"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_47sdp"
+                android:layout_marginTop="@dimen/_22sdp"
+                android:background="@drawable/button_login"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_below="@id/call_us_img"
+                >
 
+                <Spinner
+                    android:id="@+id/call_us_reason_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_55sdp"
+                    android:spinnerMode="dialog"
+                    ></Spinner>
+            </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/relative_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/call_us_img"
+                android:layout_below="@id/relative_reason"
                 android:layout_marginTop="@dimen/_22sdp"
+
 
                 >
                 <android.support.design.widget.TextInputLayout
@@ -71,7 +89,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_13sdp"
                     android:layout_marginRight="@dimen/_13sdp"
-                    android:hint="@string/FullName" >
+                    android:hint="@string/FullName"
+                  >
 
                     <EditText
                         android:id="@+id/call_us_edit_text_name"
@@ -79,8 +98,10 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/_10sdp"
                         android:inputType="text"
-                        android:text="gjxsjsgsf"
-                        android:textColor="#cdcdcd"/>
+                        android:textColor="#cdcdcd"
+                        android:hint="@string/FullName"
+                        android:textColorHint="#cdcdcd"
+                        android:textSize="@dimen/_13sdp"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
@@ -108,8 +129,10 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/_10sdp"
                         android:inputType="textEmailAddress"
-                        android:text="gjxsjsgsf"
-                        android:textColor="#cdcdcd"/>
+                        android:hint="@string/Email"
+                        android:textColor="#cdcdcd"
+                        android:textColorHint="#cdcdcd"
+                        android:textSize="@dimen/_13sdp"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -136,8 +159,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:text="gjxsjsgsf"
                         android:textColor="#cdcdcd"
+                        android:hint="@string/Phone"
+                        android:textColorHint="#cdcdcd"
+                        android:textSize="@dimen/_13sdp"
                         />
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
@@ -155,7 +180,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_13sdp"
                     android:layout_marginRight="@dimen/_13sdp"
-                    android:hint="@string/FullName" >
+                    android:hint="@string/Message" >
 
                     <EditText
                         android:id="@+id/call_us_edit_text_msg"
@@ -163,10 +188,13 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/_10sdp"
                         android:inputType="text"
-                        android:text="gjxsjsgsf"
-                        android:textColor="#cdcdcd"/>
+                        android:hint="@string/Message"
+                        android:textColor="#cdcdcd"
+                        android:textColorHint="#cdcdcd"
+                        android:textSize="@dimen/_13sdp"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
+
 
 
 
@@ -235,21 +263,22 @@
                 android:id="@+id/call_us_card_btn_send"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_18sdp"
-                android:layout_marginRight="@dimen/_18sdp"
-                android:layout_below="@+id/relative_msg"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
                 android:background="@drawable/button_visitor"
-                android:layout_marginTop="@dimen/_45sdp"
-                android:layout_marginBottom="@dimen/_22sdp"
+                android:layout_marginTop="@dimen/_42sdp"
+                android:layout_below="@+id/relative_msg"
+                android:layout_marginBottom="@dimen/_12sdp"
                 >
                 <Button
                     android:id="@+id/call_us_btn_send"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_52sdp"
+                    android:layout_height="@dimen/_47sdp"
                     android:text="@string/Send"
                     android:textSize="@dimen/_14sdp"
                     android:background="@drawable/button_login"
                     android:textAllCaps="false"
+                    android:textColor="#fff"
 
                     />
 
