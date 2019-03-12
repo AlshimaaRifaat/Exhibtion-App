@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff">
+
+    <CheckBox
+
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_45sdp"
+        android:checked="false"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:id="@+id/row_pollutant_checkbox_name"
+        android:textColor="#1c98df"
+        android:text="name"/>
+    <TextView
+        android:id="@+id/row_pollutant_text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="445"
+        android:textColor="#1c98df"
+        android:layout_centerInParent="true"
+        android:layout_toEndOf="@id/row_pollutant_checkbox_name"/>
+
+    <TextView
+        android:id="@+id/row_pollutant_text_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="price"
+        android:textColor="#1c98df"
+        android:layout_centerInParent="true"
+        android:layout_toEndOf="@id/row_pollutant_text_size"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        />
+
+</RelativeLayout>
