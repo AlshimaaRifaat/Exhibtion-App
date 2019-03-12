@@ -27,8 +27,10 @@
             android:name=".activity.NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.RegisterNowActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"></activity>
+        <activity
+            android:name=".activity.RegisterNowActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".activity.RegisterInExhibtionActivity"></activity>
     </application>
 
 </manifest>

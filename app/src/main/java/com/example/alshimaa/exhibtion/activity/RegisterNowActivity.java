@@ -1,9 +1,11 @@
 package com.example.alshimaa.exhibtion.activity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,6 +29,23 @@ public class RegisterNowActivity extends AppCompatActivity {
         titleTxt.setTypeface( customFontRegular );
         exhibtorBtn.setTypeface(customFontRegular);
         visitorBtn.setTypeface(customFontRegular);
+
+        exhibtorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(RegisterNowActivity.this
+                        ,RegisterInExhibtionActivity.class);
+                startActivity(intent);
+            }
+        });
+        visitorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(RegisterNowActivity.this
+                        ,RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void init() {

@@ -90,8 +90,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     RecyclerView recyclerViewNews;
     HomeNewsAdapter homeNewsAdapter;
     HomeNewsPresenter homeNewsPresenter;
-
-
+    TextView newsTxt;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -110,6 +109,7 @@ View view;
         customFontBold = Typeface.createFromAsset( getContext().getAssets(), "DroidKufi-Bold.ttf" );
         exhibitionsUnderConstructText.setTypeface( customFontBold );
         serviceProviderText.setTypeface( customFontBold );
+        newsTxt.setTypeface( customFontBold );
 
         NavigationActivity.toggle = new ActionBarDrawerToggle(
                 getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -167,6 +167,7 @@ View view;
 
             }
         });
+
 
         return view;
     }
@@ -270,6 +271,7 @@ View view;
         exhibitionsUnderConstructText=view.findViewById(R.id.home_text_Exhibitions_under_construct);
         serviceProviderText=view.findViewById(R.id.home_text_service_provider);
         recyclerViewNews=view.findViewById(R.id.home_recycler_news);
+        newsTxt=view.findViewById(R.id.home_text_news);
 
     }
     private void Slider() {

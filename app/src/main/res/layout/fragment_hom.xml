@@ -146,7 +146,8 @@
         android:layout_below="@+id/home_recycler_service_provider"
         android:layout_marginStart="@dimen/_21sdp"
         android:layout_marginEnd="@dimen/_21sdp"
-        android:textSize="@dimen/_12sdp"/>
+        android:textSize="@dimen/_12sdp"
+        />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/home_recycler_news"
         android:layout_width="match_parent"
