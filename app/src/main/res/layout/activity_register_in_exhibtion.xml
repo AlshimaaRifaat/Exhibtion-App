@@ -78,7 +78,7 @@
             >
 
             <EditText
-                android:id="@+id/call_us_edit_text_name"
+                android:id="@+id/register_in_exhibtion_edit_text_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingRight="@dimen/_10sdp"
@@ -109,7 +109,7 @@
             android:hint="@string/Email" >
 
             <EditText
-                android:id="@+id/call_us_edit_text_email"
+                android:id="@+id/register_in_exhibtion_edit_text_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingRight="@dimen/_10sdp"
@@ -140,7 +140,7 @@
             >
 
             <EditText
-                android:id="@+id/call_us_edit_text_phone"
+                android:id="@+id/register_in_exhibtion_edit_text_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -173,7 +173,7 @@
         android:layout_below="@+id/register_in_exhibtion_text_pollutant"
         ></android.support.v7.widget.RecyclerView>
     <android.support.v7.widget.CardView
-        android:id="@+id/register_card_btn_register"
+        android:id="@+id/register_in_exhibtion_card_btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_13sdp"
@@ -183,7 +183,7 @@
         android:layout_marginTop="@dimen/_13sdp"
         android:layout_marginBottom="@dimen/_13sdp">
         <Button
-            android:id="@+id/register_btn_register"
+            android:id="@+id/register_in_exhibtion_btn_register"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_52sdp"
             android:text="@string/RegisterNow"

@@ -56,7 +56,7 @@
         <Button
             android:id="@+id/register_now_btn_exhibtor"
             android:layout_width="@dimen/_84sdp"
-            android:layout_height="@dimen/_52sdp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/btn_register_now"
             android:text="@string/Exhibtor"
             android:textSize="@dimen/_11sdp"
@@ -73,7 +73,7 @@
         <Button
             android:id="@+id/register_now_btn_visitor"
             android:layout_width="@dimen/_84sdp"
-            android:layout_height="@dimen/_52sdp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/btn_register_now"
             android:text="@string/Visitor"
             android:textSize="@dimen/_11sdp"
