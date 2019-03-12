@@ -45,4 +45,6 @@
     <string name="RegisterNow">سجل الان</string>
     <string name="Exhibtor">عارض</string>
     <string name="Visitor">زائر</string>
+    <string name="Register_in_exhibtion">Register in exhibtion</string>
+    <string name="Available_pollutants">Available pollutants</string>
 </resources>

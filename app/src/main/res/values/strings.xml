@@ -56,6 +56,8 @@
     <string name="RegisterNow">Register Now</string>
     <string name="Exhibtor">Exhibtor</string>
     <string name="Visitor">Visitor</string>
+    <string name="Register_in_exhibtion">Register in exhibtion</string>
+    <string name="Available_pollutants">Available pollutants</string>
 
 
 </resources>
