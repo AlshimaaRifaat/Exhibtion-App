@@ -1,6 +1,7 @@
 package com.example.alshimaa.exhibtion.fragment;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.YoutubeConfig;
+import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.adapter.ExhibtorsAdapter;
 import com.example.alshimaa.exhibtion.adapter.OrganizersAndServiceProvidersAdapter;
 import com.example.alshimaa.exhibtion.model.ExhibtorsData;
@@ -64,7 +67,7 @@ public class DetailsExhibtionFragment extends Fragment implements
     ExhibtorsAdapter exhibtorsAdapter;
     ExhibtorsPresenter exhibtorsPresenter;
 
-
+    Button registerNowBtn;
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
@@ -101,8 +104,12 @@ View view;
         OrganizersAndServiceProviders();
         Sponsors();
         Exhibtors();
+
+
         return view;
     }
+
+
 
     private void Exhibtors() {
         exhibtorsPresenter=new ExhibtorsPresenter(getContext(),this);
@@ -148,6 +155,7 @@ View view;
 
         recyclerViewExhibtors=view.findViewById(R.id.details_exhibtion_recycler_exhibtors);
         logo=view.findViewById(R.id.details_exhibtion_logo);
+        registerNowBtn=view.findViewById(R.id.details_exhibtion_btn_register);
 
 
     }

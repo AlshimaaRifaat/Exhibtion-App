@@ -42,4 +42,7 @@
     <string name="News">الاخبار</string>
     <string name="Reason">السبب</string>
     <string name="Message">الرسالة</string>
+    <string name="RegisterNow">سجل الان</string>
+    <string name="Exhibtor">عارض</string>
+    <string name="Visitor">زائر</string>
 </resources>

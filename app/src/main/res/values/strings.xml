@@ -53,6 +53,9 @@
     <string name="News">News</string>
     <string name="Reason">Reason</string>
     <string name="Message">Message</string>
+    <string name="RegisterNow">Register Now</string>
+    <string name="Exhibtor">Exhibtor</string>
+    <string name="Visitor">Visitor</string>
 
 
 </resources>

@@ -90,6 +90,8 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     RecyclerView recyclerViewNews;
     HomeNewsAdapter homeNewsAdapter;
     HomeNewsPresenter homeNewsPresenter;
+
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -268,6 +270,7 @@ View view;
         exhibitionsUnderConstructText=view.findViewById(R.id.home_text_Exhibitions_under_construct);
         serviceProviderText=view.findViewById(R.id.home_text_service_provider);
         recyclerViewNews=view.findViewById(R.id.home_recycler_news);
+
     }
     private void Slider() {
         homeSliderPresenter=new HomeSliderPresenter(getContext(),this);

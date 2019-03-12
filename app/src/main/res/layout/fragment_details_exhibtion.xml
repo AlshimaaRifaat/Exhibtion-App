@@ -66,6 +66,8 @@
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_below="@+id/youtube_player_support_fragment"
         />
+
+
     <TextView
         android:id="@+id/details_exhibtion_title"
         android:layout_width="wrap_content"
@@ -85,6 +87,7 @@
         android:text="desc"
         android:layout_toEndOf="@+id/details_exhibtion_logo"
         android:textColor="#cccbcb"
+        android:maxLines="2"
         />
     <TextView
         android:id="@+id/details_exhibtion_address"
@@ -95,8 +98,32 @@
         android:layout_below="@+id/details_exhibtion_description"
         android:text="addressssssss"
         android:textColor="#cccbcb"
+        android:maxLines="1"
 
         />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/details_exhibtion_card_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_below="@+id/details_exhibtion_address"
+        android:background="@drawable/button_visitor"
+        android:layout_marginTop="@dimen/_4sdp"
+        >
+        <Button
+            android:id="@+id/details_exhibtion_btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_43sdp"
+            android:text="@string/RegisterNow"
+            android:textSize="@dimen/_14sdp"
+            android:background="@drawable/button_visitor"
+            android:textAllCaps="false"
+
+
+            />
+    </android.support.v7.widget.CardView>
     <TextView
         android:id="@+id/details_exhibtion_title_organizers"
         android:layout_width="wrap_content"
@@ -104,7 +131,7 @@
         android:text="@string/Organizers_and_service_providers"
         android:textColor="#3ca0d9"
         android:textStyle="bold"
-        android:layout_below="@+id/details_exhibtion_address"
+        android:layout_below="@+id/details_exhibtion_card_register"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_12sdp"

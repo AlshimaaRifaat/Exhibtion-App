@@ -1,6 +1,8 @@
 package com.example.alshimaa.exhibtion.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.R;
+import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
 
@@ -42,6 +45,14 @@ public class HomeUnderConstructAdapter extends RecyclerView.Adapter<HomeUnderCon
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
 
+        holder.iconRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context,RegisterNowActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -52,11 +63,13 @@ public class HomeUnderConstructAdapter extends RecyclerView.Adapter<HomeUnderCon
     public class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView imageView;
         private TextView title;
+        ImageView iconRegister;
 
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_home_exhib_under_construct_img);
             title=itemView.findViewById(R.id.row_home_exhib_under_construct_title);
+            iconRegister=itemView.findViewById(R.id.row_home_exhib_icon_register);
 
         }
     }
