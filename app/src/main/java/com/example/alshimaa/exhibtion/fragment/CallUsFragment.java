@@ -69,7 +69,7 @@ View view;
         callUs();
 
 
-        ReasonSpinnerAdapter reasonSpinnerAdapter = new ReasonSpinnerAdapter(getContext(), android.R.layout.simple_list_item_1);
+        ReasonSpinnerAdapter reasonSpinnerAdapter = new ReasonSpinnerAdapter(getContext(), R.layout.spinner_item);
 
        /* for (int i=0;i<SpinnerValueList.size();i++)
         {
@@ -78,6 +78,8 @@ View view;
         reasonSpinnerAdapter.addAll(SpinnerValue);
         reasonSpinnerAdapter.add(getResources().getString(R.string.Reason));
         reasonSpinner.setAdapter(reasonSpinnerAdapter);
+        reasonSpinner.setPrompt(getResources().getString(R.string.Reason));
+
         reasonSpinner.setSelection(reasonSpinnerAdapter.getCount());
 
         reasonSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

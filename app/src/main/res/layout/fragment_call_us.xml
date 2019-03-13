@@ -74,18 +74,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_47sdp"
                 android:layout_marginTop="@dimen/_22sdp"
-                android:background="@drawable/button_login"
+
                 android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
                 android:layout_below="@id/call_us_card_img"
                 >
 
-                <Spinner
+                <android.support.v7.widget.AppCompatSpinner
                     android:id="@+id/call_us_reason_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_55sdp"
 
-                    ></Spinner>
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    app:backgroundTint="#1c98df"
+                    android:prompt="@string/Reason"
+
+                    ></android.support.v7.widget.AppCompatSpinner>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/relative_name"
