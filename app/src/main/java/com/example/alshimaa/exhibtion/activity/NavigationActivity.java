@@ -112,10 +112,10 @@ public class NavigationActivity extends AppCompatActivity
                 fragment=new CallUsFragment();
                 break;
 
-            case R.id.nav_exhibtion_owner:
+           /* case R.id.nav_exhibtion_owner:
                 currentSelectedPosition=5;
                 fragment=new ExhibtionOwnerFragment();
-                break;
+                break;*/
            /* case R.id.nav_settings:
                 currentSelectedPosition=5;
                 fragment=new SettingsFragment();

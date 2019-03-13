@@ -46,7 +46,9 @@
     <string name="Exhibtor">عارض</string>
     <string name="Visitor">زائر</string>
     <string name="Register_in_exhibtion">Register in exhibtion</string>
-    <string name="Available_pollutants">Available pollutants</string>
-    <string name="Confirm">Confirm</string>
+    <string name="Available_pollutants">البوثات المتاحه</string>
+    <string name="Confirm">تاكيد</string>
     <string name="Register_as_an_exhibtion_owner">Register as an exhibtion owner</string>
+    <string name="Exhibtion_owner">صاحب معرض</string>
+    <string name="Service_Provider">مقدم خدمة</string>
 </resources>

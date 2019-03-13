@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_180sdp"
+    android:layout_height="match_parent"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
 
@@ -26,24 +26,24 @@
         android:layout_width="match_parent"
         android:background="@drawable/menu_bg"
         android:id="@+id/relative1"
-        android:layout_height="@dimen/_100sdp">
+        android:layout_height="@dimen/_65sdp">
 
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:background="#fff"
         android:layout_below="@+id/relative1"
-        android:layout_height="@dimen/_100sdp">
+        android:layout_height="@dimen/_115sdp">
 
     </RelativeLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/nav_header_profile_image"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_80sdp"
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_70sdp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_24sdp"
         app:civ_border_width="@dimen/_2sdp"
         app:civ_border_color="#cdcdcd"
         android:background="@drawable/ic_menu_user"
@@ -60,6 +60,7 @@
 
         />
     <TextView
+        android:id="@+id/nav_header_text_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nav_header_text_name"
@@ -70,4 +71,54 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
 
         />
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/relative_button"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_below="@id/nav_header_text_email">
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_exhibtion_owner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#fff"
+
+        >
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_31sdp"
+        android:text="@string/Exhibtion_owner"
+        android:textAllCaps="false"
+        android:background="#0485cf"
+        android:paddingStart="@dimen/_5sdp"
+        android:textSize="@dimen/_9sdp"
+        android:drawableRight="@drawable/ic_float"
+        />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#fff"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_toEndOf="@+id/card_exhibtion_owner">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_31sdp"
+            android:text="@string/Service_Provider"
+            android:textAllCaps="false"
+            android:background="#0485cf"
+            android:textSize="@dimen/_9sdp"
+            android:paddingStart="@dimen/_5sdp"
+            android:drawableRight="@drawable/ic_float"
+            />
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_below="@+id/relative_button"
+        android:background="#c7c7c7"
+        android:layout_marginTop="@dimen/_9sdp"/>
 </RelativeLayout>

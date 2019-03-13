@@ -60,6 +60,8 @@
     <string name="Available_pollutants">Available pollutants</string>
     <string name="Confirm">Confirm</string>
     <string name="Register_as_an_exhibtion_owner">Register as an exhibtion owner</string>
+    <string name="Exhibtion_owner">Exhibtion owner</string>
+    <string name="Service_Provider">Service Provider</string>
 
 
 </resources>
