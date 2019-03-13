@@ -21,6 +21,7 @@ import com.example.alshimaa.exhibtion.fragment.AboutUsFragment;
 import com.example.alshimaa.exhibtion.fragment.CallUsFragment;
 import com.example.alshimaa.exhibtion.fragment.CurrentExhibitionFragment;
 import com.example.alshimaa.exhibtion.fragment.ExhibtionOwnerFragment;
+import com.example.alshimaa.exhibtion.fragment.HomeContactUsFragment;
 import com.example.alshimaa.exhibtion.fragment.HomeFragment;
 import com.example.alshimaa.exhibtion.fragment.PreviousExhibitionFragment;
 import com.example.alshimaa.exhibtion.fragment.SettingsFragment;
@@ -107,10 +108,10 @@ public class NavigationActivity extends AppCompatActivity
                 currentSelectedPosition=3;
                 fragment=new AboutUsFragment();
                 break;
-          /*  case R.id.nav_call_us:
+        case R.id.nav_contact_us:
                 currentSelectedPosition=4;
-                fragment=new CallUsFragment();
-                break;*/
+                fragment=new HomeContactUsFragment();
+                break;
 
            /* case R.id.nav_exhibtion_owner:
                 currentSelectedPosition=5;
