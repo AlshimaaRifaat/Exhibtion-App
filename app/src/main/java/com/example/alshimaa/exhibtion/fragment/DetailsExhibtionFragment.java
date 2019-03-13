@@ -22,6 +22,7 @@ import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.YoutubeConfig;
+import com.example.alshimaa.exhibtion.activity.RegisterActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.adapter.ExhibtorsAdapter;
 import com.example.alshimaa.exhibtion.adapter.OrganizersAndServiceProvidersAdapter;
@@ -48,7 +49,7 @@ public class DetailsExhibtionFragment extends Fragment implements
 {
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-   public static String Link,Title,Description,Address,ID,UserId,Logo;
+   public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity;
     TextView title,description,address;
     ImageView logo;
 
@@ -67,7 +68,7 @@ public class DetailsExhibtionFragment extends Fragment implements
     ExhibtorsAdapter exhibtorsAdapter;
     ExhibtorsPresenter exhibtorsPresenter;
 
-    Button registerNowBtn;
+   public static Button registerNowBtn;
 
     public DetailsExhibtionFragment() {
         // Required empty public constructor
@@ -80,6 +81,7 @@ View view;
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_details_exhibtion, container, false);
         init();
+
            networkConnection=new NetworkConnection(getContext());
         youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
 
@@ -93,6 +95,7 @@ View view;
             ID=bundle.getString("id");
             UserId=bundle.getString("user_id");
             Logo=bundle.getString("logo");
+            Visiblity=bundle.getString("visibilty");
 
             title.setText(Title);
             description.setText(Description);
@@ -101,11 +104,26 @@ View view;
             textToolbar.setText(Title);
             Glide.with(getContext()).load("http://yallahshare.com"+Logo).into(logo);
 
+            if(Visiblity.equals("yes"))
+            {
+                registerNowBtn.setVisibility(View.VISIBLE);
+            }else
+            {
+                registerNowBtn.setVisibility(View.GONE);
+            }
+
         }
         OrganizersAndServiceProviders();
         Sponsors();
         Exhibtors();
-
+        registerNowBtn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(getActivity(), RegisterActivity.class);
+        startActivity(i);
+        ((Activity) getActivity()).overridePendingTransition(0,0);
+    }
+});
 
         return view;
     }

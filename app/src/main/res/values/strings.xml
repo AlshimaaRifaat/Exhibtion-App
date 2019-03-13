@@ -67,6 +67,11 @@
     <string name="Submit">Submit</string>
     <string name="Expires_in">Expires in</string>
     <string name="Start_in">Start in</string>
+    <string name="service_provider_Name">Service provider Name</string>
+    <string name="Service_provided_Type">Service provided Type</string>
+    <string name="AddingOffer">Adding Offer</string>
+    <string name="Visit_the_exhibition">Visit the exhibition</string>
+    <string name="Request_an_Offer">Request an Offer</string>
 
 
 </resources>

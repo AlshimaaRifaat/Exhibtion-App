@@ -35,13 +35,16 @@ public class CallUsFragment extends Fragment implements CallUsView{
 
     NetworkConnection networkConnection;
 
-   String[] SpinnerValue = {
-            "PHP",
-            "ANDROID",
-            "WEB-DESIGN",
-            "PHOTOSHOP"
-    };
-
+  /* String[] SpinnerValue = {
+            getResources().getString(R.string.AddingOffer),
+           getResources().getString(R.string.Visit_the_exhibition),
+           getResources().getString(R.string.Request_an_Offer)
+    };*/
+  String[] SpinnerValue = {
+          "اضافة عرض",
+          "زيارة معرض",
+          "طلب عرض"
+  };
    /* List<String> SpinnerValueList = new ArrayList<>();
         SpinnerValueList.add("Item 1");
         SpinnerValueList.add("Item 2");

@@ -51,9 +51,14 @@
     <string name="Register_as_an_exhibtion_owner">Register as an exhibtion owner</string>
     <string name="Exhibtion_owner">صاحب معرض</string>
     <string name="Service_Provider">مقدم خدمة</string>
-    <string name="Exhibtion_Name">Exhibtion Name</string>
-    <string name="Exhibtion_Location">Exhibtion Location</string>
-    <string name="Submit">Submit</string>
-    <string name="Expires_in">Expires_in</string>
-    <string name="Start_in">Start in</string>
+    <string name="Exhibtion_Name">اسم المعرض</string>
+    <string name="Exhibtion_Location">موقع المعرض</string>
+    <string name="Submit">تقديم</string>
+    <string name="Expires_in">ينتهى في</string>
+    <string name="Start_in">يبدأ في</string>
+    <string name="service_provider_Name">اسم مقدم الخدمة</string>
+    <string name="Service_provided_Type">نوع الخدمه المقدمة</string>
+    <string name="AddingOffer">اضافه عرض</string>
+    <string name="Visit_the_exhibition">زيار معرض</string>
+    <string name="Request_an_Offer">طلب عرض</string>
 </resources>

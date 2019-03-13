@@ -84,7 +84,7 @@
                     android:id="@+id/call_us_reason_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_55sdp"
-                    android:spinnerMode="dialog"
+
                     ></Spinner>
             </RelativeLayout>
             <RelativeLayout

@@ -133,11 +133,37 @@
             android:layout_marginTop="@dimen/_22sdp"
             android:layout_marginStart="@dimen/_13sdp"
             android:layout_marginEnd="@dimen/_13sdp">
+            <RelativeLayout
+                android:id="@+id/relative_start_date"
+                android:layout_width="@dimen/_142sdp"
+                android:layout_height="wrap_content"
+
+
+                >
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/text_layout_start_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Start_in" >
+
+                    <EditText
+                        android:id="@+id/register_edit_text_start_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:inputType="date"
+                        android:textColor="#fff"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_registeration_cal"/>
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/relative_end_date"
             android:layout_width="@dimen/_142sdp"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/relative_start_date"
+            android:layout_marginStart="@dimen/_6sdp"
 
             >
             <android.support.design.widget.TextInputLayout
@@ -158,31 +184,7 @@
                     android:drawableStart="@drawable/ic_registeration_cal"/>
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/relative_start_date"
-            android:layout_width="@dimen/_142sdp"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/relative_end_date"
-            android:layout_marginStart="@dimen/_6sdp"
 
-            >
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/text_layout_start_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/Start_in" >
-
-                <EditText
-                    android:id="@+id/register_edit_text_start_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/_10sdp"
-                    android:inputType="date"
-                    android:textColor="#fff"
-                    android:drawablePadding="@dimen/_5sdp"
-                    android:drawableStart="@drawable/ic_registeration_cal"/>
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
 
         </RelativeLayout>
 

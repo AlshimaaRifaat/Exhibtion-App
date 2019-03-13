@@ -26,6 +26,7 @@ import com.example.alshimaa.exhibtion.fragment.ExhibtionOwnerFragment;
 import com.example.alshimaa.exhibtion.fragment.HomeContactUsFragment;
 import com.example.alshimaa.exhibtion.fragment.HomeFragment;
 import com.example.alshimaa.exhibtion.fragment.PreviousExhibitionFragment;
+import com.example.alshimaa.exhibtion.fragment.ServiceProviderFragment;
 import com.example.alshimaa.exhibtion.fragment.SettingsFragment;
 
 public class NavigationActivity extends AppCompatActivity
@@ -38,6 +39,9 @@ public class NavigationActivity extends AppCompatActivity
     public  static DrawerLayout drawer;
 
     Button exhibtionOwnerBtn;
+    View header;
+
+    Button serviceProviderBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +67,7 @@ public class NavigationActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        View header=navigationView.getHeaderView(0);
+        header=navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
         exhibtionOwnerBtn=header.findViewById( R.id.nav_header_btn_exhibtion_owner );
         exhibtionOwnerBtn.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +77,25 @@ public class NavigationActivity extends AppCompatActivity
             }
         });
 
+        header=navigationView.getHeaderView(0);
+        navigationView.setNavigationItemSelectedListener(this);
+        serviceProviderBtn=header.findViewById( R.id.nav_header_btn_service_provider );
+        serviceProviderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToServiceProviderPage();
+            }
+        });
+
+
+    }
+
+    private void goToServiceProviderPage() {
+        drawer.closeDrawer(GravityCompat.START);
+        FragmentManager fragmentManager=  getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace( R.id.content_navigation,new ServiceProviderFragment() ).addToBackStack( null )
+                .commit();
     }
 
     private void goToExhibtionOwnerPage() {
