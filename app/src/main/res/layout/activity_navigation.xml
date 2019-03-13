@@ -24,8 +24,8 @@
         app:itemTextAppearance="@style/Base.TextAppearance.AppCompat.Small"
         app:headerLayout="@layout/nav_header_navigation"
         app:menu="@menu/activity_navigation_drawer"
-        app:itemBackground="@drawable/drawer_selected_item">
-
+        >
+     <!--   app:itemBackground="@drawable/drawer_selected_item" -->
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

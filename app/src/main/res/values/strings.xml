@@ -62,6 +62,11 @@
     <string name="Register_as_an_exhibtion_owner">Register as an exhibtion owner</string>
     <string name="Exhibtion_owner">Exhibtion owner</string>
     <string name="Service_Provider">Service Provider</string>
+    <string name="Exhibtion_Name">Exhibtion Name</string>
+    <string name="Exhibtion_Location">Exhibtion Location</string>
+    <string name="Submit">Submit</string>
+    <string name="Expires_in">Expires in</string>
+    <string name="Start_in">Start in</string>
 
 
 </resources>

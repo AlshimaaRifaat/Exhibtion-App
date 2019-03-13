@@ -1,5 +1,6 @@
 package com.example.alshimaa.exhibtion.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.Fragment;
+import android.widget.Button;
 
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.fragment.AboutUsFragment;
@@ -34,6 +36,8 @@ public class NavigationActivity extends AppCompatActivity
     public static Toolbar toolbar;
     public static ActionBarDrawerToggle toggle;
     public  static DrawerLayout drawer;
+
+    Button exhibtionOwnerBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +63,26 @@ public class NavigationActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View header=navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
+        exhibtionOwnerBtn=header.findViewById( R.id.nav_header_btn_exhibtion_owner );
+        exhibtionOwnerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToExhibtionOwnerPage();
+            }
+        });
+
+    }
+
+    private void goToExhibtionOwnerPage() {
+        drawer.closeDrawer(GravityCompat.START);
+        FragmentManager fragmentManager=  getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace( R.id.content_navigation,new ExhibtionOwnerFragment() ).addToBackStack( null )
+                .commit();
+        /*Intent intent=new Intent(NavigationActivity.this,VisitorActivity.class);
+        startActivity(intent);*/
     }
 
     @Override
