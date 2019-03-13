@@ -59,6 +59,7 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     RecyclerView recyclerViewEShop;
     EShopAdapter eShopAdapter;
     EShopPresenter eShopPresenter;
+    Button contactUsBtn;
     public DetailsExhibtorsFragment() {
         // Required empty public constructor
     }
@@ -101,7 +102,19 @@ View view;
         });
         ServicesProvided();
         EShop();
+
+        contactUsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCallUsPage();
+            }
+        });
         return view;
+    }
+
+    private void goToCallUsPage() {
+        getFragmentManager().beginTransaction().replace(R.id.content_navigation,new CallUsFragment())
+                .addToBackStack(null).commit();
     }
 
     private void EShop() {
@@ -140,6 +153,7 @@ View view;
     vacantJopsBtn=view.findViewById(R.id.details_exhibtors_btn_jops);
     recyclerViewservicesProvided=view.findViewById(R.id.details_exhibtors_recycler_services);
     recyclerViewEShop=view.findViewById(R.id.details_exhibtors_recycler_E_shop);
+    contactUsBtn=view.findViewById(R.id.details_exhibtors_btn_contact_us);
     }
     @Override
     public void onStart() {

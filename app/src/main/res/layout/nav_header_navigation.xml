@@ -43,7 +43,7 @@
         android:layout_width="@dimen/_70sdp"
         android:layout_height="@dimen/_70sdp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_27sdp"
         app:civ_border_width="@dimen/_2sdp"
         app:civ_border_color="#cdcdcd"
         android:background="@drawable/ic_menu_user"

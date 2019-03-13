@@ -107,10 +107,10 @@ public class NavigationActivity extends AppCompatActivity
                 currentSelectedPosition=3;
                 fragment=new AboutUsFragment();
                 break;
-            case R.id.nav_call_us:
+          /*  case R.id.nav_call_us:
                 currentSelectedPosition=4;
                 fragment=new CallUsFragment();
-                break;
+                break;*/
 
            /* case R.id.nav_exhibtion_owner:
                 currentSelectedPosition=5;

@@ -68,6 +68,7 @@ public class DetailsExhibtionFragment extends Fragment implements
     ExhibtorsPresenter exhibtorsPresenter;
 
     Button registerNowBtn;
+
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
