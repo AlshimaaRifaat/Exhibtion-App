@@ -26,9 +26,9 @@
             android:id="@+id/nav_exhibtion_owner"
             android:title="@string/Register_as_an_exhibtion_owner"
             />-->
-        <item
+       <!-- <item
             android:id="@+id/nav_logOut"
-            android:title="@string/LogOut" />
+            android:title="@string/LogOut" />-->
 
     </group>
 
