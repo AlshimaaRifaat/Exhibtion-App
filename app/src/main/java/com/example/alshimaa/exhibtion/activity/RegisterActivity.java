@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.fragment.DetailsExhibtionFragment;
+import com.example.alshimaa.exhibtion.fragment.HomeFragment;
 import com.example.alshimaa.exhibtion.presenter.NavigationServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.view.NavigationServiceProviderView;
 import com.fourhcode.forhutils.FUtilsValidation;
@@ -133,5 +134,7 @@ public static String RegisterFromCurExhib;
     @Override
     public void showRegisterAsVisitorData(String Msg) {
         Toast.makeText(this, Msg, Toast.LENGTH_SHORT).show();
+       Intent intent=new Intent(this,NavigationActivity.class);
+       startActivity(intent);
     }
 }
