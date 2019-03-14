@@ -39,7 +39,7 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
 
     @Override
     public void onBindViewHolder(@NonNull CurrentExhibtionAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://yallahshare.com"
+        Glide.with( context ).load( "http://eelectronicexpo.com"
                 +currentExhibtionDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(currentExhibtionDataList.get( position ).getTitle());
         holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());

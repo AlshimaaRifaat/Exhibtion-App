@@ -17,18 +17,22 @@ import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
+import com.example.alshimaa.exhibtion.view.OnclickIconHomeUnderConstructView;
 
 import java.util.List;
 
 public class HomeUnderConstructAdapter extends RecyclerView.Adapter<HomeUnderConstructAdapter.ViewHolder> {
     Context context;
     List<HomeUnderConstructData> homeUnderConstructDataList;
-
+     OnclickIconHomeUnderConstructView onclickIconHomeUnderConstructView;
     public HomeUnderConstructAdapter(Context context, List<HomeUnderConstructData> homeUnderConstructDataList) {
         this.context = context;
         this.homeUnderConstructDataList = homeUnderConstructDataList;
     }
-
+public  void onClick(OnclickIconHomeUnderConstructView onclickIconHomeUnderConstructView)
+{
+    this.onclickIconHomeUnderConstructView=onclickIconHomeUnderConstructView;
+}
     @Override
     public HomeUnderConstructAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from( context ).inflate(R.layout.row_home_exhibitions_under_construct,parent,false);
@@ -36,8 +40,8 @@ public class HomeUnderConstructAdapter extends RecyclerView.Adapter<HomeUnderCon
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomeUnderConstructAdapter.ViewHolder holder, int position) {
-        Glide.with( context ).load( "http://yallahshare.com"
+    public void onBindViewHolder(@NonNull HomeUnderConstructAdapter.ViewHolder holder, final int position) {
+        Glide.with( context ).load( "http://eelectronicexpo.com"
                 +homeUnderConstructDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(homeUnderConstructDataList.get( position ).getTitle());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
@@ -48,8 +52,10 @@ public class HomeUnderConstructAdapter extends RecyclerView.Adapter<HomeUnderCon
         holder.iconRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context,RegisterNowActivity.class);
-                context.startActivity(intent);
+                HomeUnderConstructData homeUnderConstructData=new HomeUnderConstructData();
+                homeUnderConstructData.setId(homeUnderConstructDataList.get(position).getId());
+                onclickIconHomeUnderConstructView.showOnclickIconHomeUnderConstructDetails(homeUnderConstructData);
+
             }
         });
 

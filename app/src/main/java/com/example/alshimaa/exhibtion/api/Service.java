@@ -80,4 +80,7 @@ public interface Service {
 
     @POST("request_services_provider")
     Call<NavigationServiceProviderResponse> getNavServiceProviderData(@Body Map<String,String> map);
+
+    @POST("visitors")
+    Call<NavigationServiceProviderResponse> getRegisterAsVisitorData(@Body Map<String,String> map);
 }

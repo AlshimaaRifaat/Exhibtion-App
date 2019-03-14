@@ -1,6 +1,7 @@
 package com.example.alshimaa.exhibtion.fragment;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.NavigationActivity;
+import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.adapter.HomeNewsAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeServiceProviderAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeSliderAdapter;
@@ -35,6 +37,7 @@ import com.example.alshimaa.exhibtion.view.HomeNewsView;
 import com.example.alshimaa.exhibtion.view.HomeServiceProviderView;
 import com.example.alshimaa.exhibtion.view.HomeSliderView;
 import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
+import com.example.alshimaa.exhibtion.view.OnclickIconHomeUnderConstructView;
 
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.WindowManager;
@@ -53,7 +56,7 @@ import java.util.TimerTask;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements HomeSliderView,HomeServiceProviderView
-,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,HomeNewsView{
+,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,HomeNewsView,OnclickIconHomeUnderConstructView{
     Toolbar toolbar;
 
     NetworkConnection networkConnection;
@@ -332,6 +335,15 @@ View view;
         
     }
 
+    @Override
+    public void showOnclickIconHomeUnderConstructDetails(HomeUnderConstructData homeUnderConstructData) {
+        Intent intent=new Intent(getActivity(),RegisterNowActivity.class);
+      //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
+        intent.putExtra("fair_id",String.valueOf(homeUnderConstructData.getId()));
+        getActivity().startActivity(intent);
+
+    }
+
     private class AutoScrollTask extends TimerTask {
         @Override
         public void run() {
@@ -367,7 +379,7 @@ View view;
     @Override
     public void showHomeUnderConstructList(List<HomeUnderConstructData> homeUnderConstructDataList) {
         homeUnderConstructAdapter=new HomeUnderConstructAdapter( getContext(),homeUnderConstructDataList );
-        //homeProductAdapter.onClick(this);
+        homeUnderConstructAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewUnderConstruct.setLayoutManager(linearLayoutManager);
         recyclerViewUnderConstruct.setAdapter( homeUnderConstructAdapter );

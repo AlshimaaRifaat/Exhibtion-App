@@ -45,7 +45,7 @@ public class ServicesProvidedAdapter  extends RecyclerView.Adapter<ServicesProvi
 
     @Override
     public void onBindViewHolder(@NonNull ServicesProvidedAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://yallahshare.com"
+        Glide.with( context ).load( "http://eelectronicexpo.com"
                 +servicesProvidedDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(servicesProvidedDataList.get( position ).getTitle());
        /* holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());*/

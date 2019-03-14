@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.alshimaa.exhibtion.R;
 
@@ -16,6 +17,9 @@ public class RegisterNowActivity extends AppCompatActivity {
     Typeface customFontRegular;
     TextView titleTxt;
     Button exhibtorBtn,visitorBtn;
+
+    Intent intent;
+    public   static String FairId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,10 @@ public class RegisterNowActivity extends AppCompatActivity {
         exhibtorBtn.setTypeface(customFontRegular);
         visitorBtn.setTypeface(customFontRegular);
 
+        FairId = getIntent().getStringExtra("fair_id");// id=11
+
+
+
         exhibtorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,8 +49,13 @@ public class RegisterNowActivity extends AppCompatActivity {
         visitorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(RegisterNowActivity.this
+             /*   Intent intent=new Intent(RegisterNowActivity.this,RegisterActivity.class);
+                intent.putExtra("idd",FairId);
+              //  Toast.makeText(RegisterNowActivity.this,FairId, Toast.LENGTH_SHORT).show();
+                startActivity(intent);*/
+                intent=new Intent(RegisterNowActivity.this
                         ,RegisterActivity.class);
+                intent.putExtra("registerFromCurExhib","no");
                 startActivity(intent);
             }
         });

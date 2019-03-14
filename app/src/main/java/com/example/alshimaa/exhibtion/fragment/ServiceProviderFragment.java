@@ -122,4 +122,9 @@ View view;
     public void showError() {
 
     }
+
+    @Override
+    public void showRegisterAsVisitorData(String Msg) {
+
+    }
 }

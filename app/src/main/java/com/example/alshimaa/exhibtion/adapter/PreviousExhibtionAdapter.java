@@ -39,7 +39,7 @@ public class PreviousExhibtionAdapter extends RecyclerView.Adapter<PreviousExhib
 
     @Override
     public void onBindViewHolder(@NonNull PreviousExhibtionAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://yallahshare.com"
+        Glide.with( context ).load( "http://eelectronicexpo.com"
                 +previousExhibtionDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(previousExhibtionDataList.get( position ).getTitle());
         holder.describtion.setText(previousExhibtionDataList.get( position ).getDescription());

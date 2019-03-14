@@ -70,6 +70,8 @@ public class DetailsExhibtionFragment extends Fragment implements
 
    public static Button registerNowBtn;
 
+
+    Intent intent;
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
@@ -81,6 +83,8 @@ View view;
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_details_exhibtion, container, false);
         init();
+
+
 
            networkConnection=new NetworkConnection(getContext());
         youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
@@ -119,9 +123,16 @@ View view;
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+
+        //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
+
+
         Intent i = new Intent(getActivity(), RegisterActivity.class);
+        i.putExtra("registerFromCurExhib","yes");
         startActivity(i);
         ((Activity) getActivity()).overridePendingTransition(0,0);
+
+
     }
 });
 

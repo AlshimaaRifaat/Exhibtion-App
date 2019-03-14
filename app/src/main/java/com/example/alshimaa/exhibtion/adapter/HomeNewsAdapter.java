@@ -34,7 +34,7 @@ public class HomeNewsAdapter extends RecyclerView.Adapter<HomeNewsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull HomeNewsAdapter.ViewHolder holder, int position) {
-        Glide.with( context ).load( "http://yallahshare.com"
+        Glide.with( context ).load( "http://eelectronicexpo.com"
                 +newsDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(newsDataList.get( position ).getTitle());
         holder.describtion.setText(newsDataList.get( position ).getDescription());

@@ -94,7 +94,7 @@
             >
 
             <EditText
-                android:id="@+id/register_edit_text_"
+                android:id="@+id/register_edit_text_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -105,7 +105,7 @@
 
 
 
-    <RelativeLayout
+   <!-- <RelativeLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -162,7 +162,7 @@
                 android:textColor="#fff"
                 />
         </android.support.design.widget.TextInputLayout>
-    </RelativeLayout>
+    </RelativeLayout>-->
 
     <android.support.v7.widget.CardView
         android:id="@+id/register_card_btn_register"
@@ -170,7 +170,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_18sdp"
         android:layout_marginRight="@dimen/_18sdp"
-        android:layout_below="@+id/relative_confirm_password"
+        android:layout_below="@+id/relative_phone"
         android:background="@drawable/button_visitor"
         android:layout_marginTop="@dimen/_45sdp"
         android:layout_marginBottom="@dimen/_22sdp">

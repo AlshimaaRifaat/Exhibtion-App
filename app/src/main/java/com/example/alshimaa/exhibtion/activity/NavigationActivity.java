@@ -156,7 +156,7 @@ public class NavigationActivity extends AppCompatActivity
                 break;
         case R.id.nav_contact_us:
                 currentSelectedPosition=4;
-                fragment=new HomeContactUsFragment();
+                fragment=new CallUsFragment();
                 break;
 
            /* case R.id.nav_exhibtion_owner:

@@ -33,7 +33,7 @@ public class HomeServiceProviderAdapter extends RecyclerView.Adapter<HomeService
 
 @Override
 public void onBindViewHolder(@NonNull HomeServiceProviderAdapter.ViewHolder holder, int position) {
-        Glide.with( context ).load( "http://yallahshare.com"
+        Glide.with( context ).load( "http://eelectronicexpo.com"
         +homeServiceProviderDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(homeServiceProviderDataList.get( position ).getTitle());
     holder.describtion.setText(homeServiceProviderDataList.get( position ).getDescription());
