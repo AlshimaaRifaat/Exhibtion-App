@@ -57,7 +57,7 @@
     <string name="Exhibtor">Exhibtor</string>
     <string name="Visitor">Visitor</string>
     <string name="Register_in_exhibtion">Register in exhibtion</string>
-    <string name="Available_pollutants">Available pollutants</string>
+    <string name="Available_pollutants">Available puthes</string>
     <string name="Confirm">Confirm</string>
     <string name="Register_as_an_exhibtion_owner">Register as an exhibtion owner</string>
     <string name="Exhibtion_owner">Exhibtion owner</string>
@@ -72,6 +72,7 @@
     <string name="AddingOffer">Adding Offer</string>
     <string name="Visit_the_exhibition">Visit the exhibition</string>
     <string name="Request_an_Offer">Request an Offer</string>
+    <string name="PleaseWriteServiceProvidedType">Please,write Service provided Type!</string>
 
 
 </resources>

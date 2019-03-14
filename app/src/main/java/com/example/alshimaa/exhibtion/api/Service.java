@@ -10,6 +10,7 @@ import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
 import com.example.alshimaa.exhibtion.model.JopsResponse;
+import com.example.alshimaa.exhibtion.model.NavigationServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.NewsResponse;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersResponse;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionResponse;
@@ -77,4 +78,6 @@ public interface Service {
     @POST("super_news")
     Call<NewsResponse> getNewsData(@Body Map<String,String> map);
 
+    @POST("request_services_provider")
+    Call<NavigationServiceProviderResponse> getNavServiceProviderData(@Body Map<String,String> map);
 }

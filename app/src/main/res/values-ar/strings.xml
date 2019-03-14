@@ -61,4 +61,5 @@
     <string name="AddingOffer">اضافه عرض</string>
     <string name="Visit_the_exhibition">زيار معرض</string>
     <string name="Request_an_Offer">طلب عرض</string>
+    <string name="PleaseWriteServiceProvidedType">Please,write Service provided Type!</string>
 </resources>

@@ -93,6 +93,7 @@
         android:textAllCaps="false"
         android:background="#0485cf"
         android:paddingStart="@dimen/_5sdp"
+
         android:textSize="@dimen/_9sdp"
         android:drawableRight="@drawable/ic_float"
         />
