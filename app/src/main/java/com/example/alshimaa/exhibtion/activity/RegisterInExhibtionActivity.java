@@ -23,12 +23,14 @@ import com.example.alshimaa.exhibtion.presenter.NavigationServiceProviderPresent
 import com.example.alshimaa.exhibtion.presenter.PreviousExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.PuthesPresenter;
 import com.example.alshimaa.exhibtion.presenter.PuthesRegisterPresenter;
+import com.example.alshimaa.exhibtion.view.OnClickMultipleChoiceCheckBox;
 import com.example.alshimaa.exhibtion.view.PuthesView;
 import com.fourhcode.forhutils.FUtilsValidation;
 
 import java.util.List;
 
-public class RegisterInExhibtionActivity extends AppCompatActivity implements PuthesView {
+public class RegisterInExhibtionActivity extends AppCompatActivity implements PuthesView
+,OnClickMultipleChoiceCheckBox{
 Button registerNowBtn;
 
     RecyclerView recyclerViewPuthes;
@@ -121,9 +123,15 @@ Button registerNowBtn;
     @Override
     public void showPuthesList(List<PuthesData> puthesDataList) {
         puthesAdapter=new PuthesAdapter(getApplicationContext(),puthesDataList );
-       // puthesAdapter.onClick(this);
+      puthesAdapter.onClick(this);
         recyclerViewPuthes.setLayoutManager( new LinearLayoutManager(getApplicationContext()));
         recyclerViewPuthes.setAdapter( puthesAdapter);
+    }
+
+
+    @Override
+    public void showOnClickMultipleChoiceCheckBoxResult(String selectedPosition) {
+
     }
 
     @Override

@@ -16,6 +16,8 @@ import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
 import com.example.alshimaa.exhibtion.model.PuthesData;
 import com.example.alshimaa.exhibtion.view.DetailsPreviousExhibtion;
+import com.example.alshimaa.exhibtion.view.OnClickMultipleChoiceCheckBox;
+import com.example.alshimaa.exhibtion.view.PuthesView;
 
 import java.util.List;
 
@@ -23,17 +25,17 @@ public class PuthesAdapter extends RecyclerView.Adapter<PuthesAdapter.ViewHolder
     Context context;
     List<PuthesData> puthesDataList;
 
-   // DetailsPreviousExhibtion detailsPreviousExhibtion;
+   OnClickMultipleChoiceCheckBox onClickMultipleChoiceCheckBox;
 
     public PuthesAdapter(Context context, List<PuthesData> puthesDataList) {
         this.context = context;
         this.puthesDataList = puthesDataList;
     }
 
-   /* public void onClick(DetailsPreviousExhibtion detailsPreviousExhibtion)
+   public void onClick(OnClickMultipleChoiceCheckBox onClickMultipleChoiceCheckBox)
     {
-        this.detailsPreviousExhibtion=detailsPreviousExhibtion;
-    }*/
+        this.onClickMultipleChoiceCheckBox=onClickMultipleChoiceCheckBox;
+    }
     @Override
     public PuthesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from( context ).inflate(R.layout.row_pollutant,parent,false);
@@ -43,7 +45,7 @@ public class PuthesAdapter extends RecyclerView.Adapter<PuthesAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull PuthesAdapter.ViewHolder holder, final int position) {
 
-        holder.number.setText(puthesDataList.get( position ).getNumber()+"بوثة");
+        holder.number.setText(" بوثة "+puthesDataList.get( position ).getNumber());
         holder.area.setText(puthesDataList.get( position ).getWidth()+" * "+puthesDataList.get(position).getHeight());
         holder.price.setText(" ريال "+puthesDataList.get( position ).getPrice());
 
@@ -53,20 +55,14 @@ public class PuthesAdapter extends RecyclerView.Adapter<PuthesAdapter.ViewHolder
         holder.area.setTypeface( customFontRegular );
         holder.price.setTypeface(customFontRegular);
 
-       /* holder.itemView.setOnClickListener(new View.OnClickListener() {
+     holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PreviousExhibtionData previousExhibtionData=new PreviousExhibtionData();
-                previousExhibtionData.setYoutube(previousExhibtionDataList.get(position).getYoutube());
-                previousExhibtionData.setTitle(previousExhibtionDataList.get(position).getTitle());
-                previousExhibtionData.setDescription(previousExhibtionDataList.get(position).getDescription());
-                previousExhibtionData.setAddress(previousExhibtionDataList.get(position).getAddress());
-                previousExhibtionData.setId(previousExhibtionDataList.get(position).getId());
-                previousExhibtionData.setIdUser(previousExhibtionDataList.get(position).getIdUser());
-                previousExhibtionData.setLogo(previousExhibtionDataList.get(position).getLogo());
-                detailsPreviousExhibtion.showExhibtionDetails(previousExhibtionData);
+                PuthesData puthesData=new PuthesData();
+                puthesData.setIdPartion(puthesDataList.get(position).getIdPartion());
+                onClickMultipleChoiceCheckBox.showOnClickMultipleChoiceCheckBoxResult(String.valueOf(puthesData));
             }
-        });*/
+        });
     }
 
     @Override
@@ -75,7 +71,7 @@ public class PuthesAdapter extends RecyclerView.Adapter<PuthesAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private CheckBox checkBox;
+        public CheckBox checkBox;
         private TextView number;
         private TextView area;
         private TextView price;
