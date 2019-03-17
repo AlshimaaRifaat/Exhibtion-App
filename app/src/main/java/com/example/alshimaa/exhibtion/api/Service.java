@@ -14,6 +14,8 @@ import com.example.alshimaa.exhibtion.model.NavigationServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.NewsResponse;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersResponse;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionResponse;
+import com.example.alshimaa.exhibtion.model.PuthesRegisterResponse;
+import com.example.alshimaa.exhibtion.model.PuthesResponse;
 import com.example.alshimaa.exhibtion.model.ServicesProvidedResponse;
 import com.example.alshimaa.exhibtion.model.SponsorResponse;
 
@@ -83,4 +85,10 @@ public interface Service {
 
     @POST("visitors")
     Call<NavigationServiceProviderResponse> getRegisterAsVisitorData(@Body Map<String,String> map);
+
+    @POST("available_partitions")
+    Call<PuthesResponse> getPuthesData(@Body Map<String,String> map);
+
+    @POST("register_viewer_partitions")
+    Call<PuthesRegisterResponse> getPuthesRegisterData(@Body Map<String,String> map);
 }

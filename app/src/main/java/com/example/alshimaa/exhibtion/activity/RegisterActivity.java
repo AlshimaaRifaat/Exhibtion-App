@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity implements NavigationSer
     EditText userNameEtext,userEmailEtext,userPhoneEtext;
 
     NetworkConnection networkConnection;
-Button registerBtn;
+    Button registerBtn;
 
 /*
 Intent intent;

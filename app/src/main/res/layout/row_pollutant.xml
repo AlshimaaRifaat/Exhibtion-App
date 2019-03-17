@@ -7,21 +7,34 @@
     <CheckBox
 
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_height="wrap_content"
         android:checked="false"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        android:id="@+id/row_pollutant_checkbox_name"
+        android:id="@+id/row_pollutant_checkbox"
         android:textColor="#1c98df"
-        android:text="name"/>
+        android:background="#000"
+        />
     <TextView
-        android:id="@+id/row_pollutant_text_size"
+        android:id="@+id/row_pollutant_text_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="num"
+        android:textColor="#1c98df"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="@dimen/_40sdp"
+        android:layout_toEndOf="@id/row_pollutant_checkbox"/>
+
+
+    <TextView
+        android:id="@+id/row_pollutant_text_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="445"
         android:textColor="#1c98df"
         android:layout_centerInParent="true"
-        android:layout_toEndOf="@id/row_pollutant_checkbox_name"/>
+        android:layout_toEndOf="@id/row_pollutant_text_number"/>
+
 
     <TextView
         android:id="@+id/row_pollutant_text_price"
@@ -30,7 +43,7 @@
         android:text="price"
         android:textColor="#1c98df"
         android:layout_centerInParent="true"
-        android:layout_toEndOf="@id/row_pollutant_text_size"
+        android:layout_toEndOf="@id/row_pollutant_text_area"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_10sdp"
