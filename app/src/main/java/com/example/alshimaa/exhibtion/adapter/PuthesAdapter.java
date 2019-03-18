@@ -8,23 +8,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.R;
+import com.example.alshimaa.exhibtion.model.Checkbox_Id;
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
 import com.example.alshimaa.exhibtion.model.PuthesData;
 import com.example.alshimaa.exhibtion.view.DetailsPreviousExhibtion;
 import com.example.alshimaa.exhibtion.view.OnClickMultipleChoiceCheckBox;
 import com.example.alshimaa.exhibtion.view.PuthesView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PuthesAdapter extends RecyclerView.Adapter<PuthesAdapter.ViewHolder> {
     Context context;
     List<PuthesData> puthesDataList;
-
+    public static List<Checkbox_Id> IdList=new ArrayList<>();
    OnClickMultipleChoiceCheckBox onClickMultipleChoiceCheckBox;
 
     public PuthesAdapter(Context context, List<PuthesData> puthesDataList) {
@@ -55,14 +59,44 @@ public class PuthesAdapter extends RecyclerView.Adapter<PuthesAdapter.ViewHolder
         holder.area.setTypeface( customFontRegular );
         holder.price.setTypeface(customFontRegular);
 
-     holder.checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PuthesData puthesData=new PuthesData();
-                puthesData.setIdPartion(puthesDataList.get(position).getIdPartion());
-                onClickMultipleChoiceCheckBox.showOnClickMultipleChoiceCheckBoxResult(String.valueOf(puthesData));
-            }
-        });
+     holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+         @Override
+         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+          if(isChecked){
+              PuthesData puthesData=new PuthesData();
+              puthesData.setIdPartion(puthesDataList.get(position).getIdPartion());
+              if(IdList.isEmpty()) {
+                  Checkbox_Id checkbox_id=new Checkbox_Id();
+                  checkbox_id.setId(puthesDataList.get(position).getIdPartion());
+                  IdList.add(checkbox_id);
+              }else {
+                  int poistion=puthesDataList.get(position).getIdPartion();
+                  for (int i=0;i<IdList.size();i++){
+                      if (IdList.get(i).getId()==poistion){
+                          IdList.remove(i).getId();
+                      }
+                  }
+                  Checkbox_Id checkbox_id=new Checkbox_Id();
+                  checkbox_id.setId(puthesDataList.get(position).getIdPartion());
+                  IdList.add(checkbox_id);
+
+
+              }
+          }else {
+              int poistion=puthesDataList.get(position).getIdPartion();
+              for (int i=0;i<IdList.size();i++){
+                  if (IdList.get(i).getId()==poistion){
+                      IdList.remove(i).getId();
+                  }
+              }
+          }
+
+
+
+//             onClickMultipleChoiceCheckBox.showOnClickMultipleChoiceCheckBoxResult(String.valueOf(puthesData));
+
+         }
+     });
     }
 
     @Override

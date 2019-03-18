@@ -39,7 +39,7 @@ Button registerNowBtn;
 
     PuthesRegisterPresenter puthesRegisterPresenter;
     EditText userNameEtext,userEmailEtext,userPhoneEtext;
-
+     String Id="";
     NetworkConnection networkConnection;
     //Button registerBtn;
     @Override
@@ -62,6 +62,15 @@ Button registerNowBtn;
         FUtilsValidation.isEmpty( userNameEtext,getResources().getString(R.string.Pleasewriteyourname) );
         FUtilsValidation.isEmpty( userEmailEtext,getResources().getString( R.string.Pleasewriteyouremailaddress ));
         FUtilsValidation.isEmpty( userPhoneEtext,getResources().getString( R.string.Pleasewriteyourphone ));
+        for (int i=0;i<PuthesAdapter.IdList.size();i++){
+            int L_Postion=PuthesAdapter.IdList.size()-1;
+            if(L_Postion==i){
+                Id=Id+PuthesAdapter.IdList.get(i).getId();
+            }else {
+                Id=Id+PuthesAdapter.IdList.get(i).getId()+",";
+            }
+        }
+        Toast.makeText(this, Id, Toast.LENGTH_SHORT).show();
 
         NetworkConnection networkConnection=new NetworkConnection( this );
         if (networkConnection.isNetworkAvailable( this ))
@@ -69,11 +78,12 @@ Button registerNowBtn;
             if(!userNameEtext.getText().toString().equals( "" )&&
                     !userEmailEtext.getText().toString().equals( "" )&&
                     !userPhoneEtext.getText().toString().equals("")&&
-                    String.valueOf(RegisterNowActivity.FairId)!=null&&validateEmail()) //  partition id !=null
+                    String.valueOf(RegisterNowActivity.FairId)!=null&&validateEmail()
+                    &&Id!=null) //  partition id !=null
             {
 
                     puthesRegisterPresenter.getPuthesRegisterResult( userNameEtext.getText().toString(),
-                            userEmailEtext.getText().toString(),userPhoneEtext.getText().toString(),String.valueOf(RegisterNowActivity.FairId),"12");
+                            userEmailEtext.getText().toString(),userPhoneEtext.getText().toString(),String.valueOf(RegisterNowActivity.FairId),Id);
 
             }
             else
