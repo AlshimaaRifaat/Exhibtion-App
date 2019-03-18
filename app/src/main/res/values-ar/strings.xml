@@ -62,4 +62,7 @@
     <string name="Visit_the_exhibition">زيار معرض</string>
     <string name="Request_an_Offer">طلب عرض</string>
     <string name="PleaseWriteServiceProvidedType">من فضلك,اكتب نوع الخدمة المقدمة!</string>
+    <string name="pleaseWriteExhibtionLocation">please,Write Exhibtion Location</string>
+    <string name="pleaseleaveYourMessage">please,leave Your Message!</string>
+    <string name="Search_for_a_service_provider">Search for a service provider</string>
 </resources>

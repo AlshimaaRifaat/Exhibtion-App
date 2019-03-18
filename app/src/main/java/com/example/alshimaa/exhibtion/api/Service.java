@@ -5,6 +5,7 @@ import com.example.alshimaa.exhibtion.model.CallUsResponse;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionResponse;
 import com.example.alshimaa.exhibtion.model.EShopResponse;
+import com.example.alshimaa.exhibtion.model.ExhibtionOwnerResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtorsResponse;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
@@ -25,6 +26,7 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.QueryMap;
 
 public interface Service {
     @POST("super_panner")
@@ -91,4 +93,7 @@ public interface Service {
 
     @POST("register_viewer_partitions")
     Call<PuthesRegisterResponse> getPuthesRegisterData(@Body Map<String,String> map);
+
+    @POST("super_OwnerFairRequest")
+    Call<ExhibtionOwnerResponse> getExhibtionOwnerData(@QueryMap Map<String,String> map);
 }

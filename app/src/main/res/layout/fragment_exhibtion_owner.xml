@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         >
         <ImageView
-            android:id="@+id/register_img_logo"
+            android:id="@+id/owner_img_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_logo_splash"
@@ -23,7 +23,7 @@
             android:id="@+id/relative_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/register_img_logo"
+            android:layout_below="@id/owner_img_logo"
             android:layout_marginTop="@dimen/_22sdp"
             >
             <android.support.design.widget.TextInputLayout
@@ -35,7 +35,7 @@
                 android:hint="@string/Exhibtion_Name" >
 
                 <EditText
-                    android:id="@+id/register_edit_text_name"
+                    android:id="@+id/owner_edit_text_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingRight="@dimen/_10sdp"
@@ -63,7 +63,7 @@
                 android:hint="@string/Email" >
 
                 <EditText
-                    android:id="@+id/register_edit_text_email"
+                    android:id="@+id/owner_edit_text_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingRight="@dimen/_10sdp"
@@ -91,7 +91,7 @@
                 >
 
                 <EditText
-                    android:id="@+id/register_edit_text_"
+                    android:id="@+id/owner_edit_text_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -117,7 +117,7 @@
                 android:hint="@string/Exhibtion_Location" >
 
                 <EditText
-                    android:id="@+id/register_edit_text_exhibtion_location"
+                    android:id="@+id/owner_edit_text_exhibtion_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingRight="@dimen/_10sdp"
@@ -146,18 +146,19 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/Start_in" >
 
-                    <EditText
-                        android:id="@+id/register_edit_text_start_date"
+                    <TextView
+                        android:id="@+id/owner_text_start_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/_10sdp"
                         android:inputType="date"
                         android:textColor="#fff"
                         android:drawablePadding="@dimen/_5sdp"
-                        android:drawableStart="@drawable/ic_registeration_cal"/>
+                        android:textSize="@dimen/_14sdp"
+                        android:drawableStart="@drawable/ic_registeration_cal"
+                        android:clickable="true"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
-
         <RelativeLayout
             android:id="@+id/relative_end_date"
             android:layout_width="@dimen/_142sdp"
@@ -173,34 +174,61 @@
 
                 android:hint="@string/Expires_in" >
 
-                <EditText
-                    android:id="@+id/register_edit_text_end_date"
+                <TextView
+                    android:id="@+id/owner_text_end_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingRight="@dimen/_10sdp"
                     android:inputType="date"
                     android:textColor="#fff"
                     android:drawablePadding="@dimen/_5sdp"
-                    android:drawableStart="@drawable/ic_registeration_cal"/>
+                    android:textSize="@dimen/_14sdp"
+                    android:drawableStart="@drawable/ic_registeration_cal"
+                    android:clickable="true"/>
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/relative_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_date"
+            android:layout_marginTop="@dimen/_22sdp"
+            >
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_layout_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_13sdp"
+                android:layout_marginRight="@dimen/_13sdp"
+                android:hint="@string/Message" >
+
+                <EditText
+                    android:id="@+id/owner_edit_text_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:inputType="text"
+                    android:textColor="#fff"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
 
         <android.support.v7.widget.CardView
-            android:id="@+id/register_card_btn_register"
+            android:id="@+id/owner_card_btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_18sdp"
             android:layout_marginRight="@dimen/_18sdp"
-            android:layout_below="@+id/relative_date"
+            android:layout_below="@+id/relative_msg"
             android:background="@drawable/button_visitor"
             android:layout_marginTop="@dimen/_45sdp"
             android:layout_marginBottom="@dimen/_22sdp">
             <Button
-                android:id="@+id/register_btn_register"
+                android:id="@+id/owner_btn_submit"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_52sdp"
                 android:text="@string/Submit"

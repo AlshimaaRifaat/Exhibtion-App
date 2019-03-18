@@ -73,6 +73,9 @@
     <string name="Visit_the_exhibition">Visit the exhibition</string>
     <string name="Request_an_Offer">Request an Offer</string>
     <string name="PleaseWriteServiceProvidedType">Please,write Service provided Type!</string>
+    <string name="pleaseWriteExhibtionLocation">please,Write Exhibtion Location</string>
+    <string name="pleaseleaveYourMessage">please,leave Your Message!</string>
+    <string name="Search_for_a_service_provider">Search for a service provider</string>
 
 
 </resources>

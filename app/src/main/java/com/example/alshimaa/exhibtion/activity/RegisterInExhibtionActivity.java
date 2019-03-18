@@ -39,7 +39,7 @@ Button registerNowBtn;
 
     PuthesRegisterPresenter puthesRegisterPresenter;
     EditText userNameEtext,userEmailEtext,userPhoneEtext;
-     String Id="";
+     String PartitionId="";
     NetworkConnection networkConnection;
     //Button registerBtn;
     @Override
@@ -47,6 +47,8 @@ Button registerNowBtn;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_in_exhibtion);
         init();
+
+
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,15 +64,15 @@ Button registerNowBtn;
         FUtilsValidation.isEmpty( userNameEtext,getResources().getString(R.string.Pleasewriteyourname) );
         FUtilsValidation.isEmpty( userEmailEtext,getResources().getString( R.string.Pleasewriteyouremailaddress ));
         FUtilsValidation.isEmpty( userPhoneEtext,getResources().getString( R.string.Pleasewriteyourphone ));
-        for (int i=0;i<PuthesAdapter.IdList.size();i++){
+       for (int i=0;i<PuthesAdapter.IdList.size();i++){
             int L_Postion=PuthesAdapter.IdList.size()-1;
             if(L_Postion==i){
-                Id=Id+PuthesAdapter.IdList.get(i).getId();
+                PartitionId=PartitionId+PuthesAdapter.IdList.get(i).getId();
             }else {
-                Id=Id+PuthesAdapter.IdList.get(i).getId()+",";
+                PartitionId=PartitionId+PuthesAdapter.IdList.get(i).getId()+",";
             }
         }
-        Toast.makeText(this, Id, Toast.LENGTH_SHORT).show();
+      Toast.makeText(this, PartitionId, Toast.LENGTH_SHORT).show();
 
         NetworkConnection networkConnection=new NetworkConnection( this );
         if (networkConnection.isNetworkAvailable( this ))
@@ -79,11 +81,11 @@ Button registerNowBtn;
                     !userEmailEtext.getText().toString().equals( "" )&&
                     !userPhoneEtext.getText().toString().equals("")&&
                     String.valueOf(RegisterNowActivity.FairId)!=null&&validateEmail()
-                    &&Id!=null) //  partition id !=null
+                    &&PartitionId!=null) //  partition id !=null
             {
 
                     puthesRegisterPresenter.getPuthesRegisterResult( userNameEtext.getText().toString(),
-                            userEmailEtext.getText().toString(),userPhoneEtext.getText().toString(),String.valueOf(RegisterNowActivity.FairId),Id);
+                            userEmailEtext.getText().toString(),userPhoneEtext.getText().toString(),String.valueOf(RegisterNowActivity.FairId),String.valueOf(PartitionId));
 
             }
             else
