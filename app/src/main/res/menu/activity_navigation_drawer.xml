@@ -14,11 +14,15 @@
             android:id="@+id/nav_PreviousExhibitions"
             android:title="@string/PreviousExhibitions" />
         <item
+            android:id="@+id/nav_service_provider"
+            android:title="@string/ServiceProviders" />
+        <item
             android:id="@+id/nav_about_us"
             android:title="@string/AboutUs" />
         <item
             android:id="@+id/nav_contact_us"
             android:title="@string/ContactUs" />
+
    <!--     <item
             android:id="@+id/nav_settings"
             android:title="@string/Settings"/>-->

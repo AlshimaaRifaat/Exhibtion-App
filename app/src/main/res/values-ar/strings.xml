@@ -65,4 +65,5 @@
     <string name="pleaseWriteExhibtionLocation">من فضلك ,اكتب موقع المعرض!</string>
     <string name="pleaseleaveYourMessage">من فضلك ,اترك رسالتك!</string>
     <string name="Search_for_a_service_provider">البحث عن مقدم خدمة</string>
+    <string name="ServiceProviders">Service Providers</string>
 </resources>

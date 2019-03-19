@@ -12,6 +12,7 @@ import com.example.alshimaa.exhibtion.model.HomeSiteOptionResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
 import com.example.alshimaa.exhibtion.model.JopsResponse;
+import com.example.alshimaa.exhibtion.model.NavItemServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.NavigationServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.NewsResponse;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersResponse;
@@ -100,4 +101,7 @@ public interface Service {
 
     @POST("super_site_option")
     Call<HomeSiteOptionResponse> getHomeSiteOptionData();
+
+    @POST("category_provider")
+    Call<NavItemServiceProviderResponse> getNavItemServiceProviderData(@Body Map<String,String> map);
 }

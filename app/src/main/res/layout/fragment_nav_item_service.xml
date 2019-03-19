@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/menu_bg"
+
             >
 
             <!-- <ImageView
@@ -26,13 +27,7 @@
                  android:layout_height="wrap_content"
                  android:background="@drawable/ic_humburger_nav"
                  android:layout_alignParentStart="true"/>-->
-            <!-- <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="@string/Home"
-                 android:textColor="#fff"
-                 android:textSize="@dimen/_13sdp"
-                 />-->
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_97sdp">
@@ -46,6 +41,15 @@
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginEnd="@dimen/_12sdp"
                     android:layout_marginStart="@dimen/_12sdp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ServiceProviders"
+                    android:textColor="#fff"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold"
+                    />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 
