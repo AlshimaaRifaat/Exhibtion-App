@@ -17,7 +17,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.Fragment;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.alshimaa.exhibtion.Language;
+import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.fragment.AboutUsFragment;
 import com.example.alshimaa.exhibtion.fragment.CallUsFragment;
@@ -28,9 +33,15 @@ import com.example.alshimaa.exhibtion.fragment.HomeFragment;
 import com.example.alshimaa.exhibtion.fragment.PreviousExhibitionFragment;
 import com.example.alshimaa.exhibtion.fragment.ServiceProviderFragment;
 import com.example.alshimaa.exhibtion.fragment.SettingsFragment;
+import com.example.alshimaa.exhibtion.model.HomeSiteOptionData;
+import com.example.alshimaa.exhibtion.presenter.AboutUsPresenter;
+import com.example.alshimaa.exhibtion.presenter.HomeSiteOptionPresenter;
+import com.example.alshimaa.exhibtion.view.HomeSiteOptionView;
+
+import java.util.List;
 
 public class NavigationActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,HomeSiteOptionView {
     Fragment fragment;
     private int currentSelectedPosition=0;
     NavigationView navigationView;
@@ -42,6 +53,12 @@ public class NavigationActivity extends AppCompatActivity
     View header;
 
     Button serviceProviderBtn;
+
+    ImageView imageView;
+    TextView titleTxt,emailTxt;
+    HomeSiteOptionPresenter homeSiteOptionPresenter;
+    NetworkConnection networkConnection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +74,10 @@ public class NavigationActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });*/
+
+        networkConnection=new NetworkConnection(this);
+
+
         navigationView=findViewById( R.id.nav_view );
         onNavigationItemSelected( navigationView.getMenu().getItem( 0 ) );
 
@@ -79,6 +100,9 @@ public class NavigationActivity extends AppCompatActivity
 
         header=navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
+        imageView=header.findViewById(R.id.nav_header_image);
+        titleTxt=header.findViewById(R.id.nav_header_text_name);
+        emailTxt=header.findViewById(R.id.nav_header_text_email);
         serviceProviderBtn=header.findViewById( R.id.nav_header_btn_service_provider );
         serviceProviderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +110,17 @@ public class NavigationActivity extends AppCompatActivity
                 goToServiceProviderPage();
             }
         });
-
+        HomeSiteOption();
 
     }
+
+    private void HomeSiteOption() {
+        homeSiteOptionPresenter=new HomeSiteOptionPresenter(this,this);
+        homeSiteOptionPresenter.getHomeSiteOptionResult();
+    }
+
+
+
 
     private void goToServiceProviderPage() {
         drawer.closeDrawer(GravityCompat.START);
@@ -203,6 +235,19 @@ public class NavigationActivity extends AppCompatActivity
 
         }
 */
+
+    }
+
+    @Override
+    public void showHomeSiteOptionResult(List<HomeSiteOptionData> homeSiteOptionDataList) {
+        Glide.with(this).load("http://eelectronicexpo.com"+homeSiteOptionDataList.get(0).getLogo())
+                .into(imageView);
+        titleTxt.setText(homeSiteOptionDataList.get(0).getTilte());
+        emailTxt.setText(homeSiteOptionDataList.get(0).getEmail());
+    }
+
+    @Override
+    public void showError() {
 
     }
 }

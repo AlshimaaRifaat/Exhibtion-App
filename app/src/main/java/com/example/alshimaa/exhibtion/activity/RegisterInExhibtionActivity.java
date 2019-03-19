@@ -24,12 +24,13 @@ import com.example.alshimaa.exhibtion.presenter.PreviousExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.PuthesPresenter;
 import com.example.alshimaa.exhibtion.presenter.PuthesRegisterPresenter;
 import com.example.alshimaa.exhibtion.view.OnClickMultipleChoiceCheckBox;
+import com.example.alshimaa.exhibtion.view.PuthesRegisterView;
 import com.example.alshimaa.exhibtion.view.PuthesView;
 import com.fourhcode.forhutils.FUtilsValidation;
 
 import java.util.List;
 
-public class RegisterInExhibtionActivity extends AppCompatActivity implements PuthesView
+public class RegisterInExhibtionActivity extends AppCompatActivity implements PuthesView,PuthesRegisterView
 ,OnClickMultipleChoiceCheckBox{
 Button registerNowBtn;
 
@@ -49,6 +50,8 @@ Button registerNowBtn;
         init();
 
 
+       // Toast.makeText(this, RegisterNowActivity.FairId, Toast.LENGTH_SHORT).show();
+        puthes();
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +60,8 @@ Button registerNowBtn;
                 performRegisterNow();
             }
         });
-        puthes();
+
+
     }
 
     private void performRegisterNow() {
@@ -72,20 +76,24 @@ Button registerNowBtn;
                 PartitionId=PartitionId+PuthesAdapter.IdList.get(i).getId()+",";
             }
         }
-      Toast.makeText(this, PartitionId, Toast.LENGTH_SHORT).show();
 
+      //Toast.makeText(this, PartitionId, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "fair "+RegisterNowActivity.FairId+"  "+String.valueOf(PartitionId), Toast.LENGTH_SHORT).show();
         NetworkConnection networkConnection=new NetworkConnection( this );
         if (networkConnection.isNetworkAvailable( this ))
         {
             if(!userNameEtext.getText().toString().equals( "" )&&
                     !userEmailEtext.getText().toString().equals( "" )&&
                     !userPhoneEtext.getText().toString().equals("")&&
-                    String.valueOf(RegisterNowActivity.FairId)!=null&&validateEmail()
-                    &&PartitionId!=null) //  partition id !=null
+                   !RegisterNowActivity.FairId.equals("")&&validateEmail()
+                    && !PartitionId.equals("")) //  partition id !=null
             {
-
-                    puthesRegisterPresenter.getPuthesRegisterResult( userNameEtext.getText().toString(),
-                            userEmailEtext.getText().toString(),userPhoneEtext.getText().toString(),String.valueOf(RegisterNowActivity.FairId),String.valueOf(PartitionId));
+                    puthesRegisterPresenter=new PuthesRegisterPresenter(getApplicationContext(),this);
+                    puthesRegisterPresenter.getPuthesRegisterResult( userNameEtext.getText().toString()
+                            ,
+                            userEmailEtext.getText().toString()
+                            ,userPhoneEtext.getText().toString()
+                            ,RegisterNowActivity.FairId,PartitionId);
 
             }
             else
@@ -144,6 +152,11 @@ Button registerNowBtn;
     @Override
     public void showOnClickMultipleChoiceCheckBoxResult(String selectedPosition) {
 
+    }
+
+    @Override
+    public void showPuthesRegisterMsg(String Msg) {
+        Toast.makeText(this, Msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

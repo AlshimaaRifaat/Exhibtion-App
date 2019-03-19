@@ -8,6 +8,7 @@ import com.example.alshimaa.exhibtion.model.EShopResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtionOwnerResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtorsResponse;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
+import com.example.alshimaa.exhibtion.model.HomeSiteOptionResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
 import com.example.alshimaa.exhibtion.model.JopsResponse;
@@ -96,4 +97,7 @@ public interface Service {
 
     @POST("super_OwnerFairRequest")
     Call<ExhibtionOwnerResponse> getExhibtionOwnerData(@QueryMap Map<String,String> map);
+
+    @POST("super_site_option")
+    Call<HomeSiteOptionResponse> getHomeSiteOptionData();
 }
