@@ -10,6 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="@dimen/_117sdp"
         android:background="@drawable/menu_bg"
@@ -42,15 +43,16 @@
 
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/relative2"
         android:layout_width="match_parent"
         android:background="#fff"
         android:layout_below="@+id/relative1"
-        android:layout_height="@dimen/_100sdp">
+        android:layout_height="@dimen/_40sdp">
 
     </RelativeLayout>
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <!--<de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/register_in_exhibtion_logo"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="@dimen/_80sdp"
@@ -60,13 +62,13 @@
         app:civ_border_width="@dimen/_2sdp"
         app:civ_border_color="#cdcdcd"
         android:background="@drawable/ic_menu_user"
-        />
+        />-->
     <RelativeLayout
         android:id="@+id/relative_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/register_in_exhibtion_logo"
-        android:layout_marginTop="@dimen/_22sdp"
+        android:layout_below="@id/relative2"
+
         >
         <android.support.design.widget.TextInputLayout
             android:id="@+id/text_layout_name"
