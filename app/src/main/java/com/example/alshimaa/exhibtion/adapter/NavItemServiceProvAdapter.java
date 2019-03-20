@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
 import com.example.alshimaa.exhibtion.model.NavItemServiceProviderData;
+import com.example.alshimaa.exhibtion.view.OnClickNavItemServiceProvView;
 import com.example.alshimaa.exhibtion.view.OnclickIconHomeUnderConstructView;
 
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
 public class NavItemServiceProvAdapter extends RecyclerView.Adapter<NavItemServiceProvAdapter.ViewHolder> {
     Context context;
     List<NavItemServiceProviderData> navItemServiceProviderDataList;
-   // OnclickIconHomeUnderConstructView onclickIconHomeUnderConstructView;
+    OnClickNavItemServiceProvView onClickNavItemServiceProvView;
 
 
     public NavItemServiceProvAdapter(Context context, List<NavItemServiceProviderData> navItemServiceProviderDataList) {
@@ -29,10 +30,10 @@ public class NavItemServiceProvAdapter extends RecyclerView.Adapter<NavItemServi
         this.navItemServiceProviderDataList = navItemServiceProviderDataList;
     }
 
-    /*public  void onClick(OnclickIconHomeUnderConstructView onclickIconHomeUnderConstructView)
+    public  void onClick(OnClickNavItemServiceProvView onClickNavItemServiceProvView)
         {
-            this.onclickIconHomeUnderConstructView=onclickIconHomeUnderConstructView;
-        }*/
+            this.onClickNavItemServiceProvView=onClickNavItemServiceProvView;
+        }
     @Override
     public NavItemServiceProvAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from( context ).inflate(R.layout.row_nav_item_service_provider,parent,false);
@@ -49,15 +50,12 @@ public class NavItemServiceProvAdapter extends RecyclerView.Adapter<NavItemServi
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
 
-        /*holder.iconRegister.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeUnderConstructData homeUnderConstructData=new HomeUnderConstructData();
-                homeUnderConstructData.setId(homeUnderConstructDataList.get(position).getId());
-                onclickIconHomeUnderConstructView.showOnclickIconHomeUnderConstructDetails(homeUnderConstructData);
-
+                onClickNavItemServiceProvView.showOnClickNavItemServiceProvData(navItemServiceProviderDataList.get(position));
             }
-        });*/
+        });
 
     }
 

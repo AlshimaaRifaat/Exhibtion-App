@@ -4,6 +4,8 @@ import com.example.alshimaa.exhibtion.model.AboutUsResponse;
 import com.example.alshimaa.exhibtion.model.CallUsResponse;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionResponse;
+import com.example.alshimaa.exhibtion.model.DetailsNavItemServiceProvData;
+import com.example.alshimaa.exhibtion.model.DetailsNavItemServiceProvResponse;
 import com.example.alshimaa.exhibtion.model.EShopResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtionOwnerResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtorsResponse;
@@ -104,4 +106,7 @@ public interface Service {
 
     @POST("category_provider")
     Call<NavItemServiceProviderResponse> getNavItemServiceProviderData(@Body Map<String,String> map);
+
+    @POST("category_provider_details")
+    Call<DetailsNavItemServiceProvResponse> getDetailsNavItemServiceProvData(@Body Map<String,String> map);
 }

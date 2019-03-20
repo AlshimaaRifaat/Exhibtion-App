@@ -24,13 +24,15 @@ import com.example.alshimaa.exhibtion.presenter.HomeNewsPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
 import com.example.alshimaa.exhibtion.presenter.NavItemServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.view.NavItemServiceProvView;
+import com.example.alshimaa.exhibtion.view.OnClickNavItemServiceProvView;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NavItemServiceProviderFragment extends Fragment implements NavItemServiceProvView {
+public class NavItemServiceProviderFragment extends Fragment implements NavItemServiceProvView
+,OnClickNavItemServiceProvView{
     Toolbar toolbar;
     NetworkConnection networkConnection;
 
@@ -116,7 +118,7 @@ View view;
     @Override
     public void showNavItemServiceProvList(List<NavItemServiceProviderData> navItemServiceProviderDataList) {
         navItemServiceProvAdapter=new NavItemServiceProvAdapter( getContext(),navItemServiceProviderDataList );
-        //homeUnderConstructAdapter.onClick(this);
+        navItemServiceProvAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerViewProvider.setLayoutManager(linearLayoutManager);
         recyclerViewProvider.setAdapter( navItemServiceProvAdapter );
@@ -125,5 +127,15 @@ View view;
     @Override
     public void showError() {
 
+    }
+
+    @Override
+    public void showOnClickNavItemServiceProvData(NavItemServiceProviderData navItemServiceProviderData) {
+        DetailsNavItemServiceProviderFragment detailsNavItemServiceProviderFragment=new DetailsNavItemServiceProviderFragment();
+        Bundle bundle=new Bundle();
+        bundle.putParcelable("ServiceProviderItem",navItemServiceProviderData);
+        detailsNavItemServiceProviderFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsNavItemServiceProviderFragment)
+                .addToBackStack(null).commit();
     }
 }
