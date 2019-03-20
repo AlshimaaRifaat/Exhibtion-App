@@ -13,9 +13,9 @@
         >
         <ImageView
             android:id="@+id/nav_service_provider_img_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_logo_splash"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/logo_app"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_22sdp"/>
         <RelativeLayout

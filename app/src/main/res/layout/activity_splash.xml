@@ -10,10 +10,10 @@
 
         <ImageView
             android:id="@+id/splash_image_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_210sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_centerInParent="true"
-            android:background="@drawable/ic_logo_splash"
+            android:background="@drawable/logo_app"
 
             />
 

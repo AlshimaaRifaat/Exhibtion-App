@@ -33,11 +33,11 @@
                 android:layout_height="@dimen/_97sdp">
                 <ImageView
                     android:id="@+id/news_img_logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_105sdp"
+                    android:layout_height="@dimen/_22sdp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:background="@drawable/ic_home_logo"
+                    android:background="@drawable/logo_app"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginEnd="@dimen/_12sdp"
                     android:layout_marginStart="@dimen/_12sdp"/>

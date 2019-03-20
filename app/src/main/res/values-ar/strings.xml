@@ -66,4 +66,6 @@
     <string name="pleaseleaveYourMessage">من فضلك ,اترك رسالتك!</string>
     <string name="Search_for_a_service_provider">البحث عن مقدم خدمة</string>
     <string name="ServiceProviders">مقدمى الخدمات</string>
+    <string name="RegisterAsVisitor">سجل كزائر</string>
+    <string name="RegisterAsExhibtor">سجل كعارض</string>
 </resources>

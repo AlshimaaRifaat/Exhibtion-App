@@ -77,6 +77,8 @@
     <string name="pleaseleaveYourMessage">please,leave Your Message!</string>
     <string name="Search_for_a_service_provider">Search for a service provider</string>
     <string name="ServiceProviders">Service Providers</string>
+    <string name="RegisterAsVisitor">Register As a Visitor</string>
+    <string name="RegisterAsExhibtor">Register As an Exhibtor</string>
 
 
 </resources>

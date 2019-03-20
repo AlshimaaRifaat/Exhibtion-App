@@ -23,6 +23,7 @@ import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.YoutubeConfig;
 import com.example.alshimaa.exhibtion.activity.RegisterActivity;
+import com.example.alshimaa.exhibtion.activity.RegisterInExhibtionActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.adapter.ExhibtorsAdapter;
 import com.example.alshimaa.exhibtion.adapter.OrganizersAndServiceProvidersAdapter;
@@ -70,7 +71,7 @@ public class DetailsExhibtionFragment extends Fragment implements
 
    public static Button registerNowBtn;
 
-
+    public static Button registerAsExhibtor;
     Intent intent;
     public DetailsExhibtionFragment() {
         // Required empty public constructor
@@ -111,9 +112,11 @@ View view;
             if(Visiblity.equals("yes"))
             {
                 registerNowBtn.setVisibility(View.VISIBLE);
+                registerAsExhibtor.setVisibility(View.VISIBLE);
             }else
             {
                 registerNowBtn.setVisibility(View.GONE);
+                registerAsExhibtor.setVisibility(View.GONE);
             }
 
         }
@@ -121,8 +124,8 @@ View view;
         Sponsors();
         Exhibtors();
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
+         @Override
+          public void onClick(View v) {
 
         //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
 
@@ -131,10 +134,21 @@ View view;
         i.putExtra("registerFromCurExhib","yes");
         startActivity(i);
         ((Activity) getActivity()).overridePendingTransition(0,0);
-
-
     }
 });
+        registerAsExhibtor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
+
+
+                Intent i = new Intent(getActivity(), RegisterInExhibtionActivity.class);
+                i.putExtra("registerFromCurExhib","yes");
+                startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0,0);
+            }
+        });
 
         return view;
     }
@@ -186,6 +200,7 @@ View view;
         recyclerViewExhibtors=view.findViewById(R.id.details_exhibtion_recycler_exhibtors);
         logo=view.findViewById(R.id.details_exhibtion_logo);
         registerNowBtn=view.findViewById(R.id.details_exhibtion_btn_register);
+        registerAsExhibtor=view.findViewById(R.id.details_exhibtion_btn_exhibtor);
 
 
     }
