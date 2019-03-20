@@ -13,9 +13,9 @@
         <item
             android:id="@+id/nav_PreviousExhibitions"
             android:title="@string/PreviousExhibitions" />
-        <item
+        <!--<item
             android:id="@+id/nav_news"
-            android:title="@string/News" />
+            android:title="@string/News" />-->
         <item
             android:id="@+id/nav_service_provider"
             android:title="@string/ServiceProviders" />

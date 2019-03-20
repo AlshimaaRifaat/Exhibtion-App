@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsFragment extends Fragment implements HomeNewsView {
+public class NewsFragment extends Fragment /*implements HomeNewsView*/ {
 
     RecyclerView recyclerViewNews;
     HomeNewsAdapter homeNewsAdapter;
@@ -36,12 +36,12 @@ View view;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_news, container, false);
-        init();
-        News();
+       /* init();
+        News();*/
         return view;
     }
 
-    private void init() {
+   /* private void init() {
 
         recyclerViewNews=view.findViewById(R.id.news_recycler);
 
@@ -69,5 +69,5 @@ View view;
     @Override
     public void showError() {
 
-    }
+    }*/
 }

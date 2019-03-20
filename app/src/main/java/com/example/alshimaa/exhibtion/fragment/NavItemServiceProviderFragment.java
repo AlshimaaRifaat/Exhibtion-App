@@ -168,7 +168,7 @@ View view;
 
     @Override
     public void showError() {
-
+        Toast.makeText(getContext(), getResources().getString(R.string.NoResultFound), Toast.LENGTH_SHORT).show();
     }
 
     @Override

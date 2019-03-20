@@ -56,7 +56,8 @@ import java.util.TimerTask;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements HomeSliderView,HomeServiceProviderView
-,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,OnclickIconHomeUnderConstructView{
+,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,OnclickIconHomeUnderConstructView
+,HomeNewsView{
     Toolbar toolbar;
 
     NetworkConnection networkConnection;
@@ -90,10 +91,10 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     SwipeRefreshLayout swipeRefreshLayout;
     Typeface customFontBold;
 
-    /*RecyclerView recyclerViewNews;
+    RecyclerView recyclerViewNews;
     HomeNewsAdapter homeNewsAdapter;
     HomeNewsPresenter homeNewsPresenter;
-    TextView newsTxt;*/
+    //TextView newsTxt;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -161,7 +162,7 @@ View view;
         Slider();
         ServiceProvider();
         UnderConstruct();
-       // News();
+         News();
 
        iconSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,7 +176,7 @@ View view;
         return view;
     }
 
-   /* private void News() {
+   private void News() {
         homeNewsPresenter=new HomeNewsPresenter(getContext(),this);
         if (Language.isRTL())
         {
@@ -184,7 +185,7 @@ View view;
         {
             homeNewsPresenter.getHomeNewsResult("en");
         }
-    }*/
+    }
 
     private void swipRefresh() {
         swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_blue_dark );
@@ -273,7 +274,7 @@ View view;
         swipeRefreshLayout=view.findViewById(R.id.home_swip_refresh);
         exhibitionsUnderConstructText=view.findViewById(R.id.home_text_Exhibitions_under_construct);
         serviceProviderText=view.findViewById(R.id.home_text_service_provider);
-       // recyclerViewNews=view.findViewById(R.id.home_recycler_news);
+        recyclerViewNews=view.findViewById(R.id.home_recycler_news);
        // newsTxt=view.findViewById(R.id.home_text_news);
 
     }
@@ -386,7 +387,7 @@ View view;
         swipeRefreshLayout.setRefreshing( false );
     }
 
-  /*  @Override
+    @Override
     public void showHomeNewsList(List<NewsData> newsDataList) {
         homeNewsAdapter=new HomeNewsAdapter( getContext(),newsDataList );
         //homeProductAdapter.onClick(this);
@@ -394,7 +395,7 @@ View view;
         recyclerViewNews.setLayoutManager(linearLayoutManager);
         recyclerViewNews.setAdapter( homeNewsAdapter );
         swipeRefreshLayout.setRefreshing( false );
-    }*/
+    }
 
     @Override
     public void showError() {

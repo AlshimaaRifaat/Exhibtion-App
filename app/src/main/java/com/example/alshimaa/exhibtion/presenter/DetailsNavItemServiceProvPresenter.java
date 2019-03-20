@@ -1,7 +1,9 @@
 package com.example.alshimaa.exhibtion.presenter;
 
 import android.content.Context;
+import android.widget.Toast;
 
+import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.api.Client;
 import com.example.alshimaa.exhibtion.api.Service;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionResponse;
@@ -37,12 +39,16 @@ public class DetailsNavItemServiceProvPresenter {
             public void onResponse(Call<DetailsNavItemServiceProvResponse> call, Response<DetailsNavItemServiceProvResponse> response) {
                 if(response.isSuccessful()) {
                     detailsNavItemServiceProvView.showDetailsNavItemServiceProvList(response.body().getData());
+                }else if(response.code()==404)
+                {
+                    Toast.makeText(context,  "No Result Found" ,Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<DetailsNavItemServiceProvResponse> call, Throwable t) {
                 detailsNavItemServiceProvView.showError();
+
             }
         } );
     }

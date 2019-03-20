@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
@@ -83,6 +84,6 @@ public class DetailsNavItemServiceProviderFragment extends Fragment implements D
 
     @Override
     public void showError() {
-
+        Toast.makeText(getContext(), getResources().getString(R.string.NoResultFound), Toast.LENGTH_SHORT).show();
     }
 }

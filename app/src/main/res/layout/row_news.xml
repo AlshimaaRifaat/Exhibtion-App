@@ -10,10 +10,9 @@
         android:layout_height="wrap_content">
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_55sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_4sdp"
-            android:layout_marginStart="@dimen/_4sdp"
-            android:layout_marginEnd="@dimen/_4sdp"
+
             android:layout_marginBottom="@dimen/_2sdp"
             app:cardBackgroundColor="@android:color/white">
             <RelativeLayout

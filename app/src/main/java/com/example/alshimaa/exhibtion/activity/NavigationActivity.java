@@ -184,10 +184,10 @@ public class NavigationActivity extends AppCompatActivity
                 currentSelectedPosition=2;
                 fragment=new PreviousExhibitionFragment();
                 break;
-            case R.id.nav_news:
+           /* case R.id.nav_news:
                 currentSelectedPosition=3;
                 fragment=new NewsFragment();
-                break;
+                break;*/
             case R.id.nav_service_provider:
                 currentSelectedPosition=4;
                 fragment=new NavItemServiceProviderFragment();
