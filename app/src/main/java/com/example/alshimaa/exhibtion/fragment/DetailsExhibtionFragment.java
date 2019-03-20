@@ -106,7 +106,7 @@ View view;
             address.setText(Address);
           // Toast.makeText(getContext(), UserId, Toast.LENGTH_SHORT).show();
             textToolbar.setText(Title);
-            Glide.with(getContext()).load("http://yallahshare.com"+Logo).into(logo);
+            Glide.with(getContext()).load("http://eelectronicexpo.com"+Logo).into(logo);
 
             if(Visiblity.equals("yes"))
             {

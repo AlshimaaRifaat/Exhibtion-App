@@ -37,6 +37,7 @@ import com.example.alshimaa.exhibtion.presenter.HomeSliderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
 import com.example.alshimaa.exhibtion.presenter.NavItemServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.presenter.SearchHomePresenter;
+import com.example.alshimaa.exhibtion.view.DetailsExhibtionUnderConstructView;
 import com.example.alshimaa.exhibtion.view.HomeNewsView;
 import com.example.alshimaa.exhibtion.view.HomeServiceProviderView;
 import com.example.alshimaa.exhibtion.view.HomeSliderView;
@@ -62,7 +63,7 @@ import java.util.TimerTask;
  */
 public class HomeFragment extends Fragment implements HomeSliderView,NavItemServiceProvView
 ,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,OnclickIconHomeUnderConstructView
-,HomeNewsView{
+,HomeNewsView,DetailsExhibtionUnderConstructView{
     Toolbar toolbar;
 
     NetworkConnection networkConnection;
@@ -362,6 +363,26 @@ View view;
 
     }
 
+    @Override
+    public void showDetailsExhibtionUnderConstruct(HomeUnderConstructData homeUnderConstructData) {
+        DetailsExhibtionFragment detailsExhibtionFragment=new DetailsExhibtionFragment();
+        Bundle bundle=new Bundle(  );
+        bundle.putString( "video_link",homeUnderConstructData.getYoutube());
+        bundle.putString("title",homeUnderConstructData.getTitle());
+        bundle.putString("description",homeUnderConstructData.getDescription());
+        bundle.putString("address",homeUnderConstructData.getAddress());
+        bundle.putString("id",String.valueOf(homeUnderConstructData.getId()));
+        bundle.putString("user_id",homeUnderConstructData.getIdUser());
+       // bundle.putString("logo",homeUnderConstructData.getLogo());
+        bundle.putString("visibilty","yes");
+
+        detailsExhibtionFragment.setArguments(bundle);
+
+        getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                detailsExhibtionFragment )
+                .addToBackStack( null ).commit();
+    }
+
     private class AutoScrollTask extends TimerTask {
         @Override
         public void run() {
@@ -398,6 +419,7 @@ View view;
     public void showHomeUnderConstructList(List<HomeUnderConstructData> homeUnderConstructDataList) {
         homeUnderConstructAdapter=new HomeUnderConstructAdapter( getContext(),homeUnderConstructDataList );
         homeUnderConstructAdapter.onClick(this);
+        homeUnderConstructAdapter.onClickItem(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewUnderConstruct.setLayoutManager(linearLayoutManager);
         recyclerViewUnderConstruct.setAdapter( homeUnderConstructAdapter );
