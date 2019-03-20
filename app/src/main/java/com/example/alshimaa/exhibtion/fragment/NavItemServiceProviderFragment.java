@@ -4,6 +4,7 @@ package com.example.alshimaa.exhibtion.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,6 +39,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class NavItemServiceProviderFragment extends Fragment implements NavItemServiceProvView
+,SwipeRefreshLayout.OnRefreshListener
 ,OnClickNavItemServiceProvView{
     Toolbar toolbar;
     NetworkConnection networkConnection;
@@ -48,6 +50,8 @@ public class NavItemServiceProviderFragment extends Fragment implements NavItemS
 
     ImageView iconSearch;
     EditText searchServiceProvEtext;
+
+    SwipeRefreshLayout swipeRefreshLayout;
     public NavItemServiceProviderFragment() {
         // Required empty public constructor
     }
@@ -59,6 +63,7 @@ View view;
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_nav_item_service, container, false);
          init();
+        swipRefresh();
         networkConnection=new NetworkConnection( getContext() );
 
         NavigationActivity.toggle = new ActionBarDrawerToggle(
@@ -113,6 +118,34 @@ View view;
         return view;
     }
 
+    private void swipRefresh() {
+        swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_blue_dark );
+        swipeRefreshLayout.setEnabled( true );
+        swipeRefreshLayout.setOnRefreshListener( this );
+        swipeRefreshLayout.post( new Runnable() {
+            @Override
+            public void run() {
+                if(networkConnection.isNetworkAvailable( getContext() ))
+                {
+                    swipeRefreshLayout.setRefreshing( true );
+                    if (Language.isRTL())
+                    {
+                        navItemServiceProviderPresenter.getNavItemServiceProviderResult("ar");
+                    }else
+                    {
+                        navItemServiceProviderPresenter.getNavItemServiceProviderResult("en");
+                    }
+
+
+
+                }else
+                {
+                    Toast.makeText(getContext(), getResources().getString(R.string.checkNetworkConnection), Toast.LENGTH_SHORT).show();
+                }
+            }
+        } );
+    }
+
     private void performSearch() {
         if(networkConnection.isNetworkAvailable(getContext())) {
             navItemServiceProviderPresenter = new NavItemServiceProviderPresenter(getContext(), this);
@@ -154,6 +187,7 @@ View view;
         recyclerViewProvider=view.findViewById(R.id.nav_item_service_provider_recycler);
         iconSearch=view.findViewById(R.id.nav_item_service_provider_icon_search);
         searchServiceProvEtext=view.findViewById(R.id.nav_item_service_provider_edit_text_search);
+        swipeRefreshLayout=view.findViewById(R.id.nav_item_service_prov_swip);
 
     }
 
@@ -164,10 +198,12 @@ View view;
         LinearLayoutManager linearLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerViewProvider.setLayoutManager(linearLayoutManager);
         recyclerViewProvider.setAdapter( navItemServiceProvAdapter );
+        swipeRefreshLayout.setRefreshing( false );
     }
 
     @Override
     public void showError() {
+        swipeRefreshLayout.setRefreshing( false );
         Toast.makeText(getContext(), getResources().getString(R.string.NoResultFound), Toast.LENGTH_SHORT).show();
     }
 
@@ -178,11 +214,13 @@ View view;
         LinearLayoutManager linearLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerViewProvider.setLayoutManager(linearLayoutManager);
         recyclerViewProvider.setAdapter( navItemServiceProvAdapter );
+        swipeRefreshLayout.setRefreshing( false );
     }
 
     @Override
     public void showErrorSearch(String Msg) {
         Toast.makeText(getContext(), getResources().getString(R.string.NoResultFound), Toast.LENGTH_SHORT).show();
+        swipeRefreshLayout.setRefreshing(false);
 
     }
 
@@ -194,5 +232,28 @@ View view;
         detailsNavItemServiceProviderFragment.setArguments(bundle);
         getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsNavItemServiceProviderFragment)
                 .addToBackStack(null).commit();
+    }
+
+    @Override
+    public void onRefresh() {
+        if(networkConnection.isNetworkAvailable( getContext() ))
+        {
+            swipeRefreshLayout.setRefreshing( true );
+            navItemServiceProviderPresenter=new NavItemServiceProviderPresenter(getContext(),this);
+            if (Language.isRTL())
+            {
+                navItemServiceProviderPresenter.getNavItemServiceProviderResult("ar");
+            }else
+            {
+                navItemServiceProviderPresenter.getNavItemServiceProviderResult("en");
+            }
+
+
+        }else
+        {
+            Toast.makeText(getContext(), getResources().getString(R.string.checkNetworkConnection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 }
