@@ -21,6 +21,7 @@ import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersRespons
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionResponse;
 import com.example.alshimaa.exhibtion.model.PuthesRegisterResponse;
 import com.example.alshimaa.exhibtion.model.PuthesResponse;
+import com.example.alshimaa.exhibtion.model.SearchNavItemServiceProvResponse;
 import com.example.alshimaa.exhibtion.model.ServicesProvidedResponse;
 import com.example.alshimaa.exhibtion.model.SponsorResponse;
 
@@ -109,4 +110,7 @@ public interface Service {
 
     @POST("category_provider_details")
     Call<DetailsNavItemServiceProvResponse> getDetailsNavItemServiceProvData(@Body Map<String,String> map);
+
+    @POST("category_provider_search")
+    Call<NavItemServiceProviderResponse> getSearchNavItemServiceProvData(@Body Map<String,String> map);
 }
