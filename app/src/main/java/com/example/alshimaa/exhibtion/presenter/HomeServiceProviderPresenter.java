@@ -17,7 +17,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeServiceProviderPresenter {
-    Context context;
+   /* Context context;
     HomeServiceProviderView homeServiceProviderView;
 
     public HomeServiceProviderPresenter(Context context, HomeServiceProviderView homeServiceProviderView) {
@@ -45,5 +45,5 @@ public class HomeServiceProviderPresenter {
                 homeServiceProviderView.showError();
             }
         } );
-    }
+    }*/
 }

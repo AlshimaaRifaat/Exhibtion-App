@@ -37,8 +37,11 @@ public interface Service {
     @POST("super_panner")
     Call<HomeSliderResponse> getHomeSliderData(@Body Map<String,String> map);
 
-    @POST("super_service_providers")
-    Call<HomeServiceProviderResponse> getHomeServiceProviderData(@Body Map<String,String> map);
+   /* @POST("super_service_providers")
+    Call<HomeServiceProviderResponse> getHomeServiceProviderData(@Body Map<String,String> map);*/
+
+    /*@POST("category_provider")
+    Call<NavItemServiceProviderResponse> getHomeServiceProviderData(@Body Map<String,String> map);*/
 
     @POST("super_abouts")
     Call<AboutUsResponse> getAboutUsData(@Body Map<String,String> map);

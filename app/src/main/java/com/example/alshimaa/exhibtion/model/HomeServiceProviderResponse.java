@@ -8,9 +8,9 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class HomeServiceProviderResponse implements Serializable, Parcelable
+public class HomeServiceProviderResponse /*implements Serializable, Parcelable*/
 {
-
+/*
     @SerializedName("data")
     @Expose
     private List<HomeServiceProviderData> data = null;
@@ -79,6 +79,6 @@ public class HomeServiceProviderResponse implements Serializable, Parcelable
 
     public int describeContents() {
         return 0;
-    }
+    }*/
 
 }

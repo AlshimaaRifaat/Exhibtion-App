@@ -7,10 +7,10 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class HomeServiceProviderData implements Serializable, Parcelable
+public class HomeServiceProviderData/* implements Serializable, Parcelable*/
 {
 
-    @SerializedName("img")
+    /*@SerializedName("img")
     @Expose
     private String img;
     @SerializedName("title")
@@ -78,6 +78,6 @@ public class HomeServiceProviderData implements Serializable, Parcelable
 
     public int describeContents() {
         return 0;
-    }
+    }*/
 
 }

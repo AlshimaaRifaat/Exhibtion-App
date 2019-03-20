@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -24,19 +25,23 @@ import com.example.alshimaa.exhibtion.adapter.HomeNewsAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeServiceProviderAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeSliderAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
+import com.example.alshimaa.exhibtion.adapter.NavItemServiceProvAdapter;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderData;
 import com.example.alshimaa.exhibtion.model.HomeSliderData;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
+import com.example.alshimaa.exhibtion.model.NavItemServiceProviderData;
 import com.example.alshimaa.exhibtion.model.NewsData;
 import com.example.alshimaa.exhibtion.presenter.HomeNewsPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeSliderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
+import com.example.alshimaa.exhibtion.presenter.NavItemServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.presenter.SearchHomePresenter;
 import com.example.alshimaa.exhibtion.view.HomeNewsView;
 import com.example.alshimaa.exhibtion.view.HomeServiceProviderView;
 import com.example.alshimaa.exhibtion.view.HomeSliderView;
 import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
+import com.example.alshimaa.exhibtion.view.NavItemServiceProvView;
 import com.example.alshimaa.exhibtion.view.OnclickIconHomeUnderConstructView;
 
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -55,7 +60,7 @@ import java.util.TimerTask;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements HomeSliderView,HomeServiceProviderView
+public class HomeFragment extends Fragment implements HomeSliderView,NavItemServiceProvView
 ,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,OnclickIconHomeUnderConstructView
 ,HomeNewsView{
     Toolbar toolbar;
@@ -73,9 +78,10 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     boolean end;
 
 
-    RecyclerView recyclerViewServiceProvider;
+    /*RecyclerView recyclerViewServiceProvider;
     HomeServiceProviderAdapter homeServiceProviderAdapter;
-    HomeServiceProviderPresenter homeServiceProviderPresenter;
+    HomeServiceProviderPresenter homeServiceProviderPresenter;*/
+
 
     RecyclerView recyclerViewUnderConstruct;
     HomeUnderConstructAdapter homeUnderConstructAdapter;
@@ -95,6 +101,11 @@ public class HomeFragment extends Fragment implements HomeSliderView,HomeService
     HomeNewsAdapter homeNewsAdapter;
     HomeNewsPresenter homeNewsPresenter;
     //TextView newsTxt;
+
+
+    RecyclerView recyclerViewProvider;
+    HomeServiceProviderAdapter homeServiceProviderAdapter;
+    NavItemServiceProviderPresenter navItemServiceProviderPresenter;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -160,10 +171,10 @@ View view;
         networkConnection=new NetworkConnection( getContext() );
 
         Slider();
-        ServiceProvider();
+
         UnderConstruct();
          News();
-
+        serviceProvider();
        iconSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,7 +187,18 @@ View view;
         return view;
     }
 
-   private void News() {
+    private void serviceProvider() {
+        navItemServiceProviderPresenter=new NavItemServiceProviderPresenter(getContext(),this);
+        if (Language.isRTL())
+        {
+            navItemServiceProviderPresenter.getNavItemServiceProviderResult("ar");
+        }else
+        {
+            navItemServiceProviderPresenter.getNavItemServiceProviderResult("en");
+        }
+    }
+
+    private void News() {
         homeNewsPresenter=new HomeNewsPresenter(getContext(),this);
         if (Language.isRTL())
         {
@@ -209,11 +231,12 @@ View view;
                         homeUnderConstructPresenter.getHomeUnderConstructResult("en");
                     }
 
-                    if(Language.isRTL()) {
-                        homeServiceProviderPresenter.getHomeServiceResult("ar");
+                    if (Language.isRTL())
+                    {
+                        navItemServiceProviderPresenter.getNavItemServiceProviderResult("ar");
                     }else
                     {
-                        homeServiceProviderPresenter.getHomeServiceResult("en");
+                        navItemServiceProviderPresenter.getNavItemServiceProviderResult("en");
                     }
                 }else
                 {
@@ -251,22 +274,15 @@ View view;
         }
     }
 
-    private void ServiceProvider() {
-        homeServiceProviderPresenter=new HomeServiceProviderPresenter(getContext(),this);
-        if(Language.isRTL()) {
-            homeServiceProviderPresenter.getHomeServiceResult("ar");
-        }else
-        {
-            homeServiceProviderPresenter.getHomeServiceResult("en");
-        }
-    }
+
 
 
     private void init() {
 
         toolbar=view.findViewById(R.id.home_toolbar);
        recyclerViewHomeSlider=view.findViewById(R.id.home_recycler_slider);
-       recyclerViewServiceProvider=view.findViewById(R.id.home_recycler_service_provider);
+       recyclerViewProvider=view.findViewById(R.id.home_recycler_service_provider);
+
        recyclerViewUnderConstruct=view.findViewById(R.id.home_recycler_Exhibitions_under_construct);
 
         searchHomeExhibtionEtext=view.findViewById(R.id.home_edit_text_search);
@@ -322,11 +338,12 @@ View view;
                 homeUnderConstructPresenter.getHomeUnderConstructResult("en");
             }
 
-            if(Language.isRTL()) {
-                homeServiceProviderPresenter.getHomeServiceResult("ar");
+            if (Language.isRTL())
+            {
+                navItemServiceProviderPresenter.getNavItemServiceProviderResult("ar");
             }else
             {
-                homeServiceProviderPresenter.getHomeServiceResult("en");
+                navItemServiceProviderPresenter.getNavItemServiceProviderResult("en");
             }
 
         }else
@@ -367,15 +384,15 @@ View view;
         }
     }
 
-    @Override
+   /* @Override
     public void showHomeServiceProviderList(List<HomeServiceProviderData> homeServiceProviderDataList) {
-        homeServiceProviderAdapter=new HomeServiceProviderAdapter( getContext(),homeServiceProviderDataList );
+       *//* homeServiceProviderAdapter=new HomeServiceProviderAdapter( getContext(),homeServiceProviderDataList );
         //homeProductAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewServiceProvider.setLayoutManager(linearLayoutManager);
-        recyclerViewServiceProvider.setAdapter( homeServiceProviderAdapter );
-        swipeRefreshLayout.setRefreshing( false );
-    }
+        recyclerViewServiceProvider.setAdapter( homeServiceProviderAdapter );*//*
+
+    }*/
 
     @Override
     public void showHomeUnderConstructList(List<HomeUnderConstructData> homeUnderConstructDataList) {
@@ -398,7 +415,27 @@ View view;
     }
 
     @Override
+    public void showNavItemServiceProvList(List<NavItemServiceProviderData> navItemServiceProviderDataList) {
+        homeServiceProviderAdapter=new HomeServiceProviderAdapter( getContext(),navItemServiceProviderDataList );
+       // navItemServiceProvAdapter.onClick(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewProvider.setLayoutManager(linearLayoutManager);
+        recyclerViewProvider.setAdapter( homeServiceProviderAdapter );
+        swipeRefreshLayout.setRefreshing( false );
+    }
+
+    @Override
     public void showError() {
         swipeRefreshLayout.setRefreshing( false );
+    }
+
+    @Override
+    public void showSearchNavItemServiceProvList(List<NavItemServiceProviderData> navItemServiceProviderData) {
+
+    }
+
+    @Override
+    public void showErrorSearch(String Msg) {
+
     }
 }
