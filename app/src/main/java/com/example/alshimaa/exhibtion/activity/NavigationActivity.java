@@ -69,6 +69,18 @@ public class NavigationActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        shared=getSharedPreferences("Language",MODE_PRIVATE);
+        Lan=shared.getString("Lann",null);
+
+        if(Lan!=null) {
+            Locale locale = new Locale(Lan);
+            Locale.setDefault(locale);
+            Configuration config = new Configuration();
+            config.locale = locale;
+            getBaseContext().getResources().updateConfiguration(config,
+                    getBaseContext().getResources().getDisplayMetrics());
+        }
         setContentView(R.layout.activity_navigation);
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
@@ -84,8 +96,6 @@ public class NavigationActivity extends AppCompatActivity
 
         networkConnection=new NetworkConnection(this);
 
-        shared=getSharedPreferences("Language",MODE_PRIVATE);
-        Lan=shared.getString("Lann",null);
 
 
         navigationView=findViewById( R.id.nav_view );
@@ -121,14 +131,7 @@ public class NavigationActivity extends AppCompatActivity
             }
         });
 
-        if(Lan!=null) {
-            Locale locale = new Locale(Lan);
-            Locale.setDefault(locale);
-            Configuration config = new Configuration();
-            config.locale = locale;
-            getBaseContext().getResources().updateConfiguration(config,
-                    getBaseContext().getResources().getDisplayMetrics());
-        }
+
 
         HomeSiteOption();
 
