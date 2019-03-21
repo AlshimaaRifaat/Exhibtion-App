@@ -26,6 +26,10 @@
             android:id="@+id/nav_contact_us"
             android:title="@string/ContactUs" />
 
+        <item
+            android:id="@+id/nav_change_language"
+            android:title="@string/ChangeLanguage" />
+
    <!--     <item
             android:id="@+id/nav_settings"
             android:title="@string/Settings"/>-->

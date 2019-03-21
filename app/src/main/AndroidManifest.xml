@@ -30,9 +30,11 @@
         <activity
             android:name=".activity.RegisterNowActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
-
         <activity android:name=".activity.RegisterInExhibtionActivity" />
-        <activity android:name=".activity.ConfirmRegisterNowActivity"
+        <activity
+            android:name=".activity.ConfirmRegisterNowActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".activity.ChangeLanguageActivity"
             android:theme="@style/Theme.AppCompat.Dialog"></activity>
     </application>
 

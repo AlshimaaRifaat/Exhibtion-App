@@ -1,6 +1,8 @@
 package com.example.alshimaa.exhibtion.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -41,6 +43,7 @@ import com.example.alshimaa.exhibtion.presenter.HomeSiteOptionPresenter;
 import com.example.alshimaa.exhibtion.view.HomeSiteOptionView;
 
 import java.util.List;
+import java.util.Locale;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,HomeSiteOptionView {
@@ -61,6 +64,8 @@ public class NavigationActivity extends AppCompatActivity
     HomeSiteOptionPresenter homeSiteOptionPresenter;
     NetworkConnection networkConnection;
 
+    SharedPreferences shared;
+    String Lan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +83,9 @@ public class NavigationActivity extends AppCompatActivity
         });*/
 
         networkConnection=new NetworkConnection(this);
+
+        shared=getSharedPreferences("Language",MODE_PRIVATE);
+        Lan=shared.getString("Lann",null);
 
 
         navigationView=findViewById( R.id.nav_view );
@@ -112,6 +120,16 @@ public class NavigationActivity extends AppCompatActivity
                 goToServiceProviderPage();
             }
         });
+
+        if(Lan!=null) {
+            Locale locale = new Locale(Lan);
+            Locale.setDefault(locale);
+            Configuration config = new Configuration();
+            config.locale = locale;
+            getBaseContext().getResources().updateConfiguration(config,
+                    getBaseContext().getResources().getDisplayMetrics());
+        }
+
         HomeSiteOption();
 
     }
@@ -201,8 +219,11 @@ public class NavigationActivity extends AppCompatActivity
                 fragment=new CallUsFragment();
                 break;
 
+            case R.id.nav_change_language:
+                currentSelectedPosition=7;
+                startActivity(new Intent(this, ChangeLanguageActivity.class));
 
-
+                break;
            /* case R.id.nav_exhibtion_owner:
                 currentSelectedPosition=5;
                 fragment=new ExhibtionOwnerFragment();

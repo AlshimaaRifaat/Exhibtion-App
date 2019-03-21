@@ -79,6 +79,7 @@
     <string name="ServiceProviders">Service Providers</string>
     <string name="RegisterAsVisitor">Register As a Visitor</string>
     <string name="RegisterAsExhibtor">Register As an Exhibtor</string>
+    <string name="ChangeLanguage">Change Language</string>
 
 
 </resources>

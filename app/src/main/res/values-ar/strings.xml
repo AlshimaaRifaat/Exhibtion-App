@@ -68,4 +68,5 @@
     <string name="ServiceProviders">مقدمى الخدمات</string>
     <string name="RegisterAsVisitor">سجل كزائر</string>
     <string name="RegisterAsExhibtor">سجل كعارض</string>
+    <string name="ChangeLanguage">تغيير اللغه</string>
 </resources>
