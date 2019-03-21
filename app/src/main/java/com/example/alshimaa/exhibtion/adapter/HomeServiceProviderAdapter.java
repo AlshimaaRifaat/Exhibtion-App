@@ -21,7 +21,7 @@ import java.util.List;
 public class HomeServiceProviderAdapter  extends RecyclerView.Adapter<HomeServiceProviderAdapter.ViewHolder> {
         Context context;
         List<NavItemServiceProviderData> navItemServiceProviderDataList;
-        OnClickNavItemServiceProvView onClickNavItemServiceProvView;
+        /*OnClickNavItemServiceProvView onClickNavItemServiceProvView;*/
 
 
     public HomeServiceProviderAdapter(Context context, List<NavItemServiceProviderData> navItemServiceProviderDataList) {
@@ -29,10 +29,10 @@ public class HomeServiceProviderAdapter  extends RecyclerView.Adapter<HomeServic
         this.navItemServiceProviderDataList = navItemServiceProviderDataList;
     }
 
-    public  void onClick(OnClickNavItemServiceProvView onClickNavItemServiceProvView)
+   /* public  void onClick(OnClickNavItemServiceProvView onClickNavItemServiceProvView)
         {
         this.onClickNavItemServiceProvView=onClickNavItemServiceProvView;
-        }
+        }*/
 @Override
 public HomeServiceProviderAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from( context ).inflate(R.layout.row_home_service_provider,parent,false);
@@ -49,12 +49,12 @@ public void onBindViewHolder(@NonNull HomeServiceProviderAdapter.ViewHolder hold
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+       /* holder.itemView.setOnClickListener(new View.OnClickListener() {
 @Override
 public void onClick(View v) {
         onClickNavItemServiceProvView.showOnClickNavItemServiceProvData(navItemServiceProviderDataList.get(position));
         }
-        });
+        });*/
 
         }
 
