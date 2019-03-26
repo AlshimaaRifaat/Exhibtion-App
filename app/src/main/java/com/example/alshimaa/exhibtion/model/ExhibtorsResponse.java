@@ -1,5 +1,6 @@
 package com.example.alshimaa.exhibtion.model;
 
+
 import java.io.Serializable;
 import java.util.List;
 import android.os.Parcel;

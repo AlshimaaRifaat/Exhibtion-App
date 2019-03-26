@@ -62,7 +62,7 @@ public interface Service {
     Call<SponsorResponse> getSponsorData(@Body Map<String,String> map);
 
     @POST("exhibitors")
-    Call<ExhibtorsResponse> getExhibtorsData(@Body Map<String,String> map);
+    Call<ExhibtorsResponse> getExhibtorsData(@QueryMap Map<String,String> map);
 
 
     @POST("search_current_fair")

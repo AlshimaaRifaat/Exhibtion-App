@@ -222,23 +222,16 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
                     swipeRefreshLayout.setRefreshing( true );
                     if(Language.isRTL()) {
                         homeSliderPresenter.getHomeSliderResult("ar");
+                        homeUnderConstructPresenter.getHomeUnderConstructResult("ar");
+                        navItemServiceProviderPresenter.getNavItemServiceProviderResult("ar");
+
                     }else {
                         homeSliderPresenter.getHomeSliderResult("en");
-                    }
-
-                    if(Language.isRTL()) {
-                        homeUnderConstructPresenter.getHomeUnderConstructResult("ar");
-                    }else {
                         homeUnderConstructPresenter.getHomeUnderConstructResult("en");
+                        navItemServiceProviderPresenter.getNavItemServiceProviderResult("en");
+
                     }
 
-                    if (Language.isRTL())
-                    {
-                        navItemServiceProviderPresenter.getNavItemServiceProviderResult("ar");
-                    }else
-                    {
-                        navItemServiceProviderPresenter.getNavItemServiceProviderResult("en");
-                    }
                 }else
                 {
                     Toast.makeText(getContext(), getResources().getString(R.string.checkNetworkConnection), Toast.LENGTH_SHORT).show();
@@ -374,7 +367,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         bundle.putString("id",String.valueOf(homeUnderConstructData.getId()));
         bundle.putString("user_id",homeUnderConstructData.getIdUser());
         // bundle.putString("logo",homeUnderConstructData.getLogo());
-        bundle.putString("visibilty","yes");
+        bundle.putString("visibilty","no");
 
         detailsExhibtionFragment.setArguments(bundle);
 

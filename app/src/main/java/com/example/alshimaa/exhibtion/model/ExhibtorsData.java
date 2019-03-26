@@ -4,12 +4,10 @@ import java.io.Serializable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
-
-import com.example.alshimaa.exhibtion.presenter.ExhibtorsPresenter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ExhibtorsData implements  Parcelable
+public class ExhibtorsData implements Serializable, Parcelable
 {
 
     @SerializedName("id_exhibitor")
@@ -52,17 +50,17 @@ public class ExhibtorsData implements  Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -674064692630264908L;
+    private final static long serialVersionUID = -4107634401419183870L;
 
     protected ExhibtorsData(Parcel in) {
         this.idExhibitor = ((int) in.readValue((int.class.getClassLoader())));
         this.name = ((String) in.readValue((String.class.getClassLoader())));
         this.email = ((String) in.readValue((String.class.getClassLoader())));
-        this.websiteLink = ((String) in.readValue((String.class.getClassLoader())));
-        this.youtubeLink = ((String) in.readValue((String.class.getClassLoader())));
+        this.websiteLink = ((String) in.readValue((Object.class.getClassLoader())));
+        this.youtubeLink = ((String) in.readValue((boolean.class.getClassLoader())));
         this.address = ((String) in.readValue((String.class.getClassLoader())));
         this.img2 = ((String) in.readValue((String.class.getClassLoader())));
-        this.phone = ((String) in.readValue((String.class.getClassLoader())));
+        this.phone = ((String) in.readValue((Object.class.getClassLoader())));
     }
 
     public ExhibtorsData() {

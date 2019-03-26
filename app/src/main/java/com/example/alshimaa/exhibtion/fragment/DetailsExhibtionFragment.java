@@ -51,7 +51,7 @@ public class DetailsExhibtionFragment extends Fragment implements
 {
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-   public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity;
+   public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity,UserId_underConstruct;
     TextView title,description,address;
     ImageView logo;
 
@@ -116,7 +116,8 @@ View view;
             {
                 registerNowBtn.setVisibility(View.VISIBLE);
                 registerAsExhibtor.setVisibility(View.VISIBLE);
-            }else
+            }
+            else
             {
                 registerNowBtn.setVisibility(View.GONE);
                 registerAsExhibtor.setVisibility(View.GONE);
@@ -160,6 +161,7 @@ View view;
 
     private void Exhibtors() {
         exhibtorsPresenter=new ExhibtorsPresenter(getContext(),this);
+
         if(Language.isRTL()) {
             exhibtorsPresenter.getExhibtorsResult("ar", UserId); //id user
         }else {
