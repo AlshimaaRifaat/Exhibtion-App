@@ -8,10 +8,10 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SponsorResponse /*implements Serializable, Parcelable*/
+public class SponsorResponse implements Serializable, Parcelable
 {
 
-   /* @SerializedName("data")
+    @SerializedName("data")
     @Expose
     private List<SponsorData> data = null;
     @SerializedName("status")
@@ -79,6 +79,6 @@ public class SponsorResponse /*implements Serializable, Parcelable*/
 
     public int describeContents() {
         return 0;
-    }*/
+    }
 
 }

@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
 
     public static EditText searchHomeExhibtionEtext;
     public static ImageView iconSearch;
-   // public String KeySearchHome;
+    // public String KeySearchHome;
     TextView exhibitionsUnderConstructText,serviceProviderText;
     SwipeRefreshLayout swipeRefreshLayout;
     Typeface customFontBold;
@@ -111,7 +111,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         // Required empty public constructor
     }
 
-View view;
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -174,12 +174,12 @@ View view;
         Slider();
 
         UnderConstruct();
-         News();
+        News();
         serviceProvider();
-       iconSearch.setOnClickListener(new View.OnClickListener() {
+        iconSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               sendKeySearch();
+                sendKeySearch();
 
             }
         });
@@ -253,7 +253,7 @@ View view;
             /**
              *   You can Toast a message here that the Username is Empty
              **/
-           searchHomeExhibtionEtext.setError(getResources().getString(R.string.Key_search_is_required) );
+            searchHomeExhibtionEtext.setError(getResources().getString(R.string.Key_search_is_required) );
 
         }else {
             Bundle bundle = new Bundle();
@@ -281,10 +281,10 @@ View view;
     private void init() {
 
         toolbar=view.findViewById(R.id.home_toolbar);
-       recyclerViewHomeSlider=view.findViewById(R.id.home_recycler_slider);
-       recyclerViewProvider=view.findViewById(R.id.home_recycler_service_provider);
+        recyclerViewHomeSlider=view.findViewById(R.id.home_recycler_slider);
+        recyclerViewProvider=view.findViewById(R.id.home_recycler_service_provider);
 
-       recyclerViewUnderConstruct=view.findViewById(R.id.home_recycler_Exhibitions_under_construct);
+        recyclerViewUnderConstruct=view.findViewById(R.id.home_recycler_Exhibitions_under_construct);
 
         searchHomeExhibtionEtext=view.findViewById(R.id.home_edit_text_search);
         iconSearch=view.findViewById(R.id.home_icon_search);
@@ -292,7 +292,7 @@ View view;
         exhibitionsUnderConstructText=view.findViewById(R.id.home_text_Exhibitions_under_construct);
         serviceProviderText=view.findViewById(R.id.home_text_service_provider);
         recyclerViewNews=view.findViewById(R.id.home_recycler_news);
-       // newsTxt=view.findViewById(R.id.home_text_news);
+        // newsTxt=view.findViewById(R.id.home_text_news);
 
     }
     private void Slider() {
@@ -317,7 +317,7 @@ View view;
             Timer timer = new Timer();
             timer.scheduleAtFixedRate( new AutoScrollTask(), 4000, 7000 );
         }
-     swipeRefreshLayout.setRefreshing( false );
+        swipeRefreshLayout.setRefreshing( false );
 
 
     }
@@ -351,13 +351,13 @@ View view;
         {
             Toast.makeText(getContext(), getResources().getString(R.string.checkNetworkConnection), Toast.LENGTH_SHORT).show();
         }
-        
+
     }
 
     @Override
     public void showOnclickIconHomeUnderConstructDetails(HomeUnderConstructData homeUnderConstructData) {
         Intent intent=new Intent(getActivity(),RegisterNowActivity.class);
-      //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
         intent.putExtra("fair_id",String.valueOf(homeUnderConstructData.getId()));
         getActivity().startActivity(intent);
 
@@ -373,7 +373,7 @@ View view;
         bundle.putString("address",homeUnderConstructData.getAddress());
         bundle.putString("id",String.valueOf(homeUnderConstructData.getId()));
         bundle.putString("user_id",homeUnderConstructData.getIdUser());
-       // bundle.putString("logo",homeUnderConstructData.getLogo());
+        // bundle.putString("logo",homeUnderConstructData.getLogo());
         bundle.putString("visibilty","yes");
 
         detailsExhibtionFragment.setArguments(bundle);
@@ -439,9 +439,9 @@ View view;
     @Override
     public void showNavItemServiceProvList(List<NavItemServiceProviderData> navItemServiceProviderDataList) {
         homeServiceProviderAdapter=new HomeServiceProviderAdapter( getContext(),navItemServiceProviderDataList );
-       // navItemServiceProvAdapter.onClick(this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-        recyclerViewProvider.setLayoutManager(linearLayoutManager);
+        // navItemServiceProvAdapter.onClick(this);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+        recyclerViewProvider.setLayoutManager(gridLayoutManager);
         recyclerViewProvider.setAdapter( homeServiceProviderAdapter );
         swipeRefreshLayout.setRefreshing( false );
     }

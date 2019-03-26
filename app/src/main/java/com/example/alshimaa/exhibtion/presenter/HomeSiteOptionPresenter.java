@@ -17,7 +17,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeSiteOptionPresenter {
-    Context context;
+    /*Context context;
     HomeSiteOptionView homeSiteOptionView;
 
     public HomeSiteOptionPresenter(Context context, HomeSiteOptionView homeSiteOptionView) {
@@ -44,5 +44,5 @@ public class HomeSiteOptionPresenter {
                 homeSiteOptionView.showError();
             }
         } );
-    }
+    }*/
 }

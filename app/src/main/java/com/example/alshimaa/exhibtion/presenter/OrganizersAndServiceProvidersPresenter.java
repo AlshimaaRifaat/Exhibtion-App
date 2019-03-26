@@ -55,17 +55,17 @@ public class OrganizersAndServiceProvidersPresenter {
         map.put("lang",Lang);
         map.put("id_fair",Id_Fair);
         Service service = Client.getClient().create( Service.class );
-        Call<OrganizersAndServiceProvidersResponse> call = service.getSponsorData(map );
-        call.enqueue( new Callback<OrganizersAndServiceProvidersResponse>() {
+        Call<SponsorResponse> call = service.getSponsorData(map );
+        call.enqueue( new Callback<SponsorResponse>() {
             @Override
-            public void onResponse(Call<OrganizersAndServiceProvidersResponse> call, Response<OrganizersAndServiceProvidersResponse> response) {
+            public void onResponse(Call<SponsorResponse> call, Response<SponsorResponse> response) {
                 if(response.isSuccessful()) {
                    organizersAndServiceProvidersView.showSponsorData(response.body().getData());
                 }
             }
 
             @Override
-            public void onFailure(Call<OrganizersAndServiceProvidersResponse> call, Throwable t) {
+            public void onFailure(Call<SponsorResponse> call, Throwable t) {
 
                 organizersAndServiceProvidersView.showError();
             }

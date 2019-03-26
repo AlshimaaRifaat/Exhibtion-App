@@ -6,6 +6,6 @@ import com.example.alshimaa.exhibtion.model.HomeSiteOptionResponse;
 import java.util.List;
 
 public interface HomeSiteOptionView {
-    void showHomeSiteOptionResult(List<HomeSiteOptionData> homeSiteOptionDataList);
-    void showError();
+   /* void showHomeSiteOptionResult(List<HomeSiteOptionData> homeSiteOptionDataList);
+    void showError();*/
 }

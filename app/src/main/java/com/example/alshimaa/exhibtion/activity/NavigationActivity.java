@@ -46,7 +46,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class NavigationActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,HomeSiteOptionView {
+        implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment;
     private int currentSelectedPosition=0;
     NavigationView navigationView;
@@ -59,9 +59,9 @@ public class NavigationActivity extends AppCompatActivity
 
     Button serviceProviderBtn;
 
-    ImageView imageView;
+    /*ImageView imageView;
     TextView titleTxt,emailTxt;
-    HomeSiteOptionPresenter homeSiteOptionPresenter;
+    HomeSiteOptionPresenter homeSiteOptionPresenter;*/
     NetworkConnection networkConnection;
 
     SharedPreferences shared;
@@ -69,21 +69,9 @@ public class NavigationActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        shared=getSharedPreferences("Language",MODE_PRIVATE);
-        Lan=shared.getString("Lann",null);
-
-        if(Lan!=null) {
-            Locale locale = new Locale(Lan);
-            Locale.setDefault(locale);
-            Configuration config = new Configuration();
-            config.locale = locale;
-            getBaseContext().getResources().updateConfiguration(config,
-                    getBaseContext().getResources().getDisplayMetrics());
-        }
         setContentView(R.layout.activity_navigation);
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
+        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // setSupportActionBar(toolbar);
 
        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +84,14 @@ public class NavigationActivity extends AppCompatActivity
 
         networkConnection=new NetworkConnection(this);
 
+        shared=getSharedPreferences("Language",MODE_PRIVATE);
+        Lan=shared.getString("Lann",null);
 
 
         navigationView=findViewById( R.id.nav_view );
         onNavigationItemSelected( navigationView.getMenu().getItem( 0 ) );
 
-         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -118,11 +108,11 @@ public class NavigationActivity extends AppCompatActivity
             }
         });
 
-        header=navigationView.getHeaderView(0);
+       /* header=navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
         imageView=header.findViewById(R.id.nav_header_image);
         titleTxt=header.findViewById(R.id.nav_header_text_name);
-        emailTxt=header.findViewById(R.id.nav_header_text_email);
+        emailTxt=header.findViewById(R.id.nav_header_text_email);*/
         serviceProviderBtn=header.findViewById( R.id.nav_header_btn_service_provider );
         serviceProviderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,16 +121,23 @@ public class NavigationActivity extends AppCompatActivity
             }
         });
 
+        if(Lan!=null) {
+            Locale locale = new Locale(Lan);
+            Locale.setDefault(locale);
+            Configuration config = new Configuration();
+            config.locale = locale;
+            getBaseContext().getResources().updateConfiguration(config,
+                    getBaseContext().getResources().getDisplayMetrics());
+        }
 
-
-        HomeSiteOption();
+        /* HomeSiteOption();*/
 
     }
 
-    private void HomeSiteOption() {
+  /*  private void HomeSiteOption() {
         homeSiteOptionPresenter=new HomeSiteOptionPresenter(this,this);
         homeSiteOptionPresenter.getHomeSiteOptionResult();
-    }
+    }*/
 
 
 
@@ -191,7 +188,7 @@ public class NavigationActivity extends AppCompatActivity
 
         // Handle navigation view item clicks here.
         switch (item.getItemId()){
-           case  R.id.nav_Home:
+            case  R.id.nav_Home:
                 currentSelectedPosition=0;
                 fragment=new HomeFragment();
                 break;
@@ -217,7 +214,7 @@ public class NavigationActivity extends AppCompatActivity
                 currentSelectedPosition=5;
                 fragment=new AboutUsFragment();
                 break;
-        case R.id.nav_contact_us:
+            case R.id.nav_contact_us:
                 currentSelectedPosition=6;
                 fragment=new CallUsFragment();
                 break;
@@ -274,7 +271,7 @@ public class NavigationActivity extends AppCompatActivity
 
     }
 
-    @Override
+   /* @Override
     public void showHomeSiteOptionResult(List<HomeSiteOptionData> homeSiteOptionDataList) {
         Glide.with(this).load("http://eelectronicexpo.com"+homeSiteOptionDataList.get(0).getLogo())
                 .into(imageView);
@@ -285,5 +282,5 @@ public class NavigationActivity extends AppCompatActivity
     @Override
     public void showError() {
 
-    }
+    }*/
 }

@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface OrganizersAndServiceProvidersView {
     void showOrganizersAndServiceProvidersList(List<OrganizersAndServiceProvidersData> organizersAndServiceProvidersDataList);
-    void  showSponsorData(List<OrganizersAndServiceProvidersData> organizersAndServiceProvidersDataList);
+    void  showSponsorData(List<SponsorData> sponsorDataList);
     void showError();
 }

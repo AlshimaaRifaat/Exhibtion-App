@@ -7,18 +7,18 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SponsorData   /*implements  Parcelable*/
+public class SponsorData implements Serializable, Parcelable
 {
 
-   /* @SerializedName("id")
+    @SerializedName("id")
     @Expose
     private int id;
-    @SerializedName("tit_ar")
+    @SerializedName("title")
     @Expose
-    private String titAr;
-    @SerializedName("des_ar")
+    private String title;
+    @SerializedName("description")
     @Expose
-    private String desAr;
+    private String description;
     @SerializedName("img")
     @Expose
     private String img;
@@ -38,12 +38,12 @@ public class SponsorData   /*implements  Parcelable*/
 
     }
             ;
-    private final static long serialVersionUID = 5061447161015739552L;
+    private final static long serialVersionUID = 1777996230345524358L;
 
     protected SponsorData(Parcel in) {
         this.id = ((int) in.readValue((int.class.getClassLoader())));
-        this.titAr = ((String) in.readValue((String.class.getClassLoader())));
-        this.desAr = ((String) in.readValue((String.class.getClassLoader())));
+        this.title = ((String) in.readValue((String.class.getClassLoader())));
+        this.description = ((String) in.readValue((String.class.getClassLoader())));
         this.img = ((String) in.readValue((String.class.getClassLoader())));
     }
 
@@ -58,20 +58,20 @@ public class SponsorData   /*implements  Parcelable*/
         this.id = id;
     }
 
-    public String getTitAr() {
-        return titAr;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitAr(String titAr) {
-        this.titAr = titAr;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDesAr() {
-        return desAr;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesAr(String desAr) {
-        this.desAr = desAr;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getImg() {
@@ -84,13 +84,13 @@ public class SponsorData   /*implements  Parcelable*/
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(id);
-        dest.writeValue(titAr);
-        dest.writeValue(desAr);
+        dest.writeValue(title);
+        dest.writeValue(description);
         dest.writeValue(img);
     }
 
     public int describeContents() {
         return 0;
-    }*/
+    }
 
 }

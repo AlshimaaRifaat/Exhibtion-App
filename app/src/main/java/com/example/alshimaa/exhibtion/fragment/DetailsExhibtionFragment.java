@@ -27,6 +27,7 @@ import com.example.alshimaa.exhibtion.activity.RegisterInExhibtionActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.adapter.ExhibtorsAdapter;
 import com.example.alshimaa.exhibtion.adapter.OrganizersAndServiceProvidersAdapter;
+import com.example.alshimaa.exhibtion.adapter.SponsorAdapter;
 import com.example.alshimaa.exhibtion.model.ExhibtorsData;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersData;
 import com.example.alshimaa.exhibtion.model.SponsorData;
@@ -73,6 +74,8 @@ public class DetailsExhibtionFragment extends Fragment implements
 
     public static Button registerAsExhibtor;
     Intent intent;
+
+    SponsorAdapter sponsorAdapter;
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
@@ -256,12 +259,12 @@ View view;
     }
 
     @Override
-    public void showSponsorData(List<OrganizersAndServiceProvidersData> organizersAndServiceProvidersDataList) {
-        organizersAndServiceProvidersAdapter=new OrganizersAndServiceProvidersAdapter( getContext(),organizersAndServiceProvidersDataList );
+    public void showSponsorData(List<SponsorData> sponsorDataList) {
+        sponsorAdapter=new SponsorAdapter( getContext(),sponsorDataList );
         //homeProductAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewSponsor.setLayoutManager(linearLayoutManager);
-        recyclerViewSponsor.setAdapter( organizersAndServiceProvidersAdapter );
+        recyclerViewSponsor.setAdapter( sponsorAdapter );
     }
 
 
