@@ -8,6 +8,7 @@ import com.example.alshimaa.exhibtion.model.DetailsNavItemServiceProvData;
 import com.example.alshimaa.exhibtion.model.DetailsNavItemServiceProvResponse;
 import com.example.alshimaa.exhibtion.model.EShopResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtionOwnerResponse;
+import com.example.alshimaa.exhibtion.model.ExhibtorDetailsResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtorsResponse;
 import com.example.alshimaa.exhibtion.model.HallOneResponse;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
@@ -120,4 +121,7 @@ public interface Service {
 
     @POST("hole_exhibitor_No_1")
     Call<HallOneResponse> getHallOneData(@Body Map<String,String> map);
+
+    @POST("exhibitors_detials")
+    Call<ExhibtorDetailsResponse> getExhibtorDetailsData(@Body Map<String,String> map);
 }

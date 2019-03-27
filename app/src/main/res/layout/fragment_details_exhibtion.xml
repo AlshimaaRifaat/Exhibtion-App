@@ -199,7 +199,8 @@
             style="@style/Widget.AppCompat.Spinner.Underlined"
             app:backgroundTint="#1c98df"
             android:spinnerMode="dropdown"
-            android:prompt="@string/Hall_1"
+
+
 
             ></android.support.v7.widget.AppCompatSpinner>
     </RelativeLayout>

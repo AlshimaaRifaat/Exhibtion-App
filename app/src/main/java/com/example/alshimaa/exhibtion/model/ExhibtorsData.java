@@ -10,30 +10,18 @@ import com.google.gson.annotations.SerializedName;
 public class ExhibtorsData implements Serializable, Parcelable
 {
 
-    @SerializedName("id_exhibitor")
+    @SerializedName("id")
     @Expose
-    private int idExhibitor;
+    private int id;
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("email")
+    @SerializedName("description")
     @Expose
-    private String email;
-    @SerializedName("website_link")
+    private String description;
+    @SerializedName("image")
     @Expose
-    private String websiteLink;
-    @SerializedName("youtube_link")
-    @Expose
-    private String youtubeLink;
-    @SerializedName("address")
-    @Expose
-    private String address;
-    @SerializedName("img2")
-    @Expose
-    private String img2;
-    @SerializedName("phone")
-    @Expose
-    private String phone;
+    private String image;
     public final static Parcelable.Creator<ExhibtorsData> CREATOR = new Creator<ExhibtorsData>() {
 
 
@@ -50,28 +38,24 @@ public class ExhibtorsData implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -4107634401419183870L;
+    private final static long serialVersionUID = -8222231492789992123L;
 
     protected ExhibtorsData(Parcel in) {
-        this.idExhibitor = ((int) in.readValue((int.class.getClassLoader())));
+        this.id = ((int) in.readValue((int.class.getClassLoader())));
         this.name = ((String) in.readValue((String.class.getClassLoader())));
-        this.email = ((String) in.readValue((String.class.getClassLoader())));
-        this.websiteLink = ((String) in.readValue((Object.class.getClassLoader())));
-        this.youtubeLink = ((String) in.readValue((boolean.class.getClassLoader())));
-        this.address = ((String) in.readValue((String.class.getClassLoader())));
-        this.img2 = ((String) in.readValue((String.class.getClassLoader())));
-        this.phone = ((String) in.readValue((Object.class.getClassLoader())));
+        this.description = ((String) in.readValue((String.class.getClassLoader())));
+        this.image = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public ExhibtorsData() {
     }
 
-    public int getIdExhibitor() {
-        return idExhibitor;
+    public int getId() {
+        return id;
     }
 
-    public void setIdExhibitor(int idExhibitor) {
-        this.idExhibitor = idExhibitor;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -82,63 +66,27 @@ public class ExhibtorsData implements Serializable, Parcelable
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getWebsiteLink() {
-        return websiteLink;
+    public String getImage() {
+        return image;
     }
 
-    public void setWebsiteLink(String websiteLink) {
-        this.websiteLink = websiteLink;
-    }
-
-    public String getYoutubeLink() {
-        return youtubeLink;
-    }
-
-    public void setYoutubeLink(String youtubeLink) {
-        this.youtubeLink = youtubeLink;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getImg2() {
-        return img2;
-    }
-
-    public void setImg2(String img2) {
-        this.img2 = img2;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(idExhibitor);
+        dest.writeValue(id);
         dest.writeValue(name);
-        dest.writeValue(email);
-        dest.writeValue(websiteLink);
-        dest.writeValue(youtubeLink);
-        dest.writeValue(address);
-        dest.writeValue(img2);
-        dest.writeValue(phone);
+        dest.writeValue(description);
+        dest.writeValue(image);
     }
 
     public int describeContents() {

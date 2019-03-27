@@ -44,33 +44,35 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ExhibtorsAdapter.ViewHolder holder, final int position) {
         Glide.with( context ).load( "http://eelectronicexpo.com"
-                +exhibtorsDataList.get( position ).getImg2() ).into(holder.imageView);
+                +exhibtorsDataList.get( position ).getImage() ).into(holder.imageView);
         holder.title.setText(exhibtorsDataList.get( position ).getName());
        // holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
-        holder.address.setText(exhibtorsDataList.get( position ).getAddress());
+       /* holder.address.setText(exhibtorsDataList.get( position ).getAddress());
 
         holder.phone.setText(exhibtorsDataList.get( position ).getPhone());
         holder.email.setText(exhibtorsDataList.get( position ).getEmail());
         holder.websiteLink.setText(exhibtorsDataList.get( position ).getWebsiteLink());
-
+*/
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
        // holder.describtion.setTypeface( customFontRegular );
 
-        holder.address.setTypeface( customFontRegular );
+       /* holder.address.setTypeface( customFontRegular );*/
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ExhibtorsData exhibtorsData=new ExhibtorsData();
-                exhibtorsData.setYoutubeLink(exhibtorsDataList.get(position).getYoutubeLink());
+               /* exhibtorsData.setYoutubeLink(exhibtorsDataList.get(position).getYoutubeLink());
                 exhibtorsData.setName(exhibtorsDataList.get(position).getName());
                 exhibtorsData.setAddress(exhibtorsDataList.get(position).getAddress());
                 exhibtorsData.setIdExhibitor(exhibtorsDataList.get(position).getIdExhibitor());
                 exhibtorsData.setPhone(exhibtorsDataList.get(position).getPhone());
                 exhibtorsData.setEmail(exhibtorsDataList.get(position).getEmail());
-                exhibtorsData.setWebsiteLink(exhibtorsDataList.get(position).getWebsiteLink());
+                exhibtorsData.setWebsiteLink(exhibtorsDataList.get(position).getWebsiteLink());*/
+                exhibtorsData.setId(exhibtorsDataList.get(position).getId());
+                exhibtorsData.setName(exhibtorsDataList.get(position).getName());
                 detailsExhibtorsView.showDetailsExhibtorsData(exhibtorsData);
             }
         });
@@ -86,23 +88,23 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
         private ImageView imageView;
         private TextView title;
         //private TextView describtion;
-        private ImageView videoYoutube;
+       /* private ImageView videoYoutube;
         private TextView address;
         private TextView phone;
         private TextView email;
-        private TextView websiteLink;
+        private TextView websiteLink;*/
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_exhibtor_img);
             title=itemView.findViewById(R.id.row_exhibtor_title);
             //describtion=itemView.findViewById(R.id.row_cur_exhibtion_desc);
 
-            videoYoutube=itemView.findViewById(R.id.row_exhibtor_img_video);
+            /*videoYoutube=itemView.findViewById(R.id.row_exhibtor_img_video);
             address=itemView.findViewById(R.id.row_exhibtor_address);
 
             phone=itemView.findViewById(R.id.row_exhibtor_phone);
             email=itemView.findViewById(R.id.row_exhibtor_email);
-            websiteLink=itemView.findViewById(R.id.row_exhibtor_website_link);
+            websiteLink=itemView.findViewById(R.id.row_exhibtor_website_link);*/
         }
     }
 }

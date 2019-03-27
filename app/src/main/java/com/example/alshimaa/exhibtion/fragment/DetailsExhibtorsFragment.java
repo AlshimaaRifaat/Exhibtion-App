@@ -22,11 +22,15 @@ import com.example.alshimaa.exhibtion.adapter.EShopAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
 import com.example.alshimaa.exhibtion.adapter.ServicesProvidedAdapter;
 import com.example.alshimaa.exhibtion.model.EShopData;
+import com.example.alshimaa.exhibtion.model.ExhibtorDetailsData;
 import com.example.alshimaa.exhibtion.model.ServicesProvidedData;
 import com.example.alshimaa.exhibtion.presenter.EShopPresenter;
+import com.example.alshimaa.exhibtion.presenter.ExhibtorDetailsPresenter;
+import com.example.alshimaa.exhibtion.presenter.ExhibtorsPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
 import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
 import com.example.alshimaa.exhibtion.view.EShopView;
+import com.example.alshimaa.exhibtion.view.ExhibtorDetailsListView;
 import com.example.alshimaa.exhibtion.view.ServicesProvidedView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -38,10 +42,10 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.OnInitializedListener
-    ,ServicesProvidedView,EShopView
+    ,ServicesProvidedView,EShopView,ExhibtorDetailsListView
 {
 
-    public static String Link,Title,Address,ID,Phone,Email,WebsiteLink;
+    public static String Link,Title,ID,WebsiteLink;
     TextView title,address,phone,email,websiteLink;
 
     NetworkConnection networkConnection;
@@ -60,6 +64,11 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     EShopAdapter eShopAdapter;
     EShopPresenter eShopPresenter;
     Button contactUsBtn;
+
+    RecyclerView recyclerViewdetailsExhib;
+    //EShopAdapter eShopAdapter;
+    ExhibtorDetailsPresenter exhibtorDetailsPresenter;
+    List<ExhibtorDetailsData> exhibtorDetailsList;
     public DetailsExhibtorsFragment() {
         // Required empty public constructor
     }
@@ -77,22 +86,25 @@ View view;
         Bundle bundle=this.getArguments();
         if (bundle!=null)
         {
-            Link = bundle.getString( "video_link_exhibtor" );
+            /*Link = bundle.getString( "video_link_exhibtor" );
             Title=bundle.getString("title_exhibtor");
-            Address=bundle.getString("address_exhibtor");
+            Address=bundle.getString("address_exhibtor");*/
             ID=bundle.getString("id_exhibtor");
-            Phone=bundle.getString("phone_exhibtor");
+            Title=bundle.getString("title_exhibtor");
+           /* Phone=bundle.getString("phone_exhibtor");
             Email=bundle.getString("email_exhibtor");
-            WebsiteLink=bundle.getString("website_link");
+            WebsiteLink=bundle.getString("website_link");*/
 
-            title.setText(Title);
+            /*title.setText(Title);
             address.setText(Address);
             phone.setText(Phone);
             email.setText(Email);
-            websiteLink.setText(WebsiteLink);
+            websiteLink.setText(WebsiteLink);*/
 
             textToolbar.setText(Title);
-            // Toast.makeText(getContext(), "id_user" +ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
+
+            ExhibtorDetails();
+             //Toast.makeText(getContext(), "id_user" +ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
         }
         vacantJopsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +122,17 @@ View view;
             }
         });
         return view;
+    }
+
+    private void ExhibtorDetails() {
+        exhibtorDetailsPresenter=new ExhibtorDetailsPresenter(getContext(),this);
+
+        if(Language.isRTL()) {
+            exhibtorDetailsPresenter.getExhibtorDetailsResult("ar", ID); //id user
+        }else {
+            exhibtorDetailsPresenter.getExhibtorDetailsResult("en", ID);
+        }
+
     }
 
     private void goToCallUsPage() {
@@ -168,7 +191,7 @@ View view;
             // loadVideo() will auto play video
             // Use cueVideo() method, if you don't want to play it automatically
            //  String url=Link.substring( Link.lastIndexOf( "=")+1  );
-            youTubePlayer.loadVideo(Link); // no
+          //  youTubePlayer.loadVideo(exhibtorDetailsList.get(0).getYoutubeLink());
 
 
         }
@@ -211,6 +234,17 @@ View view;
         recyclerViewEShop.setLayoutManager(linearLayoutManager);
         recyclerViewEShop.setAdapter( eShopAdapter );
 
+    }
+
+    @Override
+    public void showExhibtorDetailsListView(List<ExhibtorDetailsData> exhibtorDetailsDataList) {
+        this.exhibtorDetailsList=exhibtorDetailsDataList;
+        title.setText(exhibtorDetailsDataList.get(0).getName());
+        address.setText(exhibtorDetailsDataList.get(0).getAddress());
+        phone.setText(exhibtorDetailsDataList.get(0).getPhone());
+        email.setText(exhibtorDetailsDataList.get(0).getEmail());
+
+        websiteLink.setText(exhibtorDetailsDataList.get(0).getWebsiteLink());
     }
 
     @Override

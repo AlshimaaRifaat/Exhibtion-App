@@ -62,6 +62,8 @@ public class DetailsExhibtionFragment extends Fragment implements
     String HallOneModel;
     HallOneAdapter hallOneAdapter;
 
+
+
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
    public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity,UserId_underConstruct;
@@ -89,6 +91,8 @@ public class DetailsExhibtionFragment extends Fragment implements
     Intent intent;
 
     SponsorAdapter sponsorAdapter;
+
+
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
@@ -304,13 +308,9 @@ View view;
     public void showDetailsExhibtorsData(ExhibtorsData exhibtorsData) {
         DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
         Bundle bundle=new Bundle();
-        bundle.putString("video_link_exhibtor",exhibtorsData.getYoutubeLink());
+
+        bundle.putString("id_exhibtor",String.valueOf(exhibtorsData.getId()));
         bundle.putString("title_exhibtor",exhibtorsData.getName());
-        bundle.putString("address_exhibtor",exhibtorsData.getAddress());
-        bundle.putString("id_exhibtor",String.valueOf(exhibtorsData.getIdExhibitor()));
-        bundle.putString("phone_exhibtor",exhibtorsData.getPhone());
-        bundle.putString("email_exhibtor",exhibtorsData.getEmail());
-        bundle.putString("website_link",exhibtorsData.getWebsiteLink());
         detailsExhibtorsFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().add(R.id.content_navigation,detailsExhibtorsFragment)
@@ -328,7 +328,7 @@ View view;
 
         }
 
-        hallOneAdapter =new HallOneAdapter( getContext(), android.R.layout.simple_list_item_1);
+        hallOneAdapter =new HallOneAdapter( getContext(), R.layout.spinner_item);
         hallOneAdapter.addAll( hallOneList );
         hallOneAdapter.add( getResources().getString(R.string.Hall_1));
         hallOneSpinner.setAdapter( hallOneAdapter );
