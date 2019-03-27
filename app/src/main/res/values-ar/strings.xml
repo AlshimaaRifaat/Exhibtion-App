@@ -69,4 +69,9 @@
     <string name="RegisterAsVisitor">سجل كزائر</string>
     <string name="RegisterAsExhibtor">سجل كعارض</string>
     <string name="ChangeLanguage">تغيير اللغه</string>
+    <string name="Exhibition_halls">Exhibition halls</string>
+    <string name="Hall_1">Hall 1</string>
+    <string name="Hall_2">Hall 2</string>
+    <string name="Hall_3">Hall 3</string>
+    <string name="Hall_4">Hall 4</string>
 </resources>

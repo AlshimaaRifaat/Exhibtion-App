@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,20 +28,25 @@ import com.example.alshimaa.exhibtion.activity.RegisterActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterInExhibtionActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.adapter.ExhibtorsAdapter;
+import com.example.alshimaa.exhibtion.adapter.HallOneAdapter;
 import com.example.alshimaa.exhibtion.adapter.OrganizersAndServiceProvidersAdapter;
 import com.example.alshimaa.exhibtion.adapter.SponsorAdapter;
 import com.example.alshimaa.exhibtion.model.ExhibtorsData;
+import com.example.alshimaa.exhibtion.model.HallOneData;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersData;
 import com.example.alshimaa.exhibtion.model.SponsorData;
 import com.example.alshimaa.exhibtion.presenter.ExhibtorsPresenter;
+import com.example.alshimaa.exhibtion.presenter.HallOnePresenter;
 import com.example.alshimaa.exhibtion.presenter.OrganizersAndServiceProvidersPresenter;
 import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;
 import com.example.alshimaa.exhibtion.view.ExhibtorsView;
+import com.example.alshimaa.exhibtion.view.HallOneView;
 import com.example.alshimaa.exhibtion.view.OrganizersAndServiceProvidersView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,8 +54,14 @@ import java.util.List;
  */
 public class DetailsExhibtionFragment extends Fragment implements
         YouTubePlayer.OnInitializedListener,OrganizersAndServiceProvidersView
-        ,ExhibtorsView,DetailsExhibtorsView
+        ,ExhibtorsView,DetailsExhibtorsView,HallOneView
 {
+    HallOnePresenter hallOnePresenter;
+    Spinner hallOneSpinner;
+    Integer HallOneModelID;
+    String HallOneModel;
+    HallOneAdapter hallOneAdapter;
+
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
    public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity,UserId_underConstruct;
@@ -125,6 +138,7 @@ View view;
 
         }
         OrganizersAndServiceProviders();
+        HallOne();
         Sponsors();
         Exhibtors();
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +171,10 @@ View view;
         return view;
     }
 
+    private void HallOne() {
+        hallOnePresenter=new HallOnePresenter(getContext(),this);
+        hallOnePresenter.getHallOneResult(ID  );
+    }
 
 
     private void Exhibtors() {
@@ -206,6 +224,9 @@ View view;
         logo=view.findViewById(R.id.details_exhibtion_logo);
         registerNowBtn=view.findViewById(R.id.details_exhibtion_btn_register);
         registerAsExhibtor=view.findViewById(R.id.details_exhibtion_btn_exhibtor);
+
+
+        hallOneSpinner=view.findViewById( R.id.details_exhibtion_spinner1 );
 
 
     }
@@ -295,6 +316,57 @@ View view;
         getFragmentManager().beginTransaction().add(R.id.content_navigation,detailsExhibtorsFragment)
                 .addToBackStack(null).commit();
     }
+
+    @Override
+    public void showHallOneList(final List<HallOneData> hallOneDataList) {
+        ArrayList<String> hallOneList=new ArrayList<>(  );
+        for(int i=0;i<hallOneDataList.size();i++)
+        {
+           // hallOneList.add(String.valueOf(hallOneDataList.get( i ).getId() ) );
+            hallOneList.add( hallOneDataList.get( i ).getTitle() );
+           // hallOneList.add( hallOneDataList.get( i ).getImg() );
+
+        }
+
+        hallOneAdapter =new HallOneAdapter( getContext(), android.R.layout.simple_list_item_1);
+        hallOneAdapter.addAll( hallOneList );
+        hallOneAdapter.add( getResources().getString(R.string.Hall_1));
+        hallOneSpinner.setAdapter( hallOneAdapter );
+        hallOneSpinner.setPrompt(getResources().getString(R.string.Hall_1));
+
+        hallOneSpinner.setSelection( hallOneAdapter.getCount() );
+        hallOneSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (hallOneSpinner.getSelectedItem()==getResources().getString(R.string.Hall_1))
+                {
+
+                }
+                else
+                {
+                    HallOneModel=hallOneSpinner.getSelectedItem().toString();
+                  /*  for (i=0;i<hallOneDataList.size();i++)
+                    {
+                        if(hallOneDataList.get(i).getTitle().equals( HallOneModel ))
+                        {
+                            HallOneModelID=hallOneDataList.get(i).getId();
+                        }
+                    }*/
+                    hallOnePresenter.getHallOneResult(HallOneModel  );
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        } );
+
+
+
+    }
+
+
 
     @Override
     public void showError() {

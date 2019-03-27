@@ -80,6 +80,11 @@
     <string name="RegisterAsVisitor">Register As a Visitor</string>
     <string name="RegisterAsExhibtor">Register As an Exhibtor</string>
     <string name="ChangeLanguage">Change Language</string>
+    <string name="Exhibition_halls">Exhibition halls</string>
+    <string name="Hall_1">Hall 1</string>
+    <string name="Hall_2">Hall 2</string>
+    <string name="Hall_3">Hall 3</string>
+    <string name="Hall_4">Hall 4</string>
 
 
 </resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     tools:context=".fragment.DetailsExhibtionFragment">
 <RelativeLayout
@@ -14,7 +15,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_117sdp"
-        android:background="@drawable/menu_bg">
+        android:background="@drawable/menu_bg"
+        >
 
         <TextView
             android:id="@+id/details_exhibtion_text_toolbar"
@@ -168,13 +170,110 @@
     </android.support.v7.widget.RecyclerView>
 
     <TextView
+        android:id="@+id/details_exhibtion_title_exhibition_halls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Exhibition_halls"
+        android:textColor="#3ca0d9"
+        android:textStyle="bold"
+        android:layout_below="@+id/details_exhibtion_recycler_organizers"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:textSize="@dimen/_11sdp"/>
+    <RelativeLayout
+        android:id="@+id/relative_hall_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_47sdp"
+        android:layout_marginTop="@dimen/_22sdp"
+
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_below="@id/details_exhibtion_title_exhibition_halls"
+        >
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/details_exhibtion_spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            app:backgroundTint="#1c98df"
+            android:spinnerMode="dropdown"
+            android:prompt="@string/Hall_1"
+
+            ></android.support.v7.widget.AppCompatSpinner>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hall_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_47sdp"
+        android:layout_marginTop="@dimen/_22sdp"
+
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_below="@id/relative_hall_1"
+        >
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/details_exhibtion_spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            app:backgroundTint="#1c98df"
+            android:prompt="@string/Hall_2"
+
+            ></android.support.v7.widget.AppCompatSpinner>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hall_3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_47sdp"
+        android:layout_marginTop="@dimen/_22sdp"
+
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_below="@id/relative_hall_2"
+        >
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/details_exhibtion_spinner3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            app:backgroundTint="#1c98df"
+            android:prompt="@string/Hall_3"
+
+            ></android.support.v7.widget.AppCompatSpinner>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relative_hall_4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_47sdp"
+        android:layout_marginTop="@dimen/_22sdp"
+
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_below="@id/relative_hall_3"
+        >
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/details_exhibtion_spinner4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            app:backgroundTint="#1c98df"
+            android:prompt="@string/Hall_4"
+
+            ></android.support.v7.widget.AppCompatSpinner>
+    </RelativeLayout>
+    <TextView
         android:id="@+id/details_exhibtion_title_sponsor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Sponsors"
         android:textColor="#3ca0d9"
         android:textStyle="bold"
-        android:layout_below="@+id/details_exhibtion_recycler_organizers"
+        android:layout_below="@+id/relative_hall_4"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_12sdp"
