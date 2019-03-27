@@ -332,7 +332,7 @@ View view;
         hallOneAdapter.addAll( hallOneList );
         hallOneAdapter.add( getResources().getString(R.string.Hall_1));
         hallOneSpinner.setAdapter( hallOneAdapter );
-        hallOneSpinner.setPrompt(getResources().getString(R.string.Hall_1));
+
 
         hallOneSpinner.setSelection( hallOneAdapter.getCount() );
         hallOneSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {

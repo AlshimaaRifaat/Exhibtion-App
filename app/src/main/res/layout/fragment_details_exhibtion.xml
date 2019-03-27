@@ -186,7 +186,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_47sdp"
         android:layout_marginTop="@dimen/_22sdp"
-
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_below="@id/details_exhibtion_title_exhibition_halls"
@@ -198,7 +197,7 @@
             android:layout_height="@dimen/_55sdp"
             style="@style/Widget.AppCompat.Spinner.Underlined"
             app:backgroundTint="#1c98df"
-            android:spinnerMode="dropdown"
+            android:spinnerMode="dialog"
 
 
 
