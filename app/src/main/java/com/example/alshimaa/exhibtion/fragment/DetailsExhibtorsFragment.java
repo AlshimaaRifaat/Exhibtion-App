@@ -68,7 +68,7 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     RecyclerView recyclerViewdetailsExhib;
     //EShopAdapter eShopAdapter;
     ExhibtorDetailsPresenter exhibtorDetailsPresenter;
-    List<ExhibtorDetailsData> exhibtorDetailsList;
+    List<ExhibtorDetailsData> exhibtorDetailsDataList;
     public DetailsExhibtorsFragment() {
         // Required empty public constructor
     }
@@ -81,7 +81,6 @@ View view;
         view= inflater.inflate(R.layout.fragment_details_exhibtors, container, false);
         init();
         networkConnection=new NetworkConnection(getContext());
-        youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
 
         Bundle bundle=this.getArguments();
         if (bundle!=null)
@@ -170,7 +169,8 @@ View view;
         youTubePlayerSupportFragment = (YouTubePlayerSupportFragment)
                 getChildFragmentManager()
                         .findFragmentById(R.id.details_exhibtors_youtube_player_support_fragment);
-    phone=view.findViewById(R.id.details_exhibtors_text_phone);
+
+        phone=view.findViewById(R.id.details_exhibtors_text_phone);
     email=view.findViewById(R.id.details_exhibtors_text_email);
     websiteLink=view.findViewById(R.id.details_exhibtors_text_website);
     vacantJopsBtn=view.findViewById(R.id.details_exhibtors_btn_jops);
@@ -191,9 +191,11 @@ View view;
             // loadVideo() will auto play video
             // Use cueVideo() method, if you don't want to play it automatically
            //  String url=Link.substring( Link.lastIndexOf( "=")+1  );
-          //  youTubePlayer.loadVideo(exhibtorDetailsList.get(0).getYoutubeLink());
+            if(exhibtorDetailsDataList.size()!=0) {
+                youTubePlayer.loadVideo(exhibtorDetailsDataList.get(0).getYoutubeLink());
+                Toast.makeText(getContext(), "" + exhibtorDetailsDataList.get(0).getYoutubeLink(), Toast.LENGTH_SHORT).show();
 
-
+            }
         }
     }
 
@@ -238,7 +240,13 @@ View view;
 
     @Override
     public void showExhibtorDetailsListView(List<ExhibtorDetailsData> exhibtorDetailsDataList) {
-        this.exhibtorDetailsList=exhibtorDetailsDataList;
+        String youtube=exhibtorDetailsDataList.get(0).getYoutubeLink();
+        if(youtube.equals("false")){
+
+        }else {
+            youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+        }
+        this.exhibtorDetailsDataList=exhibtorDetailsDataList;
         title.setText(exhibtorDetailsDataList.get(0).getName());
         address.setText(exhibtorDetailsDataList.get(0).getAddress());
         phone.setText(exhibtorDetailsDataList.get(0).getPhone());
