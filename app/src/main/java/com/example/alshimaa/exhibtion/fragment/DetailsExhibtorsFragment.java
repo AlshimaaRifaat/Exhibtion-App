@@ -88,7 +88,7 @@ View view;
             /*Link = bundle.getString( "video_link_exhibtor" );
             Title=bundle.getString("title_exhibtor");
             Address=bundle.getString("address_exhibtor");*/
-            ID=bundle.getString("id_exhibtor");
+            ID=bundle.getString("id");
             Title=bundle.getString("title_exhibtor");
            /* Phone=bundle.getString("phone_exhibtor");
             Email=bundle.getString("email_exhibtor");

@@ -309,7 +309,7 @@ View view;
         DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
         Bundle bundle=new Bundle();
 
-        bundle.putString("id_exhibtor",String.valueOf(exhibtorsData.getId()));
+        bundle.putString("id",String.valueOf(exhibtorsData.getId()));
         bundle.putString("title_exhibtor",exhibtorsData.getName());
         detailsExhibtorsFragment.setArguments(bundle);
 
