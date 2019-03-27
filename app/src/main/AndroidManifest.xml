@@ -26,7 +26,8 @@
         <activity
             android:name=".activity.NavigationActivity"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
         <activity
             android:name=".activity.RegisterNowActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />

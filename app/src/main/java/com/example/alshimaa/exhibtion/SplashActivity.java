@@ -17,7 +17,7 @@ import java.util.Locale;
 
 public class SplashActivity extends AppCompatActivity {
     SharedPreferences shared;
-    String Lan;
+   public static String Lan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

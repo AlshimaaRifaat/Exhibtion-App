@@ -3,11 +3,13 @@ package com.example.alshimaa.exhibtion.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -88,6 +90,7 @@ public class NavigationActivity extends AppCompatActivity
         Lan=shared.getString("Lann",null);
 
 
+
         navigationView=findViewById( R.id.nav_view );
         onNavigationItemSelected( navigationView.getMenu().getItem( 0 ) );
 
@@ -128,9 +131,12 @@ public class NavigationActivity extends AppCompatActivity
             config.locale = locale;
             getBaseContext().getResources().updateConfiguration(config,
                     getBaseContext().getResources().getDisplayMetrics());
+
         }
 
         /* HomeSiteOption();*/
+        navigationView.getMenu().clear();
+        navigationView.inflateMenu(R.menu.activity_navigation_drawer);
 
     }
 
@@ -223,6 +229,7 @@ public class NavigationActivity extends AppCompatActivity
                 currentSelectedPosition=7;
                 startActivity(new Intent(this, ChangeLanguageActivity.class));
 
+
                 break;
            /* case R.id.nav_exhibtion_owner:
                 currentSelectedPosition=5;
@@ -270,6 +277,7 @@ public class NavigationActivity extends AppCompatActivity
 */
 
     }
+
 
    /* @Override
     public void showHomeSiteOptionResult(List<HomeSiteOptionData> homeSiteOptionDataList) {
