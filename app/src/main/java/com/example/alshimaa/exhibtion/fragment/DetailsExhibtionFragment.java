@@ -47,6 +47,7 @@ import com.example.alshimaa.exhibtion.presenter.HallOnePresenter;
 import com.example.alshimaa.exhibtion.presenter.HallThreePresenter;
 import com.example.alshimaa.exhibtion.presenter.HallTwoPresenter;
 import com.example.alshimaa.exhibtion.presenter.OrganizersAndServiceProvidersPresenter;
+import com.example.alshimaa.exhibtion.presenter.SponsorPresenter;
 import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;
 import com.example.alshimaa.exhibtion.view.ExhibtorsView;
 import com.example.alshimaa.exhibtion.view.HallOneView;
@@ -100,6 +101,8 @@ public class DetailsExhibtionFragment extends Fragment implements
     RecyclerView recyclerViewOrganizers;
     OrganizersAndServiceProvidersAdapter organizersAndServiceProvidersAdapter;
     OrganizersAndServiceProvidersPresenter organizersAndServiceProvidersPresenter;
+
+    SponsorPresenter sponsorPresenter;
 
     RecyclerView recyclerViewSponsor;
 
@@ -237,12 +240,12 @@ View view;
     }
 
     private void Sponsors() {
-        organizersAndServiceProvidersPresenter=new OrganizersAndServiceProvidersPresenter(getContext(),this);
+        sponsorPresenter=new SponsorPresenter(getContext(),this);
         if(Language.isRTL()) {
-            organizersAndServiceProvidersPresenter.getSponsorList("ar",ID);
+            sponsorPresenter.getSponsorList("ar",ID);
         }else
         {
-            organizersAndServiceProvidersPresenter.getSponsorList("en",ID);
+            sponsorPresenter.getSponsorList("en",ID);
         }
     }
 
@@ -335,7 +338,8 @@ View view;
     public void showSponsorData(List<SponsorData> sponsorDataList) {
         sponsorAdapter=new SponsorAdapter( getContext(),sponsorDataList );
         //homeProductAdapter.onClick(this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),
+                LinearLayoutManager.HORIZONTAL,false);
         recyclerViewSponsor.setLayoutManager(linearLayoutManager);
         recyclerViewSponsor.setAdapter( sponsorAdapter );
     }

@@ -26,8 +26,7 @@
         <activity
             android:name=".activity.NavigationActivity"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.RegisterNowActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
@@ -35,8 +34,10 @@
         <activity
             android:name=".activity.ConfirmRegisterNowActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity android:name=".activity.ChangeLanguageActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"></activity>
+        <activity
+            android:name=".activity.ChangeLanguageActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".activity.ExhibtionDiagramActivity"></activity>
     </application>
 
 </manifest>

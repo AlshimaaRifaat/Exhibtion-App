@@ -276,7 +276,7 @@
         android:layout_below="@+id/relative_hall_4"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_4sdp"
         android:textSize="@dimen/_11sdp"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/details_exhibtion_recycler_sponsors"
@@ -308,5 +308,25 @@
         android:layout_below="@+id/details_exhibtion_title_exhibtors"
         >
     </android.support.v7.widget.RecyclerView>
+    <!--<android.support.v7.widget.CardView
+        android:id="@+id/details_exhibtion_card_diagram"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_below="@+id/details_exhibtion_recycler_exhibtors"
+        android:background="@drawable/button_visitor"
+        android:layout_marginTop="@dimen/_40sdp">
+        <Button
+            android:id="@+id/details_exhibtion_btn_diagram"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_52sdp"
+            android:text="@string/Login"
+            android:textSize="@dimen/_14sdp"
+            android:background="@drawable/button_login"
+            android:textAllCaps="false"
+            />
+
+    </android.support.v7.widget.CardView>-->
 </RelativeLayout>
 </ScrollView>
