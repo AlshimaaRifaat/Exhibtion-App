@@ -241,7 +241,7 @@
             android:layout_height="@dimen/_55sdp"
             style="@style/Widget.AppCompat.Spinner.Underlined"
             app:backgroundTint="#1c98df"
-            android:prompt="@string/Hall_3"
+            android:spinnerMode="dialog"
 
             ></android.support.v7.widget.AppCompatSpinner>
     </RelativeLayout>
@@ -262,7 +262,7 @@
             android:layout_height="@dimen/_55sdp"
             style="@style/Widget.AppCompat.Spinner.Underlined"
             app:backgroundTint="#1c98df"
-            android:prompt="@string/Hall_4"
+            android:spinnerMode="dialog"
 
             ></android.support.v7.widget.AppCompatSpinner>
     </RelativeLayout>

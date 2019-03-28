@@ -1,5 +1,6 @@
 package com.example.alshimaa.exhibtion.view;
 
+import com.example.alshimaa.exhibtion.model.HallFourData;
 import com.example.alshimaa.exhibtion.model.HallOneData;
 import com.example.alshimaa.exhibtion.model.HallThreeData;
 import com.example.alshimaa.exhibtion.model.HallTwoData;
@@ -15,4 +16,7 @@ public interface HallOneView {
 
     void showHallThreeList(List<HallThreeData> hallThreeDataList);
     void showHallThreeError();
+
+    void showHallFourList(List<HallFourData> hallFourDataList);
+    void showHallFourError();
 }

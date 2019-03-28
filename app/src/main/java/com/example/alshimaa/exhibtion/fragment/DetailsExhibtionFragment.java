@@ -28,17 +28,21 @@ import com.example.alshimaa.exhibtion.activity.RegisterActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterInExhibtionActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.adapter.ExhibtorsAdapter;
+import com.example.alshimaa.exhibtion.adapter.HallFourAdapter;
 import com.example.alshimaa.exhibtion.adapter.HallOneAdapter;
+import com.example.alshimaa.exhibtion.adapter.HallThreeAdapter;
 import com.example.alshimaa.exhibtion.adapter.HallTwoAdapter;
 import com.example.alshimaa.exhibtion.adapter.OrganizersAndServiceProvidersAdapter;
 import com.example.alshimaa.exhibtion.adapter.SponsorAdapter;
 import com.example.alshimaa.exhibtion.model.ExhibtorsData;
+import com.example.alshimaa.exhibtion.model.HallFourData;
 import com.example.alshimaa.exhibtion.model.HallOneData;
 import com.example.alshimaa.exhibtion.model.HallThreeData;
 import com.example.alshimaa.exhibtion.model.HallTwoData;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersData;
 import com.example.alshimaa.exhibtion.model.SponsorData;
 import com.example.alshimaa.exhibtion.presenter.ExhibtorsPresenter;
+import com.example.alshimaa.exhibtion.presenter.HallFourPresenter;
 import com.example.alshimaa.exhibtion.presenter.HallOnePresenter;
 import com.example.alshimaa.exhibtion.presenter.HallThreePresenter;
 import com.example.alshimaa.exhibtion.presenter.HallTwoPresenter;
@@ -78,7 +82,14 @@ public class DetailsExhibtionFragment extends Fragment implements
     Spinner hallThreeSpinner;
     Integer HallThreeModelID;
     String HallThreeModel;
-    HallTwoAdapter hallThreeAdapter;
+    HallThreeAdapter hallThreeAdapter;
+
+    HallFourPresenter hallFourPresenter;
+    Spinner hallFourSpinner;
+    Integer HallFourModelID;
+    String HallFourModel;
+    HallFourAdapter hallFourAdapter;
+
 
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
@@ -161,6 +172,7 @@ View view;
         HallOne();
         HallTwo();
         HallThree();
+        HallFour();
         Sponsors();
         Exhibtors();
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
@@ -191,6 +203,11 @@ View view;
         });
 
         return view;
+    }
+
+    private void HallFour() {
+        hallFourPresenter=new HallFourPresenter(getContext(),this);
+        hallFourPresenter.getHallFourResult(ID  );
     }
 
     private void HallThree() {
@@ -261,6 +278,7 @@ View view;
         hallOneSpinner=view.findViewById( R.id.details_exhibtion_spinner1 );
         hallTwoSpinner=view.findViewById( R.id.details_exhibtion_spinner2 );
         hallThreeSpinner=view.findViewById( R.id.details_exhibtion_spinner3 );
+        hallFourSpinner=view.findViewById( R.id.details_exhibtion_spinner4 );
     }
 
 
@@ -466,7 +484,7 @@ View view;
 
         }
 
-        hallThreeAdapter =new HallTwoAdapter( getContext(), R.layout.spinner_item);
+        hallThreeAdapter =new HallThreeAdapter( getContext(), R.layout.spinner_item);
         hallThreeAdapter.addAll( hallThreeList );
         hallThreeAdapter.add( getResources().getString(R.string.Hall_3));
         hallThreeSpinner.setAdapter( hallThreeAdapter );
@@ -505,6 +523,59 @@ View view;
 
     @Override
     public void showHallThreeError() {
+
+    }
+
+    @Override
+    public void showHallFourList(List<HallFourData> hallFourDataList) {
+        ArrayList<String> hallFourList=new ArrayList<>(  );
+        for(int i=0;i<hallFourDataList.size();i++)
+        {
+            // hallOneList.add(String.valueOf(hallOneDataList.get( i ).getId() ) );
+            hallFourList.add( hallFourDataList.get( i ).getTitle() );
+            // hallOneList.add( hallOneDataList.get( i ).getImg() );
+
+        }
+
+        hallFourAdapter =new HallFourAdapter( getContext(), R.layout.spinner_item);
+        hallFourAdapter.addAll( hallFourList );
+        hallFourAdapter.add( getResources().getString(R.string.Hall_4));
+        hallFourSpinner.setAdapter( hallFourAdapter );
+
+
+        hallFourSpinner.setSelection( hallFourAdapter.getCount() );
+        hallFourSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (hallFourSpinner.getSelectedItem()==getResources().getString(R.string.Hall_4))
+                {
+
+                }
+                else
+                {
+                    HallFourModel=hallFourSpinner.getSelectedItem().toString();
+                  /*  for (i=0;i<hallOneDataList.size();i++)
+                    {
+                        if(hallOneDataList.get(i).getTitle().equals( HallOneModel ))
+                        {
+                            HallOneModelID=hallOneDataList.get(i).getId();
+                        }
+                    }*/
+                    hallFourPresenter.getHallFourResult(HallFourModel  );
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        } );
+
+
+    }
+
+    @Override
+    public void showHallFourError() {
 
     }
 }

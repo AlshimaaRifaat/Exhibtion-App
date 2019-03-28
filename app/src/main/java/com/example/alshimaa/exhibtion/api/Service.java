@@ -10,6 +10,7 @@ import com.example.alshimaa.exhibtion.model.EShopResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtionOwnerResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtorDetailsResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtorsResponse;
+import com.example.alshimaa.exhibtion.model.HallFourResponse;
 import com.example.alshimaa.exhibtion.model.HallOneResponse;
 import com.example.alshimaa.exhibtion.model.HallThreeResponse;
 import com.example.alshimaa.exhibtion.model.HallTwoResponse;
@@ -128,6 +129,10 @@ public interface Service {
 
     @POST("hole_exhibitor_No_3")
     Call<HallThreeResponse> getHallThreeData(@Body Map<String,String> map);
+
+    @POST("hole_exhibitor_No_4")
+    Call<HallFourResponse> getHallFourData(@Body Map<String,String> map);
+
     @POST("exhibitors_detials")
     Call<ExhibtorDetailsResponse> getExhibtorDetailsData(@Body Map<String,String> map);
 }
