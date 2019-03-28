@@ -368,7 +368,7 @@ View view;
         ArrayList<String> hallOneList=new ArrayList<>(  );
         for(int i=0;i<hallOneDataList.size();i++)
         {
-           // hallOneList.add(String.valueOf(hallOneDataList.get( i ).getId() ) );
+            //hallOneList.add(String.valueOf(hallOneDataList.get( i ).getId() ) );
             hallOneList.add( hallOneDataList.get( i ).getTitle() );
            // hallOneList.add( hallOneDataList.get( i ).getImg() );
 
@@ -391,13 +391,21 @@ View view;
                 else
                 {
                     HallOneModel=hallOneSpinner.getSelectedItem().toString();
-                  /*  for (i=0;i<hallOneDataList.size();i++)
+                  for (i=0;i<hallOneDataList.size();i++)
                     {
                         if(hallOneDataList.get(i).getTitle().equals( HallOneModel ))
                         {
                             HallOneModelID=hallOneDataList.get(i).getId();
                         }
-                    }*/
+                    }
+                    DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+                    Bundle bundle=new Bundle(  );
+                    bundle.putString( "id",String.valueOf(HallOneModelID));
+                    detailsExhibtorsFragment.setArguments(bundle);
+                    getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                            detailsExhibtorsFragment )
+                            .addToBackStack( null ).commit();
+                   // Toast.makeText(getContext(), String.valueOf(HallOneModelID), Toast.LENGTH_SHORT).show();
                     hallOnePresenter.getHallOneResult(HallOneModel  );
                 }
             }
@@ -420,7 +428,7 @@ View view;
     }
 
     @Override
-    public void showHallTwoList(List<HallTwoData> hallTwoDataList) {
+    public void showHallTwoList(final List<HallTwoData> hallTwoDataList) {
         ArrayList<String> hallTwoList=new ArrayList<>(  );
         for(int i=0;i<hallTwoDataList.size();i++)
         {
@@ -454,6 +462,20 @@ View view;
                             HallOneModelID=hallOneDataList.get(i).getId();
                         }
                     }*/
+                    for (i=0;i<hallTwoDataList.size();i++)
+                    {
+                        if(hallTwoDataList.get(i).getTitle().equals( HallTwoModel ))
+                        {
+                            HallTwoModelID=hallTwoDataList.get(i).getId();
+                        }
+                    }
+                    DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+                    Bundle bundle=new Bundle(  );
+                    bundle.putString( "id",String.valueOf(HallTwoModelID));
+                    detailsExhibtorsFragment.setArguments(bundle);
+                    getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                            detailsExhibtorsFragment )
+                            .addToBackStack( null ).commit();
                     hallTwoPresenter.getHallTwoResult(HallTwoModel  );
                 }
             }
@@ -474,7 +496,7 @@ View view;
     }
 
     @Override
-    public void showHallThreeList(List<HallThreeData> hallThreeDataList) {
+    public void showHallThreeList(final List<HallThreeData> hallThreeDataList) {
         ArrayList<String> hallThreeList=new ArrayList<>(  );
         for(int i=0;i<hallThreeDataList.size();i++)
         {
@@ -508,6 +530,21 @@ View view;
                             HallOneModelID=hallOneDataList.get(i).getId();
                         }
                     }*/
+                    for (i=0;i<hallThreeDataList.size();i++)
+                    {
+                        if(hallThreeDataList.get(i).getTitle().equals( HallThreeModel ))
+                        {
+                            HallThreeModelID=hallThreeDataList.get(i).getId();
+                        }
+                    }
+                    DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+                    Bundle bundle=new Bundle(  );
+                    bundle.putString( "id",String.valueOf(HallThreeModelID));
+                    detailsExhibtorsFragment.setArguments(bundle);
+                    getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                            detailsExhibtorsFragment )
+                            .addToBackStack( null ).commit();
+
                     hallThreePresenter.getHallThreeResult(HallThreeModel  );
                 }
             }
@@ -527,7 +564,7 @@ View view;
     }
 
     @Override
-    public void showHallFourList(List<HallFourData> hallFourDataList) {
+    public void showHallFourList(final List<HallFourData> hallFourDataList) {
         ArrayList<String> hallFourList=new ArrayList<>(  );
         for(int i=0;i<hallFourDataList.size();i++)
         {
@@ -561,6 +598,20 @@ View view;
                             HallOneModelID=hallOneDataList.get(i).getId();
                         }
                     }*/
+                    for (i=0;i<hallFourDataList.size();i++)
+                    {
+                        if(hallFourDataList.get(i).getTitle().equals( HallOneModel ))
+                        {
+                            HallFourModelID=hallFourDataList.get(i).getId();
+                        }
+                    }
+                    DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+                    Bundle bundle=new Bundle(  );
+                    bundle.putString( "id",String.valueOf(HallFourModelID));
+                    detailsExhibtorsFragment.setArguments(bundle);
+                    getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                            detailsExhibtorsFragment )
+                            .addToBackStack( null ).commit();
                     hallFourPresenter.getHallFourResult(HallFourModel  );
                 }
             }
