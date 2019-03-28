@@ -7,7 +7,7 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ExhibtorDetailsData implements Serializable, Parcelable
+public class ExhibtorDetailsData implements Parcelable
 {
 
     @SerializedName("id_exhibitor")
@@ -35,6 +35,10 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
     @Expose
     private String phone;
 
+    public void setWebsiteLink(String websiteLink) {
+        this.websiteLink = websiteLink;
+    }
+
     public String getYoutubeLink() {
         return youtubeLink;
     }
@@ -59,14 +63,14 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -5331376205811281139L;
+    private final static long serialVersionUID = -8593828377682159684L;
 
     protected ExhibtorDetailsData(Parcel in) {
         this.idExhibitor = ((String) in.readValue((String.class.getClassLoader())));
         this.name = ((String) in.readValue((String.class.getClassLoader())));
         this.email = ((String) in.readValue((String.class.getClassLoader())));
-        this.websiteLink = ((String) in.readValue((String.class.getClassLoader())));
-        this.youtubeLink = ((String) in.readValue((String.class.getClassLoader())));
+        this.websiteLink = ((String) in.readValue((Object.class.getClassLoader())));
+        this.youtubeLink = ((String) in.readValue((boolean.class.getClassLoader())));
         this.address = ((String) in.readValue((String.class.getClassLoader())));
         this.img2 = ((String) in.readValue((String.class.getClassLoader())));
         this.phone = ((String) in.readValue((String.class.getClassLoader())));
@@ -103,9 +107,7 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         return websiteLink;
     }
 
-    public void setWebsiteLink(String websiteLink) {
-        this.websiteLink = websiteLink;
-    }
+
 
 
 
