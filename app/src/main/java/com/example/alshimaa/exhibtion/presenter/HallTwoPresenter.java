@@ -4,9 +4,8 @@ import android.content.Context;
 
 import com.example.alshimaa.exhibtion.api.Client;
 import com.example.alshimaa.exhibtion.api.Service;
-import com.example.alshimaa.exhibtion.model.ExhibtorsResponse;
 import com.example.alshimaa.exhibtion.model.HallOneResponse;
-import com.example.alshimaa.exhibtion.view.ExhibtorsView;
+import com.example.alshimaa.exhibtion.model.HallTwoResponse;
 import com.example.alshimaa.exhibtion.view.HallOneView;
 
 import java.util.HashMap;
@@ -16,31 +15,31 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HallOnePresenter {
+public class HallTwoPresenter {
     Context context;
     HallOneView hallOneView;
 
-    public HallOnePresenter(Context context, HallOneView hallOneView) {
+    public HallTwoPresenter(Context context, HallOneView hallOneView) {
         this.context = context;
         this.hallOneView = hallOneView;
     }
 
-    public void getHallOneResult(String Id_fair )
+    public void getHallTwoResult(String Id_fair )
     {
         Map<String,String> map=new HashMap<>();
         map.put("id_fair",Id_fair);
         Service service = Client.getClient().create( Service.class );
-        Call<HallOneResponse> call = service.getHallOneData(map );
-        call.enqueue( new Callback<HallOneResponse>() {
+        Call<HallTwoResponse> call = service.getHallTwoData(map );
+        call.enqueue( new Callback<HallTwoResponse>() {
             @Override
-            public void onResponse(Call<HallOneResponse> call, Response<HallOneResponse> response) {
+            public void onResponse(Call<HallTwoResponse> call, Response<HallTwoResponse> response) {
                 if(response.isSuccessful()) {
-                    hallOneView.showHallOneList(response.body().getData());
+                    hallOneView.showHallTwoList(response.body().getData());
                 }
             }
 
             @Override
-            public void onFailure(Call<HallOneResponse> call, Throwable t) {
+            public void onFailure(Call<HallTwoResponse> call, Throwable t) {
                 hallOneView.showError();
             }
         } );

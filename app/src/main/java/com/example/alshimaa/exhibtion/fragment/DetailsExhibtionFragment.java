@@ -29,14 +29,17 @@ import com.example.alshimaa.exhibtion.activity.RegisterInExhibtionActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.adapter.ExhibtorsAdapter;
 import com.example.alshimaa.exhibtion.adapter.HallOneAdapter;
+import com.example.alshimaa.exhibtion.adapter.HallTwoAdapter;
 import com.example.alshimaa.exhibtion.adapter.OrganizersAndServiceProvidersAdapter;
 import com.example.alshimaa.exhibtion.adapter.SponsorAdapter;
 import com.example.alshimaa.exhibtion.model.ExhibtorsData;
 import com.example.alshimaa.exhibtion.model.HallOneData;
+import com.example.alshimaa.exhibtion.model.HallTwoData;
 import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersData;
 import com.example.alshimaa.exhibtion.model.SponsorData;
 import com.example.alshimaa.exhibtion.presenter.ExhibtorsPresenter;
 import com.example.alshimaa.exhibtion.presenter.HallOnePresenter;
+import com.example.alshimaa.exhibtion.presenter.HallTwoPresenter;
 import com.example.alshimaa.exhibtion.presenter.OrganizersAndServiceProvidersPresenter;
 import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;
 import com.example.alshimaa.exhibtion.view.ExhibtorsView;
@@ -63,6 +66,11 @@ public class DetailsExhibtionFragment extends Fragment implements
     HallOneAdapter hallOneAdapter;
 
 
+    HallTwoPresenter hallTwoPresenter;
+    Spinner hallTwoSpinner;
+    Integer HallTwoModelID;
+    String HallTwoModel;
+    HallTwoAdapter hallTwoAdapter;
 
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
@@ -143,6 +151,7 @@ View view;
         }
         OrganizersAndServiceProviders();
         HallOne();
+        HallTwo();
         Sponsors();
         Exhibtors();
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
@@ -173,6 +182,11 @@ View view;
         });
 
         return view;
+    }
+
+    private void HallTwo() {
+        hallTwoPresenter=new HallTwoPresenter(getContext(),this);
+        hallTwoPresenter.getHallTwoResult(ID  );
     }
 
     private void HallOne() {
@@ -231,7 +245,7 @@ View view;
 
 
         hallOneSpinner=view.findViewById( R.id.details_exhibtion_spinner1 );
-
+        hallTwoSpinner=view.findViewById( R.id.details_exhibtion_spinner2 );
 
     }
 
@@ -370,6 +384,60 @@ View view;
 
     @Override
     public void showError() {
+
+    }
+
+    @Override
+    public void showHallTwoList(List<HallTwoData> hallTwoDataList) {
+        ArrayList<String> hallTwoList=new ArrayList<>(  );
+        for(int i=0;i<hallTwoDataList.size();i++)
+        {
+            // hallOneList.add(String.valueOf(hallOneDataList.get( i ).getId() ) );
+            hallTwoList.add( hallTwoDataList.get( i ).getTitle() );
+            // hallOneList.add( hallOneDataList.get( i ).getImg() );
+
+        }
+
+        hallTwoAdapter =new HallTwoAdapter( getContext(), R.layout.spinner_item);
+        hallTwoAdapter.addAll( hallTwoList );
+        hallTwoAdapter.add( getResources().getString(R.string.Hall_2));
+        hallTwoSpinner.setAdapter( hallTwoAdapter );
+
+
+        hallTwoSpinner.setSelection( hallTwoAdapter.getCount() );
+        hallTwoSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (hallTwoSpinner.getSelectedItem()==getResources().getString(R.string.Hall_2))
+                {
+
+                }
+                else
+                {
+                    HallTwoModel=hallTwoSpinner.getSelectedItem().toString();
+                  /*  for (i=0;i<hallOneDataList.size();i++)
+                    {
+                        if(hallOneDataList.get(i).getTitle().equals( HallOneModel ))
+                        {
+                            HallOneModelID=hallOneDataList.get(i).getId();
+                        }
+                    }*/
+                    hallTwoPresenter.getHallTwoResult(HallTwoModel  );
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        } );
+
+
+    }
+
+
+    @Override
+    public void showHallTwoError() {
 
     }
 }

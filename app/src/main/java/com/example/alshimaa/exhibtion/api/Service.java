@@ -11,6 +11,7 @@ import com.example.alshimaa.exhibtion.model.ExhibtionOwnerResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtorDetailsResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtorsResponse;
 import com.example.alshimaa.exhibtion.model.HallOneResponse;
+import com.example.alshimaa.exhibtion.model.HallTwoResponse;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.HomeSiteOptionResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
@@ -121,6 +122,8 @@ public interface Service {
 
     @POST("hole_exhibitor_No_1")
     Call<HallOneResponse> getHallOneData(@Body Map<String,String> map);
+    @POST("hole_exhibitor_No_2")
+    Call<HallTwoResponse> getHallTwoData(@Body Map<String,String> map);
 
     @POST("exhibitors_detials")
     Call<ExhibtorDetailsResponse> getExhibtorDetailsData(@Body Map<String,String> map);
