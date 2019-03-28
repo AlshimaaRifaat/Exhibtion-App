@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="@dimen/_97sdp"
+            android:layout_marginEnd="@dimen/_17sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_25sdp"
             android:textColor="#fff"
@@ -103,14 +103,36 @@
         android:maxLines="1"
 
         />
+    <TextView
+        android:id="@+id/details_exhibtion_title_exhibtors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Exhibitors"
+        android:textColor="#3ca0d9"
+        android:textStyle="bold"
+        android:layout_below="@+id/details_exhibtion_address"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:textSize="@dimen/_11sdp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/details_exhibtion_recycler_exhibtors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_below="@+id/details_exhibtion_title_exhibtors"
+        >
+    </android.support.v7.widget.RecyclerView>
 
-    <android.support.v7.widget.CardView
+    <!--<android.support.v7.widget.CardView
         android:id="@+id/details_exhibtion_card_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/details_exhibtion_address"
+        android:layout_below="@+id/details_exhibtion_recycler_exhibtors"
         android:background="@drawable/button_visitor"
         android:layout_marginTop="@dimen/_4sdp"
         >
@@ -132,7 +154,7 @@
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/details_exhibtion_address"
+        android:layout_below="@+id/details_exhibtion_recycler_exhibtors"
         android:background="@drawable/button_visitor"
         android:layout_marginTop="@dimen/_4sdp"
         >
@@ -146,7 +168,7 @@
             android:textAllCaps="false"
             />
 
-    </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>-->
     <TextView
         android:id="@+id/details_exhibtion_title_organizers"
         android:layout_width="wrap_content"
@@ -154,7 +176,7 @@
         android:text="@string/Organizers_and_service_providers"
         android:textColor="#3ca0d9"
         android:textStyle="bold"
-        android:layout_below="@+id/details_exhibtion_card_register"
+        android:layout_below="@+id/details_exhibtion_recycler_exhibtors"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_12sdp"
@@ -286,7 +308,52 @@
         android:layout_below="@+id/details_exhibtion_title_sponsor"
         >
     </android.support.v7.widget.RecyclerView>
-    <TextView
+    <android.support.v7.widget.CardView
+        android:id="@+id/details_exhibtion_card_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/details_exhibtion_recycler_sponsors"
+        android:background="@drawable/button_visitor"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_11sdp"
+        >
+        <Button
+            android:id="@+id/details_exhibtion_btn_register"
+            android:layout_width="@dimen/_137sdp"
+            android:layout_height="@dimen/_43sdp"
+            android:text="@string/RegisterAsVisitor"
+            android:textSize="@dimen/_11sdp"
+            android:background="@drawable/button_visitor"
+            android:textAllCaps="false"
+            />
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/details_exhibtion_card_exhibtor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/details_exhibtion_recycler_sponsors"
+        android:background="@drawable/button_visitor"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_11sdp"
+        >
+        <Button
+            android:id="@+id/details_exhibtion_btn_exhibtor"
+            android:layout_width="@dimen/_137sdp"
+            android:layout_height="@dimen/_43sdp"
+            android:text="@string/RegisterAsExhibtor"
+            android:textSize="@dimen/_11sdp"
+            android:background="@drawable/button_visitor"
+            android:textAllCaps="false"
+            />
+
+    </android.support.v7.widget.CardView>
+    <!--<TextView
         android:id="@+id/details_exhibtion_title_exhibtors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -307,14 +374,14 @@
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_below="@+id/details_exhibtion_title_exhibtors"
         >
-    </android.support.v7.widget.RecyclerView>
-    <!--<android.support.v7.widget.CardView
+    </android.support.v7.widget.RecyclerView>-->
+ <!--   <android.support.v7.widget.CardView
         android:id="@+id/details_exhibtion_card_diagram"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_18sdp"
         android:layout_marginRight="@dimen/_18sdp"
-        android:layout_below="@+id/details_exhibtion_recycler_exhibtors"
+        android:layout_below="@+id/details_exhibtion_card_diagram"
         android:background="@drawable/button_visitor"
         android:layout_marginTop="@dimen/_40sdp">
         <Button

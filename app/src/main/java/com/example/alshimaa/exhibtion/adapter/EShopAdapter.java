@@ -48,12 +48,14 @@ public class EShopAdapter extends RecyclerView.Adapter<EShopAdapter.ViewHolder> 
         Glide.with( context ).load( "http://eelectronicexpo.com"
                   +EshopDatalist.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(EshopDatalist.get( position ).getTitle());
+        holder.salePrice.setText(EshopDatalist.get( position ).getSalePrice()+" ريال ");
         /* holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());*/
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
         /*  holder.address.setText(currentExhibtionDataList.get( position ).getAddress());*/
 
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
+        holder.salePrice.setTypeface( customFontRegular );
       /*  holder.describtion.setTypeface( customFontRegular );
 
         holder.address.setTypeface( customFontRegular );
@@ -82,6 +84,7 @@ public class EShopAdapter extends RecyclerView.Adapter<EShopAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView imageView;
         private TextView title;
+        private TextView salePrice;
         /*  private TextView describtion;
           private ImageView videoYoutube;
           private TextView address;*/
@@ -89,6 +92,7 @@ public class EShopAdapter extends RecyclerView.Adapter<EShopAdapter.ViewHolder> 
             super( itemView );
             imageView=itemView.findViewById( R.id.row_e_shop_img);
             title=itemView.findViewById(R.id.row_e_shop_title);
+            salePrice=itemView.findViewById(R.id.row_e_shop_sale_price);
          /*   describtion=itemView.findViewById(R.id.row_cur_exhibtion_desc);
             videoYoutube=itemView.findViewById(R.id.row_cur_exhibtion_img_video);
             address=itemView.findViewById(R.id.row_cur_exhibtion_address);*/
