@@ -124,6 +124,7 @@
                   android:background="@drawable/ic_message"
                   android:layout_marginStart="@dimen/_5sdp"
                   />
+
               <TextView
                   android:id="@+id/details_exhibtors_text_email"
                   android:layout_width="wrap_content"
@@ -135,7 +136,15 @@
 
                   />
           </RelativeLayout>
-
+          <ImageView
+              android:id="@+id/details_exhibtors_icon_whats"
+              android:layout_width="@dimen/_27sdp"
+              android:layout_height="@dimen/_27sdp"
+              android:layout_below="@+id/relative_email"
+              android:layout_alignParentEnd="true"
+              android:layout_marginTop="@dimen/_9sdp"
+              android:layout_marginEnd="@dimen/_12sdp"
+              android:src="@drawable/whatsapp"/>
           <RelativeLayout
               android:id="@+id/relative_website"
               android:layout_width="@dimen/_130sdp"

@@ -1,16 +1,19 @@
 package com.example.alshimaa.exhibtion.fragment;
 
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.telephony.PhoneNumberUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,6 +72,9 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     //EShopAdapter eShopAdapter;
     ExhibtorDetailsPresenter exhibtorDetailsPresenter;
     List<ExhibtorDetailsData> exhibtorDetailsDataList;
+
+    ImageView iconWhats;
+
     public DetailsExhibtorsFragment() {
         // Required empty public constructor
     }
@@ -113,7 +119,17 @@ View view;
         });
         ServicesProvided();
         EShop();
+        this.exhibtorDetailsDataList=exhibtorDetailsDataList;
+        iconWhats.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent sendIntent = new Intent("android.intent.action.MAIN");
+                sendIntent.setComponent(new ComponentName("com.whatsapp","com.whatsapp.Conversation"));
+                sendIntent.putExtra("jid", PhoneNumberUtils.stripSeparators(exhibtorDetailsDataList.get(0).getPhone())+"@s.whatsapp.net");
+                startActivity(sendIntent);
+            }
+        } );
         contactUsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -177,6 +193,7 @@ View view;
     recyclerViewservicesProvided=view.findViewById(R.id.details_exhibtors_recycler_services);
     recyclerViewEShop=view.findViewById(R.id.details_exhibtors_recycler_E_shop);
     contactUsBtn=view.findViewById(R.id.details_exhibtors_btn_contact_us);
+    iconWhats=view.findViewById(R.id.details_exhibtors_icon_whats);
     }
     @Override
     public void onStart() {
