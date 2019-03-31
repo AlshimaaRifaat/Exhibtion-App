@@ -8,21 +8,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <android.support.v7.widget.CardView
-            android:layout_width="@dimen/_142sdp"
-            android:layout_height="@dimen/_150sdp"
-            android:layout_marginTop="@dimen/_6sdp"
-            android:layout_marginStart="@dimen/_4sdp"
-            android:layout_marginEnd="@dimen/_4sdp"
-            android:layout_marginBottom="@dimen/_2sdp"
+            android:layout_width="@dimen/_122sdp"
+            android:layout_height="@dimen/_135sdp"
+            app:cardElevation="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
             app:cardBackgroundColor="@android:color/white">
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/row_home_service_provider_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_88sdp"
-                    android:scaleType="fitXY"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_centerHorizontal="true"
                     />
                 <TextView
                     android:id="@+id/row_home_service_provider_title"
@@ -33,8 +32,9 @@
                     android:layout_below="@id/row_home_service_provider_img"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_marginEnd="@dimen/_4sdp"
-                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:maxLines="2"
                     />
                 <TextView
                     android:id="@+id/row_home_service_provider_desc"
