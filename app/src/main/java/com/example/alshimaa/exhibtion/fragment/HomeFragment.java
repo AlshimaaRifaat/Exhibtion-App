@@ -370,8 +370,9 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         bundle.putString("address",homeUnderConstructData.getAddress());
         bundle.putString("id",String.valueOf(homeUnderConstructData.getId()));
         bundle.putString("user_id",homeUnderConstructData.getIdUser());
-        // bundle.putString("logo",homeUnderConstructData.getLogo());
+        bundle.putString("logo",homeUnderConstructData.getLogo());
         bundle.putString("visibilty","yes");
+        bundle.putString("under","yes");
 
 
         detailsExhibtionFragment.setArguments(bundle);

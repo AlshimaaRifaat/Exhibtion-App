@@ -94,7 +94,8 @@ public class DetailsExhibtionFragment extends Fragment implements
 
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-   public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity,Visitor,UserId_underConstruct;
+   public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity,Visitor,FromCur
+           ,Under,UserId_underConstruct;
     TextView title,description,address;
     ImageView logo;
 
@@ -152,7 +153,9 @@ View view;
             UserId=bundle.getString("user_id");
             Logo=bundle.getString("logo");
             Visiblity=bundle.getString("visibilty");
-
+            Under=bundle.getString("registerFromCurExhib");
+           // FromCur=bundle.getString("registerFromCurExhib");
+         //  Toast.makeText(getContext(), Under, Toast.LENGTH_SHORT).show();
 
             //RegisterFromCurExhib = bundle.getString("registerFromCurExhib");
            // Visitor=bundle.getString("visitor");
@@ -194,9 +197,13 @@ View view;
 
 
         Intent i = new Intent(getActivity(), RegisterActivity.class);
-        i.putExtra("registerFromCurExhib","yes");
 
-            // i.putExtra("registerFromCurExhib","yes");
+
+            i.putExtra("registerFromCurExhib","no_under");
+
+            i.putExtra("registerFromCurExhib","yes");
+
+             //Toast.makeText(getContext(), Under, Toast.LENGTH_SHORT).show();
         startActivity(i);
         ((Activity) getActivity()).overridePendingTransition(0,0);
     }

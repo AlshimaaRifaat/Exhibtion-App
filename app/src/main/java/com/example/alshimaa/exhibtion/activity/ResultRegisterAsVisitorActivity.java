@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
@@ -23,7 +24,7 @@ public class ResultRegisterAsVisitorActivity extends AppCompatActivity implement
     ResultRegisterAsVisitorPresenter resultRegisterAsVisitorPresenter;
     ResultRegisterAsVisitorAdapter resultRegisterAsVisitorAdapter;
     RecyclerView recyclerViewResRegisterAsVisitor;
-    public static String Visibility;
+    public static String Visibility,Under,FromCur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,10 @@ public class ResultRegisterAsVisitorActivity extends AppCompatActivity implement
         setContentView(R.layout.activity_result_register_as_visitor);
         init();
 
+       //Under = getIntent().getStringExtra("no_under");
+        FromCur= getIntent().getStringExtra("registerFromCurExhib");
 
+       // Toast.makeText(this, " CUR "+FromCur, Toast.LENGTH_SHORT).show();
 
         ResultRegisterAsVisitor();
     }
@@ -46,10 +50,12 @@ public class ResultRegisterAsVisitorActivity extends AppCompatActivity implement
 
     private void ResultRegisterAsVisitor() {
         resultRegisterAsVisitorPresenter=new ResultRegisterAsVisitorPresenter(this,this);
-        if(RegisterActivity.RegisterFromCurExhib.equals("yes")) {
+
+        if(DetailsExhibtionFragment.Visiblity.equals("yes")) {
             resultRegisterAsVisitorPresenter.getResultRegisterAsVisitorResult(RegisterActivity.userNameEtext.getText().toString(),
                     RegisterActivity.userEmailEtext.getText().toString(), RegisterActivity.userPhoneEtext.getText().toString(), DetailsExhibtionFragment.ID); // fair id
-        }else
+        }
+        else
         {
             resultRegisterAsVisitorPresenter.getResultRegisterAsVisitorResult(RegisterActivity.userNameEtext.getText().toString(),
                     RegisterActivity.userEmailEtext.getText().toString(), RegisterActivity.userPhoneEtext.getText().toString(), RegisterNowActivity.FairId);

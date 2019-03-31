@@ -28,6 +28,9 @@ public class HomeUnderConstructData implements  Parcelable
     @SerializedName("img")
     @Expose
     private String img;
+    @SerializedName("logo")
+    @Expose
+    private String logo;
     @SerializedName("address")
     @Expose
     private String address;
@@ -56,7 +59,7 @@ public class HomeUnderConstructData implements  Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -4173835573908989280L;
+    private final static long serialVersionUID = 8481233231383935052L;
 
     protected HomeUnderConstructData(Parcel in) {
         this.id = ((int) in.readValue((int.class.getClassLoader())));
@@ -65,6 +68,7 @@ public class HomeUnderConstructData implements  Parcelable
         this.description = ((String) in.readValue((String.class.getClassLoader())));
         this.youtube = ((String) in.readValue((String.class.getClassLoader())));
         this.img = ((String) in.readValue((String.class.getClassLoader())));
+        this.logo = ((String) in.readValue((String.class.getClassLoader())));
         this.address = ((String) in.readValue((String.class.getClassLoader())));
         this.phone = ((String) in.readValue((String.class.getClassLoader())));
         this.startDate = ((String) in.readValue((String.class.getClassLoader())));
@@ -122,6 +126,14 @@ public class HomeUnderConstructData implements  Parcelable
         this.img = img;
     }
 
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -161,6 +173,7 @@ public class HomeUnderConstructData implements  Parcelable
         dest.writeValue(description);
         dest.writeValue(youtube);
         dest.writeValue(img);
+        dest.writeValue(logo);
         dest.writeValue(address);
         dest.writeValue(phone);
         dest.writeValue(startDate);

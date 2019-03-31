@@ -66,6 +66,7 @@
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
+        android:scaleType="fitXY"
         android:layout_below="@+id/youtube_player_support_fragment"
         />
 

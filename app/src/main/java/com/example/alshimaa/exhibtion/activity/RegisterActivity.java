@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements NavigationSer
 Intent intent;
 String FairId;
 */
-public static String RegisterFromCurExhib;
+public static String RegisterFromCurExhib,Under;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,8 @@ public static String RegisterFromCurExhib;
         init();
 
         RegisterFromCurExhib = getIntent().getStringExtra("registerFromCurExhib");
-
+        //Under = getIntent().getStringExtra("registerFromCurExhib");
+       // Toast.makeText(this, " CUR "+RegisterFromCurExhib, Toast.LENGTH_SHORT).show();
 
         networkConnection=new NetworkConnection(this);
 
@@ -78,7 +79,7 @@ public static String RegisterFromCurExhib;
                         }*/
 
                 Intent intent=new Intent(this,ResultRegisterAsVisitorActivity.class);
-
+                intent.putExtra("registerFromCurExhib","no_under");
                 startActivity(intent);
 
             }

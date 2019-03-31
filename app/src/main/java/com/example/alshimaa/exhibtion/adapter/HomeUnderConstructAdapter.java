@@ -72,7 +72,7 @@ public  void onClick(OnclickIconHomeUnderConstructView onclickIconHomeUnderConst
                 homeUnderConstructData.setAddress(homeUnderConstructDataList.get(position).getAddress());
                 homeUnderConstructData.setId(homeUnderConstructDataList.get(position).getId());
                 homeUnderConstructData.setIdUser(homeUnderConstructDataList.get(position).getIdUser());
-               // homeUnderConstructData.setLogo(homeUnderConstructDataList.get(position).getLogo());
+               homeUnderConstructData.setLogo(homeUnderConstructDataList.get(position).getLogo());
                 detailsExhibtionUnderConstructView.showDetailsExhibtionUnderConstruct(homeUnderConstructData);
             }
         });
