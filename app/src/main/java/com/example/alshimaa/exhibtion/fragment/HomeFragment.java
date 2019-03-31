@@ -43,6 +43,7 @@ import com.example.alshimaa.exhibtion.view.HomeServiceProviderView;
 import com.example.alshimaa.exhibtion.view.HomeSliderView;
 import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
 import com.example.alshimaa.exhibtion.view.NavItemServiceProvView;
+import com.example.alshimaa.exhibtion.view.OnClickNavItemServiceProvView;
 import com.example.alshimaa.exhibtion.view.OnclickIconHomeUnderConstructView;
 
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -63,7 +64,7 @@ import java.util.TimerTask;
  */
 public class HomeFragment extends Fragment implements HomeSliderView,NavItemServiceProvView
 ,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,OnclickIconHomeUnderConstructView
-,HomeNewsView,DetailsExhibtionUnderConstructView{
+,HomeNewsView,DetailsExhibtionUnderConstructView,OnClickNavItemServiceProvView{
     Toolbar toolbar;
 
     NetworkConnection networkConnection;
@@ -107,6 +108,8 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
     RecyclerView recyclerViewProvider;
     HomeServiceProviderAdapter homeServiceProviderAdapter;
     NavItemServiceProviderPresenter navItemServiceProviderPresenter;
+
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -378,6 +381,16 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
                 .addToBackStack( null ).commit();
     }
 
+    @Override
+    public void showOnClickNavItemServiceProvData(NavItemServiceProviderData navItemServiceProviderData) {
+        DetailsNavItemServiceProviderFragment detailsNavItemServiceProviderFragment=new DetailsNavItemServiceProviderFragment();
+        Bundle bundle=new Bundle();
+        bundle.putParcelable("ServiceProviderItem",navItemServiceProviderData);
+        detailsNavItemServiceProviderFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsNavItemServiceProviderFragment)
+                .addToBackStack(null).commit();
+    }
+
     private class AutoScrollTask extends TimerTask {
         @Override
         public void run() {
@@ -434,7 +447,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
     @Override
     public void showNavItemServiceProvList(List<NavItemServiceProviderData> navItemServiceProviderDataList) {
         homeServiceProviderAdapter=new HomeServiceProviderAdapter( getContext(),navItemServiceProviderDataList );
-        // navItemServiceProvAdapter.onClick(this);
+        homeServiceProviderAdapter.onClick(this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerViewProvider.setLayoutManager(gridLayoutManager);
         recyclerViewProvider.setAdapter( homeServiceProviderAdapter );
