@@ -123,8 +123,8 @@ View view;
 
     }
 
-    @Override
+  /*  @Override
     public void showRegisterAsVisitorData(String Msg) {
 
-    }
+    }*/
 }

@@ -352,6 +352,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         Intent intent=new Intent(getActivity(),RegisterNowActivity.class);
         //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
         intent.putExtra("fair_id",String.valueOf(homeUnderConstructData.getId()));
+
         getActivity().startActivity(intent);
 
     }
@@ -368,6 +369,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         bundle.putString("user_id",homeUnderConstructData.getIdUser());
         // bundle.putString("logo",homeUnderConstructData.getLogo());
         bundle.putString("visibilty","yes");
+
 
         detailsExhibtionFragment.setArguments(bundle);
 

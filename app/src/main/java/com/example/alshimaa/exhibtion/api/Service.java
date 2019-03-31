@@ -2,9 +2,7 @@ package com.example.alshimaa.exhibtion.api;
 
 import com.example.alshimaa.exhibtion.model.AboutUsResponse;
 import com.example.alshimaa.exhibtion.model.CallUsResponse;
-import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionResponse;
-import com.example.alshimaa.exhibtion.model.DetailsNavItemServiceProvData;
 import com.example.alshimaa.exhibtion.model.DetailsNavItemServiceProvResponse;
 import com.example.alshimaa.exhibtion.model.EShopResponse;
 import com.example.alshimaa.exhibtion.model.ExhibtionOwnerResponse;
@@ -14,7 +12,6 @@ import com.example.alshimaa.exhibtion.model.HallFourResponse;
 import com.example.alshimaa.exhibtion.model.HallOneResponse;
 import com.example.alshimaa.exhibtion.model.HallThreeResponse;
 import com.example.alshimaa.exhibtion.model.HallTwoResponse;
-import com.example.alshimaa.exhibtion.model.HomeServiceProviderResponse;
 import com.example.alshimaa.exhibtion.model.HomeSiteOptionResponse;
 import com.example.alshimaa.exhibtion.model.HomeSliderResponse;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
@@ -26,7 +23,7 @@ import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersRespons
 import com.example.alshimaa.exhibtion.model.PreviousExhibtionResponse;
 import com.example.alshimaa.exhibtion.model.PuthesRegisterResponse;
 import com.example.alshimaa.exhibtion.model.PuthesResponse;
-import com.example.alshimaa.exhibtion.model.SearchNavItemServiceProvResponse;
+import com.example.alshimaa.exhibtion.model.ResultRegisterAsVisitorResponse;
 import com.example.alshimaa.exhibtion.model.ServicesProvidedResponse;
 import com.example.alshimaa.exhibtion.model.SponsorResponse;
 
@@ -99,7 +96,7 @@ public interface Service {
     Call<NavigationServiceProviderResponse> getNavServiceProviderData(@Body Map<String,String> map);
 
     @POST("visitors")
-    Call<NavigationServiceProviderResponse> getRegisterAsVisitorData(@Body Map<String,String> map);
+    Call<ResultRegisterAsVisitorResponse> getRegisterAsVisitorData(@Body Map<String,String> map);
 
     @POST("available_partitions")
     Call<PuthesResponse> getPuthesData(@Body Map<String,String> map);

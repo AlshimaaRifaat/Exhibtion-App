@@ -199,6 +199,7 @@ View view;
             bundle.putString("logo",currentExhibtionData.getLogo());
             bundle.putString("visibilty","yes");
 
+
             detailsExhibtionFragment.setArguments(bundle);
 
             getFragmentManager().beginTransaction().add( R.id.content_navigation,

@@ -59,34 +59,5 @@ public class NavigationServiceProviderPresenter {
         }
     }
 
-    public void getRegisterAsVisitorResult(String Name, String Email, String Phone,String FairId)
-    {
-        Map<String,String> map=new HashMap<>(  );
-        {
-            map.put( "name",Name );
-            map.put("email",Email);
-            map.put("phone", Phone);
-            map.put( "fairs_id",FairId );
 
-            Service service= Client.getClient().create( Service.class );
-            Call<NavigationServiceProviderResponse> call =service.getRegisterAsVisitorData(  map);
-            call.enqueue( new Callback<NavigationServiceProviderResponse>() {
-                @Override
-                public void onResponse(Call<NavigationServiceProviderResponse> call, Response<NavigationServiceProviderResponse> response) {
-                    if (response.isSuccessful())
-                    {
-                        navigationServiceProviderView.showRegisterAsVisitorData(response.body().getData());
-
-                    }
-
-                }
-
-                @Override
-                public void onFailure(Call<NavigationServiceProviderResponse> call, Throwable t) {
-                    Toast.makeText( context, R.string.NoResultFound,
-                            Toast.LENGTH_SHORT).show();
-                }
-            } );
-        }
-    }
 }

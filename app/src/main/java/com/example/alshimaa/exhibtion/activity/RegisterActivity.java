@@ -14,12 +14,13 @@ import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.fragment.DetailsExhibtionFragment;
 import com.example.alshimaa.exhibtion.fragment.HomeFragment;
 import com.example.alshimaa.exhibtion.presenter.NavigationServiceProviderPresenter;
+import com.example.alshimaa.exhibtion.presenter.ResultRegisterAsVisitorPresenter;
 import com.example.alshimaa.exhibtion.view.NavigationServiceProviderView;
 import com.fourhcode.forhutils.FUtilsValidation;
 
 public class RegisterActivity extends AppCompatActivity implements NavigationServiceProviderView {
-    NavigationServiceProviderPresenter navigationServiceProviderPresenter;
-    EditText userNameEtext,userEmailEtext,userPhoneEtext;
+    ResultRegisterAsVisitorPresenter resultRegisterAsVisitorPresenter;
+    public static EditText userNameEtext,userEmailEtext,userPhoneEtext;
 
     NetworkConnection networkConnection;
     Button registerBtn;
@@ -29,6 +30,7 @@ Intent intent;
 String FairId;
 */
 public static String RegisterFromCurExhib;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +38,12 @@ public static String RegisterFromCurExhib;
         init();
 
         RegisterFromCurExhib = getIntent().getStringExtra("registerFromCurExhib");
+
+
         networkConnection=new NetworkConnection(this);
 
 
-        RegisterAsVisitor();
+      /*  RegisterAsVisitor();*/
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +66,7 @@ public static String RegisterFromCurExhib;
                     !userPhoneEtext.getText().toString().equals("")&&
                     String.valueOf(RegisterNowActivity.FairId)!=null&&validateEmail())
             {
-                        if(RegisterFromCurExhib.equals("yes"))
+                       /* if(RegisterFromCurExhib.equals("yes"))
                         {
                             navigationServiceProviderPresenter.getRegisterAsVisitorResult( userNameEtext.getText().toString(),
                                     userEmailEtext.getText().toString(),userPhoneEtext.getText().toString()
@@ -71,8 +75,11 @@ public static String RegisterFromCurExhib;
                             navigationServiceProviderPresenter.getRegisterAsVisitorResult( userNameEtext.getText().toString(),
                                     userEmailEtext.getText().toString(),userPhoneEtext.getText().toString()
                                     ,String.valueOf(RegisterNowActivity.FairId));
-                        }
+                        }*/
 
+                Intent intent=new Intent(this,ResultRegisterAsVisitorActivity.class);
+
+                startActivity(intent);
 
             }
             else
@@ -106,10 +113,10 @@ public static String RegisterFromCurExhib;
         return !TextUtils.isEmpty( email )&&  android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    private void RegisterAsVisitor() {
-        navigationServiceProviderPresenter=new NavigationServiceProviderPresenter(this,this);
+   /* private void RegisterAsVisitor() {
+        resultRegisterAsVisitorPresenter=new ResultRegisterAsVisitorPresenter(this,this);
 
-    }
+    }*/
 
     private void init() {
         userNameEtext=findViewById(R.id.register_edit_text_name);
@@ -131,10 +138,10 @@ public static String RegisterFromCurExhib;
 
     }
 
-    @Override
+   /* @Override
     public void showRegisterAsVisitorData(String Msg) {
         Toast.makeText(this, Msg, Toast.LENGTH_SHORT).show();
        Intent intent=new Intent(this,NavigationActivity.class);
        startActivity(intent);
-    }
+    }*/
 }

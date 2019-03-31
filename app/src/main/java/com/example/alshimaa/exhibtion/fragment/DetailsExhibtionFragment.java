@@ -94,7 +94,7 @@ public class DetailsExhibtionFragment extends Fragment implements
 
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-   public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity,UserId_underConstruct;
+   public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity,Visitor,UserId_underConstruct;
     TextView title,description,address;
     ImageView logo;
 
@@ -118,11 +118,12 @@ public class DetailsExhibtionFragment extends Fragment implements
    public static Button registerNowBtn;
 
     public static Button registerAsExhibtor;
+
     Intent intent;
 
     SponsorAdapter sponsorAdapter;
 
-
+public static String RegisterFromCurExhib,FromUnder;
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
@@ -152,6 +153,11 @@ View view;
             Logo=bundle.getString("logo");
             Visiblity=bundle.getString("visibilty");
 
+
+            //RegisterFromCurExhib = bundle.getString("registerFromCurExhib");
+           // Visitor=bundle.getString("visitor");
+            //"visitor","no_from_under"
+
             title.setText(Title);
             description.setText(Description);
             address.setText(Address);
@@ -170,6 +176,8 @@ View view;
                 registerAsExhibtor.setVisibility(View.GONE);
             }
 
+
+
         }
         OrganizersAndServiceProviders();
         HallOne();
@@ -187,6 +195,8 @@ View view;
 
         Intent i = new Intent(getActivity(), RegisterActivity.class);
         i.putExtra("registerFromCurExhib","yes");
+
+            // i.putExtra("registerFromCurExhib","yes");
         startActivity(i);
         ((Activity) getActivity()).overridePendingTransition(0,0);
     }
