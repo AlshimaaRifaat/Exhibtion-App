@@ -62,8 +62,8 @@ public class ResultRegisterAsVisitorActivity extends AppCompatActivity implement
         resultRegisterAsVisitorAdapter=new ResultRegisterAsVisitorAdapter( this,registerAsVisitorDataList );
        /* homeUnderConstructAdapter.onClick(this);*/
         /*homeUnderConstructAdapter.onClickItem(this);*/
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
-        recyclerViewResRegisterAsVisitor.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerViewResRegisterAsVisitor.setLayoutManager(linearLayoutManager);
         recyclerViewResRegisterAsVisitor.setAdapter( resultRegisterAsVisitorAdapter );
     }
 
