@@ -92,18 +92,35 @@
         android:textColor="#cccbcb"
         android:maxLines="2"
         />
+
     <TextView
         android:id="@+id/details_exhibtion_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_12sdp"
+       
         android:layout_toEndOf="@+id/details_exhibtion_logo"
         android:layout_below="@+id/details_exhibtion_description"
         android:text="addressssssss"
         android:textColor="#cccbcb"
         android:maxLines="1"
+        android:drawableStart="@drawable/placeholder"
 
         />
+    <!--<ImageView
+        android:id="@+id/details_exhibtion_icon_location"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_toStartOf="@+id/details_exhibtion_address"
+       android:layout_toEndOf="@+id/details_exhibtion_logo"
+        android:layout_below="@+id/details_exhibtion_description"
+        android:text="addressssssss"
+        android:textColor="#cccbcb"
+        android:background="@drawable/placeholder"
+        android:maxLines="1"
+
+        />-->
     <TextView
         android:id="@+id/details_exhibtion_title_exhibtors"
         android:layout_width="wrap_content"
@@ -129,7 +146,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/details_exhibtion_recycler_exhibtors"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_250sdp"
+        android:layout_height="@dimen/_350sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
