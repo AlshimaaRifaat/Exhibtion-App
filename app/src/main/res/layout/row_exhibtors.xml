@@ -6,23 +6,27 @@
     android:background="#fff">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <RelativeLayout
             android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="@dimen/_130sdp"
             android:layout_marginStart="@dimen/_4sdp"
             android:layout_marginEnd="@dimen/_4sdp"
             android:layout_marginBottom="@dimen/_12sdp"
-            app:cardBackgroundColor="#fff">
+
+            android:background="@drawable/relative_item">
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
                 <ImageView
                     android:id="@+id/row_exhibtor_img"
-                    android:layout_width="@dimen/_200sdp"
-                    android:layout_height="@dimen/_104sdp"
-                    android:scaleType="fitXY"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_77sdp"
+
+                    android:layout_centerHorizontal="true"
                     />
                 <TextView
                     android:id="@+id/row_exhibtor_title"
@@ -30,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#2998d6"
                     android:text="titleeeeeeeeee"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:layout_below="@id/row_exhibtor_img"
                     android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
@@ -122,7 +126,7 @@
                     android:layout_alignParentStart="true"
                     />-->
             </RelativeLayout>
-        </android.support.v7.widget.CardView>
+        </RelativeLayout>
     </RelativeLayout>
 
 
