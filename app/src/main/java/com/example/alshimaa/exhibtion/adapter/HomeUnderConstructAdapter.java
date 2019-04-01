@@ -46,7 +46,13 @@ public  void onClick(OnclickIconHomeUnderConstructView onclickIconHomeUnderConst
     public void onBindViewHolder(@NonNull HomeUnderConstructAdapter.ViewHolder holder, final int position) {
         Glide.with( context ).load( "http://eelectronicexpo.com"
                 +homeUnderConstructDataList.get( position ).getImg() ).into(holder.imageView);
-        holder.title.setText(homeUnderConstructDataList.get( position ).getTitle());
+        String Title=homeUnderConstructDataList.get( position ).getTitle();
+        if(Title.length()>=20)
+        {
+            Title=Title.substring(0,20)+"...";
+        }
+        holder.title.setText(Title);
+
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
 
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
