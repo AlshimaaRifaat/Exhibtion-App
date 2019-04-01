@@ -152,10 +152,10 @@
                     android:id="@+id/home_recycler_service_provider"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_250sdp"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_9sdp"
+                    android:layout_marginBottom="@dimen/_9sdp"
                     ></android.support.v7.widget.RecyclerView>
             </RelativeLayout>
 

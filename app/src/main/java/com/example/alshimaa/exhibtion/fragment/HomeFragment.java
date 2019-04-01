@@ -449,7 +449,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
     public void showNavItemServiceProvList(List<NavItemServiceProviderData> navItemServiceProviderDataList) {
         homeServiceProviderAdapter=new HomeServiceProviderAdapter( getContext(),navItemServiceProviderDataList );
         homeServiceProviderAdapter.onClick(this);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
         recyclerViewProvider.setLayoutManager(gridLayoutManager);
         recyclerViewProvider.setAdapter( homeServiceProviderAdapter );
         swipeRefreshLayout.setRefreshing( false );

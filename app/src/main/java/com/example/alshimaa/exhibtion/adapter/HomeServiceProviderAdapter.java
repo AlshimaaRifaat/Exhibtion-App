@@ -66,12 +66,14 @@ public int getItemCount() {
 public class ViewHolder extends RecyclerView.ViewHolder{
     private ImageView imageView;
     private TextView title;
+   // private TextView desc;
     // ImageView iconRegister;
 
     public ViewHolder(View itemView) {
         super( itemView );
         imageView=itemView.findViewById( R.id.row_home_service_provider_img);
         title=itemView.findViewById(R.id.row_home_service_provider_title);
+       // title=itemView.findViewById(R.id.row_home_service_provider_desc);
         // iconRegister=itemView.findViewById(R.id.row_home_exhib_icon_register);
 
     }
