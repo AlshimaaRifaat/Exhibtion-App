@@ -10,7 +10,7 @@
         android:layout_height="@dimen/_213sdp">
         <android.support.v7.widget.CardView
             android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_213sdp"
+            android:layout_height="@dimen/_177sdp"
             android:layout_marginEnd="@dimen/_2sdp"
             android:layout_marginBottom="@dimen/_12sdp"
             app:cardBackgroundColor="@android:color/white">
@@ -49,17 +49,22 @@
                     android:textSize="@dimen/_10sdp"
                     android:visibility="gone"
                     />
+            <RelativeLayout
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_74sdp"
+                android:background="#0d93df"
+                android:layout_below="@id/row_prev_exhibtion_img">
                 <TextView
                     android:id="@+id/row_prev_exhibtion_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#2998d6"
+                    android:textColor="#fff"
+                    android:text="dhdj"
                     android:textSize="@dimen/_10sdp"
-                    android:layout_below="@id/row_prev_exhibtion_img"
                     android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:layout_marginTop="@dimen/_2sdp"
-                    android:maxLines="2"
+                    android:maxLines="1"
 
                     />
                 <ImageView
@@ -77,7 +82,8 @@
                     android:id="@+id/row_prev_exhibtion_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#cccbcb"
+                    android:textColor="#fff"
+                    android:text="hhj"
                     android:textSize="@dimen/_10sdp"
                     android:layout_below="@+id/row_prev_exhibtion_title"
                     android:layout_marginStart="@dimen/_6sdp"
@@ -91,7 +97,8 @@
                     android:id="@+id/row_prev_exhibtion_end_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#ec4176"
+                    android:textColor="#fff"
+                    android:text="gghjkjjk"
                     android:textSize="@dimen/_10sdp"
                     android:layout_below="@+id/row_prev_exhibtion_desc"
                     android:layout_marginStart="@dimen/_6sdp"
@@ -100,6 +107,7 @@
                     android:layout_marginBottom="@dimen/_6sdp"
                     android:layout_alignParentStart="true"
                     />
+            </RelativeLayout>
             </RelativeLayout>
         </android.support.v7.widget.CardView>
     </RelativeLayout>

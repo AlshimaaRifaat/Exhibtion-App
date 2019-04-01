@@ -230,12 +230,26 @@
         android:layout_marginTop="@dimen/_12sdp"
         android:textSize="@dimen/_11sdp"
         />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/details_exhibtors_recycler_E_shop"
+    <RelativeLayout
+        android:id="@+id/details_exhibtion_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/details_exhibtors_text_E_shop"
+        android:background="@drawable/relative_home"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_12sdp">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/details_exhibtors_recycler_E_shop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_230sdp"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:layout_marginStart="@dimen/_9sdp"
+        android:layout_marginEnd="@dimen/_9sdp"
+        android:layout_marginBottom="@dimen/_9sdp"
         ></android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
 </RelativeLayout>
 
 </ScrollView>
