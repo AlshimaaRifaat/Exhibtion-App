@@ -116,16 +116,27 @@
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:textSize="@dimen/_11sdp"/>
+    <RelativeLayout
+        android:id="@+id/details_exhibtion_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/details_exhibtion_title_exhibtors"
+        android:background="@drawable/relative_home"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_12sdp">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/details_exhibtion_recycler_exhibtors"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_below="@+id/details_exhibtion_title_exhibtors"
+        android:layout_marginBottom="@dimen/_12sdp"
         >
     </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
 
     <!--<android.support.v7.widget.CardView
         android:id="@+id/details_exhibtion_card_register"
@@ -177,7 +188,7 @@
         android:text="@string/Organizers_and_service_providers"
         android:textColor="#3ca0d9"
         android:textStyle="bold"
-        android:layout_below="@+id/details_exhibtion_recycler_exhibtors"
+        android:layout_below="@+id/details_exhibtion_relative"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_12sdp"

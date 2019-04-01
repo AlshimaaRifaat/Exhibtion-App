@@ -43,7 +43,7 @@ public class PreviousExhibtionAdapter extends RecyclerView.Adapter<PreviousExhib
                 +previousExhibtionDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(previousExhibtionDataList.get( position ).getTitle());
         holder.describtion.setText(previousExhibtionDataList.get( position ).getDescription());
-        holder.endDate.setText(previousExhibtionDataList.get( position ).getEndDate());
+        holder.endDate.setText(" انتهى "+previousExhibtionDataList.get( position ).getEndDate());
 
         holder.address.setText(previousExhibtionDataList.get( position ).getAddress());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
