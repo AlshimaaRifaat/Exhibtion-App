@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.telephony.PhoneNumberUtils;
@@ -249,8 +250,8 @@ View view;
     public void showEshopDataList(List<EShopData> eShopDataList) {
         eShopAdapter=new EShopAdapter( getContext(),eShopDataList );
         //homeProductAdapter.onClick(this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-        recyclerViewEShop.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
+        recyclerViewEShop.setLayoutManager(gridLayoutManager);
         recyclerViewEShop.setAdapter( eShopAdapter );
 
     }

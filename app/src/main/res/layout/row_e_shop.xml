@@ -8,11 +8,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <android.support.v7.widget.CardView
-            android:layout_width="@dimen/_145sdp"
-            android:layout_height="@dimen/_154sdp"
+            android:layout_width="@dimen/_117sdp"
+            android:layout_height="@dimen/_130sdp"
             android:layout_marginTop="@dimen/_6sdp"
-            android:layout_marginStart="@dimen/_4sdp"
-            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
             android:layout_marginBottom="@dimen/_2sdp"
             app:cardBackgroundColor="@android:color/white">
             <RelativeLayout
@@ -21,16 +21,21 @@
                 <ImageView
                     android:id="@+id/row_e_shop_img"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_88sdp"
+                    android:layout_height="@dimen/_90sdp"
                     android:scaleType="fitXY"
                     />
+            <RelativeLayout
+                android:layout_width="@dimen/_117sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="#0d93df"
+                android:layout_below="@id/row_e_shop_img">
                 <TextView
                     android:id="@+id/row_e_shop_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#2998d6"
-                    android:textSize="@dimen/_10sdp"
-                    android:layout_below="@id/row_e_shop_img"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/_8sdp"
+                    android:text="dgdgdhhd"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_4sdp"
@@ -42,15 +47,16 @@
                     android:id="@+id/row_e_shop_sale_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#cccbcb"
-                    android:textSize="@dimen/_10sdp"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/_8sdp"
                     android:layout_below="@+id/row_e_shop_title"
-
+                  android:text="shshsh"
                   android:layout_marginBottom="@dimen/_5sdp"
                   android:layout_marginStart="@dimen/_6sdp"
                   android:layout_marginEnd="@dimen/_6sdp"
 
                     />
+            </RelativeLayout>
             </RelativeLayout>
         </android.support.v7.widget.CardView>
     </RelativeLayout>

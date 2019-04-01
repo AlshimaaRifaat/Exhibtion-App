@@ -47,7 +47,13 @@ public class EShopAdapter extends RecyclerView.Adapter<EShopAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull EShopAdapter.ViewHolder holder, final int position) {
         Glide.with( context ).load( "http://eelectronicexpo.com"
                   +EshopDatalist.get( position ).getImg() ).into(holder.imageView);
-        holder.title.setText(EshopDatalist.get( position ).getTitle());
+
+        String Title=EshopDatalist.get( position ).getTitle();
+        if(Title.length()>=15)
+        {
+            Title=Title.substring(0,15)+"...";
+        }
+        holder.title.setText(Title);
         holder.salePrice.setText(EshopDatalist.get( position ).getSalePrice()+" ريال ");
         /* holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());*/
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
@@ -56,6 +62,9 @@ public class EShopAdapter extends RecyclerView.Adapter<EShopAdapter.ViewHolder> 
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
         holder.salePrice.setTypeface( customFontRegular );
+
+
+
       /*  holder.describtion.setTypeface( customFontRegular );
 
         holder.address.setTypeface( customFontRegular );
