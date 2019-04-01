@@ -23,7 +23,9 @@
         android:textColor="#2998d6"
         android:textSize="@dimen/_9sdp"
         android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_3sdp"
         />
 
 

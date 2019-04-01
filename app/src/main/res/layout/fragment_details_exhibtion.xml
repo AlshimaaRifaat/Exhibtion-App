@@ -114,7 +114,7 @@
         android:layout_below="@+id/details_exhibtion_address"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_14sdp"
         android:textSize="@dimen/_11sdp"/>
     <RelativeLayout
         android:id="@+id/details_exhibtion_relative"
@@ -213,13 +213,13 @@
         android:layout_below="@+id/details_exhibtion_recycler_organizers"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_3sdp"
         android:textSize="@dimen/_11sdp"/>
     <RelativeLayout
         android:id="@+id/relative_hall_1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_47sdp"
-        android:layout_marginTop="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_below="@id/details_exhibtion_title_exhibition_halls"
@@ -310,7 +310,7 @@
         android:layout_below="@+id/relative_hall_4"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:textSize="@dimen/_11sdp"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/details_exhibtion_recycler_sponsors"
