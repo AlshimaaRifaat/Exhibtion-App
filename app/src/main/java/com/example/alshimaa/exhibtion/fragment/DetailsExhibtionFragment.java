@@ -366,7 +366,7 @@ View view;
     public void showExhibtorsList(List<ExhibtorsData> exhibtorsDataList) {
         exhibtorsAdapter=new ExhibtorsAdapter(getContext(),exhibtorsDataList);
         exhibtorsAdapter.onClick(this);
-        recyclerViewExhibtors.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerViewExhibtors.setLayoutManager(new GridLayoutManager(getContext(),3));
         recyclerViewExhibtors.setAdapter(exhibtorsAdapter);
 
     }
