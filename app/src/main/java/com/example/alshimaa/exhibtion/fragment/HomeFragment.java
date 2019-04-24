@@ -115,7 +115,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
     public static EditText searchHomeExhibtionEtext;
     public static ImageView iconSearch;
     // public String KeySearchHome;
-    TextView exhibitionsUnderConstructText,serviceProviderText,jopsTxt;
+    TextView exhibitionsUnderConstructText,serviceProviderText,jopsTxt,curExhibtionTxt;
     SwipeRefreshLayout swipeRefreshLayout;
     Typeface customFontBold;
 
@@ -149,6 +149,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         exhibitionsUnderConstructText.setTypeface( customFontBold );
         serviceProviderText.setTypeface( customFontBold );
         jopsTxt.setTypeface(customFontBold);
+        curExhibtionTxt.setTypeface(customFontBold);
         //newsTxt.setTypeface( customFontBold );
 
         NavigationActivity.toggle = new ActionBarDrawerToggle(
@@ -336,6 +337,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         // newsTxt=view.findViewById(R.id.home_text_news);
         jopsTxt=view.findViewById(R.id.home_text_Exhibitions_jops);
         recyclerViewCurrentExhibtion=view.findViewById(R.id.home_recycler_cur_exhibtion);
+        curExhibtionTxt=view.findViewById(R.id.home_text_cur_exhibtion);
 
     }
     private void Slider() {
