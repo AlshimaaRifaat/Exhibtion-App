@@ -24,7 +24,7 @@
     <string name="Exhibitors">العارضين</string>
     <string name="Vacantjobs">وظائف خالية</string>
     <string name="ContactUs">تواصل معنا</string>
-    <string name="ServicesProvided">الخدمات المقدمه</string>
+    <string name="ServicesProvided">المنتجات</string>
     <string name="checkNetworkConnection">افحص اتصالك بالانترنت!</string>
     <string name="Key_search_is_required">من فضلك ادخل كلمة البحث!</string>
     <string name="Settings">الاعدادات</string>
@@ -74,5 +74,6 @@
     <string name="Hall_2">صاله 2</string>
     <string name="Hall_3">صاله 3</string>
     <string name="Hall_4">صاله 4</string>
+    <string name="Jops">الوظائف الخاليه</string>
 
 </resources>

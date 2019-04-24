@@ -21,23 +21,34 @@ import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.NavigationActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
+import com.example.alshimaa.exhibtion.adapter.CurrentExhibtionAdapter;
+import com.example.alshimaa.exhibtion.adapter.HomeJopsAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeNewsAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeServiceProviderAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeSliderAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
 import com.example.alshimaa.exhibtion.adapter.NavItemServiceProvAdapter;
+import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
+import com.example.alshimaa.exhibtion.model.ExhibtorsData;
+import com.example.alshimaa.exhibtion.model.HomeJopsData;
 import com.example.alshimaa.exhibtion.model.HomeServiceProviderData;
 import com.example.alshimaa.exhibtion.model.HomeSliderData;
 import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
 import com.example.alshimaa.exhibtion.model.NavItemServiceProviderData;
 import com.example.alshimaa.exhibtion.model.NewsData;
+import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
+import com.example.alshimaa.exhibtion.presenter.HomeJopsPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeNewsPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeSliderPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
 import com.example.alshimaa.exhibtion.presenter.NavItemServiceProviderPresenter;
 import com.example.alshimaa.exhibtion.presenter.SearchHomePresenter;
+import com.example.alshimaa.exhibtion.view.CurrentExhibtionView;
 import com.example.alshimaa.exhibtion.view.DetailsExhibtionUnderConstructView;
+import com.example.alshimaa.exhibtion.view.DetailsExhibtionView;
+import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;
+import com.example.alshimaa.exhibtion.view.HomeJopsView;
 import com.example.alshimaa.exhibtion.view.HomeNewsView;
 import com.example.alshimaa.exhibtion.view.HomeServiceProviderView;
 import com.example.alshimaa.exhibtion.view.HomeSliderView;
@@ -64,7 +75,8 @@ import java.util.TimerTask;
  */
 public class HomeFragment extends Fragment implements HomeSliderView,NavItemServiceProvView
 ,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,OnclickIconHomeUnderConstructView
-,HomeNewsView,DetailsExhibtionUnderConstructView,OnClickNavItemServiceProvView{
+,HomeNewsView,DetailsExhibtionUnderConstructView,OnClickNavItemServiceProvView,HomeJopsView,CurrentExhibtionView
+,DetailsExhibtionView {
     Toolbar toolbar;
 
     NetworkConnection networkConnection;
@@ -89,13 +101,21 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
     HomeUnderConstructAdapter homeUnderConstructAdapter;
     HomeUnderConstructPresenter homeUnderConstructPresenter;
 
+    RecyclerView recyclerViewJops;
+    HomeJopsAdapter homeJopsAdapter;
+    HomeJopsPresenter homeJopsPresenter;
+
+    RecyclerView recyclerViewCurrentExhibtion;
+    CurrentExhibtionAdapter currentExhibtionAdapter;
+    CurrentExhibtionPresenter currentExhibtionPresenter;
+
     EditText searchCurrentExhibtionEtext;
 
 
     public static EditText searchHomeExhibtionEtext;
     public static ImageView iconSearch;
     // public String KeySearchHome;
-    TextView exhibitionsUnderConstructText,serviceProviderText;
+    TextView exhibitionsUnderConstructText,serviceProviderText,jopsTxt;
     SwipeRefreshLayout swipeRefreshLayout;
     Typeface customFontBold;
 
@@ -128,6 +148,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         customFontBold = Typeface.createFromAsset( getContext().getAssets(), "DroidKufi-Bold.ttf" );
         exhibitionsUnderConstructText.setTypeface( customFontBold );
         serviceProviderText.setTypeface( customFontBold );
+        jopsTxt.setTypeface(customFontBold);
         //newsTxt.setTypeface( customFontBold );
 
         NavigationActivity.toggle = new ActionBarDrawerToggle(
@@ -179,6 +200,8 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         UnderConstruct();
         News();
         serviceProvider();
+        Jops();
+        CurrentExhibtion();
         iconSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,6 +212,27 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
 
 
         return view;
+    }
+
+    private void CurrentExhibtion() {
+        currentExhibtionPresenter=new CurrentExhibtionPresenter(getContext(),this);
+        if (Language.isRTL()) {
+            currentExhibtionPresenter.getCurrentExhibtionResult("ar");
+        }else
+        {
+            currentExhibtionPresenter.getCurrentExhibtionResult("en");
+        }
+    }
+
+    private void Jops() {
+        homeJopsPresenter=new HomeJopsPresenter(getContext(),this);
+        if (Language.isRTL())
+        {
+            homeJopsPresenter.getHomeJopsResult("ar");
+        }else
+        {
+            homeJopsPresenter.getHomeJopsResult("en");
+        }
     }
 
     private void serviceProvider() {
@@ -288,7 +332,10 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         exhibitionsUnderConstructText=view.findViewById(R.id.home_text_Exhibitions_under_construct);
         serviceProviderText=view.findViewById(R.id.home_text_service_provider);
         recyclerViewNews=view.findViewById(R.id.home_recycler_news);
+        recyclerViewJops=view.findViewById(R.id.home_recycler_jops);
         // newsTxt=view.findViewById(R.id.home_text_news);
+        jopsTxt=view.findViewById(R.id.home_text_Exhibitions_jops);
+        recyclerViewCurrentExhibtion=view.findViewById(R.id.home_recycler_cur_exhibtion);
 
     }
     private void Slider() {
@@ -392,6 +439,43 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
                 .addToBackStack(null).commit();
     }
 
+    @Override
+    public void showHomeJopsList(List<HomeJopsData> homeJopsDataList) {
+        homeJopsAdapter=new HomeJopsAdapter( getContext(),homeJopsDataList );
+        //homeUnderConstructAdapter.onClick(this);
+       // homeUnderConstructAdapter.onClickItem(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewJops.setLayoutManager(linearLayoutManager);
+        recyclerViewJops.setAdapter( homeJopsAdapter );
+        swipeRefreshLayout.setRefreshing( false );
+    }
+
+    @Override
+    public void showJopsError() {
+
+    }
+
+    @Override
+    public void showExhibtionDetails(CurrentExhibtionData currentExhibtionData) {
+        DetailsExhibtionFragment detailsExhibtionFragment=new DetailsExhibtionFragment();
+        Bundle bundle=new Bundle(  );
+        bundle.putString( "video_link",currentExhibtionData.getYoutube());
+        bundle.putString("title",currentExhibtionData.getTitle());
+        bundle.putString("description",currentExhibtionData.getDescription());
+        bundle.putString("address",currentExhibtionData.getAddress());
+        bundle.putString("id",String.valueOf(currentExhibtionData.getId()));
+        bundle.putString("user_id",currentExhibtionData.getIdUser());
+        bundle.putString("logo",currentExhibtionData.getLogo());
+        bundle.putString("visibilty","yes");
+
+
+        detailsExhibtionFragment.setArguments(bundle);
+
+        getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                detailsExhibtionFragment )
+                .addToBackStack( null ).commit();
+    }
+
     private class AutoScrollTask extends TimerTask {
         @Override
         public void run() {
@@ -456,8 +540,24 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
     }
 
     @Override
+    public void showCurrentExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
+        currentExhibtionAdapter=new CurrentExhibtionAdapter( getContext(),currentExhibtionDataList );
+        currentExhibtionAdapter.onClick(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewCurrentExhibtion.setLayoutManager( linearLayoutManager);
+        recyclerViewCurrentExhibtion.setAdapter( currentExhibtionAdapter );
+    }
+
+
+
+    @Override
     public void showError() {
         swipeRefreshLayout.setRefreshing( false );
+    }
+
+    @Override
+    public void showSearchCurrentExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
+
     }
 
     @Override

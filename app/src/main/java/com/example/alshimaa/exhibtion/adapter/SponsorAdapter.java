@@ -37,7 +37,7 @@ public class SponsorAdapter extends RecyclerView.Adapter<SponsorAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull SponsorAdapter.ViewHolder holder, int position) {
-        Glide.with( context ).load( "http://eelectronicexpo.com"
+        Glide.with( context ).load( "http://electronic-expos.com"
                 +sponsorDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(sponsorDataList.get( position ).getTitle());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );

@@ -34,7 +34,7 @@
     <string name="Exhibitors">Exhibitors</string>
     <string name="Vacantjobs">Vacant jobs</string>
     <string name="ContactUs">Contact Us</string>
-    <string name="ServicesProvided">Services Provided</string>
+    <string name="ServicesProvided">المنتجات</string>
     <string name="pleaseWriteyourkeysearch">please,Write your key search</string>
     <string name="checkNetworkConnection">check Network Connection!</string>
     <string name="Key_search_is_required">Key search is required!</string>
@@ -85,6 +85,7 @@
     <string name="Hall_2">Hall 2</string>
     <string name="Hall_3">Hall 3</string>
     <string name="Hall_4">Hall 4</string>
+    <string name="Jops">Vacant Jops</string>
 
 
 </resources>

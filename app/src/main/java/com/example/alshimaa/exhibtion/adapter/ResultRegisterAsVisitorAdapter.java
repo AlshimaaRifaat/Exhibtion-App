@@ -45,7 +45,7 @@ public class ResultRegisterAsVisitorAdapter extends RecyclerView.Adapter<ResultR
 
     @Override
     public void onBindViewHolder(@NonNull ResultRegisterAsVisitorAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://eelectronicexpo.com"
+        Glide.with( context ).load( "http://electronic-expos.com"
                 +resultRegisterAsVisitorDataList.get( position ).getQRcode() ).into(holder.imageView);
         holder.title.setText(resultRegisterAsVisitorDataList.get( position ).getTitle());
        /* holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());*/

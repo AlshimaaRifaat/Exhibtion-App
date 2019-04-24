@@ -161,12 +161,12 @@ View view;
            // Visitor=bundle.getString("visitor");
             //"visitor","no_from_under"
 
-            title.setText(Title);
+           /* title.setText(Title);
             description.setText(Description);
-            address.setText(Address);
+            address.setText(Address);*/
           // Toast.makeText(getContext(), UserId, Toast.LENGTH_SHORT).show();
             textToolbar.setText(Title);
-            Glide.with(getContext()).load("http://eelectronicexpo.com"+Logo).into(logo);
+           // Glide.with(getContext()).load("http://eelectronicexpo.com"+Logo).into(logo);
 
             if(Visiblity.equals("yes"))
             {
@@ -281,16 +281,16 @@ View view;
         youTubePlayerSupportFragment = (YouTubePlayerSupportFragment)
                 getChildFragmentManager()
                         .findFragmentById(R.id.youtube_player_support_fragment);
-        title=view.findViewById(R.id.details_exhibtion_title);
+        /*title=view.findViewById(R.id.details_exhibtion_title);
         description=view.findViewById(R.id.details_exhibtion_description);
-        address=view.findViewById(R.id.details_exhibtion_address);
+        address=view.findViewById(R.id.details_exhibtion_address);*/
         recyclerViewOrganizers=view.findViewById(R.id.details_exhibtion_recycler_organizers);
 
         recyclerViewSponsor=view.findViewById(R.id.details_exhibtion_recycler_sponsors);
         textToolbar=view.findViewById(R.id.details_exhibtion_text_toolbar);
 
         recyclerViewExhibtors=view.findViewById(R.id.details_exhibtion_recycler_exhibtors);
-        logo=view.findViewById(R.id.details_exhibtion_logo);
+        /*logo=view.findViewById(R.id.details_exhibtion_logo);*/
         registerNowBtn=view.findViewById(R.id.details_exhibtion_btn_register);
         registerAsExhibtor=view.findViewById(R.id.details_exhibtion_btn_exhibtor);
 

@@ -45,7 +45,7 @@ public class EShopAdapter extends RecyclerView.Adapter<EShopAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull EShopAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://eelectronicexpo.com"
+        Glide.with( context ).load( "http://electronic-expos.com"
                   +EshopDatalist.get( position ).getImg() ).into(holder.imageView);
 
         String Title=EshopDatalist.get( position ).getTitle();

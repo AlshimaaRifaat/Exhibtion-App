@@ -10,7 +10,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Client {
-    public static String baseUrl="http://eelectronicexpo.com/api/";
+    public static String baseUrl="http://electronic-expos.com/api/";
     public  static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

@@ -38,7 +38,7 @@ public class OrganizersAndServiceProvidersAdapter extends RecyclerView.Adapter<O
 
     @Override
     public void onBindViewHolder(@NonNull OrganizersAndServiceProvidersAdapter.ViewHolder holder, int position) {
-        Glide.with( context ).load( "http://eelectronicexpo.com"
+        Glide.with( context ).load( "http://electronic-expos.com"
                 +organizersAndServiceProvidersDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(organizersAndServiceProvidersDataList.get( position ).getTitle());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );

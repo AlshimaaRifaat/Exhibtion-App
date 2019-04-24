@@ -43,7 +43,7 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ExhibtorsAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://eelectronicexpo.com"
+        Glide.with( context ).load( "http://electronic-expos.com"
                 +exhibtorsDataList.get( position ).getImage() ).into(holder.imageView);
         holder.title.setText(exhibtorsDataList.get( position ).getName());
        // holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());

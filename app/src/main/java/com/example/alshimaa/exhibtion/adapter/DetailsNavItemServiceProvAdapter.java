@@ -41,7 +41,7 @@ public class DetailsNavItemServiceProvAdapter extends RecyclerView.Adapter<Detai
 
     @Override
     public void onBindViewHolder(@NonNull DetailsNavItemServiceProvAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://eelectronicexpo.com"
+        Glide.with( context ).load( "http://electronic-expos.com"
                 +detailsNavItemServiceProvDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(detailsNavItemServiceProvDataList.get( position ).getTitle());
         holder.describtion.setText(detailsNavItemServiceProvDataList.get( position ).getDescription());

@@ -39,7 +39,7 @@ public class HomeSearchResultAdapter extends RecyclerView.Adapter<HomeSearchResu
 
     @Override
     public void onBindViewHolder(@NonNull HomeSearchResultAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://eelectronicexpo.com"
+        Glide.with( context ).load( "http://electronic-expos.com"
                 +currentExhibtionDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(currentExhibtionDataList.get( position ).getTitle());
         holder.describtion.setText(currentExhibtionDataList.get( position ).getDescription());

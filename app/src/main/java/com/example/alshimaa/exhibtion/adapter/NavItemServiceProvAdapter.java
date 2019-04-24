@@ -42,7 +42,7 @@ public class NavItemServiceProvAdapter extends RecyclerView.Adapter<NavItemServi
 
     @Override
     public void onBindViewHolder(@NonNull NavItemServiceProvAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://eelectronicexpo.com"
+        Glide.with( context ).load( "http://electronic-expos.com"
                 +navItemServiceProviderDataList.get( position ).getImg() ).into(holder.imageView);
         holder.title.setText(navItemServiceProviderDataList.get( position ).getTitle());
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );

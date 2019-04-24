@@ -44,7 +44,7 @@ public  void onClick(OnclickIconHomeUnderConstructView onclickIconHomeUnderConst
 
     @Override
     public void onBindViewHolder(@NonNull HomeUnderConstructAdapter.ViewHolder holder, final int position) {
-        Glide.with( context ).load( "http://eelectronicexpo.com"
+        Glide.with( context ).load( "http://electronic-expos.com"
                 +homeUnderConstructDataList.get( position ).getImg() ).into(holder.imageView);
 
         holder.title.setText(homeUnderConstructDataList.get( position ).getTitle());
