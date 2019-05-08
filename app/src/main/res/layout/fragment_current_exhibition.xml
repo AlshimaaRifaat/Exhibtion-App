@@ -95,6 +95,28 @@
                 android:layout_marginEnd="@dimen/_12sdp"
                 ></android.support.v7.widget.RecyclerView>
 
+        <TextView
+            android:id="@+id/current_exhibtion_text_jops"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Jops"
+            android:textColor="#3ca0d9"
+            android:textStyle="bold"
+            android:layout_below="@+id/current_exhibtion_recycler"
+            android:layout_marginStart="@dimen/_21sdp"
+            android:layout_marginEnd="@dimen/_21sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textSize="@dimen/_12sdp"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/current_exhibtion_recycler_jops"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/current_exhibtion_text_jops"
+            android:layout_marginBottom="@dimen/_4sdp"
+
+
+            ></android.support.v7.widget.RecyclerView>
+
     </RelativeLayout>
 
 </ScrollView>

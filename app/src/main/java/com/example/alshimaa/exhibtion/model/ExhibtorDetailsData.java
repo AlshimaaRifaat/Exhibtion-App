@@ -7,7 +7,7 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ExhibtorDetailsData implements Parcelable
+public class ExhibtorDetailsData implements Serializable, Parcelable
 {
 
     @SerializedName("id_exhibitor")
@@ -16,9 +16,15 @@ public class ExhibtorDetailsData implements Parcelable
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("description")
+    @Expose
+    private String description;
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("link_map")
+    @Expose
+    private String linkMap;
     @SerializedName("website_link")
     @Expose
     private String websiteLink;
@@ -34,19 +40,6 @@ public class ExhibtorDetailsData implements Parcelable
     @SerializedName("phone")
     @Expose
     private String phone;
-
-    public void setWebsiteLink(String websiteLink) {
-        this.websiteLink = websiteLink;
-    }
-
-    public String getYoutubeLink() {
-        return youtubeLink;
-    }
-
-    public void setYoutubeLink(String youtubeLink) {
-        this.youtubeLink = youtubeLink;
-    }
-
     public final static Parcelable.Creator<ExhibtorDetailsData> CREATOR = new Creator<ExhibtorDetailsData>() {
 
 
@@ -63,14 +56,16 @@ public class ExhibtorDetailsData implements Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -8593828377682159684L;
+    private final static long serialVersionUID = -6413800194015990359L;
 
     protected ExhibtorDetailsData(Parcel in) {
         this.idExhibitor = ((String) in.readValue((String.class.getClassLoader())));
         this.name = ((String) in.readValue((String.class.getClassLoader())));
+        this.description = ((String) in.readValue((String.class.getClassLoader())));
         this.email = ((String) in.readValue((String.class.getClassLoader())));
-        this.websiteLink = ((String) in.readValue((Object.class.getClassLoader())));
-        this.youtubeLink = ((String) in.readValue((boolean.class.getClassLoader())));
+        this.linkMap = ((String) in.readValue((String.class.getClassLoader())));
+        this.websiteLink = ((String) in.readValue((String.class.getClassLoader())));
+        this.youtubeLink = ((String) in.readValue((String.class.getClassLoader())));
         this.address = ((String) in.readValue((String.class.getClassLoader())));
         this.img2 = ((String) in.readValue((String.class.getClassLoader())));
         this.phone = ((String) in.readValue((String.class.getClassLoader())));
@@ -95,6 +90,14 @@ public class ExhibtorDetailsData implements Parcelable
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -103,13 +106,29 @@ public class ExhibtorDetailsData implements Parcelable
         this.email = email;
     }
 
+    public String getLinkMap() {
+        return linkMap;
+    }
+
+    public void setLinkMap(String linkMap) {
+        this.linkMap = linkMap;
+    }
+
     public String getWebsiteLink() {
         return websiteLink;
     }
 
+    public void setWebsiteLink(String websiteLink) {
+        this.websiteLink = websiteLink;
+    }
 
+    public String isYoutubeLink() {
+        return youtubeLink;
+    }
 
-
+    public void setYoutubeLink(String youtubeLink) {
+        this.youtubeLink = youtubeLink;
+    }
 
     public String getAddress() {
         return address;
@@ -138,7 +157,9 @@ public class ExhibtorDetailsData implements Parcelable
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(idExhibitor);
         dest.writeValue(name);
+        dest.writeValue(description);
         dest.writeValue(email);
+        dest.writeValue(linkMap);
         dest.writeValue(websiteLink);
         dest.writeValue(youtubeLink);
         dest.writeValue(address);

@@ -38,8 +38,13 @@
             android:name=".activity.ChangeLanguageActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity android:name=".activity.ExhibtionDiagramActivity" />
-        <activity android:name=".activity.ResultRegisterAsVisitorActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"></activity>
+        <activity
+            android:name=".activity.ResultRegisterAsVisitorActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".activity.ExhibtorSummaryActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".activity.MapActivity"></activity>
     </application>
 
 </manifest>

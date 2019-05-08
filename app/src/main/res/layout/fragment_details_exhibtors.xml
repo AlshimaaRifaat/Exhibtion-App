@@ -67,6 +67,18 @@
               android:text="titleeeeeeee"
               android:textColor="#2998d6" />
           <TextView
+              android:id="@+id/details_exhibtors_text_description"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentEnd="true"
+              android:layout_below="@+id/details_exhibtors_youtube_player_support_fragment"
+              android:layout_marginEnd="@dimen/_12sdp"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginTop="@dimen/_2sdp"
+              android:text="titleeeeeeee"
+              android:textColor="#2998d6"
+              android:visibility="gone"/>
+          <TextView
               android:id="@+id/details_exhibtors_address"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -173,12 +185,37 @@
 
                   />
           </RelativeLayout>
+
+          <TextView
+              android:id="@+id/details_exhibtors_website"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentStart="true"
+              android:layout_below="@+id/relative_website"
+              android:layout_marginEnd="@dimen/_15sdp"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginTop="@dimen/_2sdp"
+              android:text="@string/ourWebsite"
+              android:textStyle="bold"
+              android:textColor="#2998d6" />
+
+        <!--  <TextView
+              android:id="@+id/details_exhibtors_website_link"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#0485cf"
+              android:layout_below="@+id/relative_website"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginTop="@dimen/_8sdp"
+              android:text="@string/ourWebsite"
+              android:textSize="@dimen/_12sdp"/>-->
+
     <Button
         android:id="@+id/details_exhibtors_btn_jops"
         android:layout_width="@dimen/_130sdp"
         android:layout_height="@dimen/_32sdp"
         android:background="#0485cf"
-        android:layout_below="@+id/relative_website"
+        android:layout_below="@+id/details_exhibtors_website"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:text="@string/Vacantjobs"
@@ -194,7 +231,20 @@
               android:layout_marginTop="@dimen/_8sdp"
               android:text="@string/ContactUs"
               android:textSize="@dimen/_12sdp"
-              android:layout_below="@+id/relative_website"/>
+              android:layout_below="@+id/details_exhibtors_website"/>
+
+          <Button
+              android:id="@+id/details_exhibtors_btn_description"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_32sdp"
+              android:background="#0485cf"
+              android:layout_alignParentEnd="true"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginEnd="@dimen/_12sdp"
+              android:layout_marginTop="@dimen/_8sdp"
+              android:text="@string/nabza"
+              android:textSize="@dimen/_12sdp"
+              android:layout_below="@+id/details_exhibtors_btn_contact_us"/>
 
           <TextView
               android:id="@+id/details_exhibtors_text_sevices_provided"
@@ -203,12 +253,13 @@
               android:text="@string/ServicesProvided"
               android:textColor="#3ca0d9"
               android:textStyle="bold"
-              android:layout_below="@+id/details_exhibtors_btn_jops"
+              android:layout_below="@+id/details_exhibtors_btn_description"
               android:layout_marginStart="@dimen/_21sdp"
               android:layout_marginEnd="@dimen/_21sdp"
               android:layout_marginTop="@dimen/_12sdp"
               android:textSize="@dimen/_11sdp"
               />
+
           <android.support.v7.widget.RecyclerView
               android:id="@+id/details_exhibtors_recycler_services"
               android:layout_width="match_parent"

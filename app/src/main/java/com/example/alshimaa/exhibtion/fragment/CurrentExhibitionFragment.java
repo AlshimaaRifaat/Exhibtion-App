@@ -1,11 +1,13 @@
 package com.example.alshimaa.exhibtion.fragment;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.alshimaa.exhibtion.Language;
@@ -21,10 +24,14 @@ import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.NavigationActivity;
 import com.example.alshimaa.exhibtion.adapter.CurrentExhibtionAdapter;
+import com.example.alshimaa.exhibtion.adapter.HomeJopsAdapter;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
+import com.example.alshimaa.exhibtion.model.HomeJopsData;
 import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
+import com.example.alshimaa.exhibtion.presenter.HomeJopsPresenter;
 import com.example.alshimaa.exhibtion.view.CurrentExhibtionView;
 import com.example.alshimaa.exhibtion.view.DetailsExhibtionView;
+import com.example.alshimaa.exhibtion.view.HomeJopsView;
 
 import java.util.List;
 
@@ -32,7 +39,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class CurrentExhibitionFragment extends Fragment implements CurrentExhibtionView
-,DetailsExhibtionView {
+,DetailsExhibtionView,HomeJopsView {
 
     Toolbar toolbar;
     NetworkConnection networkConnection;
@@ -45,6 +52,13 @@ public class CurrentExhibitionFragment extends Fragment implements CurrentExhibt
 
     EditText searchCurrentExhibtionEtext;
     ImageView iconSearch;
+
+    HomeJopsPresenter homeJopsPresenter;
+    RecyclerView recyclerViewJops;
+    HomeJopsAdapter homeJopsAdapter;
+    TextView jopsTxt;
+
+    Typeface customFontBold;
     public CurrentExhibitionFragment() {
         // Required empty public constructor
     }
@@ -57,7 +71,8 @@ View view;
         view= inflater.inflate(R.layout.fragment_current_exhibition, container, false);
 
         init();
-
+        customFontBold = Typeface.createFromAsset( getContext().getAssets(), "DroidKufi-Bold.ttf" );
+        jopsTxt.setTypeface(customFontBold);
 
         NavigationActivity.toggle = new ActionBarDrawerToggle(
                 getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -105,6 +120,7 @@ View view;
 
 
         CurrentExhibtion();
+        Jops();
         iconSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +128,19 @@ View view;
             }
         });
 
+
         return view;
+    }
+
+    private void Jops() {
+        homeJopsPresenter=new HomeJopsPresenter(getContext(),this);
+        if (Language.isRTL())
+        {
+            homeJopsPresenter.getHomeJopsResult("ar");
+        }else
+        {
+            homeJopsPresenter.getHomeJopsResult("en");
+        }
     }
 
     private void performSearch() {
@@ -156,6 +184,8 @@ View view;
         recyclerViewCurrentExhibtion=view.findViewById(R.id.current_exhibtion_recycler);
         searchCurrentExhibtionEtext=view.findViewById(R.id.current_exhibtion_edit_text_search);
         iconSearch=view.findViewById(R.id.current_exhibtion_icon_search);
+        recyclerViewJops=view.findViewById(R.id.current_exhibtion_recycler_jops);
+        jopsTxt=view.findViewById(R.id.current_exhibtion_text_jops);
     }
 
     @Override
@@ -207,6 +237,22 @@ View view;
                     .addToBackStack( null ).commit();
 
 
+
+    }
+
+    @Override
+    public void showHomeJopsList(List<HomeJopsData> homeJopsDataList) {
+        homeJopsAdapter=new HomeJopsAdapter( getContext(),homeJopsDataList );
+        //homeUnderConstructAdapter.onClick(this);
+        // homeUnderConstructAdapter.onClickItem(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewJops.setLayoutManager(linearLayoutManager);
+        recyclerViewJops.setAdapter( homeJopsAdapter );
+
+    }
+
+    @Override
+    public void showJopsError() {
 
     }
 }

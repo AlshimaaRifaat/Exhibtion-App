@@ -1,6 +1,7 @@
 package com.example.alshimaa.exhibtion.fragment;
 
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +25,10 @@ import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.YoutubeConfig;
+import com.example.alshimaa.exhibtion.activity.ExhibtorSummaryActivity;
+import com.example.alshimaa.exhibtion.activity.MapActivity;
+import com.example.alshimaa.exhibtion.activity.RegisterActivity;
+import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.adapter.EShopAdapter;
 import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
 import com.example.alshimaa.exhibtion.adapter.ServicesProvidedAdapter;
@@ -50,7 +57,7 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
 {
 
     public static String Link,Title,ID,WebsiteLink;
-    TextView title,address,phone,email,websiteLink;
+    TextView title,address,phone,email,websiteLink,summaryTxt;
 
     NetworkConnection networkConnection;
 
@@ -67,7 +74,8 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     RecyclerView recyclerViewEShop;
     EShopAdapter eShopAdapter;
     EShopPresenter eShopPresenter;
-    Button contactUsBtn;
+    Button contactUsBtn,summaryBtn;
+    public  String Summary;
 
     RecyclerView recyclerViewdetailsExhib;
     //EShopAdapter eShopAdapter;
@@ -75,7 +83,10 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     List<ExhibtorDetailsData> exhibtorDetailsDataList;
 
     ImageView iconWhats;
+    TextView linkMapTxt;
+    String LinkMap;
 
+    Intent intent;
     public DetailsExhibtorsFragment() {
         // Required empty public constructor
     }
@@ -137,6 +148,34 @@ View view;
                 goToCallUsPage();
             }
         });
+        summaryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), ExhibtorSummaryActivity.class);
+                 i.putExtra("nabza",Summary);
+                 startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0,0);
+
+
+            }
+        });
+        linkMapTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), MapActivity.class);
+                i.putExtra("link_map",LinkMap);
+                startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0,0);
+                /*WebView webview = (WebView) view.findViewById(R.id.webView);
+                webview.getSettings().setJavaScriptEnabled(true);
+                webview.loadData(  , "text/html", "utf-8");
+                WebSettings webViewSettings = webview.getSettings();
+                webViewSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+                webViewSettings.setJavaScriptEnabled(true);
+                webViewSettings.setBuiltInZoomControls(true);
+                webViewSettings.setPluginState(WebSettings.PluginState.ON);*/
+            }
+        });
         return view;
     }
 
@@ -195,6 +234,11 @@ View view;
     recyclerViewEShop=view.findViewById(R.id.details_exhibtors_recycler_E_shop);
     contactUsBtn=view.findViewById(R.id.details_exhibtors_btn_contact_us);
     iconWhats=view.findViewById(R.id.details_exhibtors_icon_whats);
+    summaryBtn=view.findViewById(R.id.details_exhibtors_btn_description);
+    linkMapTxt=view.findViewById(R.id.details_exhibtors_website);
+        //summaryTxt=view.findViewById(R.id.details_exhibtors_text_description);
+
+
     }
     @Override
     public void onStart() {
@@ -210,8 +254,8 @@ View view;
             // Use cueVideo() method, if you don't want to play it automatically
            //  String url=Link.substring( Link.lastIndexOf( "=")+1  );
             if(exhibtorDetailsDataList.size()!=0) {
-                youTubePlayer.loadVideo(exhibtorDetailsDataList.get(0).getYoutubeLink());
-                Toast.makeText(getContext(), "" + exhibtorDetailsDataList.get(0).getYoutubeLink(), Toast.LENGTH_SHORT).show();
+                youTubePlayer.loadVideo(exhibtorDetailsDataList.get(0).isYoutubeLink());
+               // Toast.makeText(getContext(), "" + exhibtorDetailsDataList.get(0).isYoutubeLink(), Toast.LENGTH_SHORT).show();
 
             }
         }
@@ -258,7 +302,9 @@ View view;
 
     @Override
     public void showExhibtorDetailsListView(List<ExhibtorDetailsData> exhibtorDetailsDataList) {
-        String youtube=exhibtorDetailsDataList.get(0).getYoutubeLink();
+      Summary=exhibtorDetailsDataList.get(0).getDescription();
+        LinkMap=exhibtorDetailsDataList.get(0).getLinkMap();
+        String youtube=exhibtorDetailsDataList.get(0).isYoutubeLink();
         if(youtube.equals("false")){
 
         }else {
@@ -269,8 +315,9 @@ View view;
         address.setText(exhibtorDetailsDataList.get(0).getAddress());
         phone.setText(exhibtorDetailsDataList.get(0).getPhone());
         email.setText(exhibtorDetailsDataList.get(0).getEmail());
-
         websiteLink.setText(exhibtorDetailsDataList.get(0).getWebsiteLink());
+
+        //summaryTxt.setText(exhibtorDetailsDataList.get(0).getDescription());
     }
 
     @Override
