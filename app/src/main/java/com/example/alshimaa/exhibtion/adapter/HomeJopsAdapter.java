@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.alshimaa.exhibtion.view.DetailsHomeJopsView;
 import com.exhibtion.R;
 import com.exhibtion.model.HomeJopsData;
 import com.exhibtion.model.HomeUnderConstructData;
@@ -22,22 +23,19 @@ import java.util.List;
 public class HomeJopsAdapter extends RecyclerView.Adapter<HomeJopsAdapter.ViewHolder> {
     Context context;
     List<HomeJopsData> homeJopsDataList;
-  /*  OnclickIconHomeUnderConstructView onclickIconHomeUnderConstructView;
-    DetailsExhibtionUnderConstructView detailsExhibtionUnderConstructView;*/
+
+    DetailsHomeJopsView detailsHomeJopsView;
 
     public HomeJopsAdapter(Context context, List<HomeJopsData> homeJopsDataList) {
         this.context = context;
         this.homeJopsDataList = homeJopsDataList;
     }
 
-    /* public  void onClick(OnclickIconHomeUnderConstructView onclickIconHomeUnderConstructView)
+     public  void onClick(DetailsHomeJopsView detailsHomeJopsView)
         {
-            this.onclickIconHomeUnderConstructView=onclickIconHomeUnderConstructView;
+            this.detailsHomeJopsView=detailsHomeJopsView;
         }
-        public  void onClickItem(DetailsExhibtionUnderConstructView detailsExhibtionUnderConstructView)
-        {
-            this.detailsExhibtionUnderConstructView=detailsExhibtionUnderConstructView;
-        }*/
+
     @Override
     public HomeJopsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from( context ).inflate(R.layout.row_home_jops,parent,false);
@@ -50,14 +48,14 @@ public class HomeJopsAdapter extends RecyclerView.Adapter<HomeJopsAdapter.ViewHo
                 +homeJopsDataList.get( position ).getImg() ).into(holder.imageView);
 
         holder.title.setText(homeJopsDataList.get( position ).getTitle());
-        holder.desc.setText(homeJopsDataList.get( position ).getDescription());
+       /* holder.desc.setText(homeJopsDataList.get( position ).getDescription());
         holder.email.setText(homeJopsDataList.get( position ).getEmail());
-        holder.date.setText(homeJopsDataList.get( position ).getDate());
+        holder.date.setText(homeJopsDataList.get( position ).getDate());*/
         // Typeface customFontBold = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Bold.ttf" );
 
         Typeface customFontRegular = Typeface.createFromAsset( context.getAssets(), "DroidKufi-Regular.ttf" );
         holder.title.setTypeface( customFontRegular );
-        holder.desc.setTypeface( customFontRegular );
+        //holder.desc.setTypeface( customFontRegular );
 
        /* holder.iconRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +82,19 @@ public class HomeJopsAdapter extends RecyclerView.Adapter<HomeJopsAdapter.ViewHo
             }
         });
 */
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HomeJopsData homeJopsData=new HomeJopsData();
+                homeJopsData.setImg(homeJopsDataList.get(position).getImg());
+                homeJopsData.setTitle(homeJopsDataList.get(position).getTitle());
+                homeJopsData.setDescription(homeJopsDataList.get(position).getDescription());
+                homeJopsData.setEmail(homeJopsDataList.get(position).getEmail());
+                homeJopsData.setDate(homeJopsDataList.get(position).getDate());
+
+                detailsHomeJopsView.showHomeJopsData(homeJopsData);
+            }
+        });
     }
 
     @Override
@@ -101,9 +112,9 @@ public class HomeJopsAdapter extends RecyclerView.Adapter<HomeJopsAdapter.ViewHo
             super( itemView );
             imageView=itemView.findViewById( R.id.row_home_jops_img);
             title=itemView.findViewById(R.id.row_home_jops_title);
-            desc=itemView.findViewById(R.id.row_home_jops_desc);
+           /* desc=itemView.findViewById(R.id.row_home_jops_desc);
             email=itemView.findViewById(R.id.row_home_jops_email);
-            date=itemView.findViewById(R.id.row_home_jops_date);
+            date=itemView.findViewById(R.id.row_home_jops_date);*/
 
             /*videoYoutube=itemView.findViewById(R.id.row_cur_exhibtion_img_video);
             address=itemView.findViewById(R.id.row_cur_exhibtion_address);*/

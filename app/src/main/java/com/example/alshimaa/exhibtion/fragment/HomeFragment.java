@@ -16,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.alshimaa.exhibtion.fragment.DetailsHomeJopsFragment;
+import com.example.alshimaa.exhibtion.view.DetailsHomeJopsView;
 import com.exhibtion.Language;
 import com.exhibtion.NetworkConnection;
 import com.exhibtion.R;
@@ -78,7 +80,7 @@ import com.exhibtion.fragment.HomeSearchResultFragment;
 public class HomeFragment extends Fragment implements HomeSliderView,NavItemServiceProvView
 ,HomeUnderConstructView,SwipeRefreshLayout.OnRefreshListener,OnclickIconHomeUnderConstructView
 ,HomeNewsView,DetailsExhibtionUnderConstructView,OnClickNavItemServiceProvView,HomeJopsView,CurrentExhibtionView
-,DetailsExhibtionView {
+,DetailsExhibtionView,DetailsHomeJopsView {
     Toolbar toolbar;
 
     NetworkConnection networkConnection;
@@ -448,7 +450,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
     @Override
     public void showHomeJopsList(List<HomeJopsData> homeJopsDataList) {
         homeJopsAdapter=new HomeJopsAdapter( getContext(),homeJopsDataList );
-        //homeUnderConstructAdapter.onClick(this);
+        homeJopsAdapter.onClick(this);
        // homeUnderConstructAdapter.onClickItem(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewJops.setLayoutManager(linearLayoutManager);
@@ -481,6 +483,24 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         getFragmentManager().beginTransaction().add( R.id.content_navigation,
                 detailsExhibtionFragment )
                 .addToBackStack( null ).commit();
+    }
+
+    @Override
+    public void showHomeJopsData(HomeJopsData homeJopsData) {
+        DetailsHomeJopsFragment detailsHomeJopsFragment=new DetailsHomeJopsFragment();
+        Bundle bundle=new Bundle(  );
+        bundle.putString( "jop_img",homeJopsData.getImg());
+        bundle.putString("jop_title",homeJopsData.getTitle());
+        bundle.putString("jop_description",homeJopsData.getDescription());
+        bundle.putString("jop_email",homeJopsData.getEmail());
+        bundle.putString("jop_date",String.valueOf(homeJopsData.getDate()));
+
+        detailsHomeJopsFragment.setArguments(bundle);
+
+        getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                detailsHomeJopsFragment )
+                .addToBackStack( null ).commit();
+
     }
 
     private class AutoScrollTask extends TimerTask {
