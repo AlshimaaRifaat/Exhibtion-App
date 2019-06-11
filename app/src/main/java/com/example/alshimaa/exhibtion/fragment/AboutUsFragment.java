@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -12,22 +12,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.alshimaa.exhibtion.Language;
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
+/*import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.model.AboutUsData;
 import com.example.alshimaa.exhibtion.presenter.AboutUsPresenter;
-import com.example.alshimaa.exhibtion.view.AboutUsView;
+import com.example.alshimaa.exhibtion.view.AboutUsView;*/
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AboutUsFragment extends Fragment implements AboutUsView,SwipeRefreshLayout.OnRefreshListener{
+public class AboutUsFragment extends Fragment implements com.exhibtion.view.AboutUsView,SwipeRefreshLayout.OnRefreshListener{
     ImageView imageView;
     TextView description;
-    AboutUsPresenter aboutUsPresenter;
+    com.exhibtion.presenter.AboutUsPresenter aboutUsPresenter;
     NetworkConnection networkConnection;
 
     SwipeRefreshLayout swipeRefreshLayout;
@@ -74,7 +77,7 @@ View view;
     }
 
     private void AboutUs() {
-        aboutUsPresenter=new AboutUsPresenter(getContext(),this);
+        aboutUsPresenter=new com.exhibtion.presenter.AboutUsPresenter(getContext(),this);
         if (Language.isRTL()) {
             aboutUsPresenter.getAboutUsResult("ar");
         }else
@@ -92,7 +95,7 @@ View view;
     }
 
     @Override
-    public void showAboutUsResult(List<AboutUsData> aboutUsDataList) {
+    public void showAboutUsResult(List<com.exhibtion.model.AboutUsData> aboutUsDataList) {
         Glide.with(getContext()).load("http://yallahshare.com"+aboutUsDataList.get(0).getImg())
                 .into(imageView);
         description.setText(aboutUsDataList.get(0).getDescription());

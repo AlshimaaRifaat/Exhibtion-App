@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -11,18 +11,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.NetworkConnection;
+/*import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.presenter.CallUsPresenter;
 import com.example.alshimaa.exhibtion.presenter.NavigationServiceProviderPresenter;
-import com.example.alshimaa.exhibtion.view.NavigationServiceProviderView;
+import com.example.alshimaa.exhibtion.view.NavigationServiceProviderView;*/
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
 import com.fourhcode.forhutils.FUtilsValidation;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ServiceProviderFragment extends Fragment implements NavigationServiceProviderView{
-    NavigationServiceProviderPresenter navigationServiceProviderPresenter;
+public class ServiceProviderFragment extends Fragment implements com.exhibtion.view.NavigationServiceProviderView {
+    com.exhibtion.presenter.NavigationServiceProviderPresenter navigationServiceProviderPresenter;
     EditText userNameEtext,userEmailEtext,userPhoneEtext,userMsgEtext,userTypeEtext;
     Button submitBtn;
     NetworkConnection networkConnection;
@@ -101,7 +103,7 @@ View view;
     }
 
     private void NavServiceProvider() {
-        navigationServiceProviderPresenter=new NavigationServiceProviderPresenter(getContext(),this);
+        navigationServiceProviderPresenter=new com.exhibtion.presenter.NavigationServiceProviderPresenter(getContext(),this);
     }
 
     private void init() {

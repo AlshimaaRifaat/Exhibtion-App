@@ -1,15 +1,15 @@
-package com.example.alshimaa.exhibtion.presenter;
+package com.exhibtion.presenter;
 
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.api.Client;
-import com.example.alshimaa.exhibtion.api.Service;
-import com.example.alshimaa.exhibtion.model.CallUsResponse;
-import com.example.alshimaa.exhibtion.model.NavigationServiceProviderResponse;
-import com.example.alshimaa.exhibtion.view.CallUsView;
-import com.example.alshimaa.exhibtion.view.NavigationServiceProviderView;
+import com.exhibtion.R;
+import com.exhibtion.api.Client;
+import com.exhibtion.api.Service;
+import com.exhibtion.model.CallUsResponse;
+import com.exhibtion.model.NavigationServiceProviderResponse;
+import com.exhibtion.view.CallUsView;
+import com.exhibtion.view.NavigationServiceProviderView;
 
 import java.util.HashMap;
 import java.util.Map;

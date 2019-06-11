@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.content.Intent;
@@ -16,46 +16,46 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.alshimaa.exhibtion.Language;
-import com.example.alshimaa.exhibtion.NetworkConnection;
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.activity.NavigationActivity;
-import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
-import com.example.alshimaa.exhibtion.adapter.CurrentExhibtionAdapter;
-import com.example.alshimaa.exhibtion.adapter.HomeJopsAdapter;
-import com.example.alshimaa.exhibtion.adapter.HomeNewsAdapter;
-import com.example.alshimaa.exhibtion.adapter.HomeServiceProviderAdapter;
-import com.example.alshimaa.exhibtion.adapter.HomeSliderAdapter;
-import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
-import com.example.alshimaa.exhibtion.adapter.NavItemServiceProvAdapter;
-import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
-import com.example.alshimaa.exhibtion.model.ExhibtorsData;
-import com.example.alshimaa.exhibtion.model.HomeJopsData;
-import com.example.alshimaa.exhibtion.model.HomeServiceProviderData;
-import com.example.alshimaa.exhibtion.model.HomeSliderData;
-import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
-import com.example.alshimaa.exhibtion.model.NavItemServiceProviderData;
-import com.example.alshimaa.exhibtion.model.NewsData;
-import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeJopsPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeNewsPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeServiceProviderPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeSliderPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
-import com.example.alshimaa.exhibtion.presenter.NavItemServiceProviderPresenter;
-import com.example.alshimaa.exhibtion.presenter.SearchHomePresenter;
-import com.example.alshimaa.exhibtion.view.CurrentExhibtionView;
-import com.example.alshimaa.exhibtion.view.DetailsExhibtionUnderConstructView;
-import com.example.alshimaa.exhibtion.view.DetailsExhibtionView;
-import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;
-import com.example.alshimaa.exhibtion.view.HomeJopsView;
-import com.example.alshimaa.exhibtion.view.HomeNewsView;
-import com.example.alshimaa.exhibtion.view.HomeServiceProviderView;
-import com.example.alshimaa.exhibtion.view.HomeSliderView;
-import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
-import com.example.alshimaa.exhibtion.view.NavItemServiceProvView;
-import com.example.alshimaa.exhibtion.view.OnClickNavItemServiceProvView;
-import com.example.alshimaa.exhibtion.view.OnclickIconHomeUnderConstructView;
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
+import com.exhibtion.activity.NavigationActivity;
+import com.exhibtion.activity.RegisterNowActivity;
+import com.exhibtion.adapter.CurrentExhibtionAdapter;
+import com.exhibtion.adapter.HomeJopsAdapter;
+import com.exhibtion.adapter.HomeNewsAdapter;
+import com.exhibtion.adapter.HomeServiceProviderAdapter;
+import com.exhibtion.adapter.HomeSliderAdapter;
+import com.exhibtion.adapter.HomeUnderConstructAdapter;
+import com.exhibtion.adapter.NavItemServiceProvAdapter;
+import com.exhibtion.model.CurrentExhibtionData;
+import com.exhibtion.model.ExhibtorsData;
+import com.exhibtion.model.HomeJopsData;
+import com.exhibtion.model.HomeServiceProviderData;
+import com.exhibtion.model.HomeSliderData;
+import com.exhibtion.model.HomeUnderConstructData;
+import com.exhibtion.model.NavItemServiceProviderData;
+import com.exhibtion.model.NewsData;
+import com.exhibtion.presenter.CurrentExhibtionPresenter;
+import com.exhibtion.presenter.HomeJopsPresenter;
+import com.exhibtion.presenter.HomeNewsPresenter;
+import com.exhibtion.presenter.HomeServiceProviderPresenter;
+import com.exhibtion.presenter.HomeSliderPresenter;
+import com.exhibtion.presenter.HomeUnderConstructPresenter;
+import com.exhibtion.presenter.NavItemServiceProviderPresenter;
+import com.exhibtion.presenter.SearchHomePresenter;
+import com.exhibtion.view.CurrentExhibtionView;
+import com.exhibtion.view.DetailsExhibtionUnderConstructView;
+import com.exhibtion.view.DetailsExhibtionView;
+import com.exhibtion.view.DetailsExhibtorsView;
+import com.exhibtion.view.HomeJopsView;
+import com.exhibtion.view.HomeNewsView;
+import com.exhibtion.view.HomeServiceProviderView;
+import com.exhibtion.view.HomeSliderView;
+import com.exhibtion.view.HomeUnderConstructView;
+import com.exhibtion.view.NavItemServiceProvView;
+import com.exhibtion.view.OnClickNavItemServiceProvView;
+import com.exhibtion.view.OnclickIconHomeUnderConstructView;
 
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.WindowManager;
@@ -68,7 +68,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import com.exhibtion.fragment.DetailsExhibtionFragment;
+import com.exhibtion.fragment.DetailsNavItemServiceProviderFragment;
+import com.exhibtion.fragment.HomeSearchResultFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -144,6 +146,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         init();
+
         swipRefresh();
         customFontBold = Typeface.createFromAsset( getContext().getAssets(), "DroidKufi-Bold.ttf" );
         exhibitionsUnderConstructText.setTypeface( customFontBold );
@@ -421,6 +424,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         bundle.putString("user_id",homeUnderConstructData.getIdUser());
         bundle.putString("logo",homeUnderConstructData.getLogo());
         bundle.putString("visibilty","yes");
+        bundle.putString("link_360",homeUnderConstructData.getLink360());
         bundle.putString("under","yes");
 
 
@@ -461,13 +465,14 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
     public void showExhibtionDetails(CurrentExhibtionData currentExhibtionData) {
         DetailsExhibtionFragment detailsExhibtionFragment=new DetailsExhibtionFragment();
         Bundle bundle=new Bundle(  );
-        bundle.putString( "video_link",currentExhibtionData.getYoutube());
+        bundle.putString( "video_link",currentExhibtionData.isYoutube());
         bundle.putString("title",currentExhibtionData.getTitle());
         bundle.putString("description",currentExhibtionData.getDescription());
         bundle.putString("address",currentExhibtionData.getAddress());
         bundle.putString("id",String.valueOf(currentExhibtionData.getId()));
         bundle.putString("user_id",currentExhibtionData.getIdUser());
         bundle.putString("logo",currentExhibtionData.getLogo());
+        bundle.putString("link_360",currentExhibtionData.getLink360());
         bundle.putString("visibilty","yes");
 
 

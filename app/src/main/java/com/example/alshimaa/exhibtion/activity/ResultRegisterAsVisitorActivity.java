@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
@@ -9,14 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Window;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
-import com.example.alshimaa.exhibtion.adapter.ResultRegisterAsVisitorAdapter;
-import com.example.alshimaa.exhibtion.fragment.DetailsExhibtionFragment;
-import com.example.alshimaa.exhibtion.fragment.DetailsExhibtorsFragment;
-import com.example.alshimaa.exhibtion.model.ResultRegisterAsVisitorData;
-import com.example.alshimaa.exhibtion.presenter.ResultRegisterAsVisitorPresenter;
-import com.example.alshimaa.exhibtion.view.ResultRegisterAsVisitorView;
+import com.exhibtion.R;
+import com.exhibtion.adapter.HomeUnderConstructAdapter;
+import com.exhibtion.adapter.ResultRegisterAsVisitorAdapter;
+import com.exhibtion.fragment.DetailsExhibtionFragment;
+import com.exhibtion.fragment.DetailsExhibtorsFragment;
+import com.exhibtion.model.ResultRegisterAsVisitorData;
+import com.exhibtion.presenter.ResultRegisterAsVisitorPresenter;
+import com.exhibtion.view.ResultRegisterAsVisitorView;
 
 import java.util.List;
 

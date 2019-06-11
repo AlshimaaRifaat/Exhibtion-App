@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.adapter;
+package com.exhibtion.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

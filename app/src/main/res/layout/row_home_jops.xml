@@ -14,7 +14,7 @@
             android:layout_marginStart="@dimen/_4sdp"
             android:layout_marginEnd="@dimen/_4sdp"
             android:layout_marginBottom="@dimen/_2sdp"
-            app:cardBackgroundColor="@android:color/white">
+            app:cardBackgroundColor="#0d93df">
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -37,7 +37,7 @@
                     android:id="@+id/row_home_jops_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#0d93df"
+                    android:textColor="#fff"
                     android:text="titleeeeeeeeee"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:layout_marginStart="@dimen/_6sdp"
@@ -50,7 +50,7 @@
                     android:id="@+id/row_home_jops_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#0d93df"
+                    android:textColor="#fff"
                     android:text="titleeeeeeeeee"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:layout_marginStart="@dimen/_6sdp"
@@ -64,7 +64,7 @@
                     android:id="@+id/row_home_jops_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#b8b8b8"
+                    android:textColor="#fff"
                     android:text="titleeeeeeeeee"
                     android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
@@ -77,7 +77,7 @@
                     android:id="@+id/row_home_jops_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#b8b8b8"
+                    android:textColor="#fff"
                     android:text="titleeeeeeeeee"
 
                     android:layout_marginStart="@dimen/_6sdp"

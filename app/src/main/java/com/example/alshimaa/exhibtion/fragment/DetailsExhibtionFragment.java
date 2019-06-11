@@ -1,8 +1,9 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -20,10 +21,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.alshimaa.exhibtion.Language;
+/*import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.YoutubeConfig;
+import com.example.alshimaa.exhibtion.activity.LinkOfExhibtionActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterInExhibtionActivity;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
@@ -51,7 +53,11 @@ import com.example.alshimaa.exhibtion.presenter.SponsorPresenter;
 import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;
 import com.example.alshimaa.exhibtion.view.ExhibtorsView;
 import com.example.alshimaa.exhibtion.view.HallOneView;
-import com.example.alshimaa.exhibtion.view.OrganizersAndServiceProvidersView;
+import com.example.alshimaa.exhibtion.view.OrganizersAndServiceProvidersView;*/
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
+import com.exhibtion.YoutubeConfig;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -63,33 +69,33 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class DetailsExhibtionFragment extends Fragment implements
-        YouTubePlayer.OnInitializedListener,OrganizersAndServiceProvidersView
-        ,ExhibtorsView,DetailsExhibtorsView,HallOneView
+        YouTubePlayer.OnInitializedListener, com.exhibtion.view.OrganizersAndServiceProvidersView
+        , com.exhibtion.view.ExhibtorsView, com.exhibtion.view.DetailsExhibtorsView, com.exhibtion.view.HallOneView
 {
-    HallOnePresenter hallOnePresenter;
+    com.exhibtion.presenter.HallOnePresenter hallOnePresenter;
     Spinner hallOneSpinner;
     Integer HallOneModelID;
     String HallOneModel;
-    HallOneAdapter hallOneAdapter;
+    com.exhibtion.adapter.HallOneAdapter hallOneAdapter;
 
 
-    HallTwoPresenter hallTwoPresenter;
+    com.exhibtion.presenter.HallTwoPresenter hallTwoPresenter;
     Spinner hallTwoSpinner;
     Integer HallTwoModelID;
     String HallTwoModel;
-    HallTwoAdapter hallTwoAdapter;
+    com.exhibtion.adapter.HallTwoAdapter hallTwoAdapter;
 
-    HallThreePresenter hallThreePresenter;
+    com.exhibtion.presenter.HallThreePresenter hallThreePresenter;
     Spinner hallThreeSpinner;
     Integer HallThreeModelID;
     String HallThreeModel;
-    HallThreeAdapter hallThreeAdapter;
+    com.exhibtion.adapter.HallThreeAdapter hallThreeAdapter;
 
-    HallFourPresenter hallFourPresenter;
+    com.exhibtion.presenter.HallFourPresenter hallFourPresenter;
     Spinner hallFourSpinner;
     Integer HallFourModelID;
     String HallFourModel;
-    HallFourAdapter hallFourAdapter;
+    com.exhibtion.adapter.HallFourAdapter hallFourAdapter;
 
 
     public static final int RECOVERY_DIALOG_REQUEST=1;
@@ -100,10 +106,10 @@ public class DetailsExhibtionFragment extends Fragment implements
     ImageView logo;
 
     RecyclerView recyclerViewOrganizers;
-    OrganizersAndServiceProvidersAdapter organizersAndServiceProvidersAdapter;
-    OrganizersAndServiceProvidersPresenter organizersAndServiceProvidersPresenter;
+    com.exhibtion.adapter.OrganizersAndServiceProvidersAdapter organizersAndServiceProvidersAdapter;
+    com.exhibtion.presenter.OrganizersAndServiceProvidersPresenter organizersAndServiceProvidersPresenter;
 
-    SponsorPresenter sponsorPresenter;
+    com.exhibtion.presenter.SponsorPresenter sponsorPresenter;
 
     RecyclerView recyclerViewSponsor;
 
@@ -113,18 +119,18 @@ public class DetailsExhibtionFragment extends Fragment implements
     TextView textToolbar;
 
     RecyclerView recyclerViewExhibtors;
-    ExhibtorsAdapter exhibtorsAdapter;
-    ExhibtorsPresenter exhibtorsPresenter;
+    com.exhibtion.adapter.ExhibtorsAdapter exhibtorsAdapter;
+    com.exhibtion.presenter.ExhibtorsPresenter exhibtorsPresenter;
 
-   public static Button registerNowBtn;
+   public static Button registerNowBtn,link360Btn;
 
     public static Button registerAsExhibtor;
 
     Intent intent;
 
-    SponsorAdapter sponsorAdapter;
+    com.exhibtion.adapter.SponsorAdapter sponsorAdapter;
 
-public static String RegisterFromCurExhib,FromUnder;
+public static String RegisterFromCurExhib,FromUnder,Link360;
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
@@ -152,6 +158,7 @@ View view;
             ID=bundle.getString("id");
             UserId=bundle.getString("user_id");
             Logo=bundle.getString("logo");
+            Link360=bundle.getString("link_360");
             Visiblity=bundle.getString("visibilty");
             Under=bundle.getString("registerFromCurExhib");
            // FromCur=bundle.getString("registerFromCurExhib");
@@ -196,7 +203,7 @@ View view;
         //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
 
 
-        Intent i = new Intent(getActivity(), RegisterActivity.class);
+        Intent i = new Intent(getActivity(), com.exhibtion.activity.RegisterActivity.class);
 
 
             i.putExtra("registerFromCurExhib","no_under");
@@ -215,10 +222,24 @@ View view;
                 //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
 
 
-                Intent i = new Intent(getActivity(), RegisterInExhibtionActivity.class);
+                Intent i = new Intent(getActivity(), com.exhibtion.activity.RegisterInExhibtionActivity.class);
                 i.putExtra("registerFromCurExhib","yes");
                 startActivity(i);
                 ((Activity) getActivity()).overridePendingTransition(0,0);
+            }
+        });
+//        Toast.makeText(getContext(), Link360, Toast.LENGTH_SHORT).show();
+        link360Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* Intent i = new Intent(getActivity(), LinkOfExhibtionActivity.class);
+                i.putExtra("registerFromCurExhib","yes");
+                i.putExtra("link",Link);
+                startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0,0);*/
+                Intent Getintent = new Intent(Intent.ACTION_VIEW, Uri.parse(Link360));
+                startActivity(Getintent);
+
             }
         });
 
@@ -226,28 +247,28 @@ View view;
     }
 
     private void HallFour() {
-        hallFourPresenter=new HallFourPresenter(getContext(),this);
+        hallFourPresenter=new com.exhibtion.presenter.HallFourPresenter(getContext(),this);
         hallFourPresenter.getHallFourResult(ID  );
     }
 
     private void HallThree() {
-        hallThreePresenter=new HallThreePresenter(getContext(),this);
+        hallThreePresenter=new com.exhibtion.presenter.HallThreePresenter(getContext(),this);
         hallThreePresenter.getHallThreeResult(ID  );
     }
 
     private void HallTwo() {
-        hallTwoPresenter=new HallTwoPresenter(getContext(),this);
+        hallTwoPresenter=new com.exhibtion.presenter.HallTwoPresenter(getContext(),this);
         hallTwoPresenter.getHallTwoResult(ID  );
     }
 
     private void HallOne() {
-        hallOnePresenter=new HallOnePresenter(getContext(),this);
+        hallOnePresenter=new com.exhibtion.presenter.HallOnePresenter(getContext(),this);
         hallOnePresenter.getHallOneResult(ID  );
     }
 
 
     private void Exhibtors() {
-        exhibtorsPresenter=new ExhibtorsPresenter(getContext(),this);
+        exhibtorsPresenter=new com.exhibtion.presenter.ExhibtorsPresenter(getContext(),this);
 
         if(Language.isRTL()) {
             exhibtorsPresenter.getExhibtorsResult("ar", UserId); //id user
@@ -257,7 +278,7 @@ View view;
     }
 
     private void Sponsors() {
-        sponsorPresenter=new SponsorPresenter(getContext(),this);
+        sponsorPresenter=new com.exhibtion.presenter.SponsorPresenter(getContext(),this);
         if(Language.isRTL()) {
             sponsorPresenter.getSponsorList("ar",ID);
         }else
@@ -268,7 +289,7 @@ View view;
 
     private void OrganizersAndServiceProviders() {
         if(networkConnection.isNetworkAvailable(getContext())) {
-            organizersAndServiceProvidersPresenter = new OrganizersAndServiceProvidersPresenter(getContext(), this);
+            organizersAndServiceProvidersPresenter = new com.exhibtion.presenter.OrganizersAndServiceProvidersPresenter(getContext(), this);
             if (Language.isRTL()) {
                 organizersAndServiceProvidersPresenter.getOrganizersAndServiceProvidersResult("ar", ID);
             } else {
@@ -299,6 +320,7 @@ View view;
         hallTwoSpinner=view.findViewById( R.id.details_exhibtion_spinner2 );
         hallThreeSpinner=view.findViewById( R.id.details_exhibtion_spinner3 );
         hallFourSpinner=view.findViewById( R.id.details_exhibtion_spinner4 );
+        link360Btn=view.findViewById( R.id.details_exhibtors_btn_link360 );
     }
 
 
@@ -342,9 +364,9 @@ View view;
     }
 
     @Override
-    public void showOrganizersAndServiceProvidersList(List<OrganizersAndServiceProvidersData> organizersAndServiceProvidersDataList) {
+    public void showOrganizersAndServiceProvidersList(List<com.exhibtion.model.OrganizersAndServiceProvidersData> organizersAndServiceProvidersDataList) {
 
-        organizersAndServiceProvidersAdapter=new OrganizersAndServiceProvidersAdapter( getContext(),organizersAndServiceProvidersDataList );
+        organizersAndServiceProvidersAdapter=new com.exhibtion.adapter.OrganizersAndServiceProvidersAdapter( getContext(),organizersAndServiceProvidersDataList );
         //homeProductAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewOrganizers.setLayoutManager(linearLayoutManager);
@@ -352,8 +374,8 @@ View view;
     }
 
     @Override
-    public void showSponsorData(List<SponsorData> sponsorDataList) {
-        sponsorAdapter=new SponsorAdapter( getContext(),sponsorDataList );
+    public void showSponsorData(List<com.exhibtion.model.SponsorData> sponsorDataList) {
+        sponsorAdapter=new com.exhibtion.adapter.SponsorAdapter( getContext(),sponsorDataList );
         //homeProductAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL,false);
@@ -363,8 +385,8 @@ View view;
 
 
     @Override
-    public void showExhibtorsList(List<ExhibtorsData> exhibtorsDataList) {
-        exhibtorsAdapter=new ExhibtorsAdapter(getContext(),exhibtorsDataList);
+    public void showExhibtorsList(List<com.exhibtion.model.ExhibtorsData> exhibtorsDataList) {
+        exhibtorsAdapter=new com.exhibtion.adapter.ExhibtorsAdapter(getContext(),exhibtorsDataList);
         exhibtorsAdapter.onClick(this);
         recyclerViewExhibtors.setLayoutManager(new GridLayoutManager(getContext(),3));
         recyclerViewExhibtors.setAdapter(exhibtorsAdapter);
@@ -372,8 +394,8 @@ View view;
     }
 
     @Override
-    public void showDetailsExhibtorsData(ExhibtorsData exhibtorsData) {
-        DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+    public void showDetailsExhibtorsData(com.exhibtion.model.ExhibtorsData exhibtorsData) {
+        com.exhibtion.fragment.DetailsExhibtorsFragment detailsExhibtorsFragment=new com.exhibtion.fragment.DetailsExhibtorsFragment();
         Bundle bundle=new Bundle();
 
         bundle.putString("id",String.valueOf(exhibtorsData.getId()));
@@ -385,7 +407,7 @@ View view;
     }
 
     @Override
-    public void showHallOneList(final List<HallOneData> hallOneDataList) {
+    public void showHallOneList(final List<com.exhibtion.model.HallOneData> hallOneDataList) {
         ArrayList<String> hallOneList=new ArrayList<>(  );
         for(int i=0;i<hallOneDataList.size();i++)
         {
@@ -395,7 +417,7 @@ View view;
 
         }
 
-        hallOneAdapter =new HallOneAdapter( getContext(), R.layout.spinner_item);
+        hallOneAdapter =new com.exhibtion.adapter.HallOneAdapter( getContext(), R.layout.spinner_item);
         hallOneAdapter.addAll( hallOneList );
         hallOneAdapter.add( getResources().getString(R.string.Hall_1));
         hallOneSpinner.setAdapter( hallOneAdapter );
@@ -419,7 +441,7 @@ View view;
                             HallOneModelID=hallOneDataList.get(i).getId();
                         }
                     }
-                    DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+                    com.exhibtion.fragment.DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
                     Bundle bundle=new Bundle(  );
                     bundle.putString( "id",String.valueOf(HallOneModelID));
                     detailsExhibtorsFragment.setArguments(bundle);
@@ -449,7 +471,7 @@ View view;
     }
 
     @Override
-    public void showHallTwoList(final List<HallTwoData> hallTwoDataList) {
+    public void showHallTwoList(final List<com.exhibtion.model.HallTwoData> hallTwoDataList) {
         ArrayList<String> hallTwoList=new ArrayList<>(  );
         for(int i=0;i<hallTwoDataList.size();i++)
         {
@@ -459,7 +481,7 @@ View view;
 
         }
 
-        hallTwoAdapter =new HallTwoAdapter( getContext(), R.layout.spinner_item);
+        hallTwoAdapter =new com.exhibtion.adapter.HallTwoAdapter( getContext(), R.layout.spinner_item);
         hallTwoAdapter.addAll( hallTwoList );
         hallTwoAdapter.add( getResources().getString(R.string.Hall_2));
         hallTwoSpinner.setAdapter( hallTwoAdapter );
@@ -490,7 +512,7 @@ View view;
                             HallTwoModelID=hallTwoDataList.get(i).getId();
                         }
                     }
-                    DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+                    com.exhibtion.fragment.DetailsExhibtorsFragment detailsExhibtorsFragment=new com.exhibtion.fragment.DetailsExhibtorsFragment();
                     Bundle bundle=new Bundle(  );
                     bundle.putString( "id",String.valueOf(HallTwoModelID));
                     detailsExhibtorsFragment.setArguments(bundle);
@@ -517,7 +539,7 @@ View view;
     }
 
     @Override
-    public void showHallThreeList(final List<HallThreeData> hallThreeDataList) {
+    public void showHallThreeList(final List<com.exhibtion.model.HallThreeData> hallThreeDataList) {
         ArrayList<String> hallThreeList=new ArrayList<>(  );
         for(int i=0;i<hallThreeDataList.size();i++)
         {
@@ -527,7 +549,7 @@ View view;
 
         }
 
-        hallThreeAdapter =new HallThreeAdapter( getContext(), R.layout.spinner_item);
+        hallThreeAdapter =new com.exhibtion.adapter.HallThreeAdapter( getContext(), R.layout.spinner_item);
         hallThreeAdapter.addAll( hallThreeList );
         hallThreeAdapter.add( getResources().getString(R.string.Hall_3));
         hallThreeSpinner.setAdapter( hallThreeAdapter );
@@ -558,7 +580,7 @@ View view;
                             HallThreeModelID=hallThreeDataList.get(i).getId();
                         }
                     }
-                    DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+                    com.exhibtion.fragment.DetailsExhibtorsFragment detailsExhibtorsFragment=new com.exhibtion.fragment.DetailsExhibtorsFragment();
                     Bundle bundle=new Bundle(  );
                     bundle.putString( "id",String.valueOf(HallThreeModelID));
                     detailsExhibtorsFragment.setArguments(bundle);
@@ -585,7 +607,7 @@ View view;
     }
 
     @Override
-    public void showHallFourList(final List<HallFourData> hallFourDataList) {
+    public void showHallFourList(final List<com.exhibtion.model.HallFourData> hallFourDataList) {
         ArrayList<String> hallFourList=new ArrayList<>(  );
         for(int i=0;i<hallFourDataList.size();i++)
         {
@@ -595,7 +617,7 @@ View view;
 
         }
 
-        hallFourAdapter =new HallFourAdapter( getContext(), R.layout.spinner_item);
+        hallFourAdapter =new com.exhibtion.adapter.HallFourAdapter( getContext(), R.layout.spinner_item);
         hallFourAdapter.addAll( hallFourList );
         hallFourAdapter.add( getResources().getString(R.string.Hall_4));
         hallFourSpinner.setAdapter( hallFourAdapter );
@@ -626,7 +648,7 @@ View view;
                             HallFourModelID=hallFourDataList.get(i).getId();
                         }
                     }
-                    DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+                    com.exhibtion.fragment.DetailsExhibtorsFragment detailsExhibtorsFragment=new com.exhibtion.fragment.DetailsExhibtorsFragment();
                     Bundle bundle=new Bundle(  );
                     bundle.putString( "id",String.valueOf(HallFourModelID));
                     detailsExhibtorsFragment.setArguments(bundle);

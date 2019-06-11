@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.content.Intent;
@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.YoutubeConfig;
+/*import com.example.alshimaa.exhibtion.R;*/
+import com.exhibtion.R;
+import com.exhibtion.YoutubeConfig;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;

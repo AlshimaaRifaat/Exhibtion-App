@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion;
+package com.exhibtion;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.alshimaa.exhibtion.activity.LoginActivity;
-import com.example.alshimaa.exhibtion.activity.MainActivity;
-import com.example.alshimaa.exhibtion.activity.NavigationActivity;
-import com.example.alshimaa.exhibtion.activity.VisitorActivity;
+import com.exhibtion.activity.LoginActivity;
+import com.exhibtion.activity.MainActivity;
+import com.exhibtion.activity.NavigationActivity;
+//import com.exhibtion.activity.VisitorActivity;
 
 import java.util.Locale;
 

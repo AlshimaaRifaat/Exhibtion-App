@@ -134,6 +134,18 @@
 
 </RelativeLayout>
     </RelativeLayout>-->
+    <Button
+        android:id="@+id/details_exhibtors_btn_link360"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_32sdp"
+        android:background="#0485cf"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/link"
+        android:textSize="@dimen/_12sdp"
+        android:layout_below="@+id/youtube_player_support_fragment"/>
     <TextView
         android:id="@+id/details_exhibtion_title_sponsor"
         android:layout_width="wrap_content"
@@ -141,7 +153,7 @@
         android:text="@string/Sponsors"
         android:textColor="#3ca0d9"
         android:textStyle="bold"
-        android:layout_below="@+id/youtube_player_support_fragment"
+        android:layout_below="@+id/details_exhibtors_btn_link360"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_12sdp"

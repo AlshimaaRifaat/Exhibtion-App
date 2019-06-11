@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -10,8 +10,10 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.exhibtion.activity.RegisterInExhibtionActivity;
+import com.exhibtion.activity.RegisterActivity;
 
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.R;
 
 public class RegisterNowActivity extends AppCompatActivity {
     Typeface customFontRegular;

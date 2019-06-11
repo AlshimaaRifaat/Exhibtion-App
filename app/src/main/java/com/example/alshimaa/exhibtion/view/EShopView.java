@@ -1,6 +1,6 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.EShopData;
+import com.exhibtion.model.EShopData;
 
 import java.util.List;
 

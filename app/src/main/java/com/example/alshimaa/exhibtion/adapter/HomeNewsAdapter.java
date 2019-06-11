@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.adapter;
+package com.exhibtion.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -16,9 +16,10 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.model.HomeServiceProviderData;
-import com.example.alshimaa.exhibtion.model.NewsData;
+
+import com.exhibtion.R;
+import com.exhibtion.model.HomeServiceProviderData;
+import com.exhibtion.model.NewsData;
 
 import java.util.List;
 

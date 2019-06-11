@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -13,12 +13,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.Language;
-import com.example.alshimaa.exhibtion.NetworkConnection;
+import com.exhibtion.Language;
+/*import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.adapter.ReasonSpinnerAdapter;
 import com.example.alshimaa.exhibtion.presenter.CallUsPresenter;
-import com.example.alshimaa.exhibtion.view.CallUsView;
+import com.example.alshimaa.exhibtion.view.CallUsView;*/
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
 import com.fourhcode.forhutils.FUtilsValidation;
 
 import java.util.ArrayList;
@@ -27,9 +29,9 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CallUsFragment extends Fragment implements CallUsView{
+public class CallUsFragment extends Fragment implements com.exhibtion.view.CallUsView {
 
-    CallUsPresenter callUsPresenter;
+    com.exhibtion.presenter.CallUsPresenter callUsPresenter;
     EditText userNameEtext,userPhoneEtext,userMsgEtext,userEmailEtext;
     Button sendBtn;
 
@@ -50,7 +52,7 @@ public class CallUsFragment extends Fragment implements CallUsView{
         SpinnerValueList.add("Item 2");
         SpinnerValueList.add("Item 3");*/
 
-    ReasonSpinnerAdapter reasonSpinnerAdapter;
+    com.exhibtion.adapter.ReasonSpinnerAdapter reasonSpinnerAdapter;
     Spinner reasonSpinner;
 String SelectedItemSpinner;
 
@@ -69,7 +71,7 @@ View view;
         callUs();
 
 
-        ReasonSpinnerAdapter reasonSpinnerAdapter = new ReasonSpinnerAdapter(getContext(), R.layout.spinner_item);
+        com.exhibtion.adapter.ReasonSpinnerAdapter reasonSpinnerAdapter = new com.exhibtion.adapter.ReasonSpinnerAdapter(getContext(), R.layout.spinner_item);
 
        /* for (int i=0;i<SpinnerValueList.size();i++)
         {
@@ -172,7 +174,7 @@ View view;
     }
 
     private void callUs() {
-        callUsPresenter=new CallUsPresenter(getContext(),this);
+        callUsPresenter=new com.exhibtion.presenter.CallUsPresenter(getContext(),this);
     }
 
     private void init() {

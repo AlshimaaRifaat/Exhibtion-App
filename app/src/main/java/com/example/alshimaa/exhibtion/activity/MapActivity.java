@@ -1,11 +1,11 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.R;
 
 public class MapActivity extends AppCompatActivity {
 String LinkMap;

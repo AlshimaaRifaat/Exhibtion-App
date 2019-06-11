@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.graphics.Typeface;
@@ -19,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.Language;
+/*import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.NavigationActivity;
@@ -31,15 +31,19 @@ import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.HomeJopsPresenter;
 import com.example.alshimaa.exhibtion.view.CurrentExhibtionView;
 import com.example.alshimaa.exhibtion.view.DetailsExhibtionView;
-import com.example.alshimaa.exhibtion.view.HomeJopsView;
+import com.example.alshimaa.exhibtion.view.HomeJopsView;*/
+
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CurrentExhibitionFragment extends Fragment implements CurrentExhibtionView
-,DetailsExhibtionView,HomeJopsView {
+public class CurrentExhibitionFragment extends Fragment implements com.exhibtion.view.CurrentExhibtionView
+, com.exhibtion.view.DetailsExhibtionView, com.exhibtion.view.HomeJopsView {
 
     Toolbar toolbar;
     NetworkConnection networkConnection;
@@ -47,15 +51,15 @@ public class CurrentExhibitionFragment extends Fragment implements CurrentExhibt
 
 
     RecyclerView recyclerViewCurrentExhibtion;
-    CurrentExhibtionAdapter currentExhibtionAdapter;
-    CurrentExhibtionPresenter currentExhibtionPresenter;
+    com.exhibtion.adapter.CurrentExhibtionAdapter currentExhibtionAdapter;
+    com.exhibtion.presenter.CurrentExhibtionPresenter currentExhibtionPresenter;
 
     EditText searchCurrentExhibtionEtext;
     ImageView iconSearch;
 
-    HomeJopsPresenter homeJopsPresenter;
+    com.exhibtion.presenter.HomeJopsPresenter homeJopsPresenter;
     RecyclerView recyclerViewJops;
-    HomeJopsAdapter homeJopsAdapter;
+    com.exhibtion.adapter.HomeJopsAdapter homeJopsAdapter;
     TextView jopsTxt;
 
     Typeface customFontBold;
@@ -74,45 +78,45 @@ View view;
         customFontBold = Typeface.createFromAsset( getContext().getAssets(), "DroidKufi-Bold.ttf" );
         jopsTxt.setTypeface(customFontBold);
 
-        NavigationActivity.toggle = new ActionBarDrawerToggle(
-                getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        com.exhibtion.activity.NavigationActivity.toggle = new ActionBarDrawerToggle(
+                getActivity(), com.exhibtion.activity.NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
 
 
-        NavigationActivity.drawer.addDrawerListener(NavigationActivity.toggle);
-        NavigationActivity.toggle.syncState();
+        com.exhibtion.activity.NavigationActivity.drawer.addDrawerListener(com.exhibtion.activity.NavigationActivity.toggle);
+        com.exhibtion.activity.NavigationActivity.toggle.syncState();
 
-        NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
+        com.exhibtion.activity.NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
         toolbar.setNavigationIcon(R.drawable.ic_humburger_nav  );
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
-                    NavigationActivity.drawer.closeDrawer(GravityCompat.START);
+                if (com.exhibtion.activity.NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
+                    com.exhibtion.activity.NavigationActivity.drawer.closeDrawer(GravityCompat.START);
                 } else {
-                    NavigationActivity.drawer.openDrawer(GravityCompat.START);
+                    com.exhibtion.activity.NavigationActivity.drawer.openDrawer(GravityCompat.START);
                 }
             }
         });
-        NavigationActivity.toggle = new ActionBarDrawerToggle(
-                getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open,
+        com.exhibtion.activity.NavigationActivity.toggle = new ActionBarDrawerToggle(
+                getActivity(), com.exhibtion.activity.NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
 
-        NavigationActivity.drawer.addDrawerListener(NavigationActivity.toggle);
-        NavigationActivity.toggle.syncState();
-        NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
+        com.exhibtion.activity.NavigationActivity.drawer.addDrawerListener(com.exhibtion.activity.NavigationActivity.toggle);
+        com.exhibtion.activity.NavigationActivity.toggle.syncState();
+        com.exhibtion.activity.NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
         toolbar.setNavigationIcon(R.drawable.ic_humburger_nav);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
-                    NavigationActivity.drawer.closeDrawer(GravityCompat.START);
+                if (com.exhibtion.activity.NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
+                    com.exhibtion.activity.NavigationActivity.drawer.closeDrawer(GravityCompat.START);
                 } else {
-                    NavigationActivity.drawer.openDrawer(GravityCompat.START);
+                    com.exhibtion.activity.NavigationActivity.drawer.openDrawer(GravityCompat.START);
                 }
             }
         });
@@ -133,7 +137,7 @@ View view;
     }
 
     private void Jops() {
-        homeJopsPresenter=new HomeJopsPresenter(getContext(),this);
+        homeJopsPresenter=new com.exhibtion.presenter.HomeJopsPresenter(getContext(),this);
         if (Language.isRTL())
         {
             homeJopsPresenter.getHomeJopsResult("ar");
@@ -145,7 +149,7 @@ View view;
 
     private void performSearch() {
         if(networkConnection.isNetworkAvailable(getContext())) {
-            currentExhibtionPresenter = new CurrentExhibtionPresenter(getContext(), this);
+            currentExhibtionPresenter = new com.exhibtion.presenter.CurrentExhibtionPresenter(getContext(), this);
             if( TextUtils.isEmpty(searchCurrentExhibtionEtext.getText())){
                 /**
                  *   You can Toast a message here that the Username is Empty
@@ -169,7 +173,7 @@ View view;
     }
 
     private void CurrentExhibtion() {
-        currentExhibtionPresenter=new CurrentExhibtionPresenter(getContext(),this);
+        currentExhibtionPresenter=new com.exhibtion.presenter.CurrentExhibtionPresenter(getContext(),this);
         if (Language.isRTL()) {
             currentExhibtionPresenter.getCurrentExhibtionResult("ar");
         }else
@@ -189,8 +193,8 @@ View view;
     }
 
     @Override
-    public void showCurrentExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
-        currentExhibtionAdapter=new CurrentExhibtionAdapter( getContext(),currentExhibtionDataList );
+    public void showCurrentExhibtionList(List<com.exhibtion.model.CurrentExhibtionData> currentExhibtionDataList) {
+        currentExhibtionAdapter=new com.exhibtion.adapter.CurrentExhibtionAdapter( getContext(),currentExhibtionDataList );
         currentExhibtionAdapter.onClick(this);
         recyclerViewCurrentExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewCurrentExhibtion.setAdapter( currentExhibtionAdapter );
@@ -202,8 +206,8 @@ View view;
     }
 
     @Override
-    public void showSearchCurrentExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
-        currentExhibtionAdapter=new CurrentExhibtionAdapter( getContext(),currentExhibtionDataList );
+    public void showSearchCurrentExhibtionList(List<com.exhibtion.model.CurrentExhibtionData> currentExhibtionDataList) {
+        currentExhibtionAdapter=new com.exhibtion.adapter.CurrentExhibtionAdapter( getContext(),currentExhibtionDataList );
         currentExhibtionAdapter.onClick(this);
         recyclerViewCurrentExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewCurrentExhibtion.setAdapter( currentExhibtionAdapter );
@@ -216,17 +220,19 @@ View view;
 
 
     @Override
-    public void showExhibtionDetails(CurrentExhibtionData currentExhibtionData) {
+    public void showExhibtionDetails(com.exhibtion.model.CurrentExhibtionData currentExhibtionData) {
 
-            DetailsExhibtionFragment detailsExhibtionFragment=new DetailsExhibtionFragment();
+            com.exhibtion.fragment.DetailsExhibtionFragment detailsExhibtionFragment=new com.exhibtion.fragment.DetailsExhibtionFragment();
             Bundle bundle=new Bundle(  );
-            bundle.putString( "video_link",currentExhibtionData.getYoutube());
+            bundle.putString( "video_link",currentExhibtionData.isYoutube());
             bundle.putString("title",currentExhibtionData.getTitle());
             bundle.putString("description",currentExhibtionData.getDescription());
             bundle.putString("address",currentExhibtionData.getAddress());
             bundle.putString("id",String.valueOf(currentExhibtionData.getId()));
             bundle.putString("user_id",currentExhibtionData.getIdUser());
             bundle.putString("logo",currentExhibtionData.getLogo());
+            bundle.putString("link_360",currentExhibtionData.getLink360());
+
             bundle.putString("visibilty","yes");
 
 
@@ -241,8 +247,8 @@ View view;
     }
 
     @Override
-    public void showHomeJopsList(List<HomeJopsData> homeJopsDataList) {
-        homeJopsAdapter=new HomeJopsAdapter( getContext(),homeJopsDataList );
+    public void showHomeJopsList(List<com.exhibtion.model.HomeJopsData> homeJopsDataList) {
+        homeJopsAdapter=new com.exhibtion.adapter.HomeJopsAdapter( getContext(),homeJopsDataList );
         //homeUnderConstructAdapter.onClick(this);
         // homeUnderConstructAdapter.onClickItem(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);

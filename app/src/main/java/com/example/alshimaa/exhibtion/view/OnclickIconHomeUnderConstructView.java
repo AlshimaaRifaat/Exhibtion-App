@@ -1,6 +1,6 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
+import com.exhibtion.model.HomeUnderConstructData;
 
 public interface OnclickIconHomeUnderConstructView {
     void showOnclickIconHomeUnderConstructDetails(HomeUnderConstructData homeUnderConstructData);

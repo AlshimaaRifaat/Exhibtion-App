@@ -1,15 +1,15 @@
-package com.example.alshimaa.exhibtion.presenter;
+package com.exhibtion.presenter;
 
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.api.Client;
-import com.example.alshimaa.exhibtion.api.Service;
-import com.example.alshimaa.exhibtion.model.PuthesRegisterResponse;
-import com.example.alshimaa.exhibtion.model.ResultRegisterAsVisitorResponse;
-import com.example.alshimaa.exhibtion.view.PuthesRegisterView;
-import com.example.alshimaa.exhibtion.view.ResultRegisterAsVisitorView;
+import com.exhibtion.R;
+import com.exhibtion.api.Client;
+import com.exhibtion.api.Service;
+import com.exhibtion.model.PuthesRegisterResponse;
+import com.exhibtion.model.ResultRegisterAsVisitorResponse;
+import com.exhibtion.view.PuthesRegisterView;
+import com.exhibtion.view.ResultRegisterAsVisitorView;
 
 import java.util.HashMap;
 import java.util.Map;

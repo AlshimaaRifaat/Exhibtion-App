@@ -1,9 +1,9 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.R;
 
 public class ExhibtionDiagramActivity extends AppCompatActivity {
 

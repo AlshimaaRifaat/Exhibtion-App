@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -18,35 +18,39 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.Language;
-import com.example.alshimaa.exhibtion.NetworkConnection;
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.activity.NavigationActivity;
-import com.example.alshimaa.exhibtion.adapter.CurrentExhibtionAdapter;
-import com.example.alshimaa.exhibtion.adapter.HomeUnderConstructAdapter;
-import com.example.alshimaa.exhibtion.adapter.NavItemServiceProvAdapter;
-import com.example.alshimaa.exhibtion.model.NavItemServiceProviderData;
-import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeNewsPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
-import com.example.alshimaa.exhibtion.presenter.NavItemServiceProviderPresenter;
-import com.example.alshimaa.exhibtion.view.NavItemServiceProvView;
-import com.example.alshimaa.exhibtion.view.OnClickNavItemServiceProvView;
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
+import com.exhibtion.activity.NavigationActivity;
+import com.exhibtion.adapter.CurrentExhibtionAdapter;
+import com.exhibtion.adapter.HomeUnderConstructAdapter;
+import com.exhibtion.adapter.NavItemServiceProvAdapter;
+import com.exhibtion.model.NavItemServiceProviderData;
+import com.exhibtion.presenter.CurrentExhibtionPresenter;
+import com.exhibtion.presenter.HomeNewsPresenter;
+import com.exhibtion.presenter.HomeUnderConstructPresenter;
+import com.exhibtion.presenter.NavItemServiceProviderPresenter;
+import com.exhibtion.view.NavItemServiceProvView;
+import com.exhibtion.view.OnClickNavItemServiceProvView;
+
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NavItemServiceProviderFragment extends Fragment implements NavItemServiceProvView
+public class NavItemServiceProviderFragment extends Fragment implements com.exhibtion.view.NavItemServiceProvView
 ,SwipeRefreshLayout.OnRefreshListener
-,OnClickNavItemServiceProvView{
+, com.exhibtion.view.OnClickNavItemServiceProvView {
     Toolbar toolbar;
     NetworkConnection networkConnection;
 
     RecyclerView recyclerViewProvider;
-    NavItemServiceProvAdapter navItemServiceProvAdapter;
-    NavItemServiceProviderPresenter navItemServiceProviderPresenter;
+    com.exhibtion.adapter.NavItemServiceProvAdapter navItemServiceProvAdapter;
+    com.exhibtion.presenter.NavItemServiceProviderPresenter navItemServiceProviderPresenter;
 
     ImageView iconSearch;
     EditText searchServiceProvEtext;
@@ -66,45 +70,45 @@ View view;
         swipRefresh();
         networkConnection=new NetworkConnection( getContext() );
 
-        NavigationActivity.toggle = new ActionBarDrawerToggle(
-                getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        com.exhibtion.activity.NavigationActivity.toggle = new ActionBarDrawerToggle(
+                getActivity(), com.exhibtion.activity.NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
 
 
-        NavigationActivity.drawer.addDrawerListener(NavigationActivity.toggle);
-        NavigationActivity.toggle.syncState();
+        com.exhibtion.activity.NavigationActivity.drawer.addDrawerListener(com.exhibtion.activity.NavigationActivity.toggle);
+        com.exhibtion.activity.NavigationActivity.toggle.syncState();
 
-        NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
+        com.exhibtion.activity.NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
         toolbar.setNavigationIcon(R.drawable.ic_humburger_nav  );
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
-                    NavigationActivity.drawer.closeDrawer(GravityCompat.START);
+                if (com.exhibtion.activity.NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
+                    com.exhibtion.activity.NavigationActivity.drawer.closeDrawer(GravityCompat.START);
                 } else {
-                    NavigationActivity.drawer.openDrawer(GravityCompat.START);
+                    com.exhibtion.activity.NavigationActivity.drawer.openDrawer(GravityCompat.START);
                 }
             }
         });
-        NavigationActivity.toggle = new ActionBarDrawerToggle(
-                getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open,
+        com.exhibtion.activity.NavigationActivity.toggle = new ActionBarDrawerToggle(
+                getActivity(), com.exhibtion.activity.NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
 
-        NavigationActivity.drawer.addDrawerListener(NavigationActivity.toggle);
-        NavigationActivity.toggle.syncState();
-        NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
+        com.exhibtion.activity.NavigationActivity.drawer.addDrawerListener(com.exhibtion.activity.NavigationActivity.toggle);
+        com.exhibtion.activity.NavigationActivity.toggle.syncState();
+        com.exhibtion.activity.NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
         toolbar.setNavigationIcon(R.drawable.ic_humburger_nav);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
-                    NavigationActivity.drawer.closeDrawer(GravityCompat.START);
+                if (com.exhibtion.activity.NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
+                    com.exhibtion.activity.NavigationActivity.drawer.closeDrawer(GravityCompat.START);
                 } else {
-                    NavigationActivity.drawer.openDrawer(GravityCompat.START);
+                    com.exhibtion.activity.NavigationActivity.drawer.openDrawer(GravityCompat.START);
                 }
             }
         });
@@ -171,7 +175,7 @@ View view;
     }
 
     private void serviceProvider() {
-        navItemServiceProviderPresenter=new NavItemServiceProviderPresenter(getContext(),this);
+        navItemServiceProviderPresenter=new com.exhibtion.presenter.NavItemServiceProviderPresenter(getContext(),this);
         if (Language.isRTL())
         {
             navItemServiceProviderPresenter.getNavItemServiceProviderResult("ar");
@@ -192,8 +196,8 @@ View view;
     }
 
     @Override
-    public void showNavItemServiceProvList(List<NavItemServiceProviderData> navItemServiceProviderDataList) {
-        navItemServiceProvAdapter=new NavItemServiceProvAdapter( getContext(),navItemServiceProviderDataList );
+    public void showNavItemServiceProvList(List<com.exhibtion.model.NavItemServiceProviderData> navItemServiceProviderDataList) {
+        navItemServiceProvAdapter=new com.exhibtion.adapter.NavItemServiceProvAdapter( getContext(),navItemServiceProviderDataList );
         navItemServiceProvAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerViewProvider.setLayoutManager(linearLayoutManager);
@@ -208,8 +212,8 @@ View view;
     }
 
     @Override
-    public void showSearchNavItemServiceProvList(List<NavItemServiceProviderData> navItemServiceProviderData) {
-        navItemServiceProvAdapter=new NavItemServiceProvAdapter( getContext(),navItemServiceProviderData );
+    public void showSearchNavItemServiceProvList(List<com.exhibtion.model.NavItemServiceProviderData> navItemServiceProviderData) {
+        navItemServiceProvAdapter=new com.exhibtion.adapter.NavItemServiceProvAdapter( getContext(),navItemServiceProviderData );
         navItemServiceProvAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerViewProvider.setLayoutManager(linearLayoutManager);
@@ -225,8 +229,8 @@ View view;
     }
 
     @Override
-    public void showOnClickNavItemServiceProvData(NavItemServiceProviderData navItemServiceProviderData) {
-        DetailsNavItemServiceProviderFragment detailsNavItemServiceProviderFragment=new DetailsNavItemServiceProviderFragment();
+    public void showOnClickNavItemServiceProvData(com.exhibtion.model.NavItemServiceProviderData navItemServiceProviderData) {
+        com.exhibtion.fragment.DetailsNavItemServiceProviderFragment detailsNavItemServiceProviderFragment=new com.exhibtion.fragment.DetailsNavItemServiceProviderFragment();
         Bundle bundle=new Bundle();
         bundle.putParcelable("ServiceProviderItem",navItemServiceProviderData);
         detailsNavItemServiceProviderFragment.setArguments(bundle);
@@ -239,7 +243,7 @@ View view;
         if(networkConnection.isNetworkAvailable( getContext() ))
         {
             swipeRefreshLayout.setRefreshing( true );
-            navItemServiceProviderPresenter=new NavItemServiceProviderPresenter(getContext(),this);
+            navItemServiceProviderPresenter=new com.exhibtion.presenter.NavItemServiceProviderPresenter(getContext(),this);
             if (Language.isRTL())
             {
                 navItemServiceProviderPresenter.getNavItemServiceProviderResult("ar");

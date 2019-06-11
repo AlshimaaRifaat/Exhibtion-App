@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.model;
+package com.exhibtion.model;
 
 
 import java.io.Serializable;
@@ -8,6 +8,7 @@ import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.exhibtion.model.ExhibtorsData;
 
 public class ExhibtorsResponse implements Serializable, Parcelable
 {

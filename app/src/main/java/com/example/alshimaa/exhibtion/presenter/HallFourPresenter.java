@@ -1,12 +1,12 @@
-package com.example.alshimaa.exhibtion.presenter;
+package com.exhibtion.presenter;
 
 import android.content.Context;
 
-import com.example.alshimaa.exhibtion.api.Client;
-import com.example.alshimaa.exhibtion.api.Service;
-import com.example.alshimaa.exhibtion.model.HallFourResponse;
-import com.example.alshimaa.exhibtion.model.HallTwoResponse;
-import com.example.alshimaa.exhibtion.view.HallOneView;
+import com.exhibtion.api.Client;
+import com.exhibtion.api.Service;
+import com.exhibtion.model.HallFourResponse;
+import com.exhibtion.model.HallTwoResponse;
+import com.exhibtion.view.HallOneView;
 
 import java.util.HashMap;
 import java.util.Map;

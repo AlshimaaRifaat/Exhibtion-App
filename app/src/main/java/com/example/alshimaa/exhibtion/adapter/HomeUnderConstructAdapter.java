@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.adapter;
+package com.exhibtion.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -11,11 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
-import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
-import com.example.alshimaa.exhibtion.view.DetailsExhibtionUnderConstructView;
-import com.example.alshimaa.exhibtion.view.OnclickIconHomeUnderConstructView;
+import com.exhibtion.R;
+import com.exhibtion.model.CurrentExhibtionData;
+import com.exhibtion.model.HomeUnderConstructData;
+import com.exhibtion.view.DetailsExhibtionUnderConstructView;
+import com.exhibtion.view.OnclickIconHomeUnderConstructView;
 
 import java.util.List;
 
@@ -75,6 +75,8 @@ public  void onClick(OnclickIconHomeUnderConstructView onclickIconHomeUnderConst
                 homeUnderConstructData.setId(homeUnderConstructDataList.get(position).getId());
                 homeUnderConstructData.setIdUser(homeUnderConstructDataList.get(position).getIdUser());
                homeUnderConstructData.setLogo(homeUnderConstructDataList.get(position).getLogo());
+                homeUnderConstructData.setLink360(homeUnderConstructDataList.get(position).getLink360());
+                // bundle.putString("link_360",currentExhibtionData.getLink360());
                 detailsExhibtionUnderConstructView.showDetailsExhibtionUnderConstruct(homeUnderConstructData);
             }
         });

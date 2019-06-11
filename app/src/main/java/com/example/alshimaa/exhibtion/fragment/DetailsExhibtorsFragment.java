@@ -1,15 +1,18 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.telephony.PhoneNumberUtils;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +22,10 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.support.v4.app.ShareCompat;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.Language;
+/*import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.YoutubeConfig;
@@ -42,7 +46,12 @@ import com.example.alshimaa.exhibtion.presenter.HomeUnderConstructPresenter;
 import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
 import com.example.alshimaa.exhibtion.view.EShopView;
 import com.example.alshimaa.exhibtion.view.ExhibtorDetailsListView;
-import com.example.alshimaa.exhibtion.view.ServicesProvidedView;
+import com.example.alshimaa.exhibtion.view.ServicesProvidedView;*/
+import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
+import com.exhibtion.YoutubeConfig;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -53,10 +62,10 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.OnInitializedListener
-    ,ServicesProvidedView,EShopView,ExhibtorDetailsListView
+    , com.exhibtion.view.ServicesProvidedView, com.exhibtion.view.EShopView, com.exhibtion.view.ExhibtorDetailsListView
 {
 
-    public static String Link,Title,ID,WebsiteLink;
+    public static String Link,Title,ID,WebsiteLink,Phone;
     TextView title,address,phone,email,websiteLink,summaryTxt;
 
     NetworkConnection networkConnection;
@@ -68,19 +77,19 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     Button vacantJopsBtn;
 
     RecyclerView recyclerViewservicesProvided;
-    ServicesProvidedAdapter servicesProvidedAdapter;
+    com.exhibtion.adapter.ServicesProvidedAdapter servicesProvidedAdapter;
     ServicesProvidedPresenter servicesProvidedPresenter;
 
     RecyclerView recyclerViewEShop;
-    EShopAdapter eShopAdapter;
-    EShopPresenter eShopPresenter;
+    com.exhibtion.adapter.EShopAdapter eShopAdapter;
+    com.exhibtion.presenter.EShopPresenter eShopPresenter;
     Button contactUsBtn,summaryBtn;
     public  String Summary;
 
     RecyclerView recyclerViewdetailsExhib;
     //EShopAdapter eShopAdapter;
-    ExhibtorDetailsPresenter exhibtorDetailsPresenter;
-    List<ExhibtorDetailsData> exhibtorDetailsDataList;
+    com.exhibtion.presenter.ExhibtorDetailsPresenter exhibtorDetailsPresenter;
+    List<com.exhibtion.model.ExhibtorDetailsData> exhibtorDetailsDataList;
 
     ImageView iconWhats;
     TextView linkMapTxt;
@@ -123,6 +132,7 @@ View view;
             ExhibtorDetails();
              //Toast.makeText(getContext(), "id_user" +ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
         }
+       // Toast.makeText(getContext(), "id_user" +ID+"  fair"+ com.exhibtion.fragment.DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
         vacantJopsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,7 +161,7 @@ View view;
         summaryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ExhibtorSummaryActivity.class);
+                Intent i = new Intent(getActivity(), com.exhibtion.activity.ExhibtorSummaryActivity.class);
                  i.putExtra("nabza",Summary);
                  startActivity(i);
                 ((Activity) getActivity()).overridePendingTransition(0,0);
@@ -162,7 +172,7 @@ View view;
         linkMapTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), MapActivity.class);
+                Intent i = new Intent(getActivity(), com.exhibtion.activity.MapActivity.class);
                 i.putExtra("link_map",LinkMap);
                 startActivity(i);
                 ((Activity) getActivity()).overridePendingTransition(0,0);
@@ -180,7 +190,7 @@ View view;
     }
 
     private void ExhibtorDetails() {
-        exhibtorDetailsPresenter=new ExhibtorDetailsPresenter(getContext(),this);
+        exhibtorDetailsPresenter=new com.exhibtion.presenter.ExhibtorDetailsPresenter(getContext(),this);
 
         if(Language.isRTL()) {
             exhibtorDetailsPresenter.getExhibtorDetailsResult("ar", ID); //id user
@@ -191,16 +201,16 @@ View view;
     }
 
     private void goToCallUsPage() {
-        getFragmentManager().beginTransaction().replace(R.id.content_navigation,new CallUsFragment())
+        getFragmentManager().beginTransaction().replace(R.id.content_navigation,new com.exhibtion.fragment.CallUsFragment())
                 .addToBackStack(null).commit();
     }
 
     private void EShop() {
-        eShopPresenter=new EShopPresenter(getContext(),this);
+        eShopPresenter=new com.exhibtion.presenter.EShopPresenter(getContext(),this);
         if(Language.isRTL()) {
-            eShopPresenter.getEShopResult("ar",DetailsExhibtionFragment.ID,ID);
+            eShopPresenter.getEShopResult("ar", com.exhibtion.fragment.DetailsExhibtionFragment.ID,ID);
         }else {
-            eShopPresenter.getEShopResult("en",DetailsExhibtionFragment.ID,ID);
+            eShopPresenter.getEShopResult("en", com.exhibtion.fragment.DetailsExhibtionFragment.ID,ID);
         }
     }
 
@@ -281,8 +291,8 @@ View view;
     }
 
     @Override
-    public void showServicesProvidedList(List<ServicesProvidedData> servicesProvidedDataList) {
-        servicesProvidedAdapter=new ServicesProvidedAdapter( getContext(),servicesProvidedDataList );
+    public void showServicesProvidedList(List<com.exhibtion.model.ServicesProvidedData> servicesProvidedDataList) {
+        servicesProvidedAdapter=new com.exhibtion.adapter.ServicesProvidedAdapter( getContext(),servicesProvidedDataList );
         //homeProductAdapter.onClick(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewservicesProvided.setLayoutManager(linearLayoutManager);
@@ -291,8 +301,8 @@ View view;
     }
 
     @Override
-    public void showEshopDataList(List<EShopData> eShopDataList) {
-        eShopAdapter=new EShopAdapter( getContext(),eShopDataList );
+    public void showEshopDataList(List<com.exhibtion.model.EShopData> eShopDataList) {
+        eShopAdapter=new com.exhibtion.adapter.EShopAdapter( getContext(),eShopDataList );
         //homeProductAdapter.onClick(this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
         recyclerViewEShop.setLayoutManager(gridLayoutManager);
@@ -301,7 +311,7 @@ View view;
     }
 
     @Override
-    public void showExhibtorDetailsListView(List<ExhibtorDetailsData> exhibtorDetailsDataList) {
+    public void showExhibtorDetailsListView(List<com.exhibtion.model.ExhibtorDetailsData> exhibtorDetailsDataList) {
       Summary=exhibtorDetailsDataList.get(0).getDescription();
         LinkMap=exhibtorDetailsDataList.get(0).getLinkMap();
         String youtube=exhibtorDetailsDataList.get(0).isYoutubeLink();
@@ -313,9 +323,40 @@ View view;
         this.exhibtorDetailsDataList=exhibtorDetailsDataList;
         title.setText(exhibtorDetailsDataList.get(0).getName());
         address.setText(exhibtorDetailsDataList.get(0).getAddress());
-        phone.setText(exhibtorDetailsDataList.get(0).getPhone());
+        Phone=exhibtorDetailsDataList.get(0).getPhone();
+        phone.setText(Phone);
         email.setText(exhibtorDetailsDataList.get(0).getEmail());
-        websiteLink.setText(exhibtorDetailsDataList.get(0).getWebsiteLink());
+        WebsiteLink=exhibtorDetailsDataList.get(0).getWebsiteLink();
+        websiteLink.setText(WebsiteLink);
+        //Linkify.addLinks(websiteLink, Linkify.WEB_URLS);
+        /*Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("text/plain");
+        i.putExtra(Intent.EXTRA_TEXT, WebsiteLink);
+        StartActivity(Intent.createChooser(i, "Share URL"));*/
+        websiteLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Linkify.addLinks(websiteLink, Linkify.WEB_URLS);
+                 ShareCompat.IntentBuilder.from(getActivity())
+                        .setType("text/plain")
+                        .setText(WebsiteLink)
+                        .getIntent();
+
+            }
+        });
+
+        phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if( phone != null ) {
+                    Intent intent = new Intent(android.content.Intent.ACTION_CALL, Uri.parse("tel: "+Phone));
+                    startActivity(intent);
+                }
+            }
+        });
+
+
+
 
         //summaryTxt.setText(exhibtorDetailsDataList.get(0).getDescription());
     }

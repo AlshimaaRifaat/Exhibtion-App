@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.R;
+
+/*import com.example.alshimaa.exhibtion.R;*/
 
 /**
  * A simple {@link Fragment} subclass.

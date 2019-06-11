@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,14 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.NetworkConnection;
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.fragment.DetailsExhibtionFragment;
-import com.example.alshimaa.exhibtion.fragment.HomeFragment;
-import com.example.alshimaa.exhibtion.presenter.NavigationServiceProviderPresenter;
-import com.example.alshimaa.exhibtion.presenter.ResultRegisterAsVisitorPresenter;
-import com.example.alshimaa.exhibtion.view.NavigationServiceProviderView;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
+import com.exhibtion.fragment.DetailsExhibtionFragment;
+import com.exhibtion.fragment.HomeFragment;
+import com.exhibtion.presenter.NavigationServiceProviderPresenter;
+import com.exhibtion.presenter.ResultRegisterAsVisitorPresenter;
+import com.exhibtion.view.NavigationServiceProviderView;
 import com.fourhcode.forhutils.FUtilsValidation;
+import com.exhibtion.activity.RegisterNowActivity;
+import  com.exhibtion.activity.ResultRegisterAsVisitorActivity;
 
 public class RegisterActivity extends AppCompatActivity implements NavigationServiceProviderView {
     ResultRegisterAsVisitorPresenter resultRegisterAsVisitorPresenter;

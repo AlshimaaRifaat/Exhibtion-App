@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.model;
+package com.exhibtion.model;
 
 import java.io.Serializable;
 import android.os.Parcel;
@@ -7,7 +7,7 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class HomeUnderConstructData implements  Parcelable
+public class HomeUnderConstructData implements Serializable, Parcelable
 {
 
     @SerializedName("id")
@@ -19,6 +19,9 @@ public class HomeUnderConstructData implements  Parcelable
     @SerializedName("title")
     @Expose
     private String title;
+    @SerializedName("link360")
+    @Expose
+    private String link360;
     @SerializedName("description")
     @Expose
     private String description;
@@ -59,12 +62,13 @@ public class HomeUnderConstructData implements  Parcelable
 
     }
             ;
-    private final static long serialVersionUID = 8481233231383935052L;
+    private final static long serialVersionUID = 1387333795482908375L;
 
     protected HomeUnderConstructData(Parcel in) {
         this.id = ((int) in.readValue((int.class.getClassLoader())));
         this.idUser = ((String) in.readValue((String.class.getClassLoader())));
         this.title = ((String) in.readValue((String.class.getClassLoader())));
+        this.link360 = ((String) in.readValue((String.class.getClassLoader())));
         this.description = ((String) in.readValue((String.class.getClassLoader())));
         this.youtube = ((String) in.readValue((String.class.getClassLoader())));
         this.img = ((String) in.readValue((String.class.getClassLoader())));
@@ -100,6 +104,14 @@ public class HomeUnderConstructData implements  Parcelable
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getLink360() {
+        return link360;
+    }
+
+    public void setLink360(String link360) {
+        this.link360 = link360;
     }
 
     public String getDescription() {
@@ -170,6 +182,7 @@ public class HomeUnderConstructData implements  Parcelable
         dest.writeValue(id);
         dest.writeValue(idUser);
         dest.writeValue(title);
+        dest.writeValue(link360);
         dest.writeValue(description);
         dest.writeValue(youtube);
         dest.writeValue(img);

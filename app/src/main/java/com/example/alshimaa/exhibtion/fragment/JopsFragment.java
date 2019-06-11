@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.Language;
+/*import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.adapter.JopsAdapter;
@@ -19,21 +19,25 @@ import com.example.alshimaa.exhibtion.adapter.PreviousExhibtionAdapter;
 import com.example.alshimaa.exhibtion.model.JopsData;
 import com.example.alshimaa.exhibtion.presenter.JopsPresenter;
 import com.example.alshimaa.exhibtion.presenter.PreviousExhibtionPresenter;
-import com.example.alshimaa.exhibtion.view.JopsView;
+import com.example.alshimaa.exhibtion.view.JopsView;*/
+
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class JopsFragment extends Fragment implements JopsView {
+public class JopsFragment extends Fragment implements com.exhibtion.view.JopsView {
     NetworkConnection networkConnection;
 
 
 
     RecyclerView recyclerViewJops;
-    JopsAdapter jopsAdapter;
-    JopsPresenter jopsPresenter;
+    com.exhibtion.adapter.JopsAdapter jopsAdapter;
+    com.exhibtion.presenter.JopsPresenter jopsPresenter;
 
     public JopsFragment() {
         // Required empty public constructor
@@ -53,15 +57,15 @@ View view;
     }
 
     private void Jops() {
-        jopsPresenter=new JopsPresenter(getContext(),this);
+        jopsPresenter=new com.exhibtion.presenter.JopsPresenter(getContext(),this);
         if(networkConnection.isNetworkAvailable(getContext()))
         {
             if (Language.isRTL())
             {
-                jopsPresenter.getJopsResult( "ar",DetailsExhibtionFragment.ID,DetailsExhibtorsFragment.ID ); // user id ,fair id
+                jopsPresenter.getJopsResult( "ar", com.exhibtion.fragment.DetailsExhibtionFragment.ID, com.exhibtion.fragment.DetailsExhibtorsFragment.ID ); // user id ,fair id
             }else
             {
-                jopsPresenter.getJopsResult("en",DetailsExhibtionFragment.ID,DetailsExhibtorsFragment.ID);
+                jopsPresenter.getJopsResult("en", com.exhibtion.fragment.DetailsExhibtionFragment.ID, com.exhibtion.fragment.DetailsExhibtorsFragment.ID);
             }
         }else
         {
@@ -75,8 +79,8 @@ View view;
     }
 
     @Override
-    public void showJopsList(List<JopsData> jopsDataList) {
-        jopsAdapter=new JopsAdapter( getContext(),jopsDataList );
+    public void showJopsList(List<com.exhibtion.model.JopsData> jopsDataList) {
+        jopsAdapter=new com.exhibtion.adapter.JopsAdapter( getContext(),jopsDataList );
         //homeProductAdapter.onClick(this);
         recyclerViewJops.setLayoutManager( new LinearLayoutManager(getContext()));
         recyclerViewJops.setAdapter( jopsAdapter );

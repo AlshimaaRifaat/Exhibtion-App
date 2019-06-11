@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.model;
+package com.exhibtion.model;
 
 public class Checkbox_Id {
 

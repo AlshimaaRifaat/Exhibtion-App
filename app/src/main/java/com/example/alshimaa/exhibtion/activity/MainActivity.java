@@ -1,10 +1,12 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.fragment.HomeFragment;
+
+
+import com.exhibtion.R;
+import com.exhibtion.fragment.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 

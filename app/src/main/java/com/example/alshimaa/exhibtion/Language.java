@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion;
+package com.exhibtion;
 
 import java.util.Locale;
 

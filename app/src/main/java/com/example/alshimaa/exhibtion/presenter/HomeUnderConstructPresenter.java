@@ -1,13 +1,15 @@
-package com.example.alshimaa.exhibtion.presenter;
+package com.exhibtion.presenter;
 
 import android.content.Context;
 
-import com.example.alshimaa.exhibtion.api.Client;
-import com.example.alshimaa.exhibtion.api.Service;
-import com.example.alshimaa.exhibtion.model.HomeUnderConstructResponse;
-import com.example.alshimaa.exhibtion.model.PreviousExhibtionResponse;
-import com.example.alshimaa.exhibtion.view.HomeUnderConstructView;
-import com.example.alshimaa.exhibtion.view.PreviousExhibtionView;
+import com.exhibtion.api.Client;
+import com.exhibtion.api.Service;
+import com.exhibtion.model.HomeUnderConstructResponse;
+import com.exhibtion.model.PreviousExhibtionResponse;
+import com.exhibtion.view.HomeUnderConstructView;
+import com.exhibtion.view.PreviousExhibtionView;
+
+import com.exhibtion.fragment.HomeFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +22,7 @@ public class HomeUnderConstructPresenter {
     Context context;
     HomeUnderConstructView homeUnderConstructView;
 
-    public HomeUnderConstructPresenter(Context context, HomeUnderConstructView homeUnderConstructView) {
+    public HomeUnderConstructPresenter(Context context, HomeFragment homeUnderConstructView) {
         this.context = context;
         this.homeUnderConstructView = homeUnderConstructView;
     }

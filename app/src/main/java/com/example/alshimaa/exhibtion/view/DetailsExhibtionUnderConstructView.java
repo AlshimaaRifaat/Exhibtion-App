@@ -1,7 +1,7 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
-import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
+import com.exhibtion.model.HomeUnderConstructData;
+import com.exhibtion.model.PreviousExhibtionData;
 
 public interface DetailsExhibtionUnderConstructView {
     void showDetailsExhibtionUnderConstruct(HomeUnderConstructData homeUnderConstructData);

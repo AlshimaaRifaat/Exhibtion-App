@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion;
+package com.exhibtion;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

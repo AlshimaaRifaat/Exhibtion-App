@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -10,7 +10,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.R;
+import com.exhibtion.activity.NavigationActivity;
 
 public class ChangeLanguageActivity extends AppCompatActivity {
     SharedPreferences.Editor share;

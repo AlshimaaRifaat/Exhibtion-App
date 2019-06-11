@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,20 +12,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.Language;
-import com.example.alshimaa.exhibtion.NetworkConnection;
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.adapter.PreviousExhibtionAdapter;
-import com.example.alshimaa.exhibtion.adapter.PuthesAdapter;
-import com.example.alshimaa.exhibtion.fragment.DetailsExhibtionFragment;
-import com.example.alshimaa.exhibtion.model.PuthesData;
-import com.example.alshimaa.exhibtion.presenter.NavigationServiceProviderPresenter;
-import com.example.alshimaa.exhibtion.presenter.PreviousExhibtionPresenter;
-import com.example.alshimaa.exhibtion.presenter.PuthesPresenter;
-import com.example.alshimaa.exhibtion.presenter.PuthesRegisterPresenter;
-import com.example.alshimaa.exhibtion.view.OnClickMultipleChoiceCheckBox;
-import com.example.alshimaa.exhibtion.view.PuthesRegisterView;
-import com.example.alshimaa.exhibtion.view.PuthesView;
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
+import com.exhibtion.adapter.PreviousExhibtionAdapter;
+import com.exhibtion.adapter.PuthesAdapter;
+import com.exhibtion.fragment.DetailsExhibtionFragment;
+import com.exhibtion.model.PuthesData;
+import com.exhibtion.presenter.NavigationServiceProviderPresenter;
+import com.exhibtion.presenter.PreviousExhibtionPresenter;
+import com.exhibtion.presenter.PuthesPresenter;
+import com.exhibtion.presenter.PuthesRegisterPresenter;
+import com.exhibtion.view.OnClickMultipleChoiceCheckBox;
+import com.exhibtion.view.PuthesRegisterView;
+import com.exhibtion.view.PuthesView;
 import com.fourhcode.forhutils.FUtilsValidation;
 
 import java.util.List;
@@ -85,7 +85,7 @@ Button registerNowBtn;
             if(!userNameEtext.getText().toString().equals( "" )&&
                     !userEmailEtext.getText().toString().equals( "" )&&
                     !userPhoneEtext.getText().toString().equals("")&&
-                   !RegisterNowActivity.FairId.equals("")&&validateEmail()
+                   !com.exhibtion.activity.RegisterNowActivity.FairId.equals("")&&validateEmail()
                     && !PartitionId.equals("")) //  partition id !=null
             {
                     puthesRegisterPresenter=new PuthesRegisterPresenter(getApplicationContext(),this);
@@ -93,7 +93,7 @@ Button registerNowBtn;
                             ,
                             userEmailEtext.getText().toString()
                             ,userPhoneEtext.getText().toString()
-                            ,RegisterNowActivity.FairId,PartitionId);
+                            , com.exhibtion.activity.RegisterNowActivity.FairId,PartitionId);
 
             }
             else
@@ -128,7 +128,7 @@ Button registerNowBtn;
 
     private void puthes() {
         puthesPresenter=new PuthesPresenter(getApplicationContext(),this);
-        puthesPresenter.getPuthesResult(String.valueOf(RegisterNowActivity.FairId)); //id fair
+        puthesPresenter.getPuthesResult(String.valueOf(com.exhibtion.activity.RegisterNowActivity.FairId)); //id fair
     }
 
     private void init() {

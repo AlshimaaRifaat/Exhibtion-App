@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.widget.TextView;
 
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.R;
 
 public class ConfirmRegisterNowActivity extends AppCompatActivity {
 

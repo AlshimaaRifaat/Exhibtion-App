@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
 public interface NavigationServiceProviderView {
     void showNavServiceProviderData(String Msg);

@@ -1,9 +1,9 @@
-package com.example.alshimaa.exhibtion.model;
+package com.exhibtion.model;
 import java.io.Serializable;
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -46,7 +46,7 @@ public class NavItemServiceProviderResponse implements Serializable, Parcelable
     public NavItemServiceProviderResponse() {
     }
 
-    public List<NavItemServiceProviderData> getData() {
+    public List<com.exhibtion.model.NavItemServiceProviderData> getData() {
         return data;
     }
 

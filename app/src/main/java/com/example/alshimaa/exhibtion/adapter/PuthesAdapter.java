@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.adapter;
+package com.exhibtion.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -14,13 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.model.Checkbox_Id;
-import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
-import com.example.alshimaa.exhibtion.model.PuthesData;
-import com.example.alshimaa.exhibtion.view.DetailsPreviousExhibtion;
-import com.example.alshimaa.exhibtion.view.OnClickMultipleChoiceCheckBox;
-import com.example.alshimaa.exhibtion.view.PuthesView;
+import com.exhibtion.R;
+import com.exhibtion.model.Checkbox_Id;
+import com.exhibtion.model.PreviousExhibtionData;
+import com.exhibtion.model.PuthesData;
+import com.exhibtion.view.DetailsPreviousExhibtion;
+import com.exhibtion.view.OnClickMultipleChoiceCheckBox;
+import com.exhibtion.view.PuthesView;
 
 import java.util.ArrayList;
 import java.util.List;

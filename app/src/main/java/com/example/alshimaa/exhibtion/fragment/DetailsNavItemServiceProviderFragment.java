@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+/*
 import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
@@ -20,23 +21,28 @@ import com.example.alshimaa.exhibtion.model.NavItemServiceProviderData;
 import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.DetailsNavItemServiceProvPresenter;
 import com.example.alshimaa.exhibtion.view.DetailsNavItemServiceProvView;
+*/
+
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailsNavItemServiceProviderFragment extends Fragment implements DetailsNavItemServiceProvView {
+public class DetailsNavItemServiceProviderFragment extends Fragment implements com.exhibtion.view.DetailsNavItemServiceProvView {
 
     NetworkConnection networkConnection;
 
 
 
     RecyclerView recyclerViewDetailsServiceProv;
-    DetailsNavItemServiceProvAdapter detailsNavItemServiceProvAdapter;
-    DetailsNavItemServiceProvPresenter detailsNavItemServiceProvPresenter;
+    com.exhibtion.adapter.DetailsNavItemServiceProvAdapter detailsNavItemServiceProvAdapter;
+    com.exhibtion.presenter.DetailsNavItemServiceProvPresenter detailsNavItemServiceProvPresenter;
 
-    NavItemServiceProviderData navItemServiceProviderData;
+    com.exhibtion.model.NavItemServiceProviderData navItemServiceProviderData;
     Bundle bundle;
     public DetailsNavItemServiceProviderFragment() {
         // Required empty public constructor
@@ -61,7 +67,7 @@ public class DetailsNavItemServiceProviderFragment extends Fragment implements D
     }
 
     private void DetailsServiceProv() {
-        detailsNavItemServiceProvPresenter=new DetailsNavItemServiceProvPresenter(getContext(),this);
+        detailsNavItemServiceProvPresenter=new com.exhibtion.presenter.DetailsNavItemServiceProvPresenter(getContext(),this);
         if (Language.isRTL()) {
             detailsNavItemServiceProvPresenter.getDetailsNavItemServiceProvResult("ar",String.valueOf(navItemServiceProviderData.getId()));
         }else
@@ -75,8 +81,8 @@ public class DetailsNavItemServiceProviderFragment extends Fragment implements D
     }
 
     @Override
-    public void showDetailsNavItemServiceProvList(List<DetailsNavItemServiceProvData> detailsNavItemServiceProvDataList) {
-        detailsNavItemServiceProvAdapter=new DetailsNavItemServiceProvAdapter( getContext(),detailsNavItemServiceProvDataList );
+    public void showDetailsNavItemServiceProvList(List<com.exhibtion.model.DetailsNavItemServiceProvData> detailsNavItemServiceProvDataList) {
+        detailsNavItemServiceProvAdapter=new com.exhibtion.adapter.DetailsNavItemServiceProvAdapter( getContext(),detailsNavItemServiceProvDataList );
       //  currentExhibtionAdapter.onClick(this);
         recyclerViewDetailsServiceProv.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewDetailsServiceProv.setAdapter( detailsNavItemServiceProvAdapter );

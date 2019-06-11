@@ -1,7 +1,7 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
-import com.example.alshimaa.exhibtion.model.NavItemServiceProviderData;
+import com.exhibtion.model.CurrentExhibtionData;
+import com.exhibtion.model.NavItemServiceProviderData;
 
 import java.util.List;
 

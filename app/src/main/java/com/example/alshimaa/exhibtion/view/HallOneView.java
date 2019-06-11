@@ -1,9 +1,9 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.HallFourData;
-import com.example.alshimaa.exhibtion.model.HallOneData;
-import com.example.alshimaa.exhibtion.model.HallThreeData;
-import com.example.alshimaa.exhibtion.model.HallTwoData;
+import com.exhibtion.model.HallFourData;
+import com.exhibtion.model.HallOneData;
+import com.exhibtion.model.HallThreeData;
+import com.exhibtion.model.HallTwoData;
 
 import java.util.List;
 

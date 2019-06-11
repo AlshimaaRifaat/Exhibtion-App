@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.fragment.HomeFragment;
+import com.exhibtion.activity.NavigationActivity;
+import com.exhibtion.activity.RegisterActivity;
+
+import com.exhibtion.R;
+
 
 public class LoginActivity extends AppCompatActivity {
 TextView createNewAccount;

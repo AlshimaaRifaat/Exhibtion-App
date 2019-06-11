@@ -1,6 +1,6 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.NavItemServiceProviderData;
+import com.exhibtion.model.NavItemServiceProviderData;
 
 public interface OnClickNavItemServiceProvView {
     void showOnClickNavItemServiceProvData(NavItemServiceProviderData navItemServiceProviderData);

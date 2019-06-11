@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
 import java.util.List;
 

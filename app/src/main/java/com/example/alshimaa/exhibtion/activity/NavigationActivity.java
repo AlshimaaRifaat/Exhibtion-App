@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.activity;
+package com.exhibtion.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,24 +25,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.alshimaa.exhibtion.Language;
-import com.example.alshimaa.exhibtion.NetworkConnection;
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
+/*
 import com.example.alshimaa.exhibtion.fragment.AboutUsFragment;
 import com.example.alshimaa.exhibtion.fragment.CallUsFragment;
 import com.example.alshimaa.exhibtion.fragment.CurrentExhibitionFragment;
-import com.example.alshimaa.exhibtion.fragment.ExhibtionOwnerFragment;
-import com.example.alshimaa.exhibtion.fragment.HomeContactUsFragment;
-import com.example.alshimaa.exhibtion.fragment.HomeFragment;
-import com.example.alshimaa.exhibtion.fragment.NavItemServiceProviderFragment;
-import com.example.alshimaa.exhibtion.fragment.NewsFragment;
-import com.example.alshimaa.exhibtion.fragment.PreviousExhibitionFragment;
-import com.example.alshimaa.exhibtion.fragment.ServiceProviderFragment;
-import com.example.alshimaa.exhibtion.fragment.SettingsFragment;
-import com.example.alshimaa.exhibtion.model.HomeSiteOptionData;
-import com.example.alshimaa.exhibtion.presenter.AboutUsPresenter;
-import com.example.alshimaa.exhibtion.presenter.HomeSiteOptionPresenter;
-import com.example.alshimaa.exhibtion.view.HomeSiteOptionView;
+*/
+import com.exhibtion.fragment.ExhibtionOwnerFragment;
+import com.exhibtion.fragment.HomeContactUsFragment;
+import com.exhibtion.fragment.HomeFragment;
+import com.exhibtion.fragment.NavItemServiceProviderFragment;
+import com.exhibtion.fragment.NewsFragment;
+import com.exhibtion.fragment.PreviousExhibitionFragment;
+import com.exhibtion.fragment.ServiceProviderFragment;
+import com.exhibtion.fragment.SettingsFragment;
+import com.exhibtion.model.HomeSiteOptionData;
+import com.exhibtion.presenter.AboutUsPresenter;
+import com.exhibtion.presenter.HomeSiteOptionPresenter;
+import com.exhibtion.view.HomeSiteOptionView;
 
 import java.util.List;
 import java.util.Locale;
@@ -201,7 +203,7 @@ public class NavigationActivity extends AppCompatActivity
 
             case  R.id.nav_CurrentExhibitions:
                 currentSelectedPosition=1;
-                fragment=new CurrentExhibitionFragment();
+                fragment=new com.exhibtion.fragment.CurrentExhibitionFragment();
                 break;
 
             case  R.id.nav_PreviousExhibitions:
@@ -218,11 +220,11 @@ public class NavigationActivity extends AppCompatActivity
                 break;
             case R.id.nav_about_us:
                 currentSelectedPosition=5;
-                fragment=new AboutUsFragment();
+                fragment=new com.exhibtion.fragment.AboutUsFragment();
                 break;
             case R.id.nav_contact_us:
                 currentSelectedPosition=6;
-                fragment=new CallUsFragment();
+                fragment=new com.exhibtion.fragment.CallUsFragment();
                 break;
 
             case R.id.nav_change_language:

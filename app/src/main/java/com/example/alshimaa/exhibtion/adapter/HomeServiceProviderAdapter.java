@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.adapter;
+package com.exhibtion.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.model.HomeServiceProviderData;
-import com.example.alshimaa.exhibtion.model.NavItemServiceProviderData;
-import com.example.alshimaa.exhibtion.view.OnClickNavItemServiceProvView;
+import com.exhibtion.R;
+import com.exhibtion.model.HomeServiceProviderData;
+import com.exhibtion.model.NavItemServiceProviderData;
+import com.exhibtion.view.OnClickNavItemServiceProvView;
 
 import java.util.List;
 

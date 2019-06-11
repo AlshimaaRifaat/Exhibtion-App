@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
 public interface OnClickMultipleChoiceCheckBox {
    void showOnClickMultipleChoiceCheckBoxResult(String selectedPosition);

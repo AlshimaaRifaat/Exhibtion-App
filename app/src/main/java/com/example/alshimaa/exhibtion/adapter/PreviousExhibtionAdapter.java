@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.adapter;
+package com.exhibtion.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.alshimaa.exhibtion.R;
-import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
-import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
-import com.example.alshimaa.exhibtion.view.DetailsPreviousExhibtion;
+import com.exhibtion.R;
+import com.exhibtion.model.CurrentExhibtionData;
+import com.exhibtion.model.PreviousExhibtionData;
+import com.exhibtion.view.DetailsPreviousExhibtion;
 
 import java.util.List;
 
@@ -57,13 +57,14 @@ public class PreviousExhibtionAdapter extends RecyclerView.Adapter<PreviousExhib
             @Override
             public void onClick(View v) {
                 PreviousExhibtionData previousExhibtionData=new PreviousExhibtionData();
-                previousExhibtionData.setYoutube(previousExhibtionDataList.get(position).getYoutube());
+                previousExhibtionData.setYoutube(previousExhibtionDataList.get(position).isYoutube());
                 previousExhibtionData.setTitle(previousExhibtionDataList.get(position).getTitle());
                 previousExhibtionData.setDescription(previousExhibtionDataList.get(position).getDescription());
                 previousExhibtionData.setAddress(previousExhibtionDataList.get(position).getAddress());
                 previousExhibtionData.setId(previousExhibtionDataList.get(position).getId());
                 previousExhibtionData.setIdUser(previousExhibtionDataList.get(position).getIdUser());
                 previousExhibtionData.setLogo(previousExhibtionDataList.get(position).getLogo());
+                previousExhibtionData.setLink360(previousExhibtionDataList.get(position).getLink360());
                 detailsPreviousExhibtion.showExhibtionDetails(previousExhibtionData);
             }
         });

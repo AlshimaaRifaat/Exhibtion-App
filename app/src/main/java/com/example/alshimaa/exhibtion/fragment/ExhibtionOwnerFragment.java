@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.app.DatePickerDialog;
@@ -13,13 +13,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/*
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.RegisterNowActivity;
 import com.example.alshimaa.exhibtion.presenter.ExhibtionOwnerPresenter;
 import com.example.alshimaa.exhibtion.presenter.NavigationServiceProviderPresenter;
-import com.example.alshimaa.exhibtion.view.ExhibtionOwnerView;
+import com.example.alshimaa.exhibtion.view.ExhibtionOwnerView;*/
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
 import com.fourhcode.forhutils.FUtilsValidation;
 
 import java.text.SimpleDateFormat;
@@ -29,10 +31,10 @@ import java.util.Locale;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ExhibtionOwnerFragment extends Fragment implements ExhibtionOwnerView{
+public class ExhibtionOwnerFragment extends Fragment implements com.exhibtion.view.ExhibtionOwnerView {
 TextView dateFromTxt,dateTotxt;
 
-    ExhibtionOwnerPresenter exhibtionOwnerPresenter;
+    com.exhibtion.presenter.ExhibtionOwnerPresenter exhibtionOwnerPresenter;
     EditText userNameEtext,userEmailEtext,userPhoneEtext,userLocation,userMsg;
 
     NetworkConnection networkConnection;
@@ -52,7 +54,7 @@ TextView dateFromTxt,dateTotxt;
         view= inflater.inflate(R.layout.fragment_exhibtion_owner, container, false);
         init();
 
-        exhibtionOwnerPresenter=new ExhibtionOwnerPresenter(getContext(),this);
+        exhibtionOwnerPresenter=new com.exhibtion.presenter.ExhibtionOwnerPresenter(getContext(),this);
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
             @Override

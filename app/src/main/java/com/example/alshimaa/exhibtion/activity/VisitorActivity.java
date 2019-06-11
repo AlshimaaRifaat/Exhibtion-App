@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.R;
 
 public class VisitorActivity extends AppCompatActivity {
 /*Button registerAsVisitorBtn;*/

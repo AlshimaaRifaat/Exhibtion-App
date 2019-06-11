@@ -14,15 +14,18 @@
         android:layout_marginStart="@dimen/_4sdp"
         android:layout_marginEnd="@dimen/_4sdp"
         android:layout_marginBottom="@dimen/_2sdp"
-        app:cardBackgroundColor="@android:color/white">
+        app:cardBackgroundColor="#0d93df"
+        >
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
         <ImageView
             android:id="@+id/row_home_exhib_under_construct_img"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_98sdp"
             android:scaleType="fitXY"
+
             />
 
             <ImageView
@@ -32,12 +35,13 @@
                 android:src="@drawable/ic_float"
                 android:layout_marginStart="@dimen/_9sdp"
                 android:layout_marginTop="@dimen/_84sdp"
+
                 />
         <TextView
             android:id="@+id/row_home_exhib_under_construct_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#0d93df"
+            android:textColor="#fff"
             android:text="titleeeeeeeeee"
             android:layout_marginTop="@dimen/_4sdp"
             android:layout_marginStart="@dimen/_6sdp"

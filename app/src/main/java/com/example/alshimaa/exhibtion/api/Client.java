@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.api;
+package com.exhibtion.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

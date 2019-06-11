@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -9,12 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.alshimaa.exhibtion.Language;
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.Language;
+/*import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.adapter.HomeNewsAdapter;
 import com.example.alshimaa.exhibtion.model.NewsData;
-import com.example.alshimaa.exhibtion.presenter.HomeNewsPresenter;
-import com.example.alshimaa.exhibtion.view.HomeNewsView;
+import com.example.alshimaa.exhibtion.presenter.HomeNewsPresenter;*/
+import com.exhibtion.R;
+import com.exhibtion.view.HomeNewsView;
 
 import java.util.List;
 
@@ -24,8 +25,8 @@ import java.util.List;
 public class NewsFragment extends Fragment /*implements HomeNewsView*/ {
 
     RecyclerView recyclerViewNews;
-    HomeNewsAdapter homeNewsAdapter;
-    HomeNewsPresenter homeNewsPresenter;
+    com.exhibtion.adapter.HomeNewsAdapter homeNewsAdapter;
+    com.exhibtion.presenter.HomeNewsPresenter homeNewsPresenter;
     public NewsFragment() {
         // Required empty public constructor
     }

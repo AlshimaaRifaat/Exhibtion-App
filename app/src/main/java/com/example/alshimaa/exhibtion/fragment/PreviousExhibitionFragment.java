@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.Language;
+/*import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.activity.NavigationActivity;
@@ -27,15 +27,19 @@ import com.example.alshimaa.exhibtion.model.PreviousExhibtionData;
 import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.PreviousExhibtionPresenter;
 import com.example.alshimaa.exhibtion.view.DetailsPreviousExhibtion;
-import com.example.alshimaa.exhibtion.view.PreviousExhibtionView;
+import com.example.alshimaa.exhibtion.view.PreviousExhibtionView;*/
+
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PreviousExhibitionFragment extends Fragment implements PreviousExhibtionView
-,DetailsPreviousExhibtion{
+public class PreviousExhibitionFragment extends Fragment implements com.exhibtion.view.PreviousExhibtionView
+, com.exhibtion.view.DetailsPreviousExhibtion {
 
     Toolbar toolbar;
     NetworkConnection networkConnection;
@@ -43,8 +47,8 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
 
 
     RecyclerView recyclerViewPreviousExhibtion;
-    PreviousExhibtionAdapter previousExhibtionAdapter;
-    PreviousExhibtionPresenter previousExhibtionPresenter;
+    com.exhibtion.adapter.PreviousExhibtionAdapter previousExhibtionAdapter;
+    com.exhibtion.presenter.PreviousExhibtionPresenter previousExhibtionPresenter;
 
     EditText searchPreviousExhibtionEtext;
     ImageView iconSearch;
@@ -61,45 +65,45 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
         init();
 
 
-        NavigationActivity.toggle = new ActionBarDrawerToggle(
-                getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        com.exhibtion.activity.NavigationActivity.toggle = new ActionBarDrawerToggle(
+                getActivity(), com.exhibtion.activity.NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
 
 
-        NavigationActivity.drawer.addDrawerListener(NavigationActivity.toggle);
-        NavigationActivity.toggle.syncState();
+        com.exhibtion.activity.NavigationActivity.drawer.addDrawerListener(com.exhibtion.activity.NavigationActivity.toggle);
+        com.exhibtion.activity.NavigationActivity.toggle.syncState();
 
-        NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
+        com.exhibtion.activity.NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
         toolbar.setNavigationIcon(R.drawable.ic_humburger_nav  );
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
-                    NavigationActivity.drawer.closeDrawer(GravityCompat.START);
+                if (com.exhibtion.activity.NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
+                    com.exhibtion.activity.NavigationActivity.drawer.closeDrawer(GravityCompat.START);
                 } else {
-                    NavigationActivity.drawer.openDrawer(GravityCompat.START);
+                    com.exhibtion.activity.NavigationActivity.drawer.openDrawer(GravityCompat.START);
                 }
             }
         });
-        NavigationActivity.toggle = new ActionBarDrawerToggle(
-                getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open,
+        com.exhibtion.activity.NavigationActivity.toggle = new ActionBarDrawerToggle(
+                getActivity(), com.exhibtion.activity.NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
 
-        NavigationActivity.drawer.addDrawerListener(NavigationActivity.toggle);
-        NavigationActivity.toggle.syncState();
-        NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
+        com.exhibtion.activity.NavigationActivity.drawer.addDrawerListener(com.exhibtion.activity.NavigationActivity.toggle);
+        com.exhibtion.activity.NavigationActivity.toggle.syncState();
+        com.exhibtion.activity.NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
         toolbar.setNavigationIcon(R.drawable.ic_humburger_nav);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
-                    NavigationActivity.drawer.closeDrawer(GravityCompat.START);
+                if (com.exhibtion.activity.NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
+                    com.exhibtion.activity.NavigationActivity.drawer.closeDrawer(GravityCompat.START);
                 } else {
-                    NavigationActivity.drawer.openDrawer(GravityCompat.START);
+                    com.exhibtion.activity.NavigationActivity.drawer.openDrawer(GravityCompat.START);
                 }
             }
         });
@@ -118,7 +122,7 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
 
     private void performSearch() {
         if(networkConnection.isNetworkAvailable(getContext())) {
-            previousExhibtionPresenter = new PreviousExhibtionPresenter(getContext(), this);
+            previousExhibtionPresenter = new com.exhibtion.presenter.PreviousExhibtionPresenter(getContext(), this);
             if( TextUtils.isEmpty(searchPreviousExhibtionEtext.getText())){
                 /**
                  *   You can Toast a message here that the Username is Empty
@@ -141,7 +145,7 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     }
 
     private void PreviousExhibtion() {
-        previousExhibtionPresenter=new PreviousExhibtionPresenter(getContext(),this);
+        previousExhibtionPresenter=new com.exhibtion.presenter.PreviousExhibtionPresenter(getContext(),this);
         if(Language.isRTL())
         {
             previousExhibtionPresenter.getPreviousExhibtionResult("ar");
@@ -159,8 +163,8 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     }
 
     @Override
-    public void showPreviousExhibtionList(List<PreviousExhibtionData> previousExhibtionDataList) {
-        previousExhibtionAdapter=new PreviousExhibtionAdapter( getContext(),previousExhibtionDataList );
+    public void showPreviousExhibtionList(List<com.exhibtion.model.PreviousExhibtionData> previousExhibtionDataList) {
+        previousExhibtionAdapter=new com.exhibtion.adapter.PreviousExhibtionAdapter( getContext(),previousExhibtionDataList );
         previousExhibtionAdapter.onClick(this);
         recyclerViewPreviousExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewPreviousExhibtion.setAdapter( previousExhibtionAdapter );
@@ -172,8 +176,8 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     }
 
     @Override
-    public void showSearchPreviousExhibtionList(List<PreviousExhibtionData> previousExhibtionDataList) {
-        previousExhibtionAdapter=new PreviousExhibtionAdapter( getContext(),previousExhibtionDataList );
+    public void showSearchPreviousExhibtionList(List<com.exhibtion.model.PreviousExhibtionData> previousExhibtionDataList) {
+        previousExhibtionAdapter=new com.exhibtion.adapter.PreviousExhibtionAdapter( getContext(),previousExhibtionDataList );
         previousExhibtionAdapter.onClick(this);
         recyclerViewPreviousExhibtion.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewPreviousExhibtion.setAdapter( previousExhibtionAdapter );
@@ -186,16 +190,17 @@ public class PreviousExhibitionFragment extends Fragment implements PreviousExhi
     }
 
     @Override
-    public void showExhibtionDetails(PreviousExhibtionData previousExhibtionData) {
-        DetailsExhibtionFragment detailsExhibtionFragment=new DetailsExhibtionFragment();
+    public void showExhibtionDetails(com.exhibtion.model.PreviousExhibtionData previousExhibtionData) {
+        com.exhibtion.fragment.DetailsExhibtionFragment detailsExhibtionFragment=new com.exhibtion.fragment.DetailsExhibtionFragment();
         Bundle bundle=new Bundle(  );
-        bundle.putString( "video_link",previousExhibtionData.getYoutube());
+        bundle.putString( "video_link",previousExhibtionData.isYoutube());
         bundle.putString("title",previousExhibtionData.getTitle());
         bundle.putString("description",previousExhibtionData.getDescription());
         bundle.putString("address",previousExhibtionData.getAddress());
         bundle.putString("id",String.valueOf(previousExhibtionData.getId()));
         bundle.putString("user_id",previousExhibtionData.getIdUser());
         bundle.putString("logo",previousExhibtionData.getLogo());
+        bundle.putString("link_360",previousExhibtionData.getLink360());
         bundle.putString("visibilty","no");
         detailsExhibtionFragment.setArguments(bundle);
         getFragmentManager().beginTransaction().add( R.id.content_navigation,

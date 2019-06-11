@@ -1,7 +1,7 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.HomeJopsData;
-import com.example.alshimaa.exhibtion.model.HomeUnderConstructData;
+import com.exhibtion.model.HomeJopsData;
+import com.exhibtion.model.HomeUnderConstructData;
 
 import java.util.List;
 

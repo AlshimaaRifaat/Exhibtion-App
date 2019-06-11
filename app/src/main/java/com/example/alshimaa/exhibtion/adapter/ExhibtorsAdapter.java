@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.adapter;
+package com.exhibtion.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -11,27 +11,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.alshimaa.exhibtion.R;
+import com.exhibtion.R;
+/*import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.model.ExhibtorsData;
 import com.example.alshimaa.exhibtion.view.DetailsExhibtionView;
-import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;
+import com.example.alshimaa.exhibtion.view.DetailsExhibtorsView;*/
 
 import java.util.List;
 
 public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.ViewHolder> {
     Context context;
-    List<ExhibtorsData> exhibtorsDataList;
+    List<com.exhibtion.model.ExhibtorsData> exhibtorsDataList;
 
-    DetailsExhibtorsView detailsExhibtorsView;
+    com.exhibtion.view.DetailsExhibtorsView detailsExhibtorsView;
 
 
-    public ExhibtorsAdapter(Context context, List<ExhibtorsData> exhibtorsDataList) {
+    public ExhibtorsAdapter(Context context, List<com.exhibtion.model.ExhibtorsData> exhibtorsDataList) {
         this.context = context;
         this.exhibtorsDataList = exhibtorsDataList;
     }
 
-     public  void onClick(DetailsExhibtorsView detailsExhibtorsView)
+     public  void onClick(com.exhibtion.view.DetailsExhibtorsView detailsExhibtorsView)
     {
         this.detailsExhibtorsView=detailsExhibtorsView;
     }
@@ -63,7 +64,7 @@ public class ExhibtorsAdapter extends RecyclerView.Adapter<ExhibtorsAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExhibtorsData exhibtorsData=new ExhibtorsData();
+                com.exhibtion.model.ExhibtorsData exhibtorsData=new com.exhibtion.model.ExhibtorsData();
                /* exhibtorsData.setYoutubeLink(exhibtorsDataList.get(position).getYoutubeLink());
                 exhibtorsData.setName(exhibtorsDataList.get(position).getName());
                 exhibtorsData.setAddress(exhibtorsDataList.get(position).getAddress());

@@ -1,7 +1,7 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.OrganizersAndServiceProvidersData;
-import com.example.alshimaa.exhibtion.model.SponsorData;
+import com.exhibtion.model.OrganizersAndServiceProvidersData;
+import com.exhibtion.model.SponsorData;
 
 import java.util.List;
 

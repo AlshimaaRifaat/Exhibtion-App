@@ -1,4 +1,4 @@
-package com.example.alshimaa.exhibtion.fragment;
+package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.alshimaa.exhibtion.Language;
+/*import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
 import com.example.alshimaa.exhibtion.R;
 import com.example.alshimaa.exhibtion.adapter.CurrentExhibtionAdapter;
@@ -22,22 +22,26 @@ import com.example.alshimaa.exhibtion.adapter.HomeSearchResultAdapter;
 import com.example.alshimaa.exhibtion.model.CurrentExhibtionData;
 import com.example.alshimaa.exhibtion.presenter.CurrentExhibtionPresenter;
 import com.example.alshimaa.exhibtion.presenter.SearchHomePresenter;
-import com.example.alshimaa.exhibtion.view.SearchHomeView;
+import com.example.alshimaa.exhibtion.view.SearchHomeView;*/
+
+import com.exhibtion.Language;
+import com.exhibtion.NetworkConnection;
+import com.exhibtion.R;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeSearchResultFragment extends Fragment implements SearchHomeView {
+public class HomeSearchResultFragment extends Fragment implements com.exhibtion.view.SearchHomeView {
 
     NetworkConnection networkConnection;
 
 
 
     RecyclerView recyclerViewsearch;
-    HomeSearchResultAdapter homeSearchResultAdapter;
-   public static SearchHomePresenter searchHomePresenter;
+    com.exhibtion.adapter.HomeSearchResultAdapter homeSearchResultAdapter;
+   public static com.exhibtion.presenter.SearchHomePresenter searchHomePresenter;
 
    String Key;
 
@@ -54,7 +58,7 @@ View view;
         view= inflater.inflate(R.layout.fragment_home_search_result, container, false);
         init();
         networkConnection=new NetworkConnection( getContext() );
-        searchHomePresenter = new SearchHomePresenter(getContext(), this);
+        searchHomePresenter = new com.exhibtion.presenter.SearchHomePresenter(getContext(), this);
 
         Bundle bundle=this.getArguments();
         if (bundle!=null)
@@ -89,8 +93,8 @@ View view;
     }
 
     @Override
-    public void showSearchHomeExhibtionList(List<CurrentExhibtionData> currentExhibtionDataList) {
-        homeSearchResultAdapter=new HomeSearchResultAdapter( getContext(),currentExhibtionDataList );
+    public void showSearchHomeExhibtionList(List<com.exhibtion.model.CurrentExhibtionData> currentExhibtionDataList) {
+        homeSearchResultAdapter=new com.exhibtion.adapter.HomeSearchResultAdapter( getContext(),currentExhibtionDataList );
         //currentExhibtionAdapter.onClick(this);
         recyclerViewsearch.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewsearch.setAdapter( homeSearchResultAdapter );

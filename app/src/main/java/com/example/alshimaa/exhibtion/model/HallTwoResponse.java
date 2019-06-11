@@ -1,10 +1,10 @@
-package com.example.alshimaa.exhibtion.model;
+package com.exhibtion.model;
 
 import java.io.Serializable;
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -47,7 +47,7 @@ public class HallTwoResponse implements Serializable, Parcelable
     public HallTwoResponse() {
     }
 
-    public List<HallTwoData> getData() {
+    public List<com.exhibtion.model.HallTwoData> getData() {
         return data;
     }
 

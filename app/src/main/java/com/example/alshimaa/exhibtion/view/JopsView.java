@@ -1,6 +1,6 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.JopsData;
+import com.exhibtion.model.JopsData;
 
 import java.util.List;
 

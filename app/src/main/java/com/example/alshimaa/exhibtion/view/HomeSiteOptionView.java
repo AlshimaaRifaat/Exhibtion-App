@@ -1,7 +1,7 @@
-package com.example.alshimaa.exhibtion.view;
+package com.exhibtion.view;
 
-import com.example.alshimaa.exhibtion.model.HomeSiteOptionData;
-import com.example.alshimaa.exhibtion.model.HomeSiteOptionResponse;
+/*import com.example.alshimaa.exhibtion.model.HomeSiteOptionData;
+import com.example.alshimaa.exhibtion.model.HomeSiteOptionResponse;*/
 
 import java.util.List;
 
