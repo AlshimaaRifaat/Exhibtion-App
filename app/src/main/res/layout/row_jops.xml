@@ -78,6 +78,7 @@
                     android:paddingStart="@dimen/_9sdp"
                     android:layout_toEndOf="@+id/row_jops_icon_email"
                     android:text="sgshssjh"
+                    android:autoLink="email"
                     />
             </RelativeLayout>
         </RelativeLayout>
