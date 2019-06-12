@@ -145,6 +145,7 @@
                   android:textColor="#cbcbcb"
                   android:layout_toEndOf="@+id/details_exhibtors_icon_email"
                   android:layout_marginStart="@dimen/_5sdp"
+                  android:autoLink="email"
 
                   />
           </RelativeLayout>

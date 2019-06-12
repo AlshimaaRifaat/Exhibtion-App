@@ -104,6 +104,7 @@
         android:layout_toEndOf="@+id/details_exhibtors_icon_email"
         android:text="titleeeeeeee"
         android:textColor="#cccbcb"
+        android:autoLink="email"
         />
     </RelativeLayout>
     <RelativeLayout
