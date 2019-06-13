@@ -2,8 +2,10 @@ package com.exhibtion.fragment;
 
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +34,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailsNavItemServiceProviderFragment extends Fragment implements com.exhibtion.view.DetailsNavItemServiceProvView {
+public class DetailsNavItemServiceProviderFragment extends DialogFragment implements com.exhibtion.view.DetailsNavItemServiceProvView {
 
     NetworkConnection networkConnection;
 
@@ -84,7 +86,7 @@ public class DetailsNavItemServiceProviderFragment extends Fragment implements c
     public void showDetailsNavItemServiceProvList(List<com.exhibtion.model.DetailsNavItemServiceProvData> detailsNavItemServiceProvDataList) {
         detailsNavItemServiceProvAdapter=new com.exhibtion.adapter.DetailsNavItemServiceProvAdapter( getContext(),detailsNavItemServiceProvDataList );
       //  currentExhibtionAdapter.onClick(this);
-        recyclerViewDetailsServiceProv.setLayoutManager( new GridLayoutManager(getContext(),2));
+        recyclerViewDetailsServiceProv.setLayoutManager( new LinearLayoutManager(getContext()));
         recyclerViewDetailsServiceProv.setAdapter( detailsNavItemServiceProvAdapter );
     }
 
