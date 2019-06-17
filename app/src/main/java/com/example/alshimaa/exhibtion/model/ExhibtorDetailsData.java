@@ -49,6 +49,9 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
     @SerializedName("phone")
     @Expose
     private String phone;
+    @SerializedName("description")
+    @Expose
+    private String description;
     public final static Parcelable.Creator<ExhibtorDetailsData> CREATOR = new Creator<ExhibtorDetailsData>() {
 
 
@@ -65,7 +68,7 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = 3783046890842212259L;
+    private final static long serialVersionUID = 6594978625107735074L;
 
     protected ExhibtorDetailsData(Parcel in) {
         this.idExhibitor = ((String) in.readValue((String.class.getClassLoader())));
@@ -81,6 +84,7 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.address = ((String) in.readValue((String.class.getClassLoader())));
         this.img2 = ((String) in.readValue((String.class.getClassLoader())));
         this.phone = ((String) in.readValue((String.class.getClassLoader())));
+        this.description = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public ExhibtorDetailsData() {
@@ -190,6 +194,14 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.phone = phone;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(idExhibitor);
         dest.writeValue(name);
@@ -204,6 +216,7 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         dest.writeValue(address);
         dest.writeValue(img2);
         dest.writeValue(phone);
+        dest.writeValue(description);
     }
 
     public int describeContents() {

@@ -371,7 +371,7 @@ if(FacebookLink!=null) {
 
     @Override
     public void showExhibtorDetailsListView(List<com.exhibtion.model.ExhibtorDetailsData> exhibtorDetailsDataList) {
-     // Summary=exhibtorDetailsDataList.get(0).getDescription();
+     Summary=exhibtorDetailsDataList.get(0).getDescription();
         LinkMap=exhibtorDetailsDataList.get(0).getMapFair();
         String youtube=exhibtorDetailsDataList.get(0).getYoutubeLink();
         if(youtube==null){
