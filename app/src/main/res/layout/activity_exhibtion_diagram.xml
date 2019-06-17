@@ -7,11 +7,10 @@
     android:background="#fff"
     tools:context=".activity.ExhibtionDiagramActivity">
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/exhibtion_diagram_recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/current_exhibtion_card_edit_text_search"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginEnd="@dimen/_12sdp"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_4sdp"
 
+        ></android.support.v7.widget.RecyclerView>
 </RelativeLayout>

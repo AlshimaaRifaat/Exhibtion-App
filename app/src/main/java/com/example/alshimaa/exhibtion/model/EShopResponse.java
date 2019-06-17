@@ -13,7 +13,7 @@ public class EShopResponse implements Serializable, Parcelable
 
     @SerializedName("data")
     @Expose
-    private List<EShopData> data = null;
+    private List<com.exhibtion.model.EShopData> data = null;
     @SerializedName("status")
     @Expose
     private boolean status;

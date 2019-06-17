@@ -449,25 +449,28 @@
         android:layout_below="@+id/details_exhibtion_title_exhibtors"
         >
     </android.support.v7.widget.RecyclerView>-->
- <!--   <android.support.v7.widget.CardView
+    <android.support.v7.widget.CardView
         android:id="@+id/details_exhibtion_card_diagram"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_18sdp"
-        android:layout_marginRight="@dimen/_18sdp"
-        android:layout_below="@+id/details_exhibtion_card_diagram"
-        android:background="@drawable/button_visitor"
-        android:layout_marginTop="@dimen/_40sdp">
+        android:background="#0485cf"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_17sdp"
+        android:layout_below="@+id/details_exhibtion_card_exhibtor"
+
+      >
         <Button
             android:id="@+id/details_exhibtion_btn_diagram"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_52sdp"
-            android:text="@string/Login"
+            android:layout_height="@dimen/_43sdp"
+            android:text="@string/Illustration_of_the_exhibtion"
             android:textSize="@dimen/_14sdp"
-            android:background="@drawable/button_login"
             android:textAllCaps="false"
+            android:background="#0485cf"
+            android:textColor="#fff"
             />
 
-    </android.support.v7.widget.CardView>-->
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
 </ScrollView>

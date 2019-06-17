@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="@dimen/_139sdp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff">
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/_139sdp"
+            android:layout_height="@dimen/_147sdp"
             android:layout_marginEnd="@dimen/_2sdp"
             android:layout_marginBottom="@dimen/_12sdp"
             app:cardBackgroundColor="@android:color/white">
@@ -22,25 +22,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_104sdp"
                     android:scaleType="fitXY"
+
                     />
             <RelativeLayout
                 android:layout_width="match_parent"
-
                 android:layout_height="match_parent"
-
+                android:background="#0d93df"
                 android:layout_below="@id/details_nav_item_service_prov_img">
                 <TextView
                     android:id="@+id/details_nav_item_service_prov_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    
+                    android:textColor="#fff"
                     android:textSize="@dimen/_10sdp"
                     android:text="hjhjjxs"
-
                     android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:layout_marginTop="@dimen/_2sdp"
-                    android:textColor="#2998d6"
+                    android:singleLine="true"
                     />
 
                <!-- <ImageView
@@ -87,17 +86,16 @@
                     android:id="@+id/details_nav_item_service_prov_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#9c9a9a"
-                    android:textSize="@dimen/_10sdp"
-                    android:text="hhgfdf"
-                    android:layout_below="@+id/details_nav_item_service_prov_title"
-                    android:layout_marginStart="@dimen/_6sdp"
-                    android:layout_marginEnd="@dimen/_6sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:layout_marginBottom="@dimen/_6sdp"
                     android:layout_alignParentStart="true"
-
-                    />
+                    android:layout_below="@+id/details_nav_item_service_prov_title"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:text="hhgfdf"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/_10sdp"
+                    android:singleLine="true"/>
             </RelativeLayout>
             </RelativeLayout>
         </android.support.v7.widget.CardView>

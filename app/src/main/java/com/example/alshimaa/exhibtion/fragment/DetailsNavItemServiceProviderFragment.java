@@ -25,16 +25,19 @@ import com.example.alshimaa.exhibtion.presenter.DetailsNavItemServiceProvPresent
 import com.example.alshimaa.exhibtion.view.DetailsNavItemServiceProvView;
 */
 
+import com.example.alshimaa.exhibtion.fragment.NestedetailsNavItemServiceProviderFragment;
+import com.example.alshimaa.exhibtion.view.NestedDetailsNavItemServiceProviderView;
 import com.exhibtion.Language;
 import com.exhibtion.NetworkConnection;
 import com.exhibtion.R;
+import com.exhibtion.model.DetailsNavItemServiceProvData;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailsNavItemServiceProviderFragment extends DialogFragment implements com.exhibtion.view.DetailsNavItemServiceProvView {
+public class DetailsNavItemServiceProviderFragment extends Fragment implements com.exhibtion.view.DetailsNavItemServiceProvView,NestedDetailsNavItemServiceProviderView {
 
     NetworkConnection networkConnection;
 
@@ -85,9 +88,25 @@ public class DetailsNavItemServiceProviderFragment extends DialogFragment implem
     @Override
     public void showDetailsNavItemServiceProvList(List<com.exhibtion.model.DetailsNavItemServiceProvData> detailsNavItemServiceProvDataList) {
         detailsNavItemServiceProvAdapter=new com.exhibtion.adapter.DetailsNavItemServiceProvAdapter( getContext(),detailsNavItemServiceProvDataList );
-      //  currentExhibtionAdapter.onClick(this);
-        recyclerViewDetailsServiceProv.setLayoutManager( new LinearLayoutManager(getContext()));
+        detailsNavItemServiceProvAdapter.onClick(this);
+        recyclerViewDetailsServiceProv.setLayoutManager( new GridLayoutManager(getContext(),2));
         recyclerViewDetailsServiceProv.setAdapter( detailsNavItemServiceProvAdapter );
+    }
+
+    @Override
+    public void showNestedDetailsNavItemServiceProvList(DetailsNavItemServiceProvData detailsNavItemServiceProvData) {
+        NestedetailsNavItemServiceProviderFragment nestedetailsNavItemServiceProviderFragment=new NestedetailsNavItemServiceProviderFragment();
+        Bundle bundle=new Bundle(  );
+        bundle.putString( "img",detailsNavItemServiceProvData.getImg());
+        bundle.putString("title",detailsNavItemServiceProvData.getTitle());
+        bundle.putString("description",detailsNavItemServiceProvData.getDescription());
+
+
+        nestedetailsNavItemServiceProviderFragment.setArguments(bundle);
+
+        getFragmentManager().beginTransaction().add( R.id.content_navigation,
+                nestedetailsNavItemServiceProviderFragment )
+                .addToBackStack( null ).commit();
     }
 
     @Override

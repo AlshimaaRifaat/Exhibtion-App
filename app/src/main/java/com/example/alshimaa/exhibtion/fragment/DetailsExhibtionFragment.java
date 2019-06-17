@@ -119,7 +119,7 @@ public class DetailsExhibtionFragment extends Fragment implements
     TextView textToolbar;
 
     RecyclerView recyclerViewExhibtors;
-    com.exhibtion.adapter.ExhibtorsAdapter exhibtorsAdapter;
+   com.exhibtion.adapter.ExhibtorsAdapter exhibtorsAdapter;
     com.exhibtion.presenter.ExhibtorsPresenter exhibtorsPresenter;
 
    public static Button registerNowBtn,link360Btn;
@@ -128,6 +128,8 @@ public class DetailsExhibtionFragment extends Fragment implements
 
     Intent intent;
 
+   // details_exhibtion_card_diagram
+    Button btnExhibtionDiagram;
     com.exhibtion.adapter.SponsorAdapter sponsorAdapter;
 
 public static String RegisterFromCurExhib,FromUnder,Link360;
@@ -242,7 +244,15 @@ View view;
 
             }
         });
-
+          btnExhibtionDiagram.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  Intent i = new Intent(getActivity(), com.exhibtion.activity.ExhibtionDiagramActivity.class);
+                  i.putExtra("fairId",ID);
+                  startActivity(i);
+                  ((Activity) getActivity()).overridePendingTransition(0,0);
+              }
+          });
         return view;
     }
 
@@ -321,6 +331,7 @@ View view;
         hallThreeSpinner=view.findViewById( R.id.details_exhibtion_spinner3 );
         hallFourSpinner=view.findViewById( R.id.details_exhibtion_spinner4 );
         link360Btn=view.findViewById( R.id.details_exhibtors_btn_link360 );
+        btnExhibtionDiagram=view.findViewById( R.id.details_exhibtion_btn_diagram );
     }
 
 
@@ -441,7 +452,7 @@ View view;
                             HallOneModelID=hallOneDataList.get(i).getId();
                         }
                     }
-                    com.exhibtion.fragment.DetailsExhibtorsFragment detailsExhibtorsFragment=new DetailsExhibtorsFragment();
+                    com.exhibtion.fragment.DetailsExhibtorsFragment detailsExhibtorsFragment=new com.exhibtion.fragment.DetailsExhibtorsFragment();
                     Bundle bundle=new Bundle(  );
                     bundle.putString( "id",String.valueOf(HallOneModelID));
                     detailsExhibtorsFragment.setArguments(bundle);

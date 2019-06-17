@@ -136,4 +136,7 @@ public interface Service {
 
     @POST("jobs")
     Call<HomeJopsResponse> getHomeJopsData(@Body Map<String,String> map);
+
+    @POST("img_map_Illustration")
+    Call<com.example.exhibtion.model.ExhibtionDiagramResponse> getExhibtionDiagramData(@Body Map<String,String> map);
 }

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.alshimaa.exhibtion.view.NestedDetailsNavItemServiceProviderView;
 import com.exhibtion.R;
 import com.exhibtion.model.DetailsNavItemServiceProvData;
 import com.exhibtion.model.PreviousExhibtionData;
@@ -22,17 +23,17 @@ public class DetailsNavItemServiceProvAdapter extends RecyclerView.Adapter<Detai
     Context context;
     List<DetailsNavItemServiceProvData> detailsNavItemServiceProvDataList;
 
-    //DetailsPreviousExhibtion detailsPreviousExhibtion;
+    NestedDetailsNavItemServiceProviderView nestedDetailsNavItemServiceProviderView;
 
     public DetailsNavItemServiceProvAdapter(Context context, List<DetailsNavItemServiceProvData> detailsNavItemServiceProvDataList) {
         this.context = context;
         this.detailsNavItemServiceProvDataList = detailsNavItemServiceProvDataList;
     }
 
-    /* public void onClick(DetailsPreviousExhibtion detailsPreviousExhibtion)
+     public void onClick(NestedDetailsNavItemServiceProviderView nestedDetailsNavItemServiceProviderView)
         {
-            this.detailsPreviousExhibtion=detailsPreviousExhibtion;
-        }*/
+            this.nestedDetailsNavItemServiceProviderView=nestedDetailsNavItemServiceProviderView;
+        }
     @Override
     public DetailsNavItemServiceProvAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from( context ).inflate(R.layout.row_details_nav_item_service_provider,parent,false);
@@ -55,20 +56,17 @@ public class DetailsNavItemServiceProvAdapter extends RecyclerView.Adapter<Detai
         holder.describtion.setTypeface( customFontRegular );
         /*holder.endDate.setTypeface(customFontRegular);*/
 
-      /*  holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PreviousExhibtionData previousExhibtionData=new PreviousExhibtionData();
-                previousExhibtionData.setYoutube(previousExhibtionDataList.get(position).getYoutube());
-                previousExhibtionData.setTitle(previousExhibtionDataList.get(position).getTitle());
-                previousExhibtionData.setDescription(previousExhibtionDataList.get(position).getDescription());
-                previousExhibtionData.setAddress(previousExhibtionDataList.get(position).getAddress());
-                previousExhibtionData.setId(previousExhibtionDataList.get(position).getId());
-                previousExhibtionData.setIdUser(previousExhibtionDataList.get(position).getIdUser());
-                previousExhibtionData.setLogo(previousExhibtionDataList.get(position).getLogo());
-                detailsPreviousExhibtion.showExhibtionDetails(previousExhibtionData);
+                DetailsNavItemServiceProvData detailsNavItemServiceProvData=new DetailsNavItemServiceProvData();
+                detailsNavItemServiceProvData.setImg(detailsNavItemServiceProvDataList.get(position).getImg());
+                detailsNavItemServiceProvData.setTitle(detailsNavItemServiceProvDataList.get(position).getTitle());
+                detailsNavItemServiceProvData.setDescription(detailsNavItemServiceProvDataList.get(position).getDescription());
+
+                nestedDetailsNavItemServiceProviderView.showNestedDetailsNavItemServiceProvList(detailsNavItemServiceProvData);
             }
-        });*/
+        });
     }
 
     @Override
