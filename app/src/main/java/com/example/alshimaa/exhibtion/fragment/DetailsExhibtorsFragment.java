@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -56,6 +58,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -67,6 +70,7 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
 
     public static String Link,Title,ID,WebsiteLink,Phone;
     TextView title,address,phone,email,websiteLink,summaryTxt;
+
 
     NetworkConnection networkConnection;
 
@@ -89,13 +93,14 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     RecyclerView recyclerViewdetailsExhib;
     //EShopAdapter eShopAdapter;
     com.exhibtion.presenter.ExhibtorDetailsPresenter exhibtorDetailsPresenter;
-    List<com.exhibtion.model.ExhibtorDetailsData> exhibtorDetailsDataList;
+    List<com.exhibtion.model.ExhibtorDetailsData> exhibtorDetailsDataList=new ArrayList<>();
 
-    ImageView iconWhats;
+    ImageView iconWhats,iconFacebook,iconInstagram,iconTwitter,iconSnap;
     TextView linkMapTxt;
     String LinkMap;
 
     Intent intent;
+
     public DetailsExhibtorsFragment() {
         // Required empty public constructor
     }
@@ -107,6 +112,7 @@ View view;
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_details_exhibtors, container, false);
         init();
+       // Toast.makeText(getContext(),String.valueOf(exhibtorDetailsDataList.get(0).getFacebookLink()) , Toast.LENGTH_SHORT).show();
         networkConnection=new NetworkConnection(getContext());
 
         Bundle bundle=this.getArguments();
@@ -130,6 +136,7 @@ View view;
             textToolbar.setText(Title);
 
             ExhibtorDetails();
+
              //Toast.makeText(getContext(), "id_user" +ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
         }
        // Toast.makeText(getContext(), "id_user" +ID+"  fair"+ com.exhibtion.fragment.DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
@@ -142,6 +149,7 @@ View view;
         ServicesProvided();
         EShop();
         this.exhibtorDetailsDataList=exhibtorDetailsDataList;
+
         iconWhats.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -152,6 +160,52 @@ View view;
                 startActivity(sendIntent);
             }
         } );
+
+        iconFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String FacebookLink=exhibtorDetailsDataList.get(0).getFacebookLink();
+if(FacebookLink!=null) {
+    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(FacebookLink));
+    startActivity(intent);
+}
+                }
+
+
+        });
+        iconInstagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String InstegramLink=exhibtorDetailsDataList.get(0).getInstgramLink();
+                if(InstegramLink!=null) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(InstegramLink));
+                    startActivity(intent);
+                }
+            }
+        });
+        iconTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String TwitterLink=exhibtorDetailsDataList.get(0).getTweeterLink();
+                if(TwitterLink!=null) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(TwitterLink));
+                    startActivity(intent);
+                }
+
+            }
+        });
+        iconSnap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String SnapLink=exhibtorDetailsDataList.get(0).getSnapLink();
+                if(SnapLink!=null) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(SnapLink));
+                    startActivity(intent);
+                }
+
+
+            }
+        });
         contactUsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,14 +271,14 @@ View view;
     private void ServicesProvided() {
         servicesProvidedPresenter=new ServicesProvidedPresenter(getContext(),this);
         if(Language.isRTL()) {
-            servicesProvidedPresenter.getServicesProvidedResult("ar",DetailsExhibtionFragment.ID,ID);// user id ,fair id
+            servicesProvidedPresenter.getServicesProvidedResult("ar", com.exhibtion.fragment.DetailsExhibtionFragment.ID,ID);// user id ,fair id
         }else {
-            servicesProvidedPresenter.getServicesProvidedResult("en",DetailsExhibtionFragment.ID,ID);
+            servicesProvidedPresenter.getServicesProvidedResult("en", com.exhibtion.fragment.DetailsExhibtionFragment.ID,ID);
         }
     }
 
     private void goToJopsPage() {
-        getFragmentManager().beginTransaction().replace(R.id.content_navigation,new JopsFragment())
+        getFragmentManager().beginTransaction().replace(R.id.content_navigation,new com.exhibtion.fragment.JopsFragment())
                 .addToBackStack(null).commit();
     }
 
@@ -244,8 +298,13 @@ View view;
     recyclerViewEShop=view.findViewById(R.id.details_exhibtors_recycler_E_shop);
     contactUsBtn=view.findViewById(R.id.details_exhibtors_btn_contact_us);
     iconWhats=view.findViewById(R.id.details_exhibtors_icon_whats);
+        iconFacebook=view.findViewById(R.id.details_exhibtors_icon_face);
+        iconInstagram=view.findViewById(R.id.details_exhibtors_icon_instegram);
+        iconTwitter=view.findViewById(R.id.details_exhibtors_icon_twitter);
+        iconSnap=view.findViewById(R.id.details_exhibtors_icon_snap);
     summaryBtn=view.findViewById(R.id.details_exhibtors_btn_description);
     linkMapTxt=view.findViewById(R.id.details_exhibtors_website);
+
         //summaryTxt=view.findViewById(R.id.details_exhibtors_text_description);
 
 
@@ -264,7 +323,7 @@ View view;
             // Use cueVideo() method, if you don't want to play it automatically
            //  String url=Link.substring( Link.lastIndexOf( "=")+1  );
             if(exhibtorDetailsDataList.size()!=0) {
-                youTubePlayer.loadVideo(exhibtorDetailsDataList.get(0).isYoutubeLink());
+                youTubePlayer.loadVideo(exhibtorDetailsDataList.get(0).getYoutubeLink());
                // Toast.makeText(getContext(), "" + exhibtorDetailsDataList.get(0).isYoutubeLink(), Toast.LENGTH_SHORT).show();
 
             }
@@ -312,10 +371,10 @@ View view;
 
     @Override
     public void showExhibtorDetailsListView(List<com.exhibtion.model.ExhibtorDetailsData> exhibtorDetailsDataList) {
-      Summary=exhibtorDetailsDataList.get(0).getDescription();
-        LinkMap=exhibtorDetailsDataList.get(0).getLinkMap();
-        String youtube=exhibtorDetailsDataList.get(0).isYoutubeLink();
-        if(youtube.equals("false")){
+     // Summary=exhibtorDetailsDataList.get(0).getDescription();
+        LinkMap=exhibtorDetailsDataList.get(0).getMapFair();
+        String youtube=exhibtorDetailsDataList.get(0).getYoutubeLink();
+        if(youtube==null){
 
         }else {
             youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);

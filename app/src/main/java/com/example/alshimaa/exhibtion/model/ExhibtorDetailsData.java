@@ -16,21 +16,30 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("description")
-    @Expose
-    private String description;
     @SerializedName("email")
     @Expose
     private String email;
-    @SerializedName("link_map")
+    @SerializedName("map_fair")
     @Expose
-    private String linkMap;
-    @SerializedName("website_link")
+    private String mapFair;
+    @SerializedName("facebook_link")
     @Expose
-    private String websiteLink;
+    private String facebookLink;
+    @SerializedName("tweeter_link")
+    @Expose
+    private String tweeterLink;
+    @SerializedName("instgram_link")
+    @Expose
+    private String instgramLink;
     @SerializedName("youtube_link")
     @Expose
     private String youtubeLink;
+    @SerializedName("snap_link")
+    @Expose
+    private String snapLink;
+    @SerializedName("website_link")
+    @Expose
+    private String websiteLink;
     @SerializedName("address")
     @Expose
     private String address;
@@ -56,16 +65,19 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -6413800194015990359L;
+    private final static long serialVersionUID = 3783046890842212259L;
 
     protected ExhibtorDetailsData(Parcel in) {
         this.idExhibitor = ((String) in.readValue((String.class.getClassLoader())));
         this.name = ((String) in.readValue((String.class.getClassLoader())));
-        this.description = ((String) in.readValue((String.class.getClassLoader())));
         this.email = ((String) in.readValue((String.class.getClassLoader())));
-        this.linkMap = ((String) in.readValue((String.class.getClassLoader())));
-        this.websiteLink = ((String) in.readValue((String.class.getClassLoader())));
+        this.mapFair = ((String) in.readValue((String.class.getClassLoader())));
+        this.facebookLink = ((String) in.readValue((String.class.getClassLoader())));
+        this.tweeterLink = ((String) in.readValue((String.class.getClassLoader())));
+        this.instgramLink = ((String) in.readValue((String.class.getClassLoader())));
         this.youtubeLink = ((String) in.readValue((String.class.getClassLoader())));
+        this.snapLink = ((String) in.readValue((String.class.getClassLoader())));
+        this.websiteLink = ((String) in.readValue((String.class.getClassLoader())));
         this.address = ((String) in.readValue((String.class.getClassLoader())));
         this.img2 = ((String) in.readValue((String.class.getClassLoader())));
         this.phone = ((String) in.readValue((String.class.getClassLoader())));
@@ -90,14 +102,6 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -106,12 +110,52 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.email = email;
     }
 
-    public String getLinkMap() {
-        return linkMap;
+    public String getMapFair() {
+        return mapFair;
     }
 
-    public void setLinkMap(String linkMap) {
-        this.linkMap = linkMap;
+    public void setMapFair(String mapFair) {
+        this.mapFair = mapFair;
+    }
+
+    public String getFacebookLink() {
+        return facebookLink;
+    }
+
+    public void setFacebookLink(String facebookLink) {
+        this.facebookLink = facebookLink;
+    }
+
+    public String getTweeterLink() {
+        return tweeterLink;
+    }
+
+    public void setTweeterLink(String tweeterLink) {
+        this.tweeterLink = tweeterLink;
+    }
+
+    public String getInstgramLink() {
+        return instgramLink;
+    }
+
+    public void setInstgramLink(String instgramLink) {
+        this.instgramLink = instgramLink;
+    }
+
+    public String getYoutubeLink() {
+        return youtubeLink;
+    }
+
+    public void setYoutubeLink(String youtubeLink) {
+        this.youtubeLink = youtubeLink;
+    }
+
+    public String getSnapLink() {
+        return snapLink;
+    }
+
+    public void setSnapLink(String snapLink) {
+        this.snapLink = snapLink;
     }
 
     public String getWebsiteLink() {
@@ -120,14 +164,6 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
 
     public void setWebsiteLink(String websiteLink) {
         this.websiteLink = websiteLink;
-    }
-
-    public String isYoutubeLink() {
-        return youtubeLink;
-    }
-
-    public void setYoutubeLink(String youtubeLink) {
-        this.youtubeLink = youtubeLink;
     }
 
     public String getAddress() {
@@ -157,11 +193,14 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(idExhibitor);
         dest.writeValue(name);
-        dest.writeValue(description);
         dest.writeValue(email);
-        dest.writeValue(linkMap);
-        dest.writeValue(websiteLink);
+        dest.writeValue(mapFair);
+        dest.writeValue(facebookLink);
+        dest.writeValue(tweeterLink);
+        dest.writeValue(instgramLink);
         dest.writeValue(youtubeLink);
+        dest.writeValue(snapLink);
+        dest.writeValue(websiteLink);
         dest.writeValue(address);
         dest.writeValue(img2);
         dest.writeValue(phone);

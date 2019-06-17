@@ -151,13 +151,49 @@
           </RelativeLayout>
           <ImageView
               android:id="@+id/details_exhibtors_icon_whats"
-              android:layout_width="@dimen/_27sdp"
-              android:layout_height="@dimen/_27sdp"
+              android:layout_width="@dimen/_22sdp"
+              android:layout_height="@dimen/_22sdp"
               android:layout_below="@+id/relative_email"
               android:layout_alignParentEnd="true"
-              android:layout_marginTop="@dimen/_9sdp"
+              android:layout_marginTop="@dimen/_15sdp"
               android:layout_marginEnd="@dimen/_12sdp"
               android:src="@drawable/whatsapp"/>
+          <ImageView
+              android:id="@+id/details_exhibtors_icon_face"
+              android:layout_width="@dimen/_22sdp"
+              android:layout_height="@dimen/_22sdp"
+              android:layout_below="@+id/relative_email"
+             android:layout_toStartOf="@+id/details_exhibtors_icon_whats"
+              android:layout_marginTop="@dimen/_15sdp"
+              android:layout_marginEnd="@dimen/_6sdp"
+              android:src="@drawable/facebook"/>
+          <ImageView
+              android:id="@+id/details_exhibtors_icon_instegram"
+              android:layout_width="@dimen/_22sdp"
+              android:layout_height="@dimen/_22sdp"
+              android:layout_below="@+id/relative_email"
+              android:layout_toStartOf="@+id/details_exhibtors_icon_face"
+              android:layout_marginTop="@dimen/_15sdp"
+              android:layout_marginEnd="@dimen/_6sdp"
+              android:src="@drawable/instagram"/>
+          <ImageView
+              android:id="@+id/details_exhibtors_icon_twitter"
+              android:layout_width="@dimen/_22sdp"
+              android:layout_height="@dimen/_22sdp"
+              android:layout_below="@+id/relative_email"
+              android:layout_toStartOf="@+id/details_exhibtors_icon_instegram"
+              android:layout_marginTop="@dimen/_15sdp"
+              android:layout_marginEnd="@dimen/_6sdp"
+              android:src="@drawable/twitter"/>
+          <ImageView
+              android:id="@+id/details_exhibtors_icon_snap"
+              android:layout_width="@dimen/_22sdp"
+              android:layout_height="@dimen/_22sdp"
+              android:layout_below="@+id/relative_email"
+              android:layout_toStartOf="@+id/details_exhibtors_icon_twitter"
+              android:layout_marginTop="@dimen/_15sdp"
+              android:layout_marginEnd="@dimen/_6sdp"
+              android:src="@drawable/snapchat"/>
           <RelativeLayout
               android:id="@+id/relative_website"
               android:layout_width="@dimen/_130sdp"

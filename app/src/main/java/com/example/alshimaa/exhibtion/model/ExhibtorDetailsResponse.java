@@ -13,7 +13,7 @@ public class ExhibtorDetailsResponse implements Serializable, Parcelable
 
     @SerializedName("data")
     @Expose
-    private List<ExhibtorDetailsData> data = null;
+    private List<com.exhibtion.model.ExhibtorDetailsData> data = null;
     @SerializedName("status")
     @Expose
     private boolean status;
@@ -39,7 +39,7 @@ public class ExhibtorDetailsResponse implements Serializable, Parcelable
     private final static long serialVersionUID = -401977473250432228L;
 
     protected ExhibtorDetailsResponse(Parcel in) {
-        in.readList(this.data, (ExhibtorDetailsData.class.getClassLoader()));
+        in.readList(this.data, (com.exhibtion.model.ExhibtorDetailsData.class.getClassLoader()));
         this.status = ((boolean) in.readValue((boolean.class.getClassLoader())));
         this.error = ((String) in.readValue((String.class.getClassLoader())));
     }
@@ -51,7 +51,7 @@ public class ExhibtorDetailsResponse implements Serializable, Parcelable
         return data;
     }
 
-    public void setData(List<ExhibtorDetailsData> data) {
+    public void setData(List<com.exhibtion.model.ExhibtorDetailsData> data) {
         this.data = data;
     }
 

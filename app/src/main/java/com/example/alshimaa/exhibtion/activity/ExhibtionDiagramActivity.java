@@ -33,7 +33,7 @@ public class ExhibtionDiagramActivity extends AppCompatActivity implements Exhib
         setContentView(R.layout.activity_exhibtion_diagram);
         init();
         FairId = getIntent().getStringExtra("fairId");
-        Toast.makeText(this, FairId, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, FairId, Toast.LENGTH_SHORT).show();
         ExhibtionDiagram();
     }
 
