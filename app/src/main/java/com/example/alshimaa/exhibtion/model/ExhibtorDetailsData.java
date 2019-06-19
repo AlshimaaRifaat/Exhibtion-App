@@ -52,6 +52,21 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
     @SerializedName("description")
     @Expose
     private String description;
+    @SerializedName("phone2")
+    @Expose
+    private String phone2;
+    @SerializedName("tit_ser")
+    @Expose
+    private String titSer;
+    @SerializedName("tit_prod")
+    @Expose
+    private String titProd;
+    @SerializedName("map_3D")
+    @Expose
+    private String map3D;
+    @SerializedName("link_map")
+    @Expose
+    private String linkMap;
     public final static Parcelable.Creator<ExhibtorDetailsData> CREATOR = new Creator<ExhibtorDetailsData>() {
 
 
@@ -68,7 +83,7 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = 6594978625107735074L;
+    private final static long serialVersionUID = 933695991465963288L;
 
     protected ExhibtorDetailsData(Parcel in) {
         this.idExhibitor = ((String) in.readValue((String.class.getClassLoader())));
@@ -85,6 +100,11 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.img2 = ((String) in.readValue((String.class.getClassLoader())));
         this.phone = ((String) in.readValue((String.class.getClassLoader())));
         this.description = ((String) in.readValue((String.class.getClassLoader())));
+        this.phone2 = ((String) in.readValue((String.class.getClassLoader())));
+        this.titSer = ((String) in.readValue((String.class.getClassLoader())));
+        this.titProd = ((String) in.readValue((String.class.getClassLoader())));
+        this.map3D = ((String) in.readValue((String.class.getClassLoader())));
+        this.linkMap = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public ExhibtorDetailsData() {
@@ -202,6 +222,46 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.description = description;
     }
 
+    public String getPhone2() {
+        return phone2;
+    }
+
+    public void setPhone2(String phone2) {
+        this.phone2 = phone2;
+    }
+
+    public String getTitSer() {
+        return titSer;
+    }
+
+    public void setTitSer(String titSer) {
+        this.titSer = titSer;
+    }
+
+    public String getTitProd() {
+        return titProd;
+    }
+
+    public void setTitProd(String titProd) {
+        this.titProd = titProd;
+    }
+
+    public String getMap3D() {
+        return map3D;
+    }
+
+    public void setMap3D(String map3D) {
+        this.map3D = map3D;
+    }
+
+    public String getLinkMap() {
+        return linkMap;
+    }
+
+    public void setLinkMap(String linkMap) {
+        this.linkMap = linkMap;
+    }
+
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(idExhibitor);
         dest.writeValue(name);
@@ -217,6 +277,11 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         dest.writeValue(img2);
         dest.writeValue(phone);
         dest.writeValue(description);
+        dest.writeValue(phone2);
+        dest.writeValue(titSer);
+        dest.writeValue(titProd);
+        dest.writeValue(map3D);
+        dest.writeValue(linkMap);
     }
 
     public int describeContents() {

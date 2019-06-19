@@ -58,6 +58,7 @@ import com.exhibtion.Language;
 import com.exhibtion.NetworkConnection;
 import com.exhibtion.R;
 import com.exhibtion.YoutubeConfig;
+import com.exhibtion.model.ExhibtorDetailsData;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -70,7 +71,7 @@ import java.util.List;
  */
 public class DetailsExhibtionFragment extends Fragment implements
         YouTubePlayer.OnInitializedListener, com.exhibtion.view.OrganizersAndServiceProvidersView
-        , com.exhibtion.view.ExhibtorsView, com.exhibtion.view.DetailsExhibtorsView, com.exhibtion.view.HallOneView
+        , com.exhibtion.view.ExhibtorsView, com.exhibtion.view.DetailsExhibtorsView, com.exhibtion.view.HallOneView, com.exhibtion.view.ExhibtorDetailsListView
 {
     com.exhibtion.presenter.HallOnePresenter hallOnePresenter;
     Spinner hallOneSpinner;
@@ -121,7 +122,7 @@ public class DetailsExhibtionFragment extends Fragment implements
     RecyclerView recyclerViewExhibtors;
    com.exhibtion.adapter.ExhibtorsAdapter exhibtorsAdapter;
     com.exhibtion.presenter.ExhibtorsPresenter exhibtorsPresenter;
-
+String Link360,ID_Exhibtor;
    public static Button registerNowBtn,link360Btn;
 
     public static Button registerAsExhibtor;
@@ -132,7 +133,8 @@ public class DetailsExhibtionFragment extends Fragment implements
     Button btnExhibtionDiagram;
     com.exhibtion.adapter.SponsorAdapter sponsorAdapter;
 
-public static String RegisterFromCurExhib,FromUnder,Link360;
+public static String RegisterFromCurExhib,FromUnder;
+    com.exhibtion.presenter.ExhibtorDetailsPresenter exhibtorDetailsPresenter;
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
@@ -145,12 +147,23 @@ View view;
         view= inflater.inflate(R.layout.fragment_details_exhibtion, container, false);
         init();
 
+        Bundle bundle=this.getArguments();
+        if (bundle!=null)
+        {
+            /*Link = bundle.getString( "video_link_exhibtor" );
+            Title=bundle.getString("title_exhibtor");
+            Address=bundle.getString("address_exhibtor");*/
+            ID_Exhibtor=bundle.getString("id");
 
+
+            ExhibtorDetails();
+
+            //Toast.makeText(getContext(), "id_user" +ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
+        }
 
            networkConnection=new NetworkConnection(getContext());
         youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
 
-        Bundle bundle=this.getArguments();
         if (bundle!=null)
         {
             Link = bundle.getString( "video_link" );
@@ -160,7 +173,7 @@ View view;
             ID=bundle.getString("id");
             UserId=bundle.getString("user_id");
             Logo=bundle.getString("logo");
-            Link360=bundle.getString("link_360");
+           // Link360=bundle.getString("link_360");
             Visiblity=bundle.getString("visibilty");
             Under=bundle.getString("registerFromCurExhib");
            // FromCur=bundle.getString("registerFromCurExhib");
@@ -175,6 +188,7 @@ View view;
             address.setText(Address);*/
           // Toast.makeText(getContext(), UserId, Toast.LENGTH_SHORT).show();
             textToolbar.setText(Title);
+           // youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
            // Glide.with(getContext()).load("http://eelectronicexpo.com"+Logo).into(logo);
 
             if(Visiblity.equals("yes"))
@@ -231,19 +245,7 @@ View view;
             }
         });
 //        Toast.makeText(getContext(), Link360, Toast.LENGTH_SHORT).show();
-        link360Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               /* Intent i = new Intent(getActivity(), LinkOfExhibtionActivity.class);
-                i.putExtra("registerFromCurExhib","yes");
-                i.putExtra("link",Link);
-                startActivity(i);
-                ((Activity) getActivity()).overridePendingTransition(0,0);*/
-                Intent Getintent = new Intent(Intent.ACTION_VIEW, Uri.parse(Link360));
-                startActivity(Getintent);
 
-            }
-        });
           btnExhibtionDiagram.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
@@ -253,7 +255,20 @@ View view;
                   ((Activity) getActivity()).overridePendingTransition(0,0);
               }
           });
+
+
         return view;
+    }
+
+    private void ExhibtorDetails() {
+        exhibtorDetailsPresenter=new com.exhibtion.presenter.ExhibtorDetailsPresenter(getContext(),this);
+
+        if(Language.isRTL()) {
+            exhibtorDetailsPresenter.getExhibtorDetailsResult("ar", UserId); //id user
+        }else {
+            exhibtorDetailsPresenter.getExhibtorDetailsResult("en", UserId);
+        }
+
     }
 
     private void HallFour() {
@@ -475,6 +490,23 @@ View view;
     }
 
 
+    @Override
+    public void showExhibtorDetailsListView(List<ExhibtorDetailsData> exhibtorDetailsDataList) {
+        Link360=exhibtorDetailsDataList.get(0).getMap3D();
+       // Toast.makeText(getContext(),"Link360   "+ Link360+"  "+UserId, Toast.LENGTH_SHORT).show();
+        link360Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent Getintent = new Intent(Intent.ACTION_VIEW, Uri.parse(Link360));
+                startActivity(Getintent);
+
+
+            }
+        });
+
+    }
 
     @Override
     public void showError() {

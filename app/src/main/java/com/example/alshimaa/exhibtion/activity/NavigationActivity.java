@@ -229,7 +229,7 @@ public class NavigationActivity extends AppCompatActivity
 
             case R.id.nav_change_language:
                 currentSelectedPosition=7;
-                startActivity(new Intent(this, ChangeLanguageActivity.class));
+                startActivity(new Intent(this, com.exhibtion.activity.ChangeLanguageActivity.class));
 
 
                 break;
@@ -256,7 +256,7 @@ public class NavigationActivity extends AppCompatActivity
         }
         FragmentManager fragmentManager=  getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace( R.id.content_navigation,fragment ).addToBackStack( null )
+        fragmentTransaction.replace( R.id.content_navigation,fragment )
                 .commit();
         DrawerLayout drawer = (DrawerLayout) findViewById( R.id.drawer_layout );
         drawer.closeDrawer( GravityCompat.START );

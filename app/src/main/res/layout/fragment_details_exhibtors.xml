@@ -45,22 +45,41 @@
                   android:layout_marginStart="@dimen/_12sdp"/>
 
           </RelativeLayout>
+          <RelativeLayout
+              android:layout_width="wrap_content"
+              android:layout_height="@dimen/_172sdp"
+              android:id="@+id/relative_youtube"
+              android:layout_marginTop="@dimen/_72sdp"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginEnd="@dimen/_12sdp">
           <fragment
               android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"
               android:id="@+id/details_exhibtors_youtube_player_support_fragment"
               android:layout_width="match_parent"
               android:layout_height="@dimen/_172sdp"
-              android:layout_marginTop="@dimen/_72sdp"
-              android:layout_marginStart="@dimen/_12sdp"
-              android:layout_marginEnd="@dimen/_12sdp"
+
+
+
 
               />
+          <ImageView
+
+              android:id="@+id/details_exhibtors_img"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_172sdp"
+
+
+
+
+
+              />
+          </RelativeLayout>
           <TextView
               android:id="@+id/details_exhibtors_title"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_alignParentStart="true"
-              android:layout_below="@+id/details_exhibtors_youtube_player_support_fragment"
+              android:layout_below="@+id/relative_youtube"
               android:layout_marginEnd="@dimen/_12sdp"
               android:layout_marginStart="@dimen/_12sdp"
               android:layout_marginTop="@dimen/_2sdp"
@@ -235,6 +254,18 @@
               android:text="@string/ourWebsite"
               android:textStyle="bold"
               android:textColor="#2998d6" />
+          <TextView
+              android:id="@+id/details_exhibtors_company_map"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentStart="true"
+              android:layout_below="@+id/details_exhibtors_website"
+              android:layout_marginEnd="@dimen/_15sdp"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginTop="@dimen/_2sdp"
+              android:text="@string/CompanyWebsite"
+              android:textStyle="bold"
+              android:textColor="#2998d6" />
 
         <!--  <TextView
               android:id="@+id/details_exhibtors_website_link"
@@ -252,7 +283,7 @@
         android:layout_width="@dimen/_130sdp"
         android:layout_height="@dimen/_32sdp"
         android:background="#0485cf"
-        android:layout_below="@+id/details_exhibtors_website"
+        android:layout_below="@+id/details_exhibtors_company_map"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:text="@string/Vacantjobs"
@@ -268,7 +299,7 @@
               android:layout_marginTop="@dimen/_8sdp"
               android:text="@string/ContactUs"
               android:textSize="@dimen/_12sdp"
-              android:layout_below="@+id/details_exhibtors_website"/>
+              android:layout_below="@+id/details_exhibtors_company_map"/>
 
           <Button
               android:id="@+id/details_exhibtors_btn_description"
@@ -317,6 +348,7 @@
         android:layout_marginEnd="@dimen/_21sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:textSize="@dimen/_11sdp"
+
         />
     <RelativeLayout
         android:id="@+id/details_exhibtion_relative"

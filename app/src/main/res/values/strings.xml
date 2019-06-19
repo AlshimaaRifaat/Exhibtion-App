@@ -86,10 +86,11 @@
     <string name="Hall_3">Hall 3</string>
     <string name="Hall_4">Hall 4</string>
     <string name="Jops">Vacant Jops</string>
-    <string name="ourWebsite">Our Website</string>
+    <string name="ourWebsite">Exhibtion Location</string>
     <string name="nabza">about Exhibtor</string>
     <string name="link">Link of website with 360 degree</string>
     <string name="Illustration_of_the_exhibtion">Illustration of the exhibtion</string>
+    <string name="CompanyWebsite">Company Location inside The Exhibtion</string>
 
 
 </resources>

@@ -49,6 +49,7 @@ import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
 import com.example.alshimaa.exhibtion.view.EShopView;
 import com.example.alshimaa.exhibtion.view.ExhibtorDetailsListView;
 import com.example.alshimaa.exhibtion.view.ServicesProvidedView;*/
+import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
 import com.exhibtion.Language;
 import com.exhibtion.NetworkConnection;
@@ -88,7 +89,10 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     com.exhibtion.adapter.EShopAdapter eShopAdapter;
     com.exhibtion.presenter.EShopPresenter eShopPresenter;
     Button contactUsBtn,summaryBtn;
-    public  String Summary;
+    ImageView image;
+    String Img;
+    public  String Summary,CompanyMap;
+    TextView companyMap,e_shopTxt,sevicesTxt;
 
     RecyclerView recyclerViewdetailsExhib;
     //EShopAdapter eShopAdapter;
@@ -97,7 +101,7 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
 
     ImageView iconWhats,iconFacebook,iconInstagram,iconTwitter,iconSnap;
     TextView linkMapTxt;
-    String LinkMap;
+    public static String LinkMap,E_Shop,Services;
 
     Intent intent;
 
@@ -149,6 +153,8 @@ View view;
         ServicesProvided();
         EShop();
         this.exhibtorDetailsDataList=exhibtorDetailsDataList;
+
+
 
         iconWhats.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -230,14 +236,17 @@ if(FacebookLink!=null) {
                 i.putExtra("link_map",LinkMap);
                 startActivity(i);
                 ((Activity) getActivity()).overridePendingTransition(0,0);
-                /*WebView webview = (WebView) view.findViewById(R.id.webView);
-                webview.getSettings().setJavaScriptEnabled(true);
-                webview.loadData(  , "text/html", "utf-8");
-                WebSettings webViewSettings = webview.getSettings();
-                webViewSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-                webViewSettings.setJavaScriptEnabled(true);
-                webViewSettings.setBuiltInZoomControls(true);
-                webViewSettings.setPluginState(WebSettings.PluginState.ON);*/
+
+            }
+        });
+        companyMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), com.exhibtion.activity.MapActivity.class);
+                i.putExtra("company_map",CompanyMap);
+                startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0,0);
+
             }
         });
         return view;
@@ -289,7 +298,6 @@ if(FacebookLink!=null) {
         youTubePlayerSupportFragment = (YouTubePlayerSupportFragment)
                 getChildFragmentManager()
                         .findFragmentById(R.id.details_exhibtors_youtube_player_support_fragment);
-
         phone=view.findViewById(R.id.details_exhibtors_text_phone);
     email=view.findViewById(R.id.details_exhibtors_text_email);
     websiteLink=view.findViewById(R.id.details_exhibtors_text_website);
@@ -304,8 +312,12 @@ if(FacebookLink!=null) {
         iconSnap=view.findViewById(R.id.details_exhibtors_icon_snap);
     summaryBtn=view.findViewById(R.id.details_exhibtors_btn_description);
     linkMapTxt=view.findViewById(R.id.details_exhibtors_website);
-
+        companyMap=view.findViewById(R.id.details_exhibtors_company_map);
+        image=view.findViewById(R.id.details_exhibtors_img);
         //summaryTxt=view.findViewById(R.id.details_exhibtors_text_description);
+
+        e_shopTxt=view.findViewById(R.id.details_exhibtors_text_E_shop);
+        sevicesTxt=view.findViewById(R.id.details_exhibtors_text_sevices_provided);
 
 
     }
@@ -374,10 +386,30 @@ if(FacebookLink!=null) {
      Summary=exhibtorDetailsDataList.get(0).getDescription();
         LinkMap=exhibtorDetailsDataList.get(0).getMapFair();
         String youtube=exhibtorDetailsDataList.get(0).getYoutubeLink();
-        if(youtube==null){
+        Img=exhibtorDetailsDataList.get(0).getImg2();
+        E_Shop=exhibtorDetailsDataList.get(0).getTitProd();
+        Services=exhibtorDetailsDataList.get(0).getTitSer();
+        e_shopTxt.setText(E_Shop);
+        sevicesTxt.setText(Services);
 
-        }else {
+
+        if(youtube==null&&Img!=null){
+
+            youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
+
+            Glide.with( getContext() ).load( "http://electronic-expos.com"
+                    +Img ).into(image);
+
+        }else if (Img==null&&youtube!=null) {
+
+            image.setVisibility(View.GONE);
             youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+
+        }else if (Img!=null&&youtube!=null) {
+
+            image.setVisibility(View.GONE);
+            youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+
         }
         this.exhibtorDetailsDataList=exhibtorDetailsDataList;
         title.setText(exhibtorDetailsDataList.get(0).getName());
@@ -387,6 +419,8 @@ if(FacebookLink!=null) {
         email.setText(exhibtorDetailsDataList.get(0).getEmail());
         WebsiteLink=exhibtorDetailsDataList.get(0).getWebsiteLink();
         websiteLink.setText(WebsiteLink);
+        CompanyMap=exhibtorDetailsDataList.get(0).getLinkMap();
+        websiteLink.setText(CompanyMap);
         //Linkify.addLinks(websiteLink, Linkify.WEB_URLS);
         /*Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("text/plain");
@@ -399,6 +433,17 @@ if(FacebookLink!=null) {
                  ShareCompat.IntentBuilder.from(getActivity())
                         .setType("text/plain")
                         .setText(WebsiteLink)
+                        .getIntent();
+
+            }
+        });
+        companyMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Linkify.addLinks(companyMap, Linkify.WEB_URLS);
+                ShareCompat.IntentBuilder.from(getActivity())
+                        .setType("text/plain")
+                        .setText(CompanyMap)
                         .getIntent();
 
             }
