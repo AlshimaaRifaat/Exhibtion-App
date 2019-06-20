@@ -67,6 +67,7 @@
               android:id="@+id/details_exhibtors_img"
               android:layout_width="match_parent"
               android:layout_height="@dimen/_172sdp"
+              android:visibility="gone"
 
 
 
@@ -85,7 +86,7 @@
               android:layout_marginTop="@dimen/_2sdp"
               android:text="titleeeeeeee"
               android:textColor="#2998d6" />
-          <TextView
+       <!--   <TextView
               android:id="@+id/details_exhibtors_text_description"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -96,7 +97,7 @@
               android:layout_marginTop="@dimen/_2sdp"
               android:text="titleeeeeeee"
               android:textColor="#2998d6"
-              android:visibility="gone"/>
+              android:visibility="gone"/>-->
           <TextView
               android:id="@+id/details_exhibtors_address"
               android:layout_width="wrap_content"
@@ -106,7 +107,7 @@
               android:layout_alignParentStart="true"
               android:layout_below="@+id/details_exhibtors_title"
               android:text="titleeeeeeee"
-              android:textColor="#cccbcb"
+              android:textColor="#2998d6"
               />
           <RelativeLayout
               android:id="@+id/relative_phone"
@@ -130,7 +131,7 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_centerVertical="true"
-                  android:textColor="#cbcbcb"
+                  android:textColor="#2998d6"
                   android:layout_toEndOf="@+id/details_exhibtors_icon_phone"
                   android:layout_marginStart="@dimen/_5sdp"
 
@@ -161,7 +162,7 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_centerVertical="true"
-                  android:textColor="#cbcbcb"
+                  android:textColor="#2998d6"
                   android:layout_toEndOf="@+id/details_exhibtors_icon_email"
                   android:layout_marginStart="@dimen/_5sdp"
                   android:autoLink="email"
@@ -235,14 +236,14 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_centerVertical="true"
-                  android:textColor="#cbcbcb"
+                  android:textColor="#2998d6"
                   android:layout_toEndOf="@+id/details_exhibtors_icon_website"
                   android:layout_marginStart="@dimen/_5sdp"
 
                   />
           </RelativeLayout>
 
-          <TextView
+         <!-- <TextView
               android:id="@+id/details_exhibtors_website"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -253,8 +254,18 @@
               android:layout_marginTop="@dimen/_2sdp"
               android:text="@string/ourWebsite"
               android:textStyle="bold"
-              android:textColor="#2998d6" />
-          <TextView
+              android:textColor="#2998d6" />-->
+          <Button
+              android:id="@+id/details_exhibtors_website"
+              android:layout_width="@dimen/_130sdp"
+              android:layout_height="@dimen/_32sdp"
+              android:background="#0485cf"
+              android:layout_below="@+id/relative_website"
+              android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginTop="@dimen/_8sdp"
+              android:text="@string/ourWebsite"
+              android:textSize="@dimen/_12sdp"/>
+        <!--  <TextView
               android:id="@+id/details_exhibtors_company_map"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -265,18 +276,31 @@
               android:layout_marginTop="@dimen/_2sdp"
               android:text="@string/CompanyWebsite"
               android:textStyle="bold"
-              android:textColor="#2998d6" />
-
-        <!--  <TextView
-              android:id="@+id/details_exhibtors_website_link"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:textColor="#0485cf"
-              android:layout_below="@+id/relative_website"
+              android:textColor="#2998d6" />-->
+          <Button
+              android:id="@+id/details_exhibtors_company_map"
+              android:layout_width="@dimen/_130sdp"
+              android:layout_height="@dimen/_32sdp"
+              android:background="#0485cf"
+              android:layout_alignParentEnd="true"
               android:layout_marginStart="@dimen/_12sdp"
+              android:layout_marginEnd="@dimen/_12sdp"
               android:layout_marginTop="@dimen/_8sdp"
-              android:text="@string/ourWebsite"
-              android:textSize="@dimen/_12sdp"/>-->
+              android:text="@string/CompanyWebsite"
+              android:textSize="@dimen/_12sdp"
+              android:layout_below="@+id/relative_website"/>
+
+
+          <!--  <TextView
+                android:id="@+id/details_exhibtors_website_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#0485cf"
+                android:layout_below="@+id/relative_website"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/ourWebsite"
+                android:textSize="@dimen/_12sdp"/>-->
 
     <Button
         android:id="@+id/details_exhibtors_btn_jops"

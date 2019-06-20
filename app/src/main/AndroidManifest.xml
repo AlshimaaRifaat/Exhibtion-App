@@ -3,15 +3,15 @@
     package="com.exhibtion">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:windowSoftInputMode="stateHidden">
         <activity android:name=".SplashActivity">
@@ -39,8 +39,9 @@
         <activity
             android:name=".activity.ChangeLanguageActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity android:name=".activity.ExhibtionDiagramActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"/>
+        <activity
+            android:name=".activity.ExhibtionDiagramActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
             android:name=".activity.ResultRegisterAsVisitorActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
@@ -48,6 +49,7 @@
             android:name=".activity.ExhibtorSummaryActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity android:name=".activity.MapActivity" />
+        <activity android:name="com.example.alshimaa.exhibtion.activity.CompanyMapActivity"></activity>
     </application>
 
 </manifest>

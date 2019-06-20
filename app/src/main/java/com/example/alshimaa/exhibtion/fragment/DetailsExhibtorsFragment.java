@@ -50,6 +50,7 @@ import com.example.alshimaa.exhibtion.view.EShopView;
 import com.example.alshimaa.exhibtion.view.ExhibtorDetailsListView;
 import com.example.alshimaa.exhibtion.view.ServicesProvidedView;*/
 import com.bumptech.glide.Glide;
+import com.example.alshimaa.exhibtion.activity.CompanyMapActivity;
 import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
 import com.exhibtion.Language;
 import com.exhibtion.NetworkConnection;
@@ -91,8 +92,8 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     Button contactUsBtn,summaryBtn;
     ImageView image;
     String Img;
-    public  String Summary,CompanyMap;
-    TextView companyMap,e_shopTxt,sevicesTxt;
+    public  String Summary;
+    TextView e_shopTxt,sevicesTxt;
 
     RecyclerView recyclerViewdetailsExhib;
     //EShopAdapter eShopAdapter;
@@ -100,8 +101,8 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     List<com.exhibtion.model.ExhibtorDetailsData> exhibtorDetailsDataList=new ArrayList<>();
 
     ImageView iconWhats,iconFacebook,iconInstagram,iconTwitter,iconSnap;
-    TextView linkMapTxt;
-    public static String LinkMap,E_Shop,Services;
+    Button linkMapTxt,companyMap;
+    public static String LinkMap,E_Shop,Services,CompanyMap;
 
     Intent intent;
 
@@ -239,16 +240,7 @@ if(FacebookLink!=null) {
 
             }
         });
-        companyMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), com.exhibtion.activity.MapActivity.class);
-                i.putExtra("company_map",CompanyMap);
-                startActivity(i);
-                ((Activity) getActivity()).overridePendingTransition(0,0);
 
-            }
-        });
         return view;
     }
 
@@ -311,7 +303,7 @@ if(FacebookLink!=null) {
         iconTwitter=view.findViewById(R.id.details_exhibtors_icon_twitter);
         iconSnap=view.findViewById(R.id.details_exhibtors_icon_snap);
     summaryBtn=view.findViewById(R.id.details_exhibtors_btn_description);
-    linkMapTxt=view.findViewById(R.id.details_exhibtors_website);
+       linkMapTxt=view.findViewById(R.id.details_exhibtors_website);
         companyMap=view.findViewById(R.id.details_exhibtors_company_map);
         image=view.findViewById(R.id.details_exhibtors_img);
         //summaryTxt=view.findViewById(R.id.details_exhibtors_text_description);
@@ -385,15 +377,17 @@ if(FacebookLink!=null) {
     public void showExhibtorDetailsListView(List<com.exhibtion.model.ExhibtorDetailsData> exhibtorDetailsDataList) {
      Summary=exhibtorDetailsDataList.get(0).getDescription();
         LinkMap=exhibtorDetailsDataList.get(0).getMapFair();
+        CompanyMap=exhibtorDetailsDataList.get(0).getLinkMap();
         String youtube=exhibtorDetailsDataList.get(0).getYoutubeLink();
         Img=exhibtorDetailsDataList.get(0).getImg2();
         E_Shop=exhibtorDetailsDataList.get(0).getTitProd();
         Services=exhibtorDetailsDataList.get(0).getTitSer();
+
         e_shopTxt.setText(E_Shop);
         sevicesTxt.setText(Services);
-
-
-        if(youtube==null&&Img!=null){
+       // Toast.makeText(getContext(), CompanyMap, Toast.LENGTH_SHORT).show();
+        youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+        /*if(youtube==null&&Img!=null){
 
             youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
 
@@ -410,7 +404,7 @@ if(FacebookLink!=null) {
             image.setVisibility(View.GONE);
             youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
 
-        }
+        }*/
         this.exhibtorDetailsDataList=exhibtorDetailsDataList;
         title.setText(exhibtorDetailsDataList.get(0).getName());
         address.setText(exhibtorDetailsDataList.get(0).getAddress());
@@ -419,8 +413,10 @@ if(FacebookLink!=null) {
         email.setText(exhibtorDetailsDataList.get(0).getEmail());
         WebsiteLink=exhibtorDetailsDataList.get(0).getWebsiteLink();
         websiteLink.setText(WebsiteLink);
-        CompanyMap=exhibtorDetailsDataList.get(0).getLinkMap();
-        websiteLink.setText(CompanyMap);
+       // websiteLink.setText(WebsiteLink);
+
+
+       // companyMap.setText(CompanyMap);
         //Linkify.addLinks(websiteLink, Linkify.WEB_URLS);
         /*Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("text/plain");
@@ -430,13 +426,14 @@ if(FacebookLink!=null) {
             @Override
             public void onClick(View v) {
                 Linkify.addLinks(websiteLink, Linkify.WEB_URLS);
-                 ShareCompat.IntentBuilder.from(getActivity())
+                ShareCompat.IntentBuilder.from(getActivity())
                         .setType("text/plain")
                         .setText(WebsiteLink)
                         .getIntent();
 
             }
         });
+
         companyMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -445,6 +442,18 @@ if(FacebookLink!=null) {
                         .setType("text/plain")
                         .setText(CompanyMap)
                         .getIntent();
+
+            }
+        });
+
+        companyMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CompanyMapActivity.class);
+                //Toast.makeText(getContext(), CompanyMap, Toast.LENGTH_SHORT).show();
+                intent.putExtra("company_map",CompanyMap);
+                startActivity(intent);
+                ((Activity) getActivity()).overridePendingTransition(0,0);
 
             }
         });
