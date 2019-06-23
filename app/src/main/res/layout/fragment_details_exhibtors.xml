@@ -57,9 +57,7 @@
               android:id="@+id/details_exhibtors_youtube_player_support_fragment"
               android:layout_width="match_parent"
               android:layout_height="@dimen/_172sdp"
-
-
-
+              android:visibility="gone"
 
               />
           <ImageView
@@ -68,10 +66,6 @@
               android:layout_width="match_parent"
               android:layout_height="@dimen/_172sdp"
               android:visibility="gone"
-
-
-
-
 
               />
           </RelativeLayout>
@@ -166,7 +160,6 @@
                   android:layout_toEndOf="@+id/details_exhibtors_icon_email"
                   android:layout_marginStart="@dimen/_5sdp"
                   android:autoLink="email"
-
                   />
           </RelativeLayout>
           <ImageView

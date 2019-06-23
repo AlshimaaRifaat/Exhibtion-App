@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v4.app.ShareCompat;
+import android.widget.Toast;
 
 /*import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
@@ -43,6 +44,7 @@ import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
 import com.example.alshimaa.exhibtion.view.EShopView;
 import com.example.alshimaa.exhibtion.view.ExhibtorDetailsListView;
 import com.example.alshimaa.exhibtion.view.ServicesProvidedView;*/
+import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.activity.CompanyMapActivity;
 import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
 import com.exhibtion.Language;
@@ -59,6 +61,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.OnInitializedListener
     , com.exhibtion.view.ServicesProvidedView, com.exhibtion.view.EShopView, com.exhibtion.view.ExhibtorDetailsListView
 
@@ -66,7 +69,7 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
 
     public static String Link,Title,ID,WebsiteLink,Phone;
     TextView title,address,phone,email,websiteLink,summaryTxt;
-
+    String youtube;
 
     NetworkConnection networkConnection;
 
@@ -150,6 +153,7 @@ View view;
         ServicesProvided();
         EShop();
         this.exhibtorDetailsDataList=exhibtorDetailsDataList;
+
 
 
 
@@ -323,9 +327,8 @@ if(FacebookLink!=null) {
             // Use cueVideo() method, if you don't want to play it automatically
            //  String url=Link.substring( Link.lastIndexOf( "=")+1  );
             if(exhibtorDetailsDataList.size()!=0) {
-                youTubePlayer.loadVideo(exhibtorDetailsDataList.get(0).getYoutubeLink());
+                youTubePlayer.loadVideo(exhibtorDetailsDataList.get(0).getYoutube());
                // Toast.makeText(getContext(), "" + exhibtorDetailsDataList.get(0).isYoutubeLink(), Toast.LENGTH_SHORT).show();
-
             }
         }
     }
@@ -371,10 +374,11 @@ if(FacebookLink!=null) {
 
     @Override
     public void showExhibtorDetailsListView(List<com.exhibtion.model.ExhibtorDetailsData> exhibtorDetailsDataList) {
-     Summary=exhibtorDetailsDataList.get(0).getDescription();
+        this.exhibtorDetailsDataList=exhibtorDetailsDataList;
+        Summary=exhibtorDetailsDataList.get(0).getDescription();
         LinkMap=exhibtorDetailsDataList.get(0).getMapFair();
         CompanyMap=exhibtorDetailsDataList.get(0).getLinkMap();
-        String youtube=exhibtorDetailsDataList.get(0).getYoutubeLink();
+         youtube=exhibtorDetailsDataList.get(0).getYoutube();
         Img=exhibtorDetailsDataList.get(0).getImg2();
         E_Shop=exhibtorDetailsDataList.get(0).getTitProd();
         Services=exhibtorDetailsDataList.get(0).getTitSer();
@@ -382,26 +386,28 @@ if(FacebookLink!=null) {
         e_shopTxt.setText(E_Shop);
         sevicesTxt.setText(Services);
        // Toast.makeText(getContext(), CompanyMap, Toast.LENGTH_SHORT).show();
-        youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
-        /*if(youtube==null&&Img!=null){
-
-            youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
-
-            Glide.with( getContext() ).load( "http://electronic-expos.com"
-                    +Img ).into(image);
-
-        }else if (Img==null&&youtube!=null) {
-
-            image.setVisibility(View.GONE);
+        /*if(youtube!=null) {
             youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
-
-        }else if (Img!=null&&youtube!=null) {
-
-            image.setVisibility(View.GONE);
-            youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+        }else if(youtube==null &&Img!=null)
+        {
 
         }*/
-        this.exhibtorDetailsDataList=exhibtorDetailsDataList;
+
+        if(youtube.equals(null)||"false".equals(youtube)){
+
+            youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
+            image.setVisibility(View.VISIBLE);
+            Glide.with( getContext()).load( "http://electronic-expos.com"
+                    +Img ).into(image);
+
+
+        }else  {
+
+            image.setVisibility(View.GONE);
+            youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+
+        }
+
         title.setText(exhibtorDetailsDataList.get(0).getName());
         address.setText(exhibtorDetailsDataList.get(0).getAddress());
         Phone=exhibtorDetailsDataList.get(0).getPhone();

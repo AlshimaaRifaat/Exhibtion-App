@@ -67,6 +67,9 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
     @SerializedName("link_map")
     @Expose
     private String linkMap;
+    @SerializedName("youtube")
+    @Expose
+    private String youtube;
     public final static Parcelable.Creator<ExhibtorDetailsData> CREATOR = new Creator<ExhibtorDetailsData>() {
 
 
@@ -83,7 +86,7 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = 933695991465963288L;
+    private final static long serialVersionUID = 7791571587776583259L;
 
     protected ExhibtorDetailsData(Parcel in) {
         this.idExhibitor = ((String) in.readValue((String.class.getClassLoader())));
@@ -105,6 +108,7 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.titProd = ((String) in.readValue((String.class.getClassLoader())));
         this.map3D = ((String) in.readValue((String.class.getClassLoader())));
         this.linkMap = ((String) in.readValue((String.class.getClassLoader())));
+        this.youtube = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public ExhibtorDetailsData() {
@@ -262,6 +266,14 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.linkMap = linkMap;
     }
 
+    public String getYoutube() {
+        return youtube;
+    }
+
+    public void setYoutube(String youtube) {
+        this.youtube = youtube;
+    }
+
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(idExhibitor);
         dest.writeValue(name);
@@ -282,6 +294,7 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         dest.writeValue(titProd);
         dest.writeValue(map3D);
         dest.writeValue(linkMap);
+        dest.writeValue(youtube);
     }
 
     public int describeContents() {
