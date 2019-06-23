@@ -76,10 +76,10 @@
     <string name="Hall_4">صاله 4</string>
     <string name="Jops">الوظائف الخاليه</string>
     <string name="ourWebsite">موقع المعرض</string>
-    <string name="nabza">نبذه مختصره</string>
-    <string name="link">رابط الموقع بتقنيه 360 درجة</string>
+    <string name="nabza">من نحن</string>
+    <string name="link">رابط الموقع بتقنيه 360 ثلاثيه الابعاد</string>
     <string name="Illustration_of_the_exhibtion">رسم توضيحي للمعرض</string>
-    <string name="CompanyWebsite">موقع الشركه</string>
+    <string name="CompanyWebsite"> رابط موقع الشركه</string>
 
 
 </resources>

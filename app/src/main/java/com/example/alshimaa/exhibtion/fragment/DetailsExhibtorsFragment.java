@@ -3,10 +3,7 @@ package com.exhibtion.fragment;
 
 import android.app.Activity;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,13 +16,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v4.app.ShareCompat;
-import android.widget.Toast;
 
 /*import com.example.alshimaa.exhibtion.Language;
 import com.example.alshimaa.exhibtion.NetworkConnection;
@@ -49,7 +43,6 @@ import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
 import com.example.alshimaa.exhibtion.view.EShopView;
 import com.example.alshimaa.exhibtion.view.ExhibtorDetailsListView;
 import com.example.alshimaa.exhibtion.view.ServicesProvidedView;*/
-import com.bumptech.glide.Glide;
 import com.example.alshimaa.exhibtion.activity.CompanyMapActivity;
 import com.example.alshimaa.exhibtion.presenter.ServicesProvidedPresenter;
 import com.exhibtion.Language;
@@ -68,6 +61,7 @@ import java.util.List;
  */
 public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.OnInitializedListener
     , com.exhibtion.view.ServicesProvidedView, com.exhibtion.view.EShopView, com.exhibtion.view.ExhibtorDetailsListView
+
 {
 
     public static String Link,Title,ID,WebsiteLink,Phone;
@@ -105,6 +99,8 @@ public class DetailsExhibtorsFragment extends Fragment implements YouTubePlayer.
     public static String LinkMap,E_Shop,Services,CompanyMap;
 
     Intent intent;
+
+    String Image;
 
     public DetailsExhibtorsFragment() {
         // Required empty public constructor
@@ -433,7 +429,6 @@ if(FacebookLink!=null) {
 
             }
         });
-
         companyMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -478,5 +473,7 @@ if(FacebookLink!=null) {
     public void showError() {
 
     }
+
+
 }
 
