@@ -217,6 +217,8 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         });
 
 
+
+
         return view;
     }
 
@@ -424,11 +426,11 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         bundle.putString("address",homeUnderConstructData.getAddress());
         bundle.putString("id",String.valueOf(homeUnderConstructData.getId()));
         bundle.putString("user_id",homeUnderConstructData.getIdUser());
-        bundle.putString("logo",homeUnderConstructData.getLogo());
+        bundle.putString("imgg",homeUnderConstructData.getImg());
         bundle.putString("visibilty","yes");
         bundle.putString("link_360",homeUnderConstructData.getLink360());
         bundle.putString("under","yes");
-
+        bundle.putString("img_or_video","under");
 
         detailsExhibtionFragment.setArguments(bundle);
 
@@ -473,9 +475,11 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         bundle.putString("address",currentExhibtionData.getAddress());
         bundle.putString("id",String.valueOf(currentExhibtionData.getId()));
         bundle.putString("user_id",currentExhibtionData.getIdUser());
-        bundle.putString("logo",currentExhibtionData.getLogo());
+        bundle.putString("imgg",currentExhibtionData.getImg());
         bundle.putString("link_360",currentExhibtionData.getLink360());
         bundle.putString("visibilty","yes");
+
+        bundle.putString("img_or_video","home_current");
 
 
         detailsExhibtionFragment.setArguments(bundle);

@@ -74,7 +74,7 @@ public  void onClick(OnclickIconHomeUnderConstructView onclickIconHomeUnderConst
                 homeUnderConstructData.setAddress(homeUnderConstructDataList.get(position).getAddress());
                 homeUnderConstructData.setId(homeUnderConstructDataList.get(position).getId());
                 homeUnderConstructData.setIdUser(homeUnderConstructDataList.get(position).getIdUser());
-               homeUnderConstructData.setLogo(homeUnderConstructDataList.get(position).getLogo());
+               homeUnderConstructData.setImg(homeUnderConstructDataList.get(position).getImg());
                 homeUnderConstructData.setLink360(homeUnderConstructDataList.get(position).getLink360());
                 // bundle.putString("link_360",currentExhibtionData.getLink360());
                 detailsExhibtionUnderConstructView.showDetailsExhibtionUnderConstruct(homeUnderConstructData);

@@ -232,9 +232,9 @@ View view;
             bundle.putString("user_id",currentExhibtionData.getIdUser());
             bundle.putString("logo",currentExhibtionData.getLogo());
             bundle.putString("link_360",currentExhibtionData.getLink360());
-
+            bundle.putString("imgg",currentExhibtionData.getImg());
             bundle.putString("visibilty","yes");
-
+            bundle.putString("img_or_video","current");
 
             detailsExhibtionFragment.setArguments(bundle);
 

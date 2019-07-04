@@ -63,7 +63,7 @@ public class PreviousExhibtionAdapter extends RecyclerView.Adapter<PreviousExhib
                 previousExhibtionData.setAddress(previousExhibtionDataList.get(position).getAddress());
                 previousExhibtionData.setId(previousExhibtionDataList.get(position).getId());
                 previousExhibtionData.setIdUser(previousExhibtionDataList.get(position).getIdUser());
-                previousExhibtionData.setLogo(previousExhibtionDataList.get(position).getLogo());
+                previousExhibtionData.setImg(previousExhibtionDataList.get(position).getImg());
                 previousExhibtionData.setLink360(previousExhibtionDataList.get(position).getLink360());
                 detailsPreviousExhibtion.showExhibtionDetails(previousExhibtionData);
             }

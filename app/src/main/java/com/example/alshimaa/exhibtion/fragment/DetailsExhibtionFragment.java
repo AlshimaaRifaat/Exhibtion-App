@@ -101,10 +101,10 @@ public class DetailsExhibtionFragment extends Fragment implements
 
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-   public static String Link,Title,Description,Address,ID,UserId,Logo,Visiblity,Visitor,FromCur
-           ,Under,UserId_underConstruct;
+   public static String Link,Title,Description,Address,ID,UserId,Img,Visiblity,Visitor,FromCur
+           ,Under,Img_or_video,UserId_underConstruct;
     TextView title,description,address;
-    ImageView logo;
+    ImageView imageView;
 
     RecyclerView recyclerViewOrganizers;
     com.exhibtion.adapter.OrganizersAndServiceProvidersAdapter organizersAndServiceProvidersAdapter;
@@ -166,16 +166,21 @@ View view;
 
         if (bundle!=null)
         {
-            Link = bundle.getString( "video_link" );
+
+                Link = bundle.getString("video_link");
             Title=bundle.getString("title");
             Description=bundle.getString("description");
             Address=bundle.getString("address");
             ID=bundle.getString("id");
             UserId=bundle.getString("user_id");
-            Logo=bundle.getString("logo");
+            Img=bundle.getString("imgg");
             Link360=bundle.getString("link_360");
             Visiblity=bundle.getString("visibilty");
             Under=bundle.getString("registerFromCurExhib");
+            Img_or_video=bundle.getString("img_or_video");
+
+
+
            // FromCur=bundle.getString("registerFromCurExhib");
          //  Toast.makeText(getContext(), Under, Toast.LENGTH_SHORT).show();
 
@@ -189,14 +194,92 @@ View view;
           // Toast.makeText(getContext(), UserId, Toast.LENGTH_SHORT).show();
             textToolbar.setText(Title);
            // youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
-           // Glide.with(getContext()).load("http://eelectronicexpo.com"+Logo).into(logo);
+
+            if (Img_or_video.equals("under"))
+            {
+                /**/
+
+                if (Link!=null)  {
+                    //Toast.makeText(getContext(), "videooooo", Toast.LENGTH_SHORT).show();
+                    imageView.setVisibility(View.GONE);
+                    youTubePlayerSupportFragment.getView().setVisibility(View.VISIBLE);
+                    youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+                }
+                else
+                {
+                    //Toast.makeText(getContext(), "imggggg", Toast.LENGTH_SHORT).show();
+
+                    youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
+                    imageView.setVisibility(View.VISIBLE);
+                    Glide.with(getContext()).load("http://electronic-expos.com"+Img).into(imageView);
+
+                }
+            }else  if (Img_or_video.equals("current"))
+            {
+                /**/
+
+                if (Link!=null)  {
+                    //Toast.makeText(getContext(), "videooooo", Toast.LENGTH_SHORT).show();
+                    imageView.setVisibility(View.GONE);
+                    youTubePlayerSupportFragment.getView().setVisibility(View.VISIBLE);
+                    youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+                }
+                else
+                {
+                    //Toast.makeText(getContext(), "imggggg", Toast.LENGTH_SHORT).show();
+
+                    youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
+                    imageView.setVisibility(View.VISIBLE);
+                    Glide.with(getContext()).load("http://electronic-expos.com"+Img).into(imageView);
+
+                }
+            }else  if (Img_or_video.equals("home_current"))
+            {
+                /**/
+
+                if (Link!=null)  {
+                    //Toast.makeText(getContext(), "videooooo", Toast.LENGTH_SHORT).show();
+                    imageView.setVisibility(View.GONE);
+                    youTubePlayerSupportFragment.getView().setVisibility(View.VISIBLE);
+                    youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+                }
+                else
+                {
+                    //Toast.makeText(getContext(), "imggggg", Toast.LENGTH_SHORT).show();
+
+                    youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
+                    imageView.setVisibility(View.VISIBLE);
+                    Glide.with(getContext()).load("http://electronic-expos.com"+Img).into(imageView);
+
+                }
+            } else  if (Img_or_video.equals("previous"))
+            {
+            /**/
+
+            if (Link!=null)  {
+               // Toast.makeText(getContext(), "videooooo", Toast.LENGTH_SHORT).show();
+                imageView.setVisibility(View.GONE);
+                youTubePlayerSupportFragment.getView().setVisibility(View.VISIBLE);
+                youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+            }
+            else
+            {
+               // Toast.makeText(getContext(), "imggggg", Toast.LENGTH_SHORT).show();
+
+                youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
+                imageView.setVisibility(View.VISIBLE);
+                Glide.with(getContext()).load("http://electronic-expos.com"+Img).into(imageView);
+
+            }
+        }
+
 
             if(Visiblity.equals("yes"))
             {
                 registerNowBtn.setVisibility(View.VISIBLE);
                 registerAsExhibtor.setVisibility(View.VISIBLE);
-            }
-            else
+
+            }else
             {
                 registerNowBtn.setVisibility(View.GONE);
                 registerAsExhibtor.setVisibility(View.GONE);
@@ -205,6 +288,9 @@ View view;
 
 
         }
+       // Toast.makeText(getContext(),Img, Toast.LENGTH_SHORT).show();
+
+
         OrganizersAndServiceProviders();
         HallOne();
         HallTwo();
@@ -346,7 +432,7 @@ View view;
         textToolbar=view.findViewById(R.id.details_exhibtion_text_toolbar);
 
         recyclerViewExhibtors=view.findViewById(R.id.details_exhibtion_recycler_exhibtors);
-        /*logo=view.findViewById(R.id.details_exhibtion_logo);*/
+        imageView=view.findViewById(R.id.details_exhibtion_img);
         registerNowBtn=view.findViewById(R.id.details_exhibtion_btn_register);
         registerAsExhibtor=view.findViewById(R.id.details_exhibtion_btn_exhibtor);
 
@@ -374,11 +460,23 @@ View view;
             // loadVideo() will auto play video
             // Use cueVideo() method, if you don't want to play it automatically
             // String Url=Link.substring( Link.lastIndexOf( "=")+1  );
-            youTubePlayer.loadVideo(Link);
+            if (Link != null) {
+                imageView.setVisibility(View.GONE);
+                youTubePlayer.loadVideo(Link);
+            }
+            /*    else
+            {
+                imageView.setVisibility(View.VISIBLE);
+                youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
+
+                Glide.with(getContext()).load("http://eelectronicexpo.com"+Img).into(imageView);
+            }*/
+
+        }
 
 
         }
-    }
+
 
     @Override
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
@@ -388,6 +486,7 @@ View view;
 
         }
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
