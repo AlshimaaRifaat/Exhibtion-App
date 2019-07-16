@@ -193,7 +193,7 @@ public class PreviousExhibitionFragment extends Fragment implements com.exhibtio
     public void showExhibtionDetails(com.exhibtion.model.PreviousExhibtionData previousExhibtionData) {
         com.exhibtion.fragment.DetailsExhibtionFragment detailsExhibtionFragment=new com.exhibtion.fragment.DetailsExhibtionFragment();
         Bundle bundle=new Bundle(  );
-        bundle.putString( "video_link",previousExhibtionData.isYoutube());
+        bundle.putString( "video_link",previousExhibtionData.getYoutube());
         bundle.putString("title",previousExhibtionData.getTitle());
         bundle.putString("description",previousExhibtionData.getDescription());
         bundle.putString("address",previousExhibtionData.getAddress());
@@ -201,6 +201,10 @@ public class PreviousExhibitionFragment extends Fragment implements com.exhibtio
         bundle.putString("user_id",previousExhibtionData.getIdUser());
         bundle.putString("imgg",previousExhibtionData.getImg());
         bundle.putString("link_360",previousExhibtionData.getLink360());
+        bundle.putString("hole1",previousExhibtionData.getHole1());
+        bundle.putString("hole2",previousExhibtionData.getHole2());
+        bundle.putString("hole3",previousExhibtionData.getHole3());
+        bundle.putString("hole4",previousExhibtionData.getHole4());
         bundle.putString("visibilty","no");
         bundle.putString("img_or_video","previous");
         detailsExhibtionFragment.setArguments(bundle);

@@ -180,7 +180,7 @@ public class DetailsExhibtionFragment extends Fragment implements
             Visiblity=bundle.getString("visibilty");
             Under=bundle.getString("registerFromCurExhib");
             Img_or_video=bundle.getString("img_or_video");
-           // Toast.makeText(getContext(), Hole1, Toast.LENGTH_SHORT).show();
+          // Toast.makeText(getContext(), Hole1, Toast.LENGTH_SHORT).show();
 
             // FromCur=bundle.getString("registerFromCurExhib");
             //  Toast.makeText(getContext(), Under, Toast.LENGTH_SHORT).show();
@@ -561,6 +561,9 @@ public class DetailsExhibtionFragment extends Fragment implements
         {
             if (!Hole1.equals(null))
             hallOneAdapter.add(Hole1);
+        }else
+        {
+            hallOneAdapter.add(Hole1);
         }
         hallOneSpinner.setAdapter( hallOneAdapter );
 
@@ -645,6 +648,9 @@ public class DetailsExhibtionFragment extends Fragment implements
         }else if (Img_or_video.equals("home_current"))
         {
             hallTwoAdapter.add(Hole2);
+        }else
+        {
+            hallTwoAdapter.add(Hole2);
         }
         hallTwoSpinner.setAdapter( hallTwoAdapter );
 
@@ -721,6 +727,9 @@ public class DetailsExhibtionFragment extends Fragment implements
         }else if (Img_or_video.equals("home_current"))
         {
             hallThreeAdapter.add(Hole3);
+        }else
+        {
+            hallThreeAdapter.add(Hole3);
         }
         hallThreeSpinner.setAdapter( hallThreeAdapter );
 
@@ -795,6 +804,9 @@ public class DetailsExhibtionFragment extends Fragment implements
         {
             hallFourAdapter.add(Hole4);
         }else if (Img_or_video.equals("home_current"))
+        {
+            hallFourAdapter.add(Hole4);
+        }else
         {
             hallFourAdapter.add(Hole4);
         }

@@ -7,14 +7,13 @@ import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.exhibtion.model.PreviousExhibtionData;
 
 public class PreviousExhibtionResponse implements Serializable, Parcelable
 {
 
     @SerializedName("data")
     @Expose
-    private List<PreviousExhibtionData> data = null;
+    private List<com.exhibtion.model.PreviousExhibtionData> data = null;
     @SerializedName("status")
     @Expose
     private boolean status;
@@ -40,7 +39,7 @@ public class PreviousExhibtionResponse implements Serializable, Parcelable
     private final static long serialVersionUID = -4901384469210002957L;
 
     protected PreviousExhibtionResponse(Parcel in) {
-        in.readList(this.data, (PreviousExhibtionData.class.getClassLoader()));
+        in.readList(this.data, (com.exhibtion.model.PreviousExhibtionData.class.getClassLoader()));
         this.status = ((boolean) in.readValue((boolean.class.getClassLoader())));
         this.error = ((String) in.readValue((String.class.getClassLoader())));
     }
@@ -48,11 +47,11 @@ public class PreviousExhibtionResponse implements Serializable, Parcelable
     public PreviousExhibtionResponse() {
     }
 
-    public List<PreviousExhibtionData> getData() {
+    public List<com.exhibtion.model.PreviousExhibtionData> getData() {
         return data;
     }
 
-    public void setData(List<PreviousExhibtionData> data) {
+    public void setData(List<com.exhibtion.model.PreviousExhibtionData> data) {
         this.data = data;
     }
 

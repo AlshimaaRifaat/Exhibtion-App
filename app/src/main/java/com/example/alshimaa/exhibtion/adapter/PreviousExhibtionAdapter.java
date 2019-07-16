@@ -57,7 +57,7 @@ public class PreviousExhibtionAdapter extends RecyclerView.Adapter<PreviousExhib
             @Override
             public void onClick(View v) {
                 PreviousExhibtionData previousExhibtionData=new PreviousExhibtionData();
-                previousExhibtionData.setYoutube(previousExhibtionDataList.get(position).isYoutube());
+                previousExhibtionData.setYoutube(previousExhibtionDataList.get(position).getYoutube());
                 previousExhibtionData.setTitle(previousExhibtionDataList.get(position).getTitle());
                 previousExhibtionData.setDescription(previousExhibtionDataList.get(position).getDescription());
                 previousExhibtionData.setAddress(previousExhibtionDataList.get(position).getAddress());
@@ -65,6 +65,10 @@ public class PreviousExhibtionAdapter extends RecyclerView.Adapter<PreviousExhib
                 previousExhibtionData.setIdUser(previousExhibtionDataList.get(position).getIdUser());
                 previousExhibtionData.setImg(previousExhibtionDataList.get(position).getImg());
                 previousExhibtionData.setLink360(previousExhibtionDataList.get(position).getLink360());
+                previousExhibtionData.setHole1(previousExhibtionDataList.get(position).getHole1());
+                previousExhibtionData.setHole2(previousExhibtionDataList.get(position).getHole2());
+                previousExhibtionData.setHole3(previousExhibtionDataList.get(position).getHole3());
+                previousExhibtionData.setHole4(previousExhibtionDataList.get(position).getHole4());
                 detailsPreviousExhibtion.showExhibtionDetails(previousExhibtionData);
             }
         });
