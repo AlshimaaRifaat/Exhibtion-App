@@ -56,7 +56,7 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
            @Override
            public void onClick(View v) {
                CurrentExhibtionData currentExhibtionData=new CurrentExhibtionData();
-               currentExhibtionData.setYoutube(currentExhibtionDataList.get(position).isYoutube());
+               currentExhibtionData.setYoutube(currentExhibtionDataList.get(position).getYoutube());
                currentExhibtionData.setTitle(currentExhibtionDataList.get(position).getTitle());
                currentExhibtionData.setDescription(currentExhibtionDataList.get(position).getDescription());
                currentExhibtionData.setAddress(currentExhibtionDataList.get(position).getAddress());
@@ -65,7 +65,10 @@ public class CurrentExhibtionAdapter extends RecyclerView.Adapter<CurrentExhibti
                /*currentExhibtionData.setLogo(currentExhibtionDataList.get(position).getLogo());*/
                currentExhibtionData.setImg(currentExhibtionDataList.get(position).getImg());
                currentExhibtionData.setLink360(currentExhibtionDataList.get(position).getLink360());
-
+              currentExhibtionData.setHole1(currentExhibtionDataList.get(position).getHole1());
+               currentExhibtionData.setHole2(currentExhibtionDataList.get(position).getHole2());
+               currentExhibtionData.setHole3(currentExhibtionDataList.get(position).getHole3());
+               currentExhibtionData.setHole4(currentExhibtionDataList.get(position).getHole4());
             detailsExhibtionView.showExhibtionDetails(currentExhibtionData);
            }
        });

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-
+import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -36,7 +36,7 @@ public class ExhibtorDetailsResponse implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = -401977473250432228L;
+    private final static long serialVersionUID = 9110617843148503905L;
 
     protected ExhibtorDetailsResponse(Parcel in) {
         in.readList(this.data, (com.exhibtion.model.ExhibtorDetailsData.class.getClassLoader()));

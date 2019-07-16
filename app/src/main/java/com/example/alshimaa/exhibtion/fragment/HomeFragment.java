@@ -429,6 +429,10 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         bundle.putString("imgg",homeUnderConstructData.getImg());
         bundle.putString("visibilty","yes");
         bundle.putString("link_360",homeUnderConstructData.getLink360());
+        bundle.putString("hole1",homeUnderConstructData.getHole1());
+        bundle.putString("hole2",homeUnderConstructData.getHole2());
+        bundle.putString("hole3",homeUnderConstructData.getHole3());
+        bundle.putString("hole4",homeUnderConstructData.getHole4());
         bundle.putString("under","yes");
         bundle.putString("img_or_video","under");
 
@@ -469,7 +473,7 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
     public void showExhibtionDetails(CurrentExhibtionData currentExhibtionData) {
         DetailsExhibtionFragment detailsExhibtionFragment=new DetailsExhibtionFragment();
         Bundle bundle=new Bundle(  );
-        bundle.putString( "video_link",currentExhibtionData.isYoutube());
+        bundle.putString( "video_link",currentExhibtionData.getYoutube());
         bundle.putString("title",currentExhibtionData.getTitle());
         bundle.putString("description",currentExhibtionData.getDescription());
         bundle.putString("address",currentExhibtionData.getAddress());
@@ -477,6 +481,10 @@ public class HomeFragment extends Fragment implements HomeSliderView,NavItemServ
         bundle.putString("user_id",currentExhibtionData.getIdUser());
         bundle.putString("imgg",currentExhibtionData.getImg());
         bundle.putString("link_360",currentExhibtionData.getLink360());
+        bundle.putString("hole1",currentExhibtionData.getHole1());
+        bundle.putString("hole2",currentExhibtionData.getHole2());
+        bundle.putString("hole3",currentExhibtionData.getHole3());
+        bundle.putString("hole4",currentExhibtionData.getHole4());
         bundle.putString("visibilty","yes");
 
         bundle.putString("img_or_video","home_current");

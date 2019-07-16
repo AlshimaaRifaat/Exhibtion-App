@@ -19,9 +19,6 @@ public class HomeUnderConstructData implements Serializable, Parcelable
     @SerializedName("title")
     @Expose
     private String title;
-    @SerializedName("link360")
-    @Expose
-    private String link360;
     @SerializedName("description")
     @Expose
     private String description;
@@ -46,6 +43,21 @@ public class HomeUnderConstructData implements Serializable, Parcelable
     @SerializedName("end_date")
     @Expose
     private String endDate;
+    @SerializedName("link360")
+    @Expose
+    private String link360;
+    @SerializedName("hole1")
+    @Expose
+    private String hole1;
+    @SerializedName("hole2")
+    @Expose
+    private String hole2;
+    @SerializedName("hole3")
+    @Expose
+    private String hole3;
+    @SerializedName("hole4")
+    @Expose
+    private String hole4;
     public final static Parcelable.Creator<HomeUnderConstructData> CREATOR = new Creator<HomeUnderConstructData>() {
 
 
@@ -62,13 +74,12 @@ public class HomeUnderConstructData implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = 1387333795482908375L;
+    private final static long serialVersionUID = 470094883192311122L;
 
     protected HomeUnderConstructData(Parcel in) {
         this.id = ((int) in.readValue((int.class.getClassLoader())));
         this.idUser = ((String) in.readValue((String.class.getClassLoader())));
         this.title = ((String) in.readValue((String.class.getClassLoader())));
-        this.link360 = ((String) in.readValue((String.class.getClassLoader())));
         this.description = ((String) in.readValue((String.class.getClassLoader())));
         this.youtube = ((String) in.readValue((String.class.getClassLoader())));
         this.img = ((String) in.readValue((String.class.getClassLoader())));
@@ -77,6 +88,11 @@ public class HomeUnderConstructData implements Serializable, Parcelable
         this.phone = ((String) in.readValue((String.class.getClassLoader())));
         this.startDate = ((String) in.readValue((String.class.getClassLoader())));
         this.endDate = ((String) in.readValue((String.class.getClassLoader())));
+        this.link360 = ((String) in.readValue((String.class.getClassLoader())));
+        this.hole1 = ((String) in.readValue((String.class.getClassLoader())));
+        this.hole2 = ((String) in.readValue((String.class.getClassLoader())));
+        this.hole3 = ((String) in.readValue((String.class.getClassLoader())));
+        this.hole4 = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public HomeUnderConstructData() {
@@ -104,14 +120,6 @@ public class HomeUnderConstructData implements Serializable, Parcelable
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getLink360() {
-        return link360;
-    }
-
-    public void setLink360(String link360) {
-        this.link360 = link360;
     }
 
     public String getDescription() {
@@ -178,11 +186,50 @@ public class HomeUnderConstructData implements Serializable, Parcelable
         this.endDate = endDate;
     }
 
+    public String getLink360() {
+        return link360;
+    }
+
+    public void setLink360(String link360) {
+        this.link360 = link360;
+    }
+
+    public String getHole1() {
+        return hole1;
+    }
+
+    public void setHole1(String hole1) {
+        this.hole1 = hole1;
+    }
+
+    public String getHole2() {
+        return hole2;
+    }
+
+    public void setHole2(String hole2) {
+        this.hole2 = hole2;
+    }
+
+    public String getHole3() {
+        return hole3;
+    }
+
+    public void setHole3(String hole3) {
+        this.hole3 = hole3;
+    }
+
+    public String getHole4() {
+        return hole4;
+    }
+
+    public void setHole4(String hole4) {
+        this.hole4 = hole4;
+    }
+
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(id);
         dest.writeValue(idUser);
         dest.writeValue(title);
-        dest.writeValue(link360);
         dest.writeValue(description);
         dest.writeValue(youtube);
         dest.writeValue(img);
@@ -191,6 +238,11 @@ public class HomeUnderConstructData implements Serializable, Parcelable
         dest.writeValue(phone);
         dest.writeValue(startDate);
         dest.writeValue(endDate);
+        dest.writeValue(link360);
+        dest.writeValue(hole1);
+        dest.writeValue(hole2);
+        dest.writeValue(hole3);
+        dest.writeValue(hole4);
     }
 
     public int describeContents() {

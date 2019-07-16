@@ -77,6 +77,10 @@ public  void onClick(OnclickIconHomeUnderConstructView onclickIconHomeUnderConst
                homeUnderConstructData.setImg(homeUnderConstructDataList.get(position).getImg());
                 homeUnderConstructData.setLink360(homeUnderConstructDataList.get(position).getLink360());
                 // bundle.putString("link_360",currentExhibtionData.getLink360());
+                homeUnderConstructData.setHole1(homeUnderConstructDataList.get(position).getHole1());
+                homeUnderConstructData.setHole2(homeUnderConstructDataList.get(position).getHole2());
+                homeUnderConstructData.setHole3(homeUnderConstructDataList.get(position).getHole3());
+                homeUnderConstructData.setHole4(homeUnderConstructDataList.get(position).getHole4());
                 detailsExhibtionUnderConstructView.showDetailsExhibtionUnderConstruct(homeUnderConstructData);
             }
         });

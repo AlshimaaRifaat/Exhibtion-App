@@ -52,6 +52,9 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
     @SerializedName("description")
     @Expose
     private String description;
+    @SerializedName("phone3")
+    @Expose
+    private String phone3;
     @SerializedName("phone2")
     @Expose
     private String phone2;
@@ -70,6 +73,18 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
     @SerializedName("youtube")
     @Expose
     private String youtube;
+    @SerializedName("hole1")
+    @Expose
+    private String hole1;
+    @SerializedName("hole2")
+    @Expose
+    private String hole2;
+    @SerializedName("hole3")
+    @Expose
+    private String hole3;
+    @SerializedName("hole4")
+    @Expose
+    private String hole4;
     public final static Parcelable.Creator<ExhibtorDetailsData> CREATOR = new Creator<ExhibtorDetailsData>() {
 
 
@@ -86,7 +101,7 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
 
     }
             ;
-    private final static long serialVersionUID = 7791571587776583259L;
+    private final static long serialVersionUID = -4457648097875181360L;
 
     protected ExhibtorDetailsData(Parcel in) {
         this.idExhibitor = ((String) in.readValue((String.class.getClassLoader())));
@@ -103,12 +118,17 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.img2 = ((String) in.readValue((String.class.getClassLoader())));
         this.phone = ((String) in.readValue((String.class.getClassLoader())));
         this.description = ((String) in.readValue((String.class.getClassLoader())));
+        this.phone3 = ((String) in.readValue((String.class.getClassLoader())));
         this.phone2 = ((String) in.readValue((String.class.getClassLoader())));
         this.titSer = ((String) in.readValue((String.class.getClassLoader())));
         this.titProd = ((String) in.readValue((String.class.getClassLoader())));
         this.map3D = ((String) in.readValue((String.class.getClassLoader())));
         this.linkMap = ((String) in.readValue((String.class.getClassLoader())));
         this.youtube = ((String) in.readValue((String.class.getClassLoader())));
+        this.hole1 = ((String) in.readValue((String.class.getClassLoader())));
+        this.hole2 = ((String) in.readValue((String.class.getClassLoader())));
+        this.hole3 = ((String) in.readValue((String.class.getClassLoader())));
+        this.hole4 = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public ExhibtorDetailsData() {
@@ -226,6 +246,14 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.description = description;
     }
 
+    public String getPhone3() {
+        return phone3;
+    }
+
+    public void setPhone3(String phone3) {
+        this.phone3 = phone3;
+    }
+
     public String getPhone2() {
         return phone2;
     }
@@ -274,6 +302,38 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         this.youtube = youtube;
     }
 
+    public String getHole1() {
+        return hole1;
+    }
+
+    public void setHole1(String hole1) {
+        this.hole1 = hole1;
+    }
+
+    public String getHole2() {
+        return hole2;
+    }
+
+    public void setHole2(String hole2) {
+        this.hole2 = hole2;
+    }
+
+    public String getHole3() {
+        return hole3;
+    }
+
+    public void setHole3(String hole3) {
+        this.hole3 = hole3;
+    }
+
+    public String getHole4() {
+        return hole4;
+    }
+
+    public void setHole4(String hole4) {
+        this.hole4 = hole4;
+    }
+
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(idExhibitor);
         dest.writeValue(name);
@@ -289,12 +349,17 @@ public class ExhibtorDetailsData implements Serializable, Parcelable
         dest.writeValue(img2);
         dest.writeValue(phone);
         dest.writeValue(description);
+        dest.writeValue(phone3);
         dest.writeValue(phone2);
         dest.writeValue(titSer);
         dest.writeValue(titProd);
         dest.writeValue(map3D);
         dest.writeValue(linkMap);
         dest.writeValue(youtube);
+        dest.writeValue(hole1);
+        dest.writeValue(hole2);
+        dest.writeValue(hole3);
+        dest.writeValue(hole4);
     }
 
     public int describeContents() {

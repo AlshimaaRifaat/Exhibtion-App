@@ -101,8 +101,8 @@ public class DetailsExhibtionFragment extends Fragment implements
 
     public static final int RECOVERY_DIALOG_REQUEST=1;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-   public static String Link,Title,Description,Address,ID,UserId,Img,Visiblity,Visitor,FromCur
-           ,Under,Img_or_video,UserId_underConstruct;
+    public static String Link,Title,Description,Address,ID,UserId,Img,Visiblity,Visitor,FromCur
+            ,Under,Img_or_video,UserId_underConstruct,Hole1,Hole2,Hole3,Hole4;
     TextView title,description,address;
     ImageView imageView;
 
@@ -120,26 +120,26 @@ public class DetailsExhibtionFragment extends Fragment implements
     TextView textToolbar;
 
     RecyclerView recyclerViewExhibtors;
-   com.exhibtion.adapter.ExhibtorsAdapter exhibtorsAdapter;
+    com.exhibtion.adapter.ExhibtorsAdapter exhibtorsAdapter;
     com.exhibtion.presenter.ExhibtorsPresenter exhibtorsPresenter;
-String Link360,ID_Exhibtor;
-   public static Button registerNowBtn,link360Btn;
+    String Link360,ID_Exhibtor;
+    public static Button registerNowBtn,link360Btn;
 
     public static Button registerAsExhibtor;
 
     Intent intent;
 
-   // details_exhibtion_card_diagram
+    // details_exhibtion_card_diagram
     Button btnExhibtionDiagram;
     com.exhibtion.adapter.SponsorAdapter sponsorAdapter;
 
-public static String RegisterFromCurExhib,FromUnder;
+    public static String RegisterFromCurExhib,FromUnder;
     com.exhibtion.presenter.ExhibtorDetailsPresenter exhibtorDetailsPresenter;
     public DetailsExhibtionFragment() {
         // Required empty public constructor
     }
 
-View view;
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -154,20 +154,17 @@ View view;
             Title=bundle.getString("title_exhibtor");
             Address=bundle.getString("address_exhibtor");*//*
             ID_Exhibtor=bundle.getString("id");
-
-
             ExhibtorDetails();
-
             //Toast.makeText(getContext(), "id_user" +ID+"  fair"+DetailsExhibtionFragment.ID, Toast.LENGTH_SHORT).show();
         }*/
 
-           networkConnection=new NetworkConnection(getContext());
+        networkConnection=new NetworkConnection(getContext());
         youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
 
         if (bundle!=null)
         {
 
-                Link = bundle.getString("video_link");
+            Link = bundle.getString("video_link");
             Title=bundle.getString("title");
             Description=bundle.getString("description");
             Address=bundle.getString("address");
@@ -175,25 +172,29 @@ View view;
             UserId=bundle.getString("user_id");
             Img=bundle.getString("imgg");
             Link360=bundle.getString("link_360");
+            Hole1=bundle.getString("hole1");
+            Hole2=bundle.getString("hole2");
+            Hole3=bundle.getString("hole3");
+            Hole4=bundle.getString("hole4");
+
             Visiblity=bundle.getString("visibilty");
             Under=bundle.getString("registerFromCurExhib");
             Img_or_video=bundle.getString("img_or_video");
+           // Toast.makeText(getContext(), Hole1, Toast.LENGTH_SHORT).show();
 
-
-
-           // FromCur=bundle.getString("registerFromCurExhib");
-         //  Toast.makeText(getContext(), Under, Toast.LENGTH_SHORT).show();
+            // FromCur=bundle.getString("registerFromCurExhib");
+            //  Toast.makeText(getContext(), Under, Toast.LENGTH_SHORT).show();
 
             //RegisterFromCurExhib = bundle.getString("registerFromCurExhib");
-           // Visitor=bundle.getString("visitor");
+            // Visitor=bundle.getString("visitor");
             //"visitor","no_from_under"
 
            /* title.setText(Title);
             description.setText(Description);
             address.setText(Address);*/
-          // Toast.makeText(getContext(), UserId, Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getContext(), UserId, Toast.LENGTH_SHORT).show();
             textToolbar.setText(Title);
-           // youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+            // youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
 
             if (Img_or_video.equals("under"))
             {
@@ -254,24 +255,24 @@ View view;
                 }
             } else  if (Img_or_video.equals("previous"))
             {
-            /**/
+                /**/
 
-            if (Link!=null)  {
-               // Toast.makeText(getContext(), "videooooo", Toast.LENGTH_SHORT).show();
-                imageView.setVisibility(View.GONE);
-                youTubePlayerSupportFragment.getView().setVisibility(View.VISIBLE);
-                youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+                if (Link!=null)  {
+                    // Toast.makeText(getContext(), "videooooo", Toast.LENGTH_SHORT).show();
+                    imageView.setVisibility(View.GONE);
+                    youTubePlayerSupportFragment.getView().setVisibility(View.VISIBLE);
+                    youTubePlayerSupportFragment.initialize(YoutubeConfig.DEVELOPER_KEY, this);
+                }
+                else
+                {
+                    // Toast.makeText(getContext(), "imggggg", Toast.LENGTH_SHORT).show();
+
+                    youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
+                    imageView.setVisibility(View.VISIBLE);
+                    Glide.with(getContext()).load("http://electronic-expos.com"+Img).into(imageView);
+
+                }
             }
-            else
-            {
-               // Toast.makeText(getContext(), "imggggg", Toast.LENGTH_SHORT).show();
-
-                youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
-                imageView.setVisibility(View.VISIBLE);
-                Glide.with(getContext()).load("http://electronic-expos.com"+Img).into(imageView);
-
-            }
-        }
 
 
             if(Visiblity.equals("yes"))
@@ -288,7 +289,7 @@ View view;
 
 
         }
-       // Toast.makeText(getContext(),Img, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(getContext(),Img, Toast.LENGTH_SHORT).show();
 
 
         OrganizersAndServiceProviders();
@@ -299,24 +300,24 @@ View view;
         Sponsors();
         Exhibtors();
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
-         @Override
-          public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
-        //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
-
-
-        Intent i = new Intent(getActivity(), com.exhibtion.activity.RegisterActivity.class);
+                //  Toast.makeText(getActivity(), ""+homeUnderConstructData.getId(), Toast.LENGTH_SHORT).show();
 
 
-            i.putExtra("registerFromCurExhib","no_under");
+                Intent i = new Intent(getActivity(), com.exhibtion.activity.RegisterActivity.class);
 
-            i.putExtra("registerFromCurExhib","yes");
 
-             //Toast.makeText(getContext(), Under, Toast.LENGTH_SHORT).show();
-        startActivity(i);
-        ((Activity) getActivity()).overridePendingTransition(0,0);
-    }
-});
+                i.putExtra("registerFromCurExhib","no_under");
+
+                i.putExtra("registerFromCurExhib","yes");
+
+                //Toast.makeText(getContext(), Under, Toast.LENGTH_SHORT).show();
+                startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0,0);
+            }
+        });
         registerAsExhibtor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -332,15 +333,15 @@ View view;
         });
 //        Toast.makeText(getContext(), Link360, Toast.LENGTH_SHORT).show();
 
-          btnExhibtionDiagram.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  Intent i = new Intent(getActivity(), com.exhibtion.activity.ExhibtionDiagramActivity.class);
-                  i.putExtra("fairId",ID);
-                  startActivity(i);
-                  ((Activity) getActivity()).overridePendingTransition(0,0);
-              }
-          });
+        btnExhibtionDiagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), com.exhibtion.activity.ExhibtionDiagramActivity.class);
+                i.putExtra("fairId",ID);
+                startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0,0);
+            }
+        });
         link360Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -358,13 +359,11 @@ View view;
 
   /*  private void ExhibtorDetails() {
         exhibtorDetailsPresenter=new com.exhibtion.presenter.ExhibtorDetailsPresenter(getContext(),this);
-
         if(Language.isRTL()) {
             exhibtorDetailsPresenter.getExhibtorDetailsResult("ar", UserId); //id user
         }else {
             exhibtorDetailsPresenter.getExhibtorDetailsResult("en", UserId);
         }
-
     }*/
 
     private void HallFour() {
@@ -468,14 +467,13 @@ View view;
             {
                 imageView.setVisibility(View.VISIBLE);
                 youTubePlayerSupportFragment.getView().setVisibility(View.GONE);
-
                 Glide.with(getContext()).load("http://eelectronicexpo.com"+Img).into(imageView);
             }*/
 
         }
 
 
-        }
+    }
 
 
     @Override
@@ -548,13 +546,22 @@ View view;
         {
             //hallOneList.add(String.valueOf(hallOneDataList.get( i ).getId() ) );
             hallOneList.add( hallOneDataList.get( i ).getTitle() );
-           // hallOneList.add( hallOneDataList.get( i ).getImg() );
+            // hallOneList.add( hallOneDataList.get( i ).getImg() );
 
         }
 
         hallOneAdapter =new com.exhibtion.adapter.HallOneAdapter( getContext(), R.layout.spinner_item);
         hallOneAdapter.addAll( hallOneList );
-        hallOneAdapter.add( getResources().getString(R.string.Hall_1));
+        if (Img_or_video.equals("current")) {
+            hallOneAdapter.add(Hole1);
+        }else if (Img_or_video.equals("under"))
+        {
+            hallOneAdapter.add(Hole1);
+        }else if (Img_or_video.equals("home_current"))
+        {
+            if (!Hole1.equals(null))
+            hallOneAdapter.add(Hole1);
+        }
         hallOneSpinner.setAdapter( hallOneAdapter );
 
 
@@ -562,14 +569,14 @@ View view;
         hallOneSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (hallOneSpinner.getSelectedItem()==getResources().getString(R.string.Hall_1))
+                if (hallOneSpinner.getSelectedItem()==Hole1)
                 {
 
                 }
                 else
                 {
                     HallOneModel=hallOneSpinner.getSelectedItem().toString();
-                  for (i=0;i<hallOneDataList.size();i++)
+                    for (i=0;i<hallOneDataList.size();i++)
                     {
                         if(hallOneDataList.get(i).getTitle().equals( HallOneModel ))
                         {
@@ -583,7 +590,7 @@ View view;
                     getFragmentManager().beginTransaction().add( R.id.content_navigation,
                             detailsExhibtorsFragment )
                             .addToBackStack( null ).commit();
-                   // Toast.makeText(getContext(), String.valueOf(HallOneModelID), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getContext(), String.valueOf(HallOneModelID), Toast.LENGTH_SHORT).show();
                     hallOnePresenter.getHallOneResult(HallOneModel  );
                 }
             }
@@ -606,15 +613,10 @@ View view;
         link360Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 Intent Getintent = new Intent(Intent.ACTION_VIEW, Uri.parse(Link360));
                 startActivity(Getintent);
-
-
             }
         });
-
     }*/
 
     @Override
@@ -635,7 +637,15 @@ View view;
 
         hallTwoAdapter =new com.exhibtion.adapter.HallTwoAdapter( getContext(), R.layout.spinner_item);
         hallTwoAdapter.addAll( hallTwoList );
-        hallTwoAdapter.add( getResources().getString(R.string.Hall_2));
+        if (Img_or_video.equals("current")) {
+            hallTwoAdapter.add(Hole2);
+        }else if (Img_or_video.equals("under"))
+        {
+            hallTwoAdapter.add(Hole2);
+        }else if (Img_or_video.equals("home_current"))
+        {
+            hallTwoAdapter.add(Hole2);
+        }
         hallTwoSpinner.setAdapter( hallTwoAdapter );
 
 
@@ -643,7 +653,7 @@ View view;
         hallTwoSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (hallTwoSpinner.getSelectedItem()==getResources().getString(R.string.Hall_2))
+                if (hallTwoSpinner.getSelectedItem()==Hole2)
                 {
 
                 }
@@ -703,7 +713,15 @@ View view;
 
         hallThreeAdapter =new com.exhibtion.adapter.HallThreeAdapter( getContext(), R.layout.spinner_item);
         hallThreeAdapter.addAll( hallThreeList );
-        hallThreeAdapter.add( getResources().getString(R.string.Hall_3));
+        if (Img_or_video.equals("current")) {
+            hallThreeAdapter.add(Hole3);
+        }else if (Img_or_video.equals("under"))
+        {
+            hallThreeAdapter.add(Hole3);
+        }else if (Img_or_video.equals("home_current"))
+        {
+            hallThreeAdapter.add(Hole3);
+        }
         hallThreeSpinner.setAdapter( hallThreeAdapter );
 
 
@@ -711,7 +729,7 @@ View view;
         hallThreeSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (hallThreeSpinner.getSelectedItem()==getResources().getString(R.string.Hall_3))
+                if (hallThreeSpinner.getSelectedItem()==Hole3)
                 {
 
                 }
@@ -771,7 +789,15 @@ View view;
 
         hallFourAdapter =new com.exhibtion.adapter.HallFourAdapter( getContext(), R.layout.spinner_item);
         hallFourAdapter.addAll( hallFourList );
-        hallFourAdapter.add( getResources().getString(R.string.Hall_4));
+        if (Img_or_video.equals("current")) {
+            hallFourAdapter.add(Hole4);
+        }else if (Img_or_video.equals("under"))
+        {
+            hallFourAdapter.add(Hole4);
+        }else if (Img_or_video.equals("home_current"))
+        {
+            hallFourAdapter.add(Hole4);
+        }
         hallFourSpinner.setAdapter( hallFourAdapter );
 
 
@@ -779,7 +805,7 @@ View view;
         hallFourSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (hallFourSpinner.getSelectedItem()==getResources().getString(R.string.Hall_4))
+                if (hallFourSpinner.getSelectedItem()==Hole4)
                 {
 
                 }
