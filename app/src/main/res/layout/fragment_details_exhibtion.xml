@@ -210,7 +210,10 @@
         android:layout_marginTop="@dimen/_9sdp"
         android:layout_marginStart="@dimen/_9sdp"
         android:layout_marginEnd="@dimen/_9sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginBottom="@dimen/_9sdp"
+        android:scrollbars="vertical"
         >
     </android.support.v7.widget.RecyclerView>
     </RelativeLayout>

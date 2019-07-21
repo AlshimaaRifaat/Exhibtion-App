@@ -5,10 +5,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +68,8 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -126,13 +131,14 @@ public class DetailsExhibtionFragment extends Fragment implements
     public static Button registerNowBtn,link360Btn;
 
     public static Button registerAsExhibtor;
-
+    int position;
+    boolean end;
     Intent intent;
 
     // details_exhibtion_card_diagram
     Button btnExhibtionDiagram;
     com.exhibtion.adapter.SponsorAdapter sponsorAdapter;
-
+    List<com.exhibtion.model.ExhibtorsData> exhibtorsDataslider;
     public static String RegisterFromCurExhib,FromUnder;
     com.exhibtion.presenter.ExhibtorDetailsPresenter exhibtorDetailsPresenter;
     public DetailsExhibtionFragment() {
@@ -146,7 +152,7 @@ public class DetailsExhibtionFragment extends Fragment implements
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_details_exhibtion, container, false);
         init();
-
+        exhibtorsDataslider=new ArrayList<>();
         Bundle bundle=this.getArguments();
       /*  if (bundle!=null)
         {
@@ -299,6 +305,7 @@ public class DetailsExhibtionFragment extends Fragment implements
         HallFour();
         Sponsors();
         Exhibtors();
+//        autoScroll();
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -521,8 +528,92 @@ public class DetailsExhibtionFragment extends Fragment implements
     public void showExhibtorsList(List<com.exhibtion.model.ExhibtorsData> exhibtorsDataList) {
         exhibtorsAdapter=new com.exhibtion.adapter.ExhibtorsAdapter(getContext(),exhibtorsDataList);
         exhibtorsAdapter.onClick(this);
-        recyclerViewExhibtors.setLayoutManager(new GridLayoutManager(getContext(),3));
+        exhibtorsDataslider=exhibtorsDataList;
+       /* final int speedScroll = 0;
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            int exhibtorsDataList = 0;
+            @Override
+            public void run() {
+                if(exhibtorsDataList == exhibtorsAdapter.getItemCount())
+                    exhibtorsDataList =0;
+                if(exhibtorsDataList < exhibtorsAdapter.getItemCount()){
+                    recyclerViewExhibtors.smoothScrollToPosition(++exhibtorsDataList);
+                    handler.postDelayed(this,speedScroll);
+                }
+            }
+        };
+        handler.postDelayed(runnable,speedScroll);*/
+
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+//        {
+//            @Override
+//            public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
+//                LinearSmoothScroller smoothScroller = new LinearSmoothScroller(getContext()) {
+//                    private static final float SPEED = 0f;// Change this value (default=25f)
+//                    @Override
+//                    protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+//                        return SPEED / displayMetrics.densityDpi;
+//                    }
+//                };
+//                smoothScroller.setTargetPosition(position);
+//                startSmoothScroll(smoothScroller);
+//            }
+//
+//        };
+        recyclerViewExhibtors.setLayoutManager(gridLayoutManager);
         recyclerViewExhibtors.setAdapter(exhibtorsAdapter);
+
+        if(exhibtorsDataslider.size()>1) {
+            Timer timer = new Timer();
+            timer.scheduleAtFixedRate( new AutoScrollTask(), 4000, 4000 );
+        }
+
+//        autoScroll();
+
+    }
+    private class AutoScrollTask extends TimerTask {
+        @Override
+        public void run() {
+            try {
+                if (position == exhibtorsDataslider.size() - 2) {
+                    end = true;
+                } else if (position == 0) {
+                    end = false;
+                }
+
+                if (!end) {
+                    position+=2;
+                } else {
+                    position-=2;
+                }
+                recyclerViewExhibtors.smoothScrollToPosition(position);
+            } catch (Exception e) {
+
+            }
+        }
+    }
+    private void autoScroll() {
+        final int speedScroll = 0;
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            int exhibtorsDataList = 0;
+            @Override
+            public void run() {
+
+                    if(exhibtorsDataList == exhibtorsAdapter.getItemCount())
+                        exhibtorsDataList =0;
+                    if(exhibtorsDataList < exhibtorsAdapter.getItemCount()){
+                        recyclerViewExhibtors.smoothScrollToPosition(++exhibtorsDataList);
+                        handler.postDelayed(this,speedScroll);
+                    }
+
+                }
+
+
+        };
+        handler.postDelayed(runnable,speedScroll);
 
     }
 
@@ -857,7 +948,23 @@ public class DetailsExhibtionFragment extends Fragment implements
 
 
     }
-
+  /*  public void autoScroll(){
+        final int speedScroll = 0;
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            int count = 0;
+            @Override
+            public void run() {
+                if(count == exhibtorsAdapter.getItemCount())
+                    count =0;
+                if(count < exhibtorsAdapter.getItemCount()){
+                    recyclerViewExhibtors.smoothScrollToPosition(++count);
+                    handler.postDelayed(this,speedScroll);
+                }
+            }
+        };
+        handler.postDelayed(runnable,speedScroll);
+    }*/
     @Override
     public void showHallFourError() {
 
