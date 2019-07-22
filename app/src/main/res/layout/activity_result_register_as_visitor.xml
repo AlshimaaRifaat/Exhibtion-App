@@ -9,12 +9,11 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/Result_reg_visitor_recycler"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/current_exhibtion_card_edit_text_search"
         android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_centerHorizontal="true"
         ></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

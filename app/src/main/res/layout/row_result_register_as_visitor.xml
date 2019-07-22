@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true">
         <android.support.v7.widget.CardView
-            android:layout_width="@dimen/_217sdp"
-            android:layout_height="@dimen/_182sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             app:cardBackgroundColor="@android:color/white">
             <RelativeLayout
@@ -20,8 +20,8 @@
                 android:layout_centerHorizontal="true">
                 <ImageView
                     android:id="@+id/row_cur_exhibtion_img"
-                    android:layout_width="@dimen/_210sdp"
-                    android:layout_height="@dimen/_104sdp"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_150sdp"
                     android:scaleType="fitXY"
                     android:layout_centerHorizontal="true"
                     />
@@ -33,7 +33,6 @@
                     android:textSize="@dimen/_10sdp"
                     android:layout_below="@id/row_cur_exhibtion_img"
 
-                    android:layout_marginTop="@dimen/_2sdp"
                     android:layout_centerHorizontal="true"
                     android:maxLines="2"
                     />
